@@ -277,7 +277,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.11_permutation_TutorialExercises.html">7.11. Tutorial exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">8. Classic Statistical Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">8. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">8.3. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">8.4. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">8.5. Difference of medians vs difference of means</a></li>
@@ -602,8 +602,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 6
-Total rolls needed to get a six: 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 3
+roll 2. Outcome = 6
+Total rolls needed to get a six: 2
 </pre></div>
 </div>
 </div>
@@ -667,7 +668,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([11.,  9., 12.,  3.,  5.,  1.,  6.,  7.,  7.,  1.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 7.,  1.,  4., 10.,  2.,  1.,  5., 17.,  3.,  2.])
 </pre></div>
 </div>
 </div>
@@ -682,7 +683,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -721,7 +722,7 @@ recording how many times we needed to roll the dice to get a six.</p>
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="../_images/bb2f7efce6ae0d945297aab50a095589aecdc75b3d3ef07b5b413ee5d4ae2cc8.png" src="../_images/bb2f7efce6ae0d945297aab50a095589aecdc75b3d3ef07b5b413ee5d4ae2cc8.png" />
+<img alt="../_images/c336c148e5f0b67aaabbb237478694ad0ffd7ac1aa4276319a262610d241ba0f.png" src="../_images/c336c148e5f0b67aaabbb237478694ad0ffd7ac1aa4276319a262610d241ba0f.png" />
 </div>
 </div>
 <p>Did it surprise you that the most likely number of rolls needed (mode of the distribution) is 1?</p>
@@ -747,7 +748,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.0497
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.9513
 </pre></div>
 </div>
 </div>
@@ -766,7 +767,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1193
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1097
 </pre></div>
 </div>
 </div>
@@ -807,7 +808,7 @@ recording how many times we needed to roll the dice to get a six.</p>
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="../_images/d9fd98dae4aca1c7589a031f7cc00ad124df56c13d4b7cd31d7fa2b8c99b0c70.png" src="../_images/d9fd98dae4aca1c7589a031f7cc00ad124df56c13d4b7cd31d7fa2b8c99b0c70.png" />
+<img alt="../_images/235c4ab4491447675558b9f0a2533106fbd8d6cc8a8a8beecb7a90383d0baf31.png" src="../_images/235c4ab4491447675558b9f0a2533106fbd8d6cc8a8a8beecb7a90383d0baf31.png" />
 </div>
 </div>
 <ul class="simple">
@@ -829,7 +830,7 @@ recording how many times we needed to roll the dice to get a six.</p>
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="../_images/83403e89dff0b3236cbc96ed3543e9380a784cee72e1ccdc696f0e2d51102e3b.png" src="../_images/83403e89dff0b3236cbc96ed3543e9380a784cee72e1ccdc696f0e2d51102e3b.png" />
+<img alt="../_images/57bd46862f5aea2fc84f740ba1cdd1d9ba4d9c73e14d54b68156661b05d13819.png" src="../_images/57bd46862f5aea2fc84f740ba1cdd1d9ba4d9c73e14d54b68156661b05d13819.png" />
 </div>
 </div>
 </section>
