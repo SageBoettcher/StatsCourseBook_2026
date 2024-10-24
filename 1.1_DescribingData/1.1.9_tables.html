@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.8. Tables of descriptive statistics &#8212; Introduction to Statistics and Data Science</title>
+    <title>1.9. Tables of descriptive statistics &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '1.1_DescribingData/1.1.9_tables';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.9. Tutorial Exercises" href="1.1.10_TutorialExercises.html" />
-    <link rel="prev" title="1.7. Python: Descriptives and Indexing" href="1.1.8_PythonIndexing.html" />
+    <link rel="next" title="1.10. Tutorial Exercises" href="1.1.10_TutorialExercises.html" />
+    <link rel="prev" title="1.8. Python: Descriptives and Indexing" href="1.1.8_PythonIndexing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -201,9 +201,10 @@
 <li class="toctree-l2"><a class="reference internal" href="1.1.4_StDevIQR.html">1.4. Standard Deviation and IQR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.1.5_Skew.html">1.5. Skew</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.1.6_Correlation.html">1.6. Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1.1.8_PythonIndexing.html">1.7. Python: Descriptives and Indexing</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.8. Tables of descriptive statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1.1.10_TutorialExercises.html">1.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.7_ConceptCheck.html">1.7. Concepts Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.9. Tables of descriptive statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -614,12 +615,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.8.1. Set up Python Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.8.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-look-df-describe">1.8.3. Quick look: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-df-agg">1.8.4. Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disaggregate-by-category-df-groupby">1.8.5. Disaggregate by category: df.groupby()</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">1.8.6. Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.9.1. Set up Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.9.2. Import a dataset to work with</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-look-df-describe">1.9.3. Quick look: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-df-agg">1.9.4. Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disaggregate-by-category-df-groupby">1.9.5. Disaggregate by category: df.groupby()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">1.9.6. Practice</a></li>
 </ul>
             </nav>
         </div>
@@ -632,7 +633,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tables-of-descriptive-statistics">
-<h1><span class="section-number">1.8. </span>Tables of descriptive statistics<a class="headerlink" href="#tables-of-descriptive-statistics" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1.9. </span>Tables of descriptive statistics<a class="headerlink" href="#tables-of-descriptive-statistics" title="Link to this heading">#</a></h1>
 <p>When you are writing a report on a dataset you might like to generate a nice table with the descriptive statistics that you need all together in one place</p>
 <p>Below we review a couple of useful pieces of Python syntax for making tables:</p>
 <ul class="simple">
@@ -641,7 +642,7 @@ document.write(`
 <li><p>df.groupby()</p></li>
 </ul>
 <section id="set-up-python-libraries">
-<h2><span class="section-number">1.8.1. </span>Set up Python Libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.1. </span>Set up Python Libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual you will need to run this code block to import the relevant Python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -654,13 +655,15 @@ document.write(`
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="import-a-dataset-to-work-with">
-<h2><span class="section-number">1.8.2. </span>Import a dataset to work with<a class="headerlink" href="#import-a-dataset-to-work-with" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.2. </span>Import a dataset to work with<a class="headerlink" href="#import-a-dataset-to-work-with" title="Link to this heading">#</a></h2>
 <p>We will work with weather data from the Oxford weather station. This code block will read it automatically from the internet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -851,7 +854,7 @@ document.write(`
 </div>
 </section>
 <section id="quick-look-df-describe">
-<h2><span class="section-number">1.8.3. </span>Quick look: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code><a class="headerlink" href="#quick-look-df-describe" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.3. </span>Quick look: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code><a class="headerlink" href="#quick-look-df-describe" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></p></li>
 </ul>
@@ -1000,7 +1003,7 @@ document.write(`
 <p>This can be good for a quick look but most likely you will not need all these stats on all the variables - if you were producing a report for an assignment (or a client) you would want to customize the table</p>
 </section>
 <section id="custom-table-df-agg">
-<h2><span class="section-number">1.8.4. </span>Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code><a class="headerlink" href="#custom-table-df-agg" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.4. </span>Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code><a class="headerlink" href="#custom-table-df-agg" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">df.agg({'columname':['mean',</span> <span class="pre">'std',</span> <span class="pre">'count']})</span></code></p>
 <p>You can create a table with the just the stats you need using the function <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></p>
 <p>The syntax is a bit fiddly but you can copy from this example which gives the mean and standard deviation for <tt>Tmin</tt> and <tt>Tmax</tt>:</p>
@@ -1097,7 +1100,7 @@ document.write(`
 </div>
 </section>
 <section id="disaggregate-by-category-df-groupby">
-<h2><span class="section-number">1.8.5. </span>Disaggregate by category: df.groupby()<a class="headerlink" href="#disaggregate-by-category-df-groupby" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.5. </span>Disaggregate by category: df.groupby()<a class="headerlink" href="#disaggregate-by-category-df-groupby" title="Link to this heading">#</a></h2>
 <p>The syntax <code class="docutils literal notranslate"><span class="pre">df.groupby()</span></code> breaks a dataframe down by the categories you have chosen to group by. Any function you then apply will be done sparately for each of these categories.</p>
 <p>For example, say we want to report the mean value of the peak daily temperature in each month. Remember to get the mean value of the peak daily temperature overall we did:</p>
 <div class="cell docutils container">
@@ -1281,7 +1284,7 @@ Name: Tmax, dtype: float64
 </ul>
 </section>
 <section id="practice">
-<h2><span class="section-number">1.8.6. </span>Practice<a class="headerlink" href="#practice" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.6. </span>Practice<a class="headerlink" href="#practice" title="Link to this heading">#</a></h2>
 <p>Try these quick practice questions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1338,7 +1341,7 @@ Name: Tmax, dtype: float64
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.7. </span>Python: Descriptives and Indexing</p>
+        <p class="prev-next-title"><span class="section-number">1.8. </span>Python: Descriptives and Indexing</p>
       </div>
     </a>
     <a class="right-next"
@@ -1346,7 +1349,7 @@ Name: Tmax, dtype: float64
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.9. </span>Tutorial Exercises</p>
+        <p class="prev-next-title"><span class="section-number">1.10. </span>Tutorial Exercises</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1366,12 +1369,12 @@ Name: Tmax, dtype: float64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.8.1. Set up Python Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.8.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-look-df-describe">1.8.3. Quick look: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-df-agg">1.8.4. Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disaggregate-by-category-df-groupby">1.8.5. Disaggregate by category: df.groupby()</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">1.8.6. Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.9.1. Set up Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.9.2. Import a dataset to work with</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-look-df-describe">1.9.3. Quick look: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-df-agg">1.9.4. Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disaggregate-by-category-df-groupby">1.9.5. Disaggregate by category: df.groupby()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">1.9.6. Practice</a></li>
 </ul>
   </nav></div>
 

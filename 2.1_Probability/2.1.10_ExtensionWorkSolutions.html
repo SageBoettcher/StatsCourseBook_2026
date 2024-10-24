@@ -203,9 +203,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.4_StDevIQR.html">1.4. Standard Deviation and IQR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.5_Skew.html">1.5. Skew</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.6_Correlation.html">1.6. Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.7. Python: Descriptives and Indexing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.8. Tables of descriptive statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.7_ConceptCheck.html">1.7. Concepts Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -700,19 +701,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 5
 roll 2. Outcome = 3
-roll 3. Outcome = 3
-roll 4. Outcome = 4
-roll 5. Outcome = 2
-roll 6. Outcome = 1
-roll 7. Outcome = 3
-roll 8. Outcome = 3
-roll 9. Outcome = 5
-roll 10. Outcome = 4
-roll 11. Outcome = 1
-roll 12. Outcome = 6
-Total rolls needed to get a six: 12
+roll 3. Outcome = 5
+roll 4. Outcome = 3
+roll 5. Outcome = 6
+Total rolls needed to get a six: 5
 </pre></div>
 </div>
 </div>
@@ -776,7 +770,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.,  4.,  2., 11., 17.,  7.,  1.,  9.,  7.,  1.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([17.,  4.,  6.,  4.,  4.,  3.,  9.,  2.,  9.,  4.])
 </pre></div>
 </div>
 </div>
@@ -791,7 +785,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -830,7 +824,7 @@ recording how many times we needed to roll the dice to get a six.</p>
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="../_images/6e72fa0b8e788f5032c2162feda190a1afb0e2d54a0b2cd0bb0f2c5bc34c3564.png" src="../_images/6e72fa0b8e788f5032c2162feda190a1afb0e2d54a0b2cd0bb0f2c5bc34c3564.png" />
+<img alt="../_images/a2cd0a85a2134b0f75f4241d443a0e424d0325a826ccca1622179bcd53dc620e.png" src="../_images/a2cd0a85a2134b0f75f4241d443a0e424d0325a826ccca1622179bcd53dc620e.png" />
 </div>
 </div>
 <p>Did it surprise you that the most likely number of rolls needed (mode of the distribution) is 1?</p>
@@ -856,7 +850,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.0856
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.0269
 </pre></div>
 </div>
 </div>
@@ -875,7 +869,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1145
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1112
 </pre></div>
 </div>
 </div>
@@ -916,7 +910,7 @@ recording how many times we needed to roll the dice to get a six.</p>
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="../_images/f4f3e9b38ba82f41ea529c31ce1c1d6ea70e72983e5f177f42d15a6725494e9e.png" src="../_images/f4f3e9b38ba82f41ea529c31ce1c1d6ea70e72983e5f177f42d15a6725494e9e.png" />
+<img alt="../_images/f3548fad4d58c8bb8d8b2638c06a10291b7b71972b47075df55e4a70399a5ce6.png" src="../_images/f3548fad4d58c8bb8d8b2638c06a10291b7b71972b47075df55e4a70399a5ce6.png" />
 </div>
 </div>
 <ul class="simple">
@@ -938,7 +932,7 @@ recording how many times we needed to roll the dice to get a six.</p>
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 </pre></div>
 </div>
-<img alt="../_images/35921c965c17613b6752a32bafc59d0a6d80bc7cdc00e366e878b49f56e32dc8.png" src="../_images/35921c965c17613b6752a32bafc59d0a6d80bc7cdc00e366e878b49f56e32dc8.png" />
+<img alt="../_images/baba391cd5f42131b232d9681d072d055c8b95df838425dbb4d15edf0942412e.png" src="../_images/baba391cd5f42131b232d9681d072d055c8b95df838425dbb4d15edf0942412e.png" />
 </div>
 </div>
 </section>
