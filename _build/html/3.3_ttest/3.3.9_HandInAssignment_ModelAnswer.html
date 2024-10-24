@@ -203,9 +203,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.4_StDevIQR.html">1.4. Standard Deviation and IQR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.5_Skew.html">1.5. Skew</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.6_Correlation.html">1.6. Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.7. Python: Descriptives and Indexing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.8. Tables of descriptive statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.7_ConceptCheck.html">1.7. Concepts Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -667,6 +668,8 @@ document.write(`
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -696,12 +699,6 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
 <img alt="../_images/11e3eb0df8cdae94a7d0668d9516052d42a2379c0c18036cb1a61202d85c7b29.png" src="../_images/11e3eb0df8cdae94a7d0668d9516052d42a2379c0c18036cb1a61202d85c7b29.png" />
 </div>
 </div>
@@ -827,16 +824,6 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
 <img alt="../_images/435d8807369dac21009da98956566c8e9757d292642a1b34a7bc5e680f525f13.png" src="../_images/435d8807369dac21009da98956566c8e9757d292642a1b34a7bc5e680f525f13.png" />
 </div>
 </div>
@@ -1020,8 +1007,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=277.3961538461539, pvalue=0.0236, null_distribution=array([ 189.01923077,  -22.26538462,  224.97307692, ...,  134.89615385,
-       -141.70384615,  -12.10384615]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=277.3961538461539, pvalue=0.0263, null_distribution=array([ 135.96538462,  -16.18076923,  118.95      , ...,  114.81153846,
+        150.41923077, -122.35      ]))
 </pre></div>
 </div>
 </div>
@@ -1233,7 +1220,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/47ea4ec8f0e48edfea5764a52c8e4fb17f7ba0bb785efa6f98a0d596b1a0ee6f.png" src="../_images/47ea4ec8f0e48edfea5764a52c8e4fb17f7ba0bb785efa6f98a0d596b1a0ee6f.png" />
+<img alt="../_images/62472c06afb00ba901bede478e23238666adcf2d8bbffbf7c088e9ecbaa4c868.png" src="../_images/62472c06afb00ba901bede478e23238666adcf2d8bbffbf7c088e9ecbaa4c868.png" />
 </div>
 </div>
 <p><font color='red'> Your comments here!</p>
@@ -1496,12 +1483,6 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
 <img alt="../_images/a0d79afbd7cce5ea9fc467d68bd820c68b6c3979e2962e318bf02312bd347cf1.png" src="../_images/a0d79afbd7cce5ea9fc467d68bd820c68b6c3979e2962e318bf02312bd347cf1.png" />
 </div>
 </div>
@@ -1545,14 +1526,6 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
 <img alt="../_images/caae074035c292f00591e9ecf6b2f5e478e96de5e5371ea4b66d5fd49a88c447.png" src="../_images/caae074035c292f00591e9ecf6b2f5e478e96de5e5371ea4b66d5fd49a88c447.png" />
 </div>
 </div>
@@ -1786,8 +1759,8 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=-15.985702127659636, pvalue=0.0898, null_distribution=array([15.0827234 , -7.64417021, 13.54893617, ..., 12.05897872,
-       24.53591489, 13.65906383]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=-15.985702127659636, pvalue=0.0962, null_distribution=array([-6.86153191,  3.09591489, 17.52851064, ...,  2.73395745,
+       13.22655319, 12.34774468]))
 </pre></div>
 </div>
 </div>
@@ -1803,8 +1776,8 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=-29.423307496075324, pvalue=0.0002, null_distribution=array([-7.62531401,  1.99324947, -2.24110773, ...,  8.73748253,
-       -2.27119015, -7.41510281]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=-29.423307496075324, pvalue=0.0002, null_distribution=array([ 1.14390489, -5.98697487, -3.43956815, ..., -7.18661597,
+       -1.72902865, -2.87408911]))
 </pre></div>
 </div>
 </div>
@@ -2168,10 +2141,6 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
 <img alt="../_images/d1ceaa318b8ed0159d80e3e92d0f44dc9b7b5f752cacd879757fbee27fb3848f.png" src="../_images/d1ceaa318b8ed0159d80e3e92d0f44dc9b7b5f752cacd879757fbee27fb3848f.png" />
 </div>
 </div>
@@ -2184,10 +2153,6 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
 <img alt="../_images/196c742e0279df09d409da3e740361ec4912b91567fe77fa4fb1d8c4bbd0f99a.png" src="../_images/196c742e0279df09d409da3e740361ec4912b91567fe77fa4fb1d8c4bbd0f99a.png" />
 </div>
 </div>
@@ -2206,7 +2171,7 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0bd82ddfe1ed8440109a27e69a756e95f0076639fa4d4a87c7d5f8dc2d241390.png" src="../_images/0bd82ddfe1ed8440109a27e69a756e95f0076639fa4d4a87c7d5f8dc2d241390.png" />
+<img alt="../_images/8a015192f3c2d2ca45fa3ab496449c0366f183923d165b50ee587931f42c3b66.png" src="../_images/8a015192f3c2d2ca45fa3ab496449c0366f183923d165b50ee587931f42c3b66.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2223,7 +2188,7 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e71ec124a528aee8d2fcdfee83651e260843d9308993fdc2e5009084e467c119.png" src="../_images/e71ec124a528aee8d2fcdfee83651e260843d9308993fdc2e5009084e467c119.png" />
+<img alt="../_images/dabda41dbcd6d8383aca5941badcb5b759cf71da0128f3116ece80ca9309f296.png" src="../_images/dabda41dbcd6d8383aca5941badcb5b759cf71da0128f3116ece80ca9309f296.png" />
 </div>
 </div>
 <p><strong>c. Get the mean height for brothers and sisters separately</strong></p>
@@ -2310,7 +2275,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0746, null_distribution=array([ 4.72, -3.2 , -2.08, ...,  2.16, -2.4 ,  1.76]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0746, null_distribution=array([0.56, 0.  , 4.  , ..., 0.32, 3.6 , 3.6 ]))
 </pre></div>
 </div>
 </div>
@@ -2328,7 +2293,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0002, null_distribution=array([-1.44, -1.6 , -0.96, ...,  0.72, -0.88,  1.44]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0002, null_distribution=array([-0.56,  1.2 , -1.28, ...,  0.56, -0.4 ,  0.4 ]))
 </pre></div>
 </div>
 </div>
@@ -2364,13 +2329,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
-<img alt="../_images/964565aa8ceafeff4de43f7279a1d5acf8ba5990bcfb554ca07b023833f0e8e2.png" src="../_images/964565aa8ceafeff4de43f7279a1d5acf8ba5990bcfb554ca07b023833f0e8e2.png" />
+<img alt="../_images/98619c6166984f486f72eccb1a2237420bb0b14d44e61292fff65e88c01cb32a.png" src="../_images/98619c6166984f486f72eccb1a2237420bb0b14d44e61292fff65e88c01cb32a.png" />
 </div>
 </div>
 <p><font color='red'>Your answer here</p>
@@ -2466,10 +2425,6 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
 <img alt="../_images/f636d67eea4d61c6ffaa23e1d52e939195c7ec901a33b75bcbbabc5961b95c25.png" src="../_images/f636d67eea4d61c6ffaa23e1d52e939195c7ec901a33b75bcbbabc5961b95c25.png" />
 </div>
 </div>

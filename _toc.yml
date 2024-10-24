@@ -26,7 +26,7 @@ parts:
         - file: 1.1_DescribingData/1.1.4_StDevIQR.md
         - file: 1.1_DescribingData/1.1.5_Skew.md
         - file: 1.1_DescribingData/1.1.6_Correlation.md
-        - file: 1.1_DescribingData/1.1.7_conceptCheck.md
+        - file: 1.1_DescribingData/1.1.7_ConceptCheck.md
         - file: 1.1_DescribingData/1.1.8_PythonIndexing.ipynb
         - file: 1.1_DescribingData/1.1.9_tables.ipynb
         - file: 1.1_DescribingData/1.1.10_TutorialExercises.ipynb

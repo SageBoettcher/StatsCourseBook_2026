@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.7. Python: Descriptives and Indexing &#8212; Introduction to Statistics and Data Science</title>
+    <title>1.8. Python: Descriptives and Indexing &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '1.1_DescribingData/1.1.8_PythonIndexing';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.8. Tables of descriptive statistics" href="1.1.9_tables.html" />
-    <link rel="prev" title="1.6. Correlation" href="1.1.6_Correlation.html" />
+    <link rel="next" title="1.9. Tables of descriptive statistics" href="1.1.9_tables.html" />
+    <link rel="prev" title="1.7. Concepts Review" href="1.1.7_ConceptCheck.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -203,9 +203,10 @@
 <li class="toctree-l2"><a class="reference internal" href="1.1.4_StDevIQR.html">1.4. Standard Deviation and IQR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.1.5_Skew.html">1.5. Skew</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.1.6_Correlation.html">1.6. Correlation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.7. Python: Descriptives and Indexing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1.1.9_tables.html">1.8. Tables of descriptive statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1.1.10_TutorialExercises.html">1.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.7_ConceptCheck.html">1.7. Concepts Review</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.8. Python: Descriptives and Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -616,30 +617,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.7.1. Set up Python Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.7.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptive-statistics">1.7.3. Get descriptive statistics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decriptives-for-a-single-column">1.7.4. Decriptives for a single column</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.8.1. Set up Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.8.2. Import a dataset to work with</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptive-statistics">1.8.3. Get descriptive statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decriptives-for-a-single-column">1.8.4. Decriptives for a single column</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-it-work">Why does it work?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-a-subset-of-rows">1.7.5. Get descriptives for a subset of rows</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-a-subset-of-rows">1.8.5. Get descriptives for a subset of rows</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-the-relevant-rows">Step 1: find the relevant rows</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-find-the-relevant-column">Step 2: find the relevant column</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-add-in-the-actual-function">Step 4: add in the actual function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-in-the-actual-function">Step 3: add in the actual function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-one-category">1.7.6. Get descriptives for one category</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-one-category">1.8.6. Get descriptives for one category</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-multiple-conditions">1.7.7. Match multiple conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-multiple-conditions">1.8.7. Match multiple conditions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-for-correlation">1.7.8. Syntax for correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-for-correlation">1.8.8. Syntax for correlation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-type">Correlation type</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercises</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#all-by-all-correlation-matrix">All-by-all correlation matrix</a></li>
@@ -660,7 +661,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python-descriptives-and-indexing">
-<h1><span class="section-number">1.7. </span>Python: Descriptives and Indexing<a class="headerlink" href="#python-descriptives-and-indexing" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1.8. </span>Python: Descriptives and Indexing<a class="headerlink" href="#python-descriptives-and-indexing" title="Link to this heading">#</a></h1>
 <p>In this notebook we cover some key <tt>Pandas</tt> syntax and functions:</p>
 <ul class="simple">
 <li><p>Syntax for getting various descriptive statistics from a <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> dataframe</p></li>
@@ -673,7 +674,7 @@ document.write(`
 <p>Here we meet <strong>indexing</strong> in the context of descriptive statistics, but indexing is something you will do every single time you write code for data analysis. Incorrect syntax in indexing is the number one biggest source of bugs for student on this course, so it is well worth spending the time to get to grips with it.</p>
 <p>You absolutely should work through all the exercises in this notebook in advance of the tutorial.</p>
 <section id="set-up-python-libraries">
-<h2><span class="section-number">1.7.1. </span>Set up Python Libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.1. </span>Set up Python Libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual you will need to run this code block to import the relevant Python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -686,13 +687,15 @@ document.write(`
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="import-a-dataset-to-work-with">
-<h2><span class="section-number">1.7.2. </span>Import a dataset to work with<a class="headerlink" href="#import-a-dataset-to-work-with" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.2. </span>Import a dataset to work with<a class="headerlink" href="#import-a-dataset-to-work-with" title="Link to this heading">#</a></h2>
 <p>We will work with weather data from the Oxford weather station. This code block will read it automatically from the internet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -883,7 +886,7 @@ document.write(`
 </div>
 </section>
 <section id="get-descriptive-statistics">
-<h2><span class="section-number">1.7.3. </span>Get descriptive statistics<a class="headerlink" href="#get-descriptive-statistics" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.3. </span>Get descriptive statistics<a class="headerlink" href="#get-descriptive-statistics" title="Link to this heading">#</a></h2>
 <p>We will look at indexing in the context of getting descriptive statistics for the different variables in a dataframe, and/or for a selection of rows.</p>
 <p>Pandas has a number of built-in functions to get descriptive statistics:</p>
 <ul class="simple">
@@ -924,7 +927,7 @@ dtype: float64
 </ul>
 </section>
 <section id="decriptives-for-a-single-column">
-<h2><span class="section-number">1.7.4. </span>Decriptives for a single column<a class="headerlink" href="#decriptives-for-a-single-column" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.4. </span>Decriptives for a single column<a class="headerlink" href="#decriptives-for-a-single-column" title="Link to this heading">#</a></h2>
 <p>Format:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df.column.mean()</span></code></p></li>
@@ -1040,7 +1043,7 @@ Name: Tmax, Length: 71343, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the standard deviation of the maximum daily temperature</span>
-<span class="c1"># answer = 5.63</span>
+<span class="c1"># answer = 6.49</span>
 </pre></div>
 </div>
 </div>
@@ -1056,7 +1059,7 @@ Name: Tmax, Length: 71343, dtype: float64
 </section>
 </section>
 <section id="get-descriptives-for-a-subset-of-rows">
-<h2><span class="section-number">1.7.5. </span>Get descriptives for a subset of rows<a class="headerlink" href="#get-descriptives-for-a-subset-of-rows" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.5. </span>Get descriptives for a subset of rows<a class="headerlink" href="#get-descriptives-for-a-subset-of-rows" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df.query('columnname</span> <span class="pre">==</span> <span class="pre">number')</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.query('columnname</span> <span class="pre">==</span> <span class="pre">&quot;string&quot;')</span></code></p></li>
@@ -1458,39 +1461,39 @@ Name: Tmax, Length: 71343, dtype: float64
 <p>Now that I have grabbed the relevant rows, I narrow it down to column <tt>Tmax</tt></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1920&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33967     3.2
-33968    13.2
-33969     4.5
-33970     3.7
-33971     3.7
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34333     9.1
+34334    12.2
+34335    11.9
+34336     9.9
+34337    12.3
          ... 
-34328    12.1
-34329    11.9
-34330    12.3
-34331    12.4
-34332    12.1
-Name: Tmax, Length: 366, dtype: float64
+34693    10.8
+34694    11.2
+34695    13.9
+34696     7.6
+34697    11.7
+Name: Tmax, Length: 365, dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="step-4-add-in-the-actual-function">
-<h3>Step 4: add in the actual function<a class="headerlink" href="#step-4-add-in-the-actual-function" title="Link to this heading">#</a></h3>
+<section id="step-3-add-in-the-actual-function">
+<h3>Step 3: add in the actual function<a class="headerlink" href="#step-3-add-in-the-actual-function" title="Link to this heading">#</a></h3>
 <p>FInally, I can tack on teh function I want to run on my selected rows and column: <code class="docutils literal notranslate"><span class="pre">mean()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1920&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.701092896174861
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.651232876712331
 </pre></div>
 </div>
 </div>
@@ -1518,8 +1521,8 @@ Name: Tmax, Length: 366, dtype: float64
 </section>
 </section>
 <section id="get-descriptives-for-one-category">
-<h2><span class="section-number">1.7.6. </span>Get descriptives for one category<a class="headerlink" href="#get-descriptives-for-one-category" title="Link to this heading">#</a></h2>
-<p>What about getting the mean daily maximum temperatures for, say, October? So I need to pull out all the rows in which <tt>’MM’</tt> matches <tt>’Oct’</tt></p>
+<h2><span class="section-number">1.8.6. </span>Get descriptives for one category<a class="headerlink" href="#get-descriptives-for-one-category" title="Link to this heading">#</a></h2>
+<p>What about getting the mean daily maximum temperatures for, say, October? So I need to pull out all the rows in which <code class="docutils literal notranslate"><span class="pre">'Month'</span></code> matches <code class="docutils literal notranslate"><span class="pre">'Oct'</span></code></p>
 <p>The syntax is very similar, but now I am matching a string <code class="docutils literal notranslate"><span class="pre">&quot;Oct&quot;</span></code>, so it needs to be in quotes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1569,18 +1572,18 @@ Name: Tmax, Length: 366, dtype: float64
 </section>
 </section>
 <section id="match-multiple-conditions">
-<h2><span class="section-number">1.7.7. </span>Match multiple conditions<a class="headerlink" href="#match-multiple-conditions" title="Link to this heading">#</a></h2>
-<p>What if I want to know the mean daily maximum temperature in 1920 for June only?</p>
+<h2><span class="section-number">1.8.7. </span>Match multiple conditions<a class="headerlink" href="#match-multiple-conditions" title="Link to this heading">#</a></h2>
+<p>What if I want to know the mean daily maximum temperature in 1921 for June only?</p>
 <p>We can simply use <code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> to pass <code class="docutils literal notranslate"><span class="pre">df.query()</span></code> multiple conditions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean daily maximum temperature in 1920</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1920&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.701092896174861
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.651232876712331
 </pre></div>
 </div>
 </div>
@@ -1588,12 +1591,12 @@ Name: Tmax, Length: 366, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean daily maximumm temperature in 1920</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1920 &amp; MM == 6&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921 &amp; MM == 6&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.553333333333335
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.443333333333335
 </pre></div>
 </div>
 </div>
@@ -1624,7 +1627,7 @@ Name: Tmax, Length: 366, dtype: float64
 </section>
 </section>
 <section id="syntax-for-correlation">
-<h2><span class="section-number">1.7.8. </span>Syntax for correlation<a class="headerlink" href="#syntax-for-correlation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.8. </span>Syntax for correlation<a class="headerlink" href="#syntax-for-correlation" title="Link to this heading">#</a></h2>
 <p>When we run a correlation, we need to index <em>two</em> columns - the two we are correlating.</p>
 <p>Say we want to get the correlation between the minimum and maximum daily temperatures,<code class="docutils literal notranslate"><span class="pre">Tmin</span></code> and <code class="docutils literal notranslate"><span class="pre">Tmax</span></code>:</p>
 <p>Correlation is ‘symmetrical’ (it doesn’t matter which variable is <span class="math notranslate nohighlight">\(x\)</span> and which is <span class="math notranslate nohighlight">\(y\)</span>) but for the purposes of the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function we are using, we first find one of the columns (doesn’t matter which one):</p>
@@ -1914,12 +1917,12 @@ Name: Tmax, Length: 366, dtype: float64
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1.1.6_Correlation.html"
+       href="1.1.7_ConceptCheck.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.6. </span>Correlation</p>
+        <p class="prev-next-title"><span class="section-number">1.7. </span>Concepts Review</p>
       </div>
     </a>
     <a class="right-next"
@@ -1927,7 +1930,7 @@ Name: Tmax, Length: 366, dtype: float64
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.8. </span>Tables of descriptive statistics</p>
+        <p class="prev-next-title"><span class="section-number">1.9. </span>Tables of descriptive statistics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1947,30 +1950,30 @@ Name: Tmax, Length: 366, dtype: float64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.7.1. Set up Python Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.7.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptive-statistics">1.7.3. Get descriptive statistics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decriptives-for-a-single-column">1.7.4. Decriptives for a single column</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.8.1. Set up Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.8.2. Import a dataset to work with</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptive-statistics">1.8.3. Get descriptive statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decriptives-for-a-single-column">1.8.4. Decriptives for a single column</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-it-work">Why does it work?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-a-subset-of-rows">1.7.5. Get descriptives for a subset of rows</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-a-subset-of-rows">1.8.5. Get descriptives for a subset of rows</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-the-relevant-rows">Step 1: find the relevant rows</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-find-the-relevant-column">Step 2: find the relevant column</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-add-in-the-actual-function">Step 4: add in the actual function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-in-the-actual-function">Step 3: add in the actual function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-one-category">1.7.6. Get descriptives for one category</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-one-category">1.8.6. Get descriptives for one category</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-multiple-conditions">1.7.7. Match multiple conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-multiple-conditions">1.8.7. Match multiple conditions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-for-correlation">1.7.8. Syntax for correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-for-correlation">1.8.8. Syntax for correlation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-type">Correlation type</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercises</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#all-by-all-correlation-matrix">All-by-all correlation matrix</a></li>

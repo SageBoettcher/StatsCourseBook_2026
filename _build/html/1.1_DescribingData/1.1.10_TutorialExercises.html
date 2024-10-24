@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.9. Tutorial Exercises &#8212; Introduction to Statistics and Data Science</title>
+    <title>1.10. Tutorial Exercises &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Data Visualization" href="../1.2_DataVisualization/1.2.1_Intro.html" />
-    <link rel="prev" title="1.8. Tables of descriptive statistics" href="1.1.9_tables.html" />
+    <link rel="prev" title="1.9. Tables of descriptive statistics" href="1.1.9_tables.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -201,9 +201,10 @@
 <li class="toctree-l2"><a class="reference internal" href="1.1.4_StDevIQR.html">1.4. Standard Deviation and IQR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.1.5_Skew.html">1.5. Skew</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.1.6_Correlation.html">1.6. Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1.1.8_PythonIndexing.html">1.7. Python: Descriptives and Indexing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1.1.9_tables.html">1.8. Tables of descriptive statistics</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.7_ConceptCheck.html">1.7. Concepts Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.10. Tutorial Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -614,9 +615,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.9.1. Set up Python Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.9.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">1.9.3. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.10.1. Set up Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.10.2. Import a dataset to work with</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">1.10.3. Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-heat">Part 1: Heat</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-what-was-the-hottest-temperature-on-record">a. What was the hottest temperature on record?</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-on-what-date-did-the-hottest-temperature-occur">b. On what date did the hottest temperature occur?</a></li>
@@ -656,10 +657,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-exercises">
-<h1><span class="section-number">1.9. </span>Tutorial Exercises<a class="headerlink" href="#tutorial-exercises" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1.10. </span>Tutorial Exercises<a class="headerlink" href="#tutorial-exercises" title="Link to this heading">#</a></h1>
 <p>This week’s tutorial exercises focus on indexing and obtaining descriptive statistics</p>
 <section id="set-up-python-libraries">
-<h2><span class="section-number">1.9.1. </span>Set up Python Libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.10.1. </span>Set up Python Libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual you will need to run this code block to import the relevant Python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -672,13 +673,15 @@ document.write(`
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="import-a-dataset-to-work-with">
-<h2><span class="section-number">1.9.2. </span>Import a dataset to work with<a class="headerlink" href="#import-a-dataset-to-work-with" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.10.2. </span>Import a dataset to work with<a class="headerlink" href="#import-a-dataset-to-work-with" title="Link to this heading">#</a></h2>
 <p>We will work with weather data from the Oxford weather station. This code block will read it automatically from the internet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -869,7 +872,7 @@ document.write(`
 </div>
 </section>
 <section id="exercises">
-<h2><span class="section-number">1.9.3. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.10.3. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>In the following questions, we descriptive statistics and indexing to answer some questions about the weather and climate in Oxford.</p>
 <p>Where you are asked to calculate a value (such as the mean) rather than output a table, you should <strong>report your answer in words</strong> in the text box below the code block.</p>
 <p>Where the question asks you to “comment”, you are simply being asked to engage with the data/ explain what  you notice in plain English. Please discuss with your fellow students and your tutor as this is a really important skill for data analysis.</p>
@@ -1311,7 +1314,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.8. </span>Tables of descriptive statistics</p>
+        <p class="prev-next-title"><span class="section-number">1.9. </span>Tables of descriptive statistics</p>
       </div>
     </a>
     <a class="right-next"
@@ -1339,9 +1342,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.9.1. Set up Python Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.9.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">1.9.3. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.10.1. Set up Python Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.10.2. Import a dataset to work with</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">1.10.3. Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-heat">Part 1: Heat</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-what-was-the-hottest-temperature-on-record">a. What was the hottest temperature on record?</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-on-what-date-did-the-hottest-temperature-occur">b. On what date did the hottest temperature occur?</a></li>
