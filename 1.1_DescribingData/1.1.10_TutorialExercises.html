@@ -1174,18 +1174,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">wet</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.46311481154423
-</pre></div>
-</div>
-</div>
-</div>
 <p><em>Your text here</em></p>
 </section>
 <section id="c-what-is-the-proportion-of-wet-days-in-each-month-comment-on-your-findings">
@@ -1194,25 +1182,6 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;MM&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">wet</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MM
-1     0.530941
-2     0.479046
-3     0.448321
-4     0.441156
-5     0.422829
-6     0.405128
-7     0.414723
-8     0.431596
-9     0.421538
-10    0.503722
-11    0.529231
-12    0.528536
-Name: wet, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1224,25 +1193,6 @@ Name: wet, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;MM&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Rainfall_mm</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MM
-1     1.768186
-2     1.513909
-3     1.384546
-4     1.471871
-5     1.666600
-6     1.813607
-7     1.888238
-8     1.935203
-9     1.889658
-10    2.173002
-11    2.043350
-12    1.878412
-Name: Rainfall_mm, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1254,186 +1204,9 @@ Name: Rainfall_mm, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Rainfall_mm&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YYYY</th>
-      <th>Month</th>
-      <th>MM</th>
-      <th>DD</th>
-      <th>DD365</th>
-      <th>Tmax</th>
-      <th>Tmin</th>
-      <th>Tmean</th>
-      <th>Trange</th>
-      <th>Rainfall_mm</th>
-      <th>wet</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>51690</th>
-      <td>1968</td>
-      <td>Jul</td>
-      <td>7</td>
-      <td>10</td>
-      <td>192</td>
-      <td>15.1</td>
-      <td>12.8</td>
-      <td>14.0</td>
-      <td>2.3</td>
-      <td>87.9</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>45538</th>
-      <td>1951</td>
-      <td>Sep</td>
-      <td>9</td>
-      <td>6</td>
-      <td>249</td>
-      <td>20.6</td>
-      <td>16.1</td>
-      <td>18.4</td>
-      <td>4.5</td>
-      <td>84.8</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>48750</th>
-      <td>1960</td>
-      <td>Jun</td>
-      <td>6</td>
-      <td>22</td>
-      <td>174</td>
-      <td>26.1</td>
-      <td>12.2</td>
-      <td>19.2</td>
-      <td>13.9</td>
-      <td>81.3</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>34915</th>
-      <td>1922</td>
-      <td>Aug</td>
-      <td>8</td>
-      <td>6</td>
-      <td>219</td>
-      <td>17.2</td>
-      <td>8.9</td>
-      <td>13.1</td>
-      <td>8.3</td>
-      <td>70.8</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>53503</th>
-      <td>1973</td>
-      <td>Jun</td>
-      <td>6</td>
-      <td>27</td>
-      <td>178</td>
-      <td>17.8</td>
-      <td>12.3</td>
-      <td>15.1</td>
-      <td>5.5</td>
-      <td>67.3</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>70768</th>
-      <td>2020</td>
-      <td>Oct</td>
-      <td>10</td>
-      <td>3</td>
-      <td>277</td>
-      <td>13.9</td>
-      <td>11.2</td>
-      <td>12.6</td>
-      <td>2.7</td>
-      <td>60.0</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>47705</th>
-      <td>1957</td>
-      <td>Aug</td>
-      <td>8</td>
-      <td>12</td>
-      <td>224</td>
-      <td>20.0</td>
-      <td>15.6</td>
-      <td>17.8</td>
-      <td>4.4</td>
-      <td>56.1</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>49525</th>
-      <td>1962</td>
-      <td>Aug</td>
-      <td>8</td>
-      <td>6</td>
-      <td>218</td>
-      <td>16.1</td>
-      <td>10.7</td>
-      <td>13.4</td>
-      <td>5.4</td>
-      <td>53.6</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>27922</th>
-      <td>1903</td>
-      <td>Jun</td>
-      <td>6</td>
-      <td>14</td>
-      <td>165</td>
-      <td>10.4</td>
-      <td>6.4</td>
-      <td>8.4</td>
-      <td>4.0</td>
-      <td>51.1</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>67076</th>
-      <td>2010</td>
-      <td>Aug</td>
-      <td>8</td>
-      <td>25</td>
-      <td>237</td>
-      <td>16.4</td>
-      <td>11.3</td>
-      <td>13.9</td>
-      <td>5.1</td>
-      <td>51.1</td>
-      <td>True</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p><em>Your comment here</em></p>
 </section>
