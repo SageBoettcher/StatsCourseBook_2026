@@ -1077,189 +1077,190 @@ Name: Tmax, Length: 71343, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get all the rows where year is 1921</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weather</span><span class="o">.</span><span class="n">YYYY</span> <span class="o">==</span> <span class="mi">1921</span><span class="p">]</span>
+<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;weather.YYYY == 1921&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/scope.py:231,</span> in <span class="ni">Scope.resolve</span><span class="nt">(self, key, is_local)</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_resolvers</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">231</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolvers</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span> <span class="c1"># if we&#39;re here that means that we have no locals and we also have</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span> <span class="c1"># no resolvers</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/collections/__init__.py:1006,</span> in <span class="ni">ChainMap.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span>         <span class="k">pass</span>
+<span class="ne">-&gt; </span><span class="mi">1006</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__missing__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YYYY</th>
-      <th>Month</th>
-      <th>MM</th>
-      <th>DD</th>
-      <th>DD365</th>
-      <th>Tmax</th>
-      <th>Tmin</th>
-      <th>Tmean</th>
-      <th>Trange</th>
-      <th>Rainfall_mm</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>34333</th>
-      <td>1921</td>
-      <td>Dec</td>
-      <td>12</td>
-      <td>31</td>
-      <td>1</td>
-      <td>9.1</td>
-      <td>3.3</td>
-      <td>6.2</td>
-      <td>5.8</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>34334</th>
-      <td>1921</td>
-      <td>Jan</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-      <td>12.2</td>
-      <td>7.1</td>
-      <td>9.7</td>
-      <td>5.1</td>
-      <td>9.7</td>
-    </tr>
-    <tr>
-      <th>34335</th>
-      <td>1921</td>
-      <td>Jan</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>11.9</td>
-      <td>8.7</td>
-      <td>10.3</td>
-      <td>3.2</td>
-      <td>6.1</td>
-    </tr>
-    <tr>
-      <th>34336</th>
-      <td>1921</td>
-      <td>Jan</td>
-      <td>1</td>
-      <td>3</td>
-      <td>4</td>
-      <td>9.9</td>
-      <td>5.9</td>
-      <td>7.9</td>
-      <td>4.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>34337</th>
-      <td>1921</td>
-      <td>Jan</td>
-      <td>1</td>
-      <td>4</td>
-      <td>5</td>
-      <td>12.3</td>
-      <td>9.8</td>
-      <td>11.1</td>
-      <td>2.5</td>
-      <td>5.5</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>34693</th>
-      <td>1921</td>
-      <td>Dec</td>
-      <td>12</td>
-      <td>26</td>
-      <td>361</td>
-      <td>10.8</td>
-      <td>-3.1</td>
-      <td>3.9</td>
-      <td>13.9</td>
-      <td>5.6</td>
-    </tr>
-    <tr>
-      <th>34694</th>
-      <td>1921</td>
-      <td>Dec</td>
-      <td>12</td>
-      <td>27</td>
-      <td>362</td>
-      <td>11.2</td>
-      <td>5.4</td>
-      <td>8.3</td>
-      <td>5.8</td>
-      <td>1.3</td>
-    </tr>
-    <tr>
-      <th>34695</th>
-      <td>1921</td>
-      <td>Dec</td>
-      <td>12</td>
-      <td>28</td>
-      <td>363</td>
-      <td>13.9</td>
-      <td>3.9</td>
-      <td>8.9</td>
-      <td>10.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>34696</th>
-      <td>1921</td>
-      <td>Dec</td>
-      <td>12</td>
-      <td>29</td>
-      <td>364</td>
-      <td>7.6</td>
-      <td>1.7</td>
-      <td>4.7</td>
-      <td>5.9</td>
-      <td>0.8</td>
-    </tr>
-    <tr>
-      <th>34697</th>
-      <td>1921</td>
-      <td>Dec</td>
-      <td>12</td>
-      <td>30</td>
-      <td>365</td>
-      <td>11.7</td>
-      <td>1.9</td>
-      <td>6.8</td>
-      <td>9.8</td>
-      <td>4.5</td>
-    </tr>
-  </tbody>
-</table>
-<p>365 rows × 10 columns</p>
-</div></div></div>
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/collections/__init__.py:998,</span> in <span class="ni">ChainMap.__missing__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">997</span> <span class="k">def</span> <span class="fm">__missing__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">998</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &#39;weather&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/scope.py:242,</span> in <span class="ni">Scope.resolve</span><span class="nt">(self, key, is_local)</span>
+<span class="g g-Whitespace">    </span><span class="mi">238</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span>     <span class="c1"># last ditch effort we look in temporaries</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="c1"># these are created when parsing indexing expressions</span>
+<span class="g g-Whitespace">    </span><span class="mi">241</span>     <span class="c1"># e.g., df[df &gt; 0]</span>
+<span class="ne">--&gt; </span><span class="mi">242</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">temps</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">243</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="ne">KeyError</span>: &#39;weather&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">UndefinedVariableError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># get all the rows where year is 1921</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;weather.YYYY == 1921&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/frame.py:4599,</span> in <span class="ni">DataFrame.query</span><span class="nt">(self, expr, inplace, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4597</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="g g-Whitespace">   </span><span class="mi">4598</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">4599</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4601</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4602</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">res</span><span class="p">]</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/frame.py:4725,</span> in <span class="ni">DataFrame.eval</span><span class="nt">(self, expr, inplace, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4722</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
+<span class="g g-Whitespace">   </span><span class="mi">4723</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;resolvers&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resolvers&quot;</span><span class="p">,</span> <span class="p">()))</span> <span class="o">+</span> <span class="n">resolvers</span>
+<span class="ne">-&gt; </span><span class="mi">4725</span> <span class="k">return</span> <span class="n">_eval</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/eval.py:336,</span> in <span class="ni">eval</span><span class="nt">(expr, parser, engine, local_dict, global_dict, resolvers, level, target, inplace)</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span> <span class="c1"># get our (possibly passed-in) scope</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span> <span class="n">env</span> <span class="o">=</span> <span class="n">ensure_scope</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>     <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="n">global_dict</span><span class="o">=</span><span class="n">global_dict</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span>     <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">334</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">336</span> <span class="n">parsed_expr</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="n">parser</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span> <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;numexpr&quot;</span> <span class="ow">and</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span>     <span class="n">is_extension_array_dtype</span><span class="p">(</span><span class="n">parsed_expr</span><span class="o">.</span><span class="n">terms</span><span class="o">.</span><span class="n">return_type</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span>     <span class="ow">or</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parsed_expr</span><span class="o">.</span><span class="n">terms</span><span class="p">,</span> <span class="s2">&quot;operand_types&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="s2">&quot;Engine has switched to &#39;python&#39; because numexpr does not support &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span>         <span class="s2">&quot;extension array dtypes. Please set your engine to python manually.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span>         <span class="ne">RuntimeWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">350</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">351</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:808,</span> in <span class="ni">Expr.__init__</span><span class="nt">(self, expr, engine, parser, env, level)</span>
+<span class="g g-Whitespace">    </span><span class="mi">806</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">parser</span>
+<span class="g g-Whitespace">    </span><span class="mi">807</span> <span class="bp">self</span><span class="o">.</span><span class="n">_visitor</span> <span class="o">=</span> <span class="n">PARSERS</span><span class="p">[</span><span class="n">parser</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">808</span> <span class="bp">self</span><span class="o">.</span><span class="n">terms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:827,</span> in <span class="ni">Expr.parse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">823</span> <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">824</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">825</span><span class="sd">     Parse an expression.</span>
+<span class="g g-Whitespace">    </span><span class="mi">826</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">827</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_visitor</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:411,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">411</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:417,</span> in <span class="ni">BaseExprVisitor.visit_Module</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">415</span>     <span class="k">raise</span> <span class="ne">SyntaxError</span><span class="p">(</span><span class="s2">&quot;only a single expression is allowed&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">417</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:411,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">411</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:420,</span> in <span class="ni">BaseExprVisitor.visit_Expr</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span> <span class="k">def</span> <span class="nf">visit_Expr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">420</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:411,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">411</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:718,</span> in <span class="ni">BaseExprVisitor.visit_Compare</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">716</span>     <span class="n">op</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">translate_In</span><span class="p">(</span><span class="n">ops</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">717</span>     <span class="n">binop</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">BinOp</span><span class="p">(</span><span class="n">op</span><span class="o">=</span><span class="n">op</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">comps</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="ne">--&gt; </span><span class="mi">718</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">binop</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span> <span class="c1"># recursive case: we have a chained comparison, a CMP b CMP c, etc.</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span> <span class="n">left</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:411,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">411</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:531,</span> in <span class="ni">BaseExprVisitor.visit_BinOp</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">530</span> <span class="k">def</span> <span class="nf">visit_BinOp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">531</span>     <span class="n">op</span><span class="p">,</span> <span class="n">op_class</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_transform_eq_ne</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span>     <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_downcast_constants</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_evaluate_binop</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">op_class</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:451,</span> in <span class="ni">BaseExprVisitor._maybe_transform_eq_ne</span><span class="nt">(self, node, left, right)</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span> <span class="k">def</span> <span class="nf">_maybe_transform_eq_ne</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>     <span class="k">if</span> <span class="n">left</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">451</span>         <span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>     <span class="k">if</span> <span class="n">right</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:411,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">411</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:643,</span> in <span class="ni">BaseExprVisitor.visit_Attribute</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">ctx</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Load</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">642</span>     <span class="c1"># resolve the value</span>
+<span class="ne">--&gt; </span><span class="mi">643</span>     <span class="n">resolved</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>         <span class="n">v</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">resolved</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:411,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">411</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/expr.py:544,</span> in <span class="ni">BaseExprVisitor.visit_Name</span><span class="nt">(self, node, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span> <span class="k">def</span> <span class="nf">visit_Name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">544</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">term_type</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/ops.py:91,</span> in <span class="ni">Term.__init__</span><span class="nt">(self, name, env, side, encoding)</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="n">tname</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="n">tname</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">LOCAL_TAG</span><span class="p">)</span> <span class="ow">or</span> <span class="n">tname</span> <span class="ow">in</span> <span class="n">DEFAULT_GLOBALS</span>
+<span class="ne">---&gt; </span><span class="mi">91</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_name</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">encoding</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/ops.py:115,</span> in <span class="ni">Term._resolve_name</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="k">if</span> <span class="n">local_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">scope</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>     <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">scope</span><span class="p">[</span><span class="n">local_name</span><span class="p">],</span> <span class="nb">type</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="n">is_local</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="ne">--&gt; </span><span class="mi">115</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">local_name</span><span class="p">,</span> <span class="n">is_local</span><span class="o">=</span><span class="n">is_local</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;ndim&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">res</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+
+<span class="nn">File /opt/anaconda3/anaconda3/lib/python3.11/site-packages/pandas/core/computation/scope.py:244,</span> in <span class="ni">Scope.resolve</span><span class="nt">(self, key, is_local)</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">temps</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">243</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">244</span>     <span class="k">raise</span> <span class="n">UndefinedVariableError</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">is_local</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+
+<span class="ne">UndefinedVariableError</span>: name &#39;weather&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>Note the size of this table - there are 365 rows. Why?</p>
 <ul class="simple">
