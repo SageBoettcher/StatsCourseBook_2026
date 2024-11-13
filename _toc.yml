@@ -68,31 +68,31 @@ parts:
         - file: 2.1_Probability/2.1.8_ConceptRecap.md
         - file: 2.1_Probability/2.1.9_PythonExercises.ipynb
         - file: 2.1_Probability/2.1.10_ExtensionWork.ipynb
-      - file: 2.1_DataGeneratingDistributions/2.1.1_binomial_overallIntro.md
+      - file: 2.2_DataGeneratingDistributions/2.2.1_binomial_overallIntro.md
         sections:
-        - file: 2.1_DataGeneratingDistributions/2.1.2_binomial_intro.md
-        - file: 2.1_DataGeneratingDistributions/2.1.3_binomial_objectives.md
-        - file: 2.1_DataGeneratingDistributions/2.1.5_binomial_singlecoin.ipynb
-        - file: 2.1_DataGeneratingDistributions/2.1.6_binomial_10000reps.ipynb
-        - file: 2.1_DataGeneratingDistributions/2.1.7_binomial_nandp.ipynb
-        - file: 2.1_DataGeneratingDistributions/2.1.8_binomial_PMFandCDF.ipynb
-        - file: 2.1_DataGeneratingDistributions/2.1.9_AnalyticVsNumerical.ipynb
-        - file: 2.1_DataGeneratingDistributions/2.1.10_NormalDistribution.md
-        - file: 2.1_DataGeneratingDistributions/2.1.11_NormalSimulation.ipynb
-        - file: 2.1_DataGeneratingDistributions/2.1.12_binomial_NormalApprox.ipynb
-        - file: 2.1_DataGeneratingDistributions/2.1.13_TutorialExercises.ipynb
-      - file: 2.2_Sampling/2.2.1_sampling_intro.md
+        - file: 2.2_DataGeneratingDistributions/2.2.2_binomial_objectives.md
+        - file: 2.2_DataGeneratingDistributions/2.2.3_binomial_intro.md
+        - file: 2.2_DataGeneratingDistributions/2.2.4_binomial_singlecoin.ipynb
+        - file: 2.2_DataGeneratingDistributions/2.2.5_binomial_10000reps.ipynb
+        - file: 2.2_DataGeneratingDistributions/2.2.6_binomial_nandp.ipynb
+        - file: 2.2_DataGeneratingDistributions/2.2.7_binomial_PMFandCDF.ipynb
+        - file: 2.2_DataGeneratingDistributions/2.2.8_AnalyticVsNumerical.ipynb
+        - file: 2.2_DataGeneratingDistributions/2.2.9_NormalDistribution.md
+        - file: 2.2_DataGeneratingDistributions/2.2.10_NormalSimulation.ipynb
+        - file: 2.2_DataGeneratingDistributions/2.2.11_binomial_NormalApprox.ipynb
+        - file: 2.2_DataGeneratingDistributions/2.2.12_TutorialExercises.ipynb
+      - file: 2.3_Sampling/2.3.1_sampling_intro.md
         sections:
-        - file: 2.2_Sampling/2.2.2_sampling_outcomes.ipynb
-        - file: 2.2_Sampling/2.2.3_sampling_overview.md
-        - file: 2.2_Sampling/2.2.4_replacement.ipynb
-        - file: 2.2_Sampling/2.2.5_SampleDataDistribution.ipynb
-        - file: 2.2_Sampling/2.2.6_SamplingDistributionOfTheMean.ipynb
-        - file: 2.2_Sampling/2.2.7_CentralLimitTheorem.ipynb
-        - file: 2.2_Sampling/2.2.8_InferenceFromSamples.ipynb
-        - file: 2.2_Sampling/2.2.9_ConfidenceIntervals.ipynb
-        - file: 2.2_Sampling/2.2.10_ConceptRecap.ipynb
-        - file: 2.2_Sampling/2.2.11_TutorialExercises.ipynb
+        - file: 2.3_Sampling/2.3.2_sampling_outcomes.ipynb
+        - file: 2.3_Sampling/2.3.3_sampling_overview.md
+        - file: 2.3_Sampling/2.3.4_replacement.ipynb
+        - file: 2.3_Sampling/2.3.5_SampleDataDistribution.ipynb
+        - file: 2.3_Sampling/2.3.6_SamplingDistributionOfTheMean.ipynb
+        - file: 2.3_Sampling/2.3.7_CentralLimitTheorem.ipynb
+        - file: 2.3_Sampling/2.3.8_InferenceFromSamples.ipynb
+        - file: 2.3_Sampling/2.3.9_ConfidenceIntervals.ipynb
+        - file: 2.3_Sampling/2.3.10_ConceptRecap.ipynb
+        - file: 2.3_Sampling/2.3.11_TutorialExercises.ipynb
     - caption: Hypothesis Testing
       numbered: 3
       chapters:
