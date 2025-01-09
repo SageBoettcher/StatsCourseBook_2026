@@ -116,7 +116,7 @@ parts:
         - file: 3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.ipynb
         - file: 3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.ipynb
         - file: 3.2_RankBasedTests/3.2.7_spearman.ipynb
-        - file: 3.3_RankBasedTests/3.2.8_TutorialExercises.ipynb
+        - file: 3.2_RankBasedTests/3.2.8_TutorialExercises.ipynb
       - file: 3.3_ttest/3.3.1_ttest_intro.md
         sections:
         - file: 3.3_ttest/3.3.2_ttest_outcomes.md
@@ -126,7 +126,7 @@ parts:
         - file: 3.3_ttest/3.3.6_ttest_oneSample.ipynb
         - file: 3.3_ttest/3.3.7_ttest_pairedSamples.ipynb
         - file: 3.3_ttest/3.3.8_ttest_independentSamples.ipynb
-        - file: 3.3_ttest/3.3.9_HandInAssignment.ipynb
+        - file: 3.3_ttest/3.3.9_TutorialExercises.ipynb
       - file: 3.4_Power/3.4.1_power_intro.md
         sections:
         - file: 3.4_Power/3.4.2_outcomes.md
