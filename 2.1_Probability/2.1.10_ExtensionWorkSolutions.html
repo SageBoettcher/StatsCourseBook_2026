@@ -297,12 +297,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.3. Learning Objectives: Rank-Based Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.4. Rank-based tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.5. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.6. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.7. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.8. Spearman’s Rank Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -312,8 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.6_ttest_oneSample.html">3.5. One sample t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_HandInAssignment.html">3.8. Vacation Assignment</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -700,11 +700,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 2
-roll 2. Outcome = 3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 4
+roll 2. Outcome = 1
 roll 3. Outcome = 3
-roll 4. Outcome = 6
-Total rolls needed to get a six: 4
+roll 4. Outcome = 3
+roll 5. Outcome = 4
+roll 6. Outcome = 1
+roll 7. Outcome = 5
+roll 8. Outcome = 5
+roll 9. Outcome = 3
+roll 10. Outcome = 3
+roll 11. Outcome = 4
+roll 12. Outcome = 6
+Total rolls needed to get a six: 12
 </pre></div>
 </div>
 </div>
@@ -768,7 +776,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 8., 17.,  3.,  5.,  9.,  9.,  1.,  1.,  2.,  8.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 8., 1., 2., 4., 1., 8., 3., 5., 5.])
 </pre></div>
 </div>
 </div>
@@ -783,7 +791,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -818,7 +826,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e1d51ee10f6959d775cb0d4d105133da755bdf46dc2dafcd7596985a7c72a192.png" src="../_images/e1d51ee10f6959d775cb0d4d105133da755bdf46dc2dafcd7596985a7c72a192.png" />
+<img alt="../_images/e49f09dd65b209ad52b76b9030cf281313b57d0175a006d0c2cecc80601823cb.png" src="../_images/e49f09dd65b209ad52b76b9030cf281313b57d0175a006d0c2cecc80601823cb.png" />
 </div>
 </div>
 <p>Did it surprise you that the most likely number of rolls needed (mode of the distribution) is 1?</p>
@@ -844,7 +852,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.9917
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.9498
 </pre></div>
 </div>
 </div>
@@ -863,7 +871,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.109
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1082
 </pre></div>
 </div>
 </div>
@@ -900,7 +908,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a45980a14cf083b29848197090eecf7ecf4e6f5f095efb5beb1c4d8cb8399bb2.png" src="../_images/a45980a14cf083b29848197090eecf7ecf4e6f5f095efb5beb1c4d8cb8399bb2.png" />
+<img alt="../_images/e6c91b613d0768461a23c8e0e7d7c62eb6a22bb30489d352c77864635a456672.png" src="../_images/e6c91b613d0768461a23c8e0e7d7c62eb6a22bb30489d352c77864635a456672.png" />
 </div>
 </div>
 <ul class="simple">
@@ -918,7 +926,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7b83a176b2f2ca47fd3c4ffb43d59a52338716315b932c3fdb2984ee27c7b040.png" src="../_images/7b83a176b2f2ca47fd3c4ffb43d59a52338716315b932c3fdb2984ee27c7b040.png" />
+<img alt="../_images/040da22e677c5d4632ec0422b164ab44410415c64482490b1bbdf937cd3fdff7.png" src="../_images/040da22e677c5d4632ec0422b164ab44410415c64482490b1bbdf937cd3fdff7.png" />
 </div>
 </div>
 </section>

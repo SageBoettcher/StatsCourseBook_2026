@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.6. Rank Sum Test &#8212; Introduction to Statistics and Data Science</title>
+    <title>2.5. Rank Sum Test &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.7. The Wilcoxon Sign-Rank Test" href="3.2.6_nonpara_WilcoxonSignRank.html" />
-    <link rel="prev" title="2.5. Difference of medians vs difference of means" href="3.2.4_MedianMean.html" />
+    <link rel="next" title="2.6. The Wilcoxon Sign-Rank Test" href="3.2.6_nonpara_WilcoxonSignRank.html" />
+    <link rel="prev" title="2.4. Difference of medians vs difference of means" href="3.2.4_MedianMean.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -297,12 +297,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.3. Learning Objectives: Rank-Based Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.4. Rank-based tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.5. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.6. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.7. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.8. Spearman’s Rank Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.5. Rank Sum Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -312,8 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.6_ttest_oneSample.html">3.5. One sample t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_HandInAssignment.html">3.8. Vacation Assignment</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -616,9 +616,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-samples">2.6.1. Independent samples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.6.2. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-motor-learning-and-visualization">2.6.3. Example: motor learning and visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-samples">2.5.1. Independent samples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.5.2. Set up Python libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-motor-learning-and-visualization">2.5.3. Example: motor learning and visualization</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
@@ -626,7 +626,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works">2.6.4. How the Mann Whiney U or Wilcoxon Rank Sum test works</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works">2.5.4. How the Mann Whiney U or Wilcoxon Rank Sum test works</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-convert-the-data-to-ranks">Step 1: Convert the data to ranks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-test-statistic">Calculate the test statistic</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-the-null-distriubtion">Establish the null distriubtion</a></li>
@@ -644,18 +644,18 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rank-sum-test">
-<h1><span class="section-number">2.6. </span>Rank Sum Test<a class="headerlink" href="#rank-sum-test" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2.5. </span>Rank Sum Test<a class="headerlink" href="#rank-sum-test" title="Link to this heading">#</a></h1>
 <p>The t-test is valid only when the data within each group (for independent samples t-test) or the pairwise differences (for paired samples t-test) are Normally distributed</p>
 <p>As we have seen in the lecture, many real life data distributions are normal, but many others are not.</p>
 <p>For non-Normal data we can use non-parametric tests, which do not assume that the data are drawn from a Normal distribution.</p>
 <section id="independent-samples">
-<h2><span class="section-number">2.6.1. </span>Independent samples<a class="headerlink" href="#independent-samples" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.1. </span>Independent samples<a class="headerlink" href="#independent-samples" title="Link to this heading">#</a></h2>
 <p>The Mann Whitney U, or Wilcoxon Rank Sum Test is a test for a difference in median between two independent samples. As such it is often considered to be a non-parametric equivalent for the independent samples t-test.</p>
 <p>The terms Mann Whitney U and Wilcoxon Rank Sum are used interchangeably in a lot of literature and statistical packages, although technically the Mann Whitney version, which came slightly later, is correct in a greater range of cases.</p>
 <p>The Python function we will use is called Mann-Whitney but you will see the same test elsewhere called Rank Sum or Wilcoxon Rank Sum.</p>
 </section>
 <section id="set-up-python-libraries">
-<h2><span class="section-number">2.6.2. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.2. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -676,7 +676,7 @@ document.write(`
 </div>
 </section>
 <section id="example-motor-learning-and-visualization">
-<h2><span class="section-number">2.6.3. </span>Example: motor learning and visualization<a class="headerlink" href="#example-motor-learning-and-visualization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.3. </span>Example: motor learning and visualization<a class="headerlink" href="#example-motor-learning-and-visualization" title="Link to this heading">#</a></h2>
 <p>A researcher hypothesises that when a person learns a new motor skill, imaginary practice (visualising performing the skill between sessions of actual practice) can enhance learning.</p>
 <p>She decides to test the hypothesis by training people to juggle. The participants complete 1-hour juggling practice sessions each day until they can juggle for 2 minutes without dropping a ball. Participants are randomly assigned to one of two groups: The Visualisation Group spend time between sessions visualising juggling, whilst the Standard Group do not.</p>
 <p>The researcher records the number of sessions taken to reach criterion (2 min juggling without dropping the ball) for each participant.</p>
@@ -973,7 +973,7 @@ document.write(`
 </section>
 </section>
 <section id="how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works">
-<h2><span class="section-number">2.6.4. </span>How the Mann Whiney U or Wilcoxon Rank Sum test works<a class="headerlink" href="#how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.4. </span>How the Mann Whiney U or Wilcoxon Rank Sum test works<a class="headerlink" href="#how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works" title="Link to this heading">#</a></h2>
 <p>You have seen how to carry out the Mann Whitney test using <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> but you may be none the wiser about how the computer arrived at the test statistic and p value.</p>
 <p>In this section we will build our own version of the test step by step to understand how it worked.</p>
 <section id="step-1-convert-the-data-to-ranks">
@@ -1370,7 +1370,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=91.0, pvalue=0.0005999400059994001, null_distribution=array([59. , 53. , 61. , ..., 55.5, 53.5, 57.5]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=91.0, pvalue=0.00039996000399960006, null_distribution=array([51. , 52.5, 55. , ..., 51.5, 83. , 60.5]))
 </pre></div>
 </div>
 </div>
@@ -1385,7 +1385,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5a5043912cf49d29bacbbcd2c931fd6e4ae7d22d92c3055af297d4f587e60752.png" src="../_images/5a5043912cf49d29bacbbcd2c931fd6e4ae7d22d92c3055af297d4f587e60752.png" />
+<img alt="../_images/a84132f5ce6af3f95fd67ee680836b6c3367def3788ea8713abf7408cfe450dc.png" src="../_images/a84132f5ce6af3f95fd67ee680836b6c3367def3788ea8713abf7408cfe450dc.png" />
 </div>
 </div>
 <p>The distribution is cut off at a minimum of 49.5, because <span class="math notranslate nohighlight">\(u\)</span> is always the <em>larger</em> of the two rank sums (for the two groups). The minimum possible value of the larger ranksum (which would happen if the high and low ranks were evenly shared between groups) is 49.5</p>
@@ -1397,7 +1397,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0003
 </pre></div>
 </div>
 </div>
@@ -1443,7 +1443,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.5. </span>Difference of medians vs difference of means</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Difference of medians vs difference of means</p>
       </div>
     </a>
     <a class="right-next"
@@ -1451,7 +1451,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.7. </span>The Wilcoxon Sign-Rank Test</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>The Wilcoxon Sign-Rank Test</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1471,9 +1471,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-samples">2.6.1. Independent samples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.6.2. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-motor-learning-and-visualization">2.6.3. Example: motor learning and visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-samples">2.5.1. Independent samples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.5.2. Set up Python libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-motor-learning-and-visualization">2.5.3. Example: motor learning and visualization</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
@@ -1481,7 +1481,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works">2.6.4. How the Mann Whiney U or Wilcoxon Rank Sum test works</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works">2.5.4. How the Mann Whiney U or Wilcoxon Rank Sum test works</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-convert-the-data-to-ranks">Step 1: Convert the data to ranks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-test-statistic">Calculate the test statistic</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-the-null-distriubtion">Establish the null distriubtion</a></li>

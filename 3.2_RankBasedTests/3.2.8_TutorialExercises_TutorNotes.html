@@ -297,12 +297,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.3. Learning Objectives: Rank-Based Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.4. Rank-based tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.5. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.6. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.7. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.8. Spearman’s Rank Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -312,8 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.6_ttest_oneSample.html">3.5. One sample t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_HandInAssignment.html">3.8. Vacation Assignment</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -659,9 +659,9 @@ document.write(`
 <section id="whose-peaches-are-heavier">
 <h2>1. Whose peaches are heavier?<a class="headerlink" href="#whose-peaches-are-heavier" title="Link to this heading">#</a></h2>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/peaches.png"><img alt="There should be a picture of some peaches here" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/peaches.png" style="width: 30%;" /></a>
-<p>Mr Robinson’s juice factory buys peaches from farmers by the tray. Each tray contains 50 peaches. Farmer McDonald claims that this is unfair as his peaches are juicier and therefore weigh more than the peaches of his rival, Mr McGregor.</p>
-<p>Mr Robinson weighs eight trays of Farmer McDonald’s peaches and 8 trays of Mr McGregor’s peaches.</p>
-<p>Investigate whether McDonald’s claim is justified by testing for a difference in weight between McDonald and McGregor’s peaches using a non-parametric (rank-based) test.</p>
+<p>Mr Robinson’s juice factory buys peaches from farmers by the tray. Each tray contains 50 peaches. Farmer MacDonald claims that this is unfair as his peaches are juicier and therefore weigh more than the peaches of his rival, Mr McGregor.</p>
+<p>Mr Robinson weighs eight trays of Farmer MacDonald’s peaches and 8 trays of Mr McGregor’s peaches.</p>
+<p>Investigate whether MacDonald’s claim is justified by testing for a difference in weight between MacDonald and McGregor’s peaches using a non-parametric (rank-based) test.</p>
 <p>a) Load the data into a Pandas dataframe</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -747,21 +747,102 @@ document.write(`
 <span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">peaches</span><span class="o">.</span><span class="n">McGregor</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">peaches</span><span class="o">.</span><span class="n">MacDonald</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">peaches</span><span class="o">.</span><span class="n">MacDonald</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;weight of trays of peaches (kg)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/40c3f76af4511ae5b709d794c80c1bc42c313ab1b12789cdbad3280c691d152c.png" src="../_images/40c3f76af4511ae5b709d794c80c1bc42c313ab1b12789cdbad3280c691d152c.png" />
+<img alt="../_images/6e4bbf63ae0f5ab65d36ed45a66838e01e62d38e4e238bcb125884fc138431c8.png" src="../_images/6e4bbf63ae0f5ab65d36ed45a66838e01e62d38e4e238bcb125884fc138431c8.png" />
 </div>
 </div>
-<p>c) Conduct an appropriate rank-based non-parametric test of Farmer McDonald’s claim</p>
+<p>c) Conduct an appropriate rank-based non-parametric test of Farmer MacDonald’s claim</p>
 <ul class="simple">
 <li><p>State your hypotheses</p></li>
 <li><p>State relevant descriptive statistics</p></li>
 <li><p>Carry out the test using the built in function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> with appropriate option choices</p></li>
 <li><p>State your conclusions</p></li>
 </ul>
+<p><font color='red'><strong>Hypotheses:</strong></p>
+<ul class="simple">
+<li><p><font color='red'> Ho: The median weight of trays of peaches is the same for Farmer MaacDonald and Farmer McGregor’s farms</p></li>
+<li><p><font color='red'> Ha: The median weight is higher for Farmer MacDonald’s farm</p></li>
+</ul>
+<p><font color='red'>We will test at the 5% alpha level, one-tailed.</p>
+<p><font color='red'><em>Notes</em></p>
+<ul class="simple">
+<li><p><font color='red'> The hypotheses concern the median weight rather than the mean because this is a rank based test - please check back on the reading for an explanation.</p></li>
+<li><p><font color='red'> The alternative hypothesis is <em>directional</em> as MacDonald claims his trays of peaches are heavier (not lighter). This means we need to choose a one-tailed test and choose the correct value of <code class="docutils literal notranslate"><span class="pre">alternative</span></code> when we run <code class="docutils literal notranslate"><span class="pre">stats.mannwhitneyu</span></code></p></li>
+</ul>
+<p><font color='red'><strong>Descriptive Statistics</strong>
+<font color='red'>We need to report the median, sample size, and a measure of spread for each group. Unfortunately there is no tidy way to do this with <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code> but the following works - or they could used ‘df.describe()` but would then need to write some text saying which were the relevant descriptives (I knock off marks for just dumping all descriptives without any text).
+</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaches</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>McGregor</th>
+      <th>MacDonald</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.25</th>
+      <td>7.60525</td>
+      <td>7.78650</td>
+    </tr>
+    <tr>
+      <th>0.50</th>
+      <td>7.69750</td>
+      <td>7.91650</td>
+    </tr>
+    <tr>
+      <th>0.75</th>
+      <td>7.79575</td>
+      <td>8.03975</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaches</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>McGregor     8
+MacDonald    8
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p><font color='red'>Farmer MacDonald’s trays of peaches (n=8, median = 7.92kg, q1=7.79, q3=8.04) are slightly heavier than Farmer McGregor’s (n=8, median = 7.70kg, q1=7.61, q3=7.80)</font></p>
+<p><font color='red'><strong>Carry out the test</strong></p>
+<p><font color='red'>Note that you must choose the correct option for <code class="docutils literal notranslate"><span class="pre">alternative</span></code>, bearing in mind that the order in which you input the data also matters (<code class="docutils literal notranslate"><span class="pre">alternative=greater</span></code> tests whether the first dataset is greater than the second)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">peaches</span><span class="o">.</span><span class="n">MacDonald</span><span class="p">,</span> <span class="n">peaches</span><span class="o">.</span><span class="n">McGregor</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
@@ -774,6 +855,9 @@ document.write(`
 </div>
 </div>
 </div>
+<p><font color='red'> As the p-value is less than the chosen alpha value (0.05), we reject the null hypothesis.</p>
+<p><font color='red'> <strong>Conclusions</strong></p>
+<p><font color='red'> The trays of peaches from Farmer MacDonald are heavier</p>
 <p>d) Conduct a permutation test of the same claim</p>
 <ul class="simple">
 <li><p>State your hypotheses</p></li>
@@ -781,6 +865,71 @@ document.write(`
 <li><p>Carry out the test using the built in function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> with appropriate option choices</p></li>
 <li><p>State your conclusions</p></li>
 </ul>
+<p><font color='red'><strong>Hypotheses:</strong></p>
+<ul class="simple">
+<li><p><font color='red'> Ho: The mean weight of trays of peaches is the same for Farmer MacDonald and Farmer McGregor’s farms</p></li>
+<li><p><font color='red'> Ha: The mean weight is higher for Farmer McDonald’s farm</p></li>
+</ul>
+<p><font color='red'>We will test at the 5% alpha level, one-tailed.</p>
+<p><font color='red'><em>Notes</em></p>
+<ul class="simple">
+<li><p><font color='red'> In this case, we are testing for a difference of <em>means</em> not medians, since we calculate the group means in each shuffled dataset</p></li>
+</ul>
+<p><font color='red'><strong>Descriptive Statistics</strong></p>
+<p><font color='red'>We need to report the mean, sample size, and a measure of spread for each group. Here we can use <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code> to get the mean and standard deviation.
+</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaches</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;McGregor&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">],</span> <span class="s1">&#39;MacDonald&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>McGregor</th>
+      <th>MacDonald</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mean</th>
+      <td>7.685125</td>
+      <td>7.905750</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.190262</td>
+      <td>0.295633</td>
+    </tr>
+    <tr>
+      <th>count</th>
+      <td>8.000000</td>
+      <td>8.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><font color='red'>Farmer MacDonald’s trays of peaches (n=8, mean = 7.91kg, sd=0.30) are slightly heavier than Farmer McGregor’s (n=8, mean = 7.70kg, sd=0.19)</font></p>
+<p><font color='red'><strong>Carry out the test</strong></p>
+<p><font color='red'>Note that you must choose the correct option for <code class="docutils literal notranslate"><span class="pre">alternative</span></code>, bearing in mind that the order in which you input the data also matters. You must also choose the correct <code class="docutils literal notranslate"><span class="pre">permutation</span> <span class="pre">type</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dMeans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
@@ -792,12 +941,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=0.22062500000000007, pvalue=0.0461, null_distribution=array([-0.150625, -0.223625,  0.080375, ..., -0.181875,  0.020375,
-        0.109125]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=0.22062500000000007, pvalue=0.0438, null_distribution=array([ 0.123125,  0.196375,  0.017375, ...,  0.031625, -0.083875,
+        0.154125]))
 </pre></div>
 </div>
 </div>
 </div>
+<p><font color='red'> As the p-value is less than the chosen alpha value (0.05), we reject the null hypothesis.</p>
+<p><font color='red'> <strong>Conclusions</strong></p>
+<p><font color='red'> The trays of peaches from Farmer MacDonald are heavier</p>
 </section>
 <section id="iq-and-vitamins">
 <h2>2. IQ and vitamins<a class="headerlink" href="#iq-and-vitamins" title="Link to this heading">#</a></h2>
@@ -805,12 +957,9 @@ document.write(`
 <p>The VitalVit company claim that after taking their VitalVit supplement, IQ is increased.</p>
 <p>They run a trial in which 22 participants complete a baseline IQ test, then take VitalVit for six weeks, then complete another IQ test.</p>
 <p>a) What kind of design is this.</p>
-<p>&lt; your answer here &gt;</p>
-<p>repeated measures</p>
+<p><font color='red'> repeated measures</p>
 <p>b) What are the advantages and possible disadvantages of this type of design? Should the company have done something different or additional to rule out confounding factors?</p>
-<p>&lt; your answer here &gt;</p>
-<p>Main disadvantage is order effects (improvement on 2nd test could simply be due to practice)</p>
-<p>They should have counterbalanced the order or used separate groups of people</p>
+<p><font color='red'> The main disadvantage is order effects (improvement on 2nd test could simply be due to practice). The researchers should have counterbalanced the order or used separate groups of people</p>
 <p>c) Load the data into a Pandas dataframe</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -980,9 +1129,9 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>d) Plot the data and comment.
-A scatterplot would be a good choice as these are paired data.
-You could add the line of equality (line x=y) to the graph so we can see whether most people score higer on the IQ test before or after taking VitalVit</p>
+<p>d) Plot the data and comment.</p>
+<p><font color='red'> A scatterplot would be a good choice as these are paired data.
+You could add the line of equality (line x=y) to the graph so we can see whether most people score higher on the IQ test before or after taking VitalVit</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here for a scatter plot.</span>
@@ -993,7 +1142,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0ab2c0e2d252064d14a5062fe36ce81c5cfcffd1f035165e66718162807588ac.png" src="../_images/0ab2c0e2d252064d14a5062fe36ce81c5cfcffd1f035165e66718162807588ac.png" />
+<img alt="../_images/8f2bd4ccbb0fedf81a75989bb866a36c696869b7a84d129284a0a296444e57a5.png" src="../_images/8f2bd4ccbb0fedf81a75989bb866a36c696869b7a84d129284a0a296444e57a5.png" />
 </div>
 </div>
 <p>e) Conduct a suitable rank-based non-parametric test of VitalVit’s claim</p>
@@ -1003,6 +1152,93 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 <li><p>Carry out the test using the built in function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> with appropriate option choices</p></li>
 <li><p>State your conclusions</p></li>
 </ul>
+<p><font color='red'><strong>Hypotheses:</strong></p>
+<ul class="simple">
+<li><p><font color='red'> Ho: The median change in IQ after taking VItalVit is zero</p></li>
+<li><p><font color='red'> Ha: The median change n IQ is positive</p></li>
+</ul>
+<p><font color='red'> We will test at the 5% alpha level, one-tailed.</p>
+<p><font color='red'><em>Notes</em></p>
+<ul class="simple">
+<li><p><font color='red'> The hypotheses concern the median change in IQ rather than the mean because this is a rank based test - please check back on the reading for an explanation.</p></li>
+<li><p><font color='red'> We are testing the median <em>change</em> in IQ (within subjects) rather than the difference of medians (between the before- and after- datasets) as this is a paired test.</p></li>
+<li><p><font color='red'> The alternative hypothesis is <em>directional</em> as VitalVit is supposed to increase IQ, not decrease it. This means we need to choose a one-tailed test and choose the correct value of <code class="docutils literal notranslate"><span class="pre">alternative</span></code> when we run <code class="docutils literal notranslate"><span class="pre">stats.wilcoxon()</span></code></p></li>
+</ul>
+<p><font color='red'><strong>Descriptive Statistics</strong></p>
+<ul class="simple">
+<li><p><font color='red'>We need to report the median difference, sample size (number of pairs), and a measure of spread for the differences.</p></li>
+<li><p><font color='red'> I would advise also reporting these statistics for each session (before/after) as this gives the reader a fuller picture of the data (are the changes in IQ score within individuals large, compared to the variation between individuals)</p></li>
+</ul>
+</font><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a column for the change in IQ for each individual</span>
+<span class="n">vitamin</span><span class="p">[</span><span class="s1">&#39;change&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">vitamin</span><span class="o">.</span><span class="n">after</span><span class="o">-</span><span class="n">vitamin</span><span class="o">.</span><span class="n">before</span>
+
+<span class="c1"># report sample size (any column will do as data are paired)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">vitamin</span><span class="o">.</span><span class="n">before</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+
+<span class="c1"># get quantiles</span>
+<span class="n">vitamin</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 22
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID_code</th>
+      <th>before</th>
+      <th>after</th>
+      <th>change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.25</th>
+      <td>316770.0</td>
+      <td>89.7220</td>
+      <td>94.21325</td>
+      <td>0.30475</td>
+    </tr>
+    <tr>
+      <th>0.50</th>
+      <td>540500.0</td>
+      <td>96.8515</td>
+      <td>97.38500</td>
+      <td>1.74950</td>
+    </tr>
+    <tr>
+      <th>0.75</th>
+      <td>719932.5</td>
+      <td>108.6575</td>
+      <td>108.71250</td>
+      <td>2.44500</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><font color='red'> The median change in IQ is positive (n=22, median(after-before) = 1.71, q1=0.30, q3=2.45). The change is small compared to the median value for IQ in each group (before: median=96.9, [q1,q3] = [89.7,108.7]. after: median = 97.4, [q1,q3] = [94.2,108.7]) </font></p>
+<p><font color='red'><strong>Carry out the test</strong></p>
+<p><font color='red'>Note that you must choose the correct option for <code class="docutils literal notranslate"><span class="pre">alternative</span></code>, bearing in mind that the order in which you input the data also matters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">vitamin</span><span class="o">.</span><span class="n">after</span><span class="p">,</span> <span class="n">vitamin</span><span class="o">.</span><span class="n">before</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
@@ -1015,6 +1251,9 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 </div>
+<p><font color='red'> As the p-value is less than the chosen alpha value (0.05), we reject the null hypothesis.</p>
+<p><font color='red'> <strong>Conclusions</strong></p>
+<p><font color='red'> VitalVit does indeed increase IQ</p>
 <p>f) Conduct a suitable permutation test of VitalVit’s claim</p>
 <ul class="simple">
 <li><p>State your hypotheses</p></li>
@@ -1022,6 +1261,79 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 <li><p>Carry out the test using the built in function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> with appropriate option choices</p></li>
 <li><p>State your conclusions</p></li>
 </ul>
+<p><font color='red'><strong>Hypotheses:</strong></p>
+<ul class="simple">
+<li><p><font color='red'> Ho: The mean change in IQ after taking VitalVit is zero</p></li>
+<li><p><font color='red'> Ha: The mean change in IQ is positive</p></li>
+</ul>
+<p><font color='red'> We will test at the 5% alpha level, one-tailed.</p>
+<p><font color='red'><em>Notes</em></p>
+<ul class="simple">
+<li><p><font color='red'> The hypotheses concern the mean change in IQ as we are calculating the mean change in each shuffled dataset</p></li>
+<li><p><font color='red'> We are testing the mean <em>change</em> in IQ (within subjects) rather than the difference of means (between the before- and after- datasets) as this is a paired test.</p></li>
+<li><p><font color='red'> The alternative hypothesis is <em>directional</em> as VitalVit is supposed to increase IQ, not decrease it. This means we need to choose a one-tailed test and choose the correct value of <code class="docutils literal notranslate"><span class="pre">alternative</span></code> when we run the test</p></li>
+</ul>
+<p><font color='red'><strong>Descriptive Statistics</strong></p>
+<ul class="simple">
+<li><p><font color='red'>We need to report the mean difference, sample size (number of pairs), and a measure of spread for the differences (sd).</p></li>
+<li><p><font color='red'> I would advise also reporting these statistics for each session (before/after) as this gives the reader a fuller picture of the data (are the changes in IQ score within individuals large, compared to the variation between individuals)</p></li>
+</ul>
+</font><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vitamin</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;before&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">],</span> <span class="s1">&#39;after&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="p">,</span> <span class="s1">&#39;change&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>before</th>
+      <th>after</th>
+      <th>change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mean</th>
+      <td>100.963409</td>
+      <td>102.284000</td>
+      <td>1.320591</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>15.815174</td>
+      <td>15.714324</td>
+      <td>1.907622</td>
+    </tr>
+    <tr>
+      <th>count</th>
+      <td>22.000000</td>
+      <td>22.000000</td>
+      <td>22.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><font color='red'> The mean change in IQ is positive (n=22, mean(after-before) = 1.32, sd=1.91). The change is small compared to the mean value for IQ in each group (before: mean=101.0, sd=15.8. after: mean = 102.3, sd=15.7) </font></p>
+<p><font color='red'><strong>Carry out the test</strong></p>
+<p><font color='red'>Note that you must choose the correct option for <code class="docutils literal notranslate"><span class="pre">alternative</span></code>, bearing in mind that the order in which you input the data also matters. You must also choose the correct <code class="docutils literal notranslate"><span class="pre">permutation</span> <span class="pre">type</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mDiff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
@@ -1032,19 +1344,22 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=1.320590909090907, pvalue=0.0032, null_distribution=array([-0.96231818,  0.92459091,  0.25668182, ...,  0.28404545,
-       -1.32695455,  0.19604545]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=1.320590909090907, pvalue=0.0033, null_distribution=array([-0.40268182, -0.68586364,  0.05977273, ..., -0.5745    ,
+        0.45640909,  0.11604545]))
 </pre></div>
 </div>
 </div>
 </div>
+<p><font color='red'> As the p-value is less than the chosen alpha value (0.05), we reject the null hypothesis.</p>
+<p><font color='red'> <strong>Conclusions</strong></p>
+<p><font color='red'> VitalVit does indeed increase IQ</p>
 </section>
 <section id="socks">
 <h2>3. Socks<a class="headerlink" href="#socks" title="Link to this heading">#</a></h2>
 <p>In the section on permutation testing, we introduced a dataset on sock ownership (number of pairs of socks owned for 14 husband-wife couples. We noticed that when using a permutation test for difference of means, the null distribution of the difference of means was strongly affected by the presences of an outlier:</p>
 <ul class="simple">
 <li><p>in one couple the husband owned about 30 more pairs of socks than the wife</p></li>
-<li><p>wheter the difference of means in each permutation was positive or negative depended disproportionately on whether this couple were ‘flipped’ or not in that particular permutation</p></li>
+<li><p>whehter the difference of means in each permutation was positive or negative depended disproportionately on whether this couple were ‘flipped’ or not in that particular permutation</p></li>
 </ul>
 <p>Let’s compare the use of the rank-based (Wilcoxon’s Sign-Rank test) test with the permutation test for the mean difference.</p>
 <p><strong>a. Load the data (done for you)</strong></p>
@@ -1163,7 +1478,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/df4e20cf8082bc11f75d33c6a0fbf1f71b0d8335c615c724ed11a381e2e6b9ac.png" src="../_images/df4e20cf8082bc11f75d33c6a0fbf1f71b0d8335c615c724ed11a381e2e6b9ac.png" />
+<img alt="../_images/18383f70af45774fecfd32c0720ad6205083b84b632ef0b7eda002cab07b2789.png" src="../_images/18383f70af45774fecfd32c0720ad6205083b84b632ef0b7eda002cab07b2789.png" />
 </div>
 </div>
 <p><strong>c. Carry out a suitable rank-based non-parametric test of the hypothesis that men own more socks than women</strong></p>
@@ -1187,21 +1502,22 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.571428571428571, pvalue=0.006, null_distribution=array([-2.        , -2.71428571, -3.14285714, ...,  1.85714286,
-       -1.42857143, -1.        ]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.571428571428571, pvalue=0.0065, null_distribution=array([-0.85714286, -2.28571429, -2.28571429, ..., -0.71428571,
+       -2.28571429, -2.        ]))
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>e. Compare the two tests.</strong></p>
 <p>In this case the rank-based test has a (slightly) smaller <span class="math notranslate nohighlight">\(p\)</span>-value than the permutation test.</p>
-<p>The permutation test preserves thhe following features of the data:</p>
+<p>The permutation test preserves the following features of the data:</p>
 <ol class="arabic simple">
 <li><p>In each couple one partner usually has more socks (what we shuffle is <em>which</em> partner this is)</p></li>
 <li><p>One couple has an extreme difference in sock-counts (we shuffle whether it is the husband or wife who has more socks)</p></li>
 <li><p>We retain the sample sizes and overall distribution of difference of means</p></li>
 </ol>
 <p>The rank-based test ‘neutralizes’ one of these features, which is it and what is the effect?</p>
+<p><font color='red'>The main difference is that the outlier (extreme difference) has less effect in the rank-based test</font></p>
 </section>
 </section>
 

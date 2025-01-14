@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.7. The Wilcoxon Sign-Rank Test &#8212; Introduction to Statistics and Data Science</title>
+    <title>2.6. The Wilcoxon Sign-Rank Test &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.8. Spearman’s Rank Correlation" href="3.2.7_spearman.html" />
-    <link rel="prev" title="2.6. Rank Sum Test" href="3.2.5_nonpara_MannWhitneyU.html" />
+    <link rel="next" title="2.7. Spearman’s Rank Correlation" href="3.2.7_spearman.html" />
+    <link rel="prev" title="2.5. Rank Sum Test" href="3.2.5_nonpara_MannWhitneyU.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -297,12 +297,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.3. Learning Objectives: Rank-Based Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.4. Rank-based tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.5. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.6. Rank Sum Test</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.7. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.8. Spearman’s Rank Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.6. The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -312,8 +313,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.6_ttest_oneSample.html">3.5. One sample t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_HandInAssignment.html">3.8. Vacation Assignment</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -616,15 +616,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.7.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-sign-rank-test">2.7.2. Example: the Sign-Rank Test</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.6.1. Set up Python libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-sign-rank-test">2.6.2. Example: the Sign-Rank Test</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-data-distribution">Check the data distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2.7.3. Descriptive statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2.6.3. Descriptive statistics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-wilcoxon-sign-rank-test-works">How the Wilcoxon Sign-Rank test works</a></li>
@@ -643,12 +643,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-wilcoxon-sign-rank-test">
-<h1><span class="section-number">2.7. </span>The Wilcoxon Sign-Rank Test<a class="headerlink" href="#the-wilcoxon-sign-rank-test" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2.6. </span>The Wilcoxon Sign-Rank Test<a class="headerlink" href="#the-wilcoxon-sign-rank-test" title="Link to this heading">#</a></h1>
 <p>The Wilcoxon Sign-Rank Test is a rank-based test for the median <strong>difference</strong> in paired samples. It tests whether the median difference between the members of each pair is greater than zero. As such it is often considered to be a non-parametric equivalent for the <strong>paired samples</strong> t-test (which we will meet next week).</p>
 <p>The Wilcoxon Sign-rank test is <strong>not</strong> the same as the Wilcoxon Rank Sum test (Mann Whitney U test) which is for independent samples</p>
 <p>We will us a Python function called <code class="docutils literal notranslate"><span class="pre">stats.wilcoxon()</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> library to run the test</p>
 <section id="set-up-python-libraries">
-<h2><span class="section-number">2.7.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -669,7 +669,7 @@ document.write(`
 </div>
 </section>
 <section id="example-the-sign-rank-test">
-<h2><span class="section-number">2.7.2. </span>Example: the Sign-Rank Test<a class="headerlink" href="#example-the-sign-rank-test" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.2. </span>Example: the Sign-Rank Test<a class="headerlink" href="#example-the-sign-rank-test" title="Link to this heading">#</a></h2>
 <p>It has been argued that birth order in families affects how independent individuals are as adults - either that first-born children tend to be more independent than later born children or vice versa.</p>
 <p>In a (fictional!) study, a researcher identified 20 sibling pairs, each comprising a first- and second- born child from a two-child family. The participants were young adults; each participant was interviewed at the age of 21.</p>
 <p>The researcher scored independence for each participant, using a 25 point scale where a higher score means the person is more independent, based on a structured interview.</p>
@@ -831,7 +831,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x281238e10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11412b950&gt;]
 </pre></div>
 </div>
 <img alt="../_images/89250029bace189bddec8a2d49b0651e58b3df6aff2090444582a222b2dbd95d.png" src="../_images/89250029bace189bddec8a2d49b0651e58b3df6aff2090444582a222b2dbd95d.png" />
@@ -1028,7 +1028,7 @@ document.write(`
 </section>
 </section>
 <section id="descriptive-statistics">
-<h2><span class="section-number">2.7.3. </span>Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.3. </span>Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h2>
 <p>We obtain some relevant descriptive statistics.</p>
 <p>Since we are testing for a difference of medians, we will want the median for each group; it would also be useful to have a measure of spread, and the sample size.</p>
 <div class="cell docutils container">
@@ -1204,7 +1204,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.6. </span>Rank Sum Test</p>
+        <p class="prev-next-title"><span class="section-number">2.5. </span>Rank Sum Test</p>
       </div>
     </a>
     <a class="right-next"
@@ -1212,7 +1212,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.8. </span>Spearman’s Rank Correlation</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>Spearman’s Rank Correlation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1232,15 +1232,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.7.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-sign-rank-test">2.7.2. Example: the Sign-Rank Test</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.6.1. Set up Python libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-sign-rank-test">2.6.2. Example: the Sign-Rank Test</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-data-distribution">Check the data distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2.7.3. Descriptive statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2.6.3. Descriptive statistics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-wilcoxon-sign-rank-test-works">How the Wilcoxon Sign-Rank test works</a></li>
