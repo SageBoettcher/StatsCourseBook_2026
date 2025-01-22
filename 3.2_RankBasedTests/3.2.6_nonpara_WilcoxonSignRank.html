@@ -831,7 +831,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11412b950&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x16ed31dd0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/89250029bace189bddec8a2d49b0651e58b3df6aff2090444582a222b2dbd95d.png" src="../_images/89250029bace189bddec8a2d49b0651e58b3df6aff2090444582a222b2dbd95d.png" />
@@ -1119,13 +1119,13 @@ document.write(`
 <p>We carry out the test using the function <tt>wilcoxon</tt> from <tt>scipy.stats</tt>, here loaded as <tt>stats</tt></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">FirstBorn</span><span class="p">,</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">SecondBorn</span><span class="p">,</span><span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">FirstBorn</span><span class="p">,</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">SecondBorn</span><span class="p">,</span><span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span><span class="p">)</span>
 <span class="c1">#help(stats.wilcoxon)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=164.0, pvalue=0.0133209228515625)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=46.0, pvalue=0.026641845703125)
 </pre></div>
 </div>
 </div>
@@ -1135,12 +1135,12 @@ document.write(`
 <li><p>the two samples to be compared (the values of <tt>FirstBorn</tt> and <tt>SecondBorn</tt> from our Pandas data frame <tt>birthOrder</tt>)</p></li>
 <li><p>the argument <code class="docutils literal notranslate"><span class="pre">alternative='greater'</span></code>, which tells the computer to run a one tailed test  that median of the first input (FirstBorn) is greater than the second (SecondBorn).</p></li>
 </ul>
-<p>The outputs are a value of the test statistic (<span class="math notranslate nohighlight">\(T=164\)</span>) and <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.0133\)</span>) - if this is less than our <span class="math notranslate nohighlight">\(\alpha\)</span> value 0.5, there is a significant difference.</p>
+<p>The outputs are a value of the test statistic (<span class="math notranslate nohighlight">\(T=46\)</span>) and <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.0266\)</span>) - if this is less than our <span class="math notranslate nohighlight">\(\alpha\)</span> value 0.5, there is a significant difference.</p>
 <p>More explanation of how T is calculated below.</p>
 </section>
 <section id="draw-conclusions">
 <h3>Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
-<p>As the p value of 0.0133 is less than our alpha value of 0.05, the test is significant.</p>
+<p>As the p value of 0.0266 is less than our alpha value of 0.05, the test is significant.</p>
 <p>We can conclude that the median difference in idenpendence is positive, ie the first borns are more independent</p>
 </section>
 <section id="how-the-wilcoxon-sign-rank-test-works">
