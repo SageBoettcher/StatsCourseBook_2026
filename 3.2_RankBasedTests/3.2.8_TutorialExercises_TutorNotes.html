@@ -765,7 +765,7 @@ document.write(`
 </ul>
 <p><font color='red'><strong>Hypotheses:</strong></p>
 <ul class="simple">
-<li><p><font color='red'> Ho: The median weight of trays of peaches is the same for Farmer MaacDonald and Farmer McGregor’s farms</p></li>
+<li><p><font color='red'> Ho: The median weight of trays of peaches is the same for Farmer MacDonald and Farmer McGregor’s farms</p></li>
 <li><p><font color='red'> Ha: The median weight is higher for Farmer MacDonald’s farm</p></li>
 </ul>
 <p><font color='red'>We will test at the 5% alpha level, one-tailed.</p>
@@ -775,7 +775,7 @@ document.write(`
 <li><p><font color='red'> The alternative hypothesis is <em>directional</em> as MacDonald claims his trays of peaches are heavier (not lighter). This means we need to choose a one-tailed test and choose the correct value of <code class="docutils literal notranslate"><span class="pre">alternative</span></code> when we run <code class="docutils literal notranslate"><span class="pre">stats.mannwhitneyu</span></code></p></li>
 </ul>
 <p><font color='red'><strong>Descriptive Statistics</strong>
-<font color='red'>We need to report the median, sample size, and a measure of spread for each group. Unfortunately there is no tidy way to do this with <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code> but the following works - or they could used ‘df.describe()` but would then need to write some text saying which were the relevant descriptives (I knock off marks for just dumping all descriptives without any text).
+<font color='red'>We need to report the median, sample size, and a measure of spread for each group. Unfortunately there is no tidy way to do this with <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code> but the following works - or they could used <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> but would then need to write some text saying which were the relevant descriptives (I knock off marks for just dumping all descriptives without any text).
 </font></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -858,7 +858,8 @@ dtype: int64
 <p><font color='red'> As the p-value is less than the chosen alpha value (0.05), we reject the null hypothesis.</p>
 <p><font color='red'> <strong>Conclusions</strong></p>
 <p><font color='red'> The trays of peaches from Farmer MacDonald are heavier</p>
-<p>d) Conduct a permutation test of the same claim</p>
+<font color='red'> 
+The weight of trays of peaches were compared using a Rank Sum test. Farmer MacDonald's trays of peaches (n=8, median = 7.92kg, q1=7.79, q3=8.04) are slightly heavier than Farmer McGregor's (n=8, median = 7.70kg, q1=7.61, q3=7.80). This was statistically significant  (rank sum test, R=50, n1,n2=8,8, p=0.032).<p>d) Conduct a permutation test of the same claim</p>
 <ul class="simple">
 <li><p>State your hypotheses</p></li>
 <li><p>State relevant descriptive statistics</p></li>
@@ -941,8 +942,8 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=0.22062500000000007, pvalue=0.0489, null_distribution=array([ 0.036375, -0.088375,  0.006875, ..., -0.014625,  0.002375,
-       -0.175375]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=0.22062500000000007, pvalue=0.0462, null_distribution=array([ 0.044375, -0.029625, -0.011125, ..., -0.025875, -0.126875,
+       -0.197625]))
 </pre></div>
 </div>
 </div>
@@ -1142,7 +1143,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/342cc343685ee7c272c22db872b2cdd76e6433c8102a76cfe6de9c487b234d18.png" src="../_images/342cc343685ee7c272c22db872b2cdd76e6433c8102a76cfe6de9c487b234d18.png" />
+<img alt="../_images/cf2f5c6f10748cc18dc377ccad9584051086cbd133c19a5e43a2dd67258a16ec.png" src="../_images/cf2f5c6f10748cc18dc377ccad9584051086cbd133c19a5e43a2dd67258a16ec.png" />
 </div>
 </div>
 <p>e) Conduct a suitable rank-based non-parametric test of VitalVit’s claim</p>
@@ -1344,8 +1345,8 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=1.320590909090907, pvalue=0.0024, null_distribution=array([-0.16268182, -0.59013636, -0.1065    , ...,  0.40722727,
-       -0.52368182,  0.05004545]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=1.320590909090907, pvalue=0.0022, null_distribution=array([-0.33695455,  0.48440909, -0.11459091, ..., -0.05286364,
+        0.62340909, -0.26268182]))
 </pre></div>
 </div>
 </div>
@@ -1478,7 +1479,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a206ba89f982468dd20f81bd292b39d02f6935157657d41b30586f63f12077bc.png" src="../_images/a206ba89f982468dd20f81bd292b39d02f6935157657d41b30586f63f12077bc.png" />
+<img alt="../_images/49f190b6918b227c936c0c2e4e878ac7f386d43f3cfc7818b63bb53679060658.png" src="../_images/49f190b6918b227c936c0c2e4e878ac7f386d43f3cfc7818b63bb53679060658.png" />
 </div>
 </div>
 <p><strong>c. Carry out a suitable rank-based non-parametric test of the hypothesis that men own more socks than women</strong></p>
@@ -1502,8 +1503,8 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.571428571428571, pvalue=0.0052, null_distribution=array([-2.        ,  2.71428571,  1.71428571, ..., -3.57142857,
-        2.28571429,  3.28571429]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.571428571428571, pvalue=0.0069, null_distribution=array([ 1.85714286, -2.28571429,  1.85714286, ..., -3.28571429,
+       -1.57142857, -2.        ]))
 </pre></div>
 </div>
 </div>
