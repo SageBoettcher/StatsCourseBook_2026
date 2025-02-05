@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Vacation Assignment &#8212; Introduction to Statistics and Data Science</title>
+    <title>Hand-In Assignment: Hilary mid-term &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -606,7 +606,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Vacation Assignment</h1>
+    <h1>Hand-In Assignment: Hilary mid-term</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -616,7 +616,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Vacation Assignment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Hand-In Assignment: Hilary mid-term</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-data-analysis-exercises">Part 1 - data analysis exercises</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-cloud-seeding">Question 1 - Cloud seeding</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-independent-samples-t-test"><font color="red">I. Independent samples t-test</font></a></li>
@@ -650,16 +650,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="vacation-assignment">
-<h1>Vacation Assignment<a class="headerlink" href="#vacation-assignment" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hand-in-assignment-hilary-mid-term">
+<h1>Hand-In Assignment: Hilary mid-term<a class="headerlink" href="#hand-in-assignment-hilary-mid-term" title="Link to this heading">#</a></h1>
 <p>This assignment has two parts.</p>
 <p>In the first part you carry out some hypothesis tests; this is designed for you to practice both the process of running the different tests, and to make sure you understand the choices you are making when running tests.</p>
 <p>The second part, ‘revision’, targets some Python syntax and (mainly) some concepts that I want to make sure everyone has securely grasped. The answers to all conceptual questions can be found in the lectures and reading; searching for them is good revision!</p>
-<p>Overall, the idea of this assignment is to help you consolidate what you learned this term and it should prepare you well for the collection in January. Please remember that searching for the answers (in the lecture notes etc) and trying things til it works (for coding) is part of the learning process; you are <em>supposed</em> to need to do that rather than having all the answers at your fingertips.</p>
-<p><font color='red'>This can be distributed to students as a model answer but not until 1st week of HT please, as some tutors will set a hand-in deadline in 0th week (including me!)</p>
+<p>Overall, the idea of this assignment is to help you consolidate what you learned in the first three blocks of the course. Please remember that searching for the answers (in the lecture notes etc) and trying things til it works (for coding) is part of the learning process; you are <em>supposed</em> to need to do that rather than having all the answers at your fingertips.</p>
+<p>If you get stuck on something, try the lecture notes, try the reading, and try Google as there are many helpful ‘how to’ blogs out there and many blogs explaining statistical concepts. If you still are stuck, ask your tutor!</p>
+<p><font color='red'>This can be distributed to students as a model answer but not until 6th week of HT please, by which point all students should have completed it.</p>
 <p><font color='red'>The exercises are quite long so please do feel free to give students the model answer rather than correcting each question part on their script as this will be very long winded for you as markers. You can then give some overall feedback/ detailed comments on any ‘thoughtful’ parts as think useful, or give verbal feedback</p>
-<p><font color='red'>Students should be able to complete all the ‘revision’ questions by revising the lectures and reading from the term. It will be more effective as revision if they need to find the answers by themselves, so I suggest leaving them to tackle these over the vacation.</p>
-<p><font color='red'>The data analysis questions recap the process for t-test, permutation test and rank-based test, with some ‘thinking’ questions thrown in. The student could make a start on these in the tutorial.</p>
+<p><font color='red'>Students should be able to complete all the ‘revision’ questions by revising the lectures and reading from blocks 1-3 of the course. It will be more effective as revision if they need to find the answers by themselves, so I suggest leaving them to tackle these alone as far as possible.</p>
+<p><font color='red'>The data analysis questions recap the process for t-test, permutation test and rank-based test, with some ‘thinking’ questions thrown in.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
@@ -1008,8 +1009,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=277.3961538461539, pvalue=0.0193, null_distribution=array([  39.81153846,  301.08076923,  102.85      , ...,   60.58076923,
-       -198.57307692,  -43.14230769]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=277.3961538461539, pvalue=0.023, null_distribution=array([  80.43461538,  -70.08846154,  -37.38076923, ...,  -59.06538462,
+        189.83461538, -115.96538462]))
 </pre></div>
 </div>
 </div>
@@ -1221,7 +1222,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/90c3eeaa555bbab53a308d4f350abdb2b3ded2165c77b0dfe9dc7cf96ae8d53a.png" src="../_images/90c3eeaa555bbab53a308d4f350abdb2b3ded2165c77b0dfe9dc7cf96ae8d53a.png" />
+<img alt="../_images/5bfa24fbede46e6d800d5b6eecd9570a9ead9ce5c210348650791b22d115ea3e.png" src="../_images/5bfa24fbede46e6d800d5b6eecd9570a9ead9ce5c210348650791b22d115ea3e.png" />
 </div>
 </div>
 <p><font color='red'> Your comments here!</p>
@@ -1760,8 +1761,8 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=-15.985702127659636, pvalue=0.0928, null_distribution=array([22.40621277, -0.85174468, 14.94961702, ..., -4.7812766 ,
-       -8.3092766 ,  0.3292766 ]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=-15.985702127659636, pvalue=0.1054, null_distribution=array([ 7.18178723, 12.99846809,  0.14161702, ..., -0.67625532,
+       -2.54646809, -4.64161702]))
 </pre></div>
 </div>
 </div>
@@ -1777,8 +1778,8 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=-29.423307496075324, pvalue=0.0002, null_distribution=array([-2.88823073,  3.3174442 ,  0.62408727, ...,  1.6325027 ,
-        5.1564776 ,  4.05619657]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=-29.423307496075324, pvalue=0.0002, null_distribution=array([-0.07990783,  1.8674117 , -4.46514851, ..., -0.73691934,
+       -7.40110188,  2.6162054 ]))
 </pre></div>
 </div>
 </div>
@@ -2172,7 +2173,7 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2673b7b582660c45ebe1f8c7cf5c9bcf40c2725d508501f642e2670a3e1b3f12.png" src="../_images/2673b7b582660c45ebe1f8c7cf5c9bcf40c2725d508501f642e2670a3e1b3f12.png" />
+<img alt="../_images/6c284a99d5e5438a7b2255a5c6975e7adfee7ab3af88d253301b3dda9c15e0a5.png" src="../_images/6c284a99d5e5438a7b2255a5c6975e7adfee7ab3af88d253301b3dda9c15e0a5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2189,7 +2190,7 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d49d32e6879c67e9cc240c05785a98983ae5a9dbb5abb0f7f8f9494214c47650.png" src="../_images/d49d32e6879c67e9cc240c05785a98983ae5a9dbb5abb0f7f8f9494214c47650.png" />
+<img alt="../_images/6e68a183ef67c03fad8436b0b6c6e417b8e818e7dea55810e02b11681d5d79e6.png" src="../_images/6e68a183ef67c03fad8436b0b6c6e417b8e818e7dea55810e02b11681d5d79e6.png" />
 </div>
 </div>
 <p><strong>c. Get the mean height for brothers and sisters separately</strong></p>
@@ -2276,7 +2277,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0786, null_distribution=array([-1.2 , -4.88,  0.96, ...,  0.4 , -2.4 ,  1.44]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0696, null_distribution=array([-2.16, -1.52, -0.48, ..., -0.64,  3.36,  0.16]))
 </pre></div>
 </div>
 </div>
@@ -2294,7 +2295,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0002, null_distribution=array([-1.36, -0.96, -0.56, ..., -1.6 , -0.72,  0.8 ]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0004, null_distribution=array([-1.68, -0.64, -1.92, ..., -0.16,  1.12,  0.8 ]))
 </pre></div>
 </div>
 </div>
@@ -2330,7 +2331,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7afc6553ce745b9ac61c0a2a260d89c8a406aa9a40a8cfb91895f6ddcbf2e4c9.png" src="../_images/7afc6553ce745b9ac61c0a2a260d89c8a406aa9a40a8cfb91895f6ddcbf2e4c9.png" />
+<img alt="../_images/2f8796b4024be3480b22b611f514c6fbcc3fc69664ed450ccecec94877b69e44.png" src="../_images/2f8796b4024be3480b22b611f514c6fbcc3fc69664ed450ccecec94877b69e44.png" />
 </div>
 </div>
 <p><font color='red'>Your answer here</p>
@@ -2485,7 +2486,7 @@ Name: height, dtype: float64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Vacation Assignment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Hand-In Assignment: Hilary mid-term</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-data-analysis-exercises">Part 1 - data analysis exercises</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-cloud-seeding">Question 1 - Cloud seeding</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-independent-samples-t-test"><font color="red">I. Independent samples t-test</font></a></li>

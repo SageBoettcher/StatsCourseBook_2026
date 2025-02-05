@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Vacation Assignment &#8212; Introduction to Statistics and Data Science</title>
+    <title>Hand-In Assignment: Hilary mid-term &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -606,7 +606,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Vacation Assignment</h1>
+    <h1>Hand-In Assignment: Hilary mid-term</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -616,7 +616,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Vacation Assignment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Hand-In Assignment: Hilary mid-term</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-data-analysis-exercises">Part 1 - data analysis exercises</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-cloud-seeding">Question 1 - Cloud seeding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-colouring-books">Question 2: Colouring books</a></li>
@@ -641,13 +641,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="vacation-assignment">
-<h1>Vacation Assignment<a class="headerlink" href="#vacation-assignment" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hand-in-assignment-hilary-mid-term">
+<h1>Hand-In Assignment: Hilary mid-term<a class="headerlink" href="#hand-in-assignment-hilary-mid-term" title="Link to this heading">#</a></h1>
 <p>This assignment has two parts.</p>
 <p>In the first part you carry out some hypothesis tests; this is designed for you to practice both the process of running the different tests, and to make sure you understand the choices you are making when running tests.</p>
 <p>The second part, ‘revision’, targets some Python syntax and (mainly) some concepts that I want to make sure everyone has securely grasped. The answers to all conceptual questions can be found in the lectures and reading; searching for them is good revision!</p>
-<p>Overall, the idea of this assignment is to help you consolidate what you learned this term and it should prepare you well for the collection in January. Please remember that searching for the answers (in the lecture notes etc) and trying things til it works (for coding) is part of the learning process; you are <em>supposed</em> to need to do that rather than having all the answers at your fingertips.</p>
-<p>If you get stuck on something, try the lecture notes, try the reading, and try Google as there are many helpful ‘how to’ blogs out there and many blogs explaining statistical concepts. If you still are stuck after all that I suggest you leave a note on the particular question part for your tutor, perhaps offering your best guess at the answer. Try not to email them as they need a break over the vacation!</p>
+<p>Overall, the idea of this assignment is to help you consolidate what you learned in the first three blocks of the course. Please remember that searching for the answers (in the lecture notes etc) and trying things til it works (for coding) is part of the learning process; you are <em>supposed</em> to need to do that rather than having all the answers at your fingertips.</p>
+<p>If you get stuck on something, try the lecture notes, try the reading, and try Google as there are many helpful ‘how to’ blogs out there and many blogs explaining statistical concepts. If you still are stuck, ask your tutor!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
@@ -674,7 +674,7 @@ document.write(`
 <p><strong>a)  Download the data file and load the data into a <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> dataframe called <code class="docutils literal notranslate"><span class="pre">clouds</span></code></strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clouds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/cloudSeeding.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clouds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2025/main/data/cloudSeeding.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1053,7 +1053,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0764, null_distribution=array([ 1.44,  3.6 , -0.4 , ...,  3.28,  6.96, -3.76]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0826, null_distribution=array([-0.16, -3.84, -2.64, ..., -1.28,  2.  ,  2.64]))
 </pre></div>
 </div>
 </div>
@@ -1071,7 +1071,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0002, null_distribution=array([ 0.56,  0.48, -0.16, ..., -1.6 , -0.08,  0.4 ]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=4.640000000000015, pvalue=0.0002, null_distribution=array([ 0.4 , -1.6 ,  2.4 , ..., -1.36,  0.56,  1.52]))
 </pre></div>
 </div>
 </div>
@@ -1103,7 +1103,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f4cc786fa3f0f579e0c51e822d311bda57a7b052d4eea0e57e2b5a3e0636f797.png" src="../_images/f4cc786fa3f0f579e0c51e822d311bda57a7b052d4eea0e57e2b5a3e0636f797.png" />
+<img alt="../_images/25439325e92189de9a3ead73003ab971db132fdbff265ac0af57c644987223fd.png" src="../_images/25439325e92189de9a3ead73003ab971db132fdbff265ac0af57c644987223fd.png" />
 </div>
 </div>
 <p><font color='red'>Your answer here</p>
@@ -1185,7 +1185,7 @@ document.write(`
 </div>
 </div>
 <p>If the psychology students had looked taller, she would have done a one-tailed test in the other direction.</p>
-<p>Using this approach (sometiems called “peeking” at the data) is wrong, because means that the chance of getting a ‘significant’ result if the null was true (the false positive rate) is double.</p>
+<p>Using this approach (sometimes called “peeking” at the data) is wrong, because means that the chance of getting a ‘significant’ result if the null was true (the false positive rate) is double.</p>
 <p>Can you explain why?</p>
 <p><font color='red'>Your answer here</p>
 <p><em>It is not wrong to inspect your data before running a test, but <strong>your hypotheses (and in particular justification for a one-tailed test) should reflect predictions you would be able to make without seeing the particular sample of data</strong>.</em></p>
@@ -1239,7 +1239,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Vacation Assignment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Hand-In Assignment: Hilary mid-term</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-data-analysis-exercises">Part 1 - data analysis exercises</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-cloud-seeding">Question 1 - Cloud seeding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-colouring-books">Question 2: Colouring books</a></li>
