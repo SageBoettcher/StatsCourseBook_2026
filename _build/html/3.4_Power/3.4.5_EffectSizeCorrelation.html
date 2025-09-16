@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -607,7 +607,8 @@ document.write(`
 <p>Remember an effect size tells us how large the effect of interest is, in comparison to random variation.</p>
 <p>In the case of a correlation, the effect of interest is the relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> along the best-fit line <span class="math notranslate nohighlight">\(y=mx+c\)</span>, whilst the random variation is the spread of data about this line</p>
 <p>Pearson’s <span class="math notranslate nohighlight">\(r\)</span> quantifies exactly that - remember this figure from the section on Correlation in the chapter on <strong>Describing Data</strong> (you may like to look back at it):</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" style="width: 80%;" />
+</a>
 <p><strong>The correlation coefficient <span class="math notranslate nohighlight">\(r\)</span> is always a number between 1 (perfect positive correlation; all points on a line) and -1 (perfect negative correlation)</strong></p>
 <p>Correlation gives us a ‘pure’ measure of the strength of the relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> (corrected for the spread within <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> independently).</p>
 <section id="effect-size-neq-statistical-significance">
@@ -618,7 +619,8 @@ document.write(`
 <li><p>the top row all have sample size <span class="math notranslate nohighlight">\(n=12\)</span></p></li>
 <li><p>the bottom row have sample size <span class="math notranslate nohighlight">\(n=200\)</span></p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rVp.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rVp.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rVp.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rVp.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rVp.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rVp.png" style="width: 80%;" />
+</a>
 <p>The red oval captures the shape of the dot cloud; an elongated shape is a stronger correlation and greater effect size.</p>
 <p>Nonetheless, for a given effect size, the correlation is less <em>convincing</em> for small <span class="math notranslate nohighlight">\(n\)</span> - this is reflected in the statistical significance (<span class="math notranslate nohighlight">\(p\)</span> values).</p>
 <section id="statistical-significance-of-r">
@@ -635,7 +637,8 @@ document.write(`
 <section id="what-counts-as-a-large-effect">
 <h3>What counts as a large effect<a class="headerlink" href="#what-counts-as-a-large-effect" title="Link to this heading">#</a></h3>
 <p>Wikipedia tells me that <span class="math notranslate nohighlight">\(r\)</span> values of 0.1, 0.3 and 0.5 are considered small, medium and large respectively</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_effectsize_r.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_effectsize_r.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_effectsize_r.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_effectsize_r.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_effectsize_r.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_effectsize_r.png" style="width: 80%;" />
+</a>
 <p>… but bear in mind this is just a rule of thumb.</p>
 </section>
 </section>

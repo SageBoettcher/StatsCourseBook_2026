@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -617,7 +617,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ \bar{x} = \frac{\sum{x_i}}{n} \]</div>
 <p>Here is an example where <span class="math notranslate nohighlight">\(x_{1:7}\)</span> are the heights of 7 people:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_mean.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_mean.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_mean.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_mean.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_mean.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_mean.png" style="width: 30%;" />
+</a>
 <p>When visualized in this way, we can see a key property of the mean: the mean value, <span class="math notranslate nohighlight">\(\bar{x}\)</span>, is a kind of “typical person” such that the mean height of a group of <span class="math notranslate nohighlight">\(n\)</span> people is the same as <span class="math notranslate nohighlight">\(n\)</span> times the “typical person’s” height, <span class="math notranslate nohighlight">\(n \bar{x}\)</span>.</p>
 <p>This property of the mean implies that the mean tells us about the average or total value of a measurement for a large sample - for example, as described in the video above, if we know the mean length of a car, we can use this to predict the total length of a line of 100 cars. <em>The median does not share this property</em></p>
 </section>
@@ -634,14 +635,16 @@ document.write(`
 </ul>
 <p>The median is the value which half of measurements lie above, and half below. For example if a child’s performance on a school exam is near the median for her class, this means roughly half the children in the child’s class had higher scores than she did, and half had lower scores.</p>
 <p>The median cannot be used to make predictions about the total measurement for a large group (for example, the length of a row of 100 cars) because, whilst the median is the middle value, other values may not be symmetrically distributed about the median.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMean.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMean.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMean.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMean.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMean.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMean.png" style="width: 75%;" />
+</a>
 <p>In a row of 100 vehicles as in the example above, there are equally many vehicles below the median length as above, but the very long vehicles (cars towing caravans etc) are not balanced out by equally extreme short vehicles - so the row of 100 vehicles will be more than 100x the median vehicle length.</p>
 <section id="centiles">
 <h3>Centiles<a class="headerlink" href="#centiles" title="Link to this heading">#</a></h3>
 <p>A generalization of the median is the idea of <strong>centiles of a distribution</strong> - for example the 90th centile is a value exceeded by only 10% of measurements. This is easily interpreted: if a child’s height is ‘on the 90th centile’ that means that they are taller than 90% of children their age, and will look tall in a crowd of same-age children.</p>
 <p>Centiles, including the median, are therefore useful for telling us rather directly where an individual datapoint stands in relation to a distribution.</p>
 <p>Relatedly, centiles including the median can be used determining values that ‘cut-off’ a certain percentage of individuals - for example what percentage of people earn over £100,000 per year, or how long would a parking space need to be to accommodate 99% of cars?</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMedian.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMedian.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMedian.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMedian.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMedian.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PropertiesMedian.png" style="width: 75%;" />
+</a>
 </section>
 </section>
 <section id="mode">
@@ -651,11 +654,13 @@ document.write(`
 <ol class="arabic simple">
 <li><p>For categorical variables - for example asking which party received the most votes in an election, or which type of pet is most popular. For categorical variables, the mean and median don’t really apply</p></li>
 </ol>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_FavPet.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_FavPet.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_FavPet.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_FavPet.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_FavPet.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_FavPet.png" style="width: 50%;" />
+</a>
 <ol class="arabic simple" start="2">
 <li><p>Describing the shape of a distribution - for example, in pre-industrial times, the distribution of “age at death” distribution had multiple modes, reflecting different causes of death.</p></li>
 </ol>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_multimodal.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_multimodal.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_multimodal.png" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_multimodal.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_multimodal.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_multimodal.png" style="width: 60%;" />
+</a>
 </section>
 </section>
 

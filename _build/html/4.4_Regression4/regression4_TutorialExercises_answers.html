@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -650,7 +650,8 @@ document.write(`
 <p>The participants were shown a graph showing the general trend in inequality (group 1) and a graph about increasing numbers in poverty (group 2), or a graph about GDP (the control group).</p>
 <p>These data were collected online by the polling company YouGov. The sample is intended to be representative of the UK adult population.</p>
 <p>These were the ‘primes’ that were shown to the participants:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/regression4_primes.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/regression4_primes.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/regression4_primes.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/regression4_primes.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/regression4_primes.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/regression4_primes.png" style="width: 80%;" />
+</a>
 <p>In this tutorial we will analyze the effect of the primes on people’s perception of their position in society</p>
 <section id="set-up-python-libraries">
 <h2>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
@@ -658,13 +659,13 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> 
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 </pre></div>
 </div>
 </div>
@@ -902,10 +903,10 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   13.94</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Wed, 05 Feb 2025</td> <th>  Prob (F-statistic):</th> <td>9.75e-07</td>
+  <th>Date:</th>             <td>Tue, 16 Sep 2025</td> <th>  Prob (F-statistic):</th> <td>9.75e-07</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>10:32:05</td>     <th>  Log-Likelihood:    </th> <td> -3794.4</td>
+  <th>Time:</th>                 <td>15:59:36</td>     <th>  Log-Likelihood:    </th> <td> -3794.4</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1932</td>      <th>  AIC:               </th> <td>   7595.</td>
@@ -976,10 +977,10 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   95.51</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Wed, 05 Feb 2025</td> <th>  Prob (F-statistic):</th> <td>4.62e-90</td>
+  <th>Date:</th>             <td>Tue, 16 Sep 2025</td> <th>  Prob (F-statistic):</th> <td>4.62e-90</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>10:32:05</td>     <th>  Log-Likelihood:    </th> <td> -3594.3</td>
+  <th>Time:</th>                 <td>15:59:36</td>     <th>  Log-Likelihood:    </th> <td> -3594.3</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1932</td>      <th>  AIC:               </th> <td>   7201.</td>
@@ -1048,7 +1049,7 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;ladder&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/74cc361a37d2fa9b7eba03ae16b1daa3d3825557f4bddd1f2e3f0d67ce997619.png" src="../_images/74cc361a37d2fa9b7eba03ae16b1daa3d3825557f4bddd1f2e3f0d67ce997619.png" />
+<img alt="../_images/797509940a8e6b1f510589adf5d3a2ca0b2647875f02336e0537a19ae5ca2455.png" src="../_images/797509940a8e6b1f510589adf5d3a2ca0b2647875f02336e0537a19ae5ca2455.png" />
 </div>
 </div>
 <p>Do you think the normality assumption has been met?</p>
@@ -1069,7 +1070,7 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KruskalResult(statistic=30.173274271348717, pvalue=2.8051542127865784e-07)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KruskalResult(statistic=np.float64(30.173274271348717), pvalue=np.float64(2.8051542127865784e-07))
 </pre></div>
 </div>
 </div>
@@ -1106,7 +1107,7 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/ft/hqqrzz3d29xfyct7ct4630x00000gt/T/ipykernel_48799/1113143029.py:6: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;under 30&#39; has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_28853/1113143029.py:6: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;under 30&#39; has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
   data.loc[data[&#39;age&#39;].isin(range(0, 30)), &#39;age4&#39;] = &quot;under 30&quot;
 </pre></div>
 </div>
@@ -1248,6 +1249,9 @@ age4          3.0   114.285700  38.095233  13.026023  2.012164e-08
 Residual   1926.0  5632.680172   2.924548        NaN           NaN
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1293,7 +1297,7 @@ Residual        1920.0  5622.002386   2.928126        NaN           NaN
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;age4&#39;, ylabel=&#39;ladder&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/34c5efd265395309de55ea0792a2f06634ed3ce9e086978a0f6f100a4c0fdebd.png" src="../_images/34c5efd265395309de55ea0792a2f06634ed3ce9e086978a0f6f100a4c0fdebd.png" />
+<img alt="../_images/51a063212a82b785a2f1fb5f0924a4f843436257d9d8ace3adc58f7c984cdfab.png" src="../_images/51a063212a82b785a2f1fb5f0924a4f843436257d9d8ace3adc58f7c984cdfab.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1328,7 +1332,7 @@ Residual    1924.0  4505.993641    2.341993         NaN           NaN
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;age4&#39;, ylabel=&#39;ladder&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/dda352a1547a405968dc691c48e12889ca7263bad4fb0bae969507afabfea06a.png" src="../_images/dda352a1547a405968dc691c48e12889ca7263bad4fb0bae969507afabfea06a.png" />
+<img alt="../_images/fdec7e972da6c9341814c9257ee2ab086985f3c573ad37bc0a13910a384aeeee.png" src="../_images/fdec7e972da6c9341814c9257ee2ab086985f3c573ad37bc0a13910a384aeeee.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1339,10 +1343,10 @@ Residual    1924.0  4505.993641    2.341993         NaN           NaN
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x17f9b0590&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x16a6cb0d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/7b064153dcd9abc98dc59ce3c36cf373a436ca8affae615ead4401f5c9b0ec02.png" src="../_images/7b064153dcd9abc98dc59ce3c36cf373a436ca8affae615ead4401f5c9b0ec02.png" />
+<img alt="../_images/03d79c80067627eff355d05d42fb690db42258d911aa001b4b2c04bde838e70f.png" src="../_images/03d79c80067627eff355d05d42fb690db42258d911aa001b4b2c04bde838e70f.png" />
 </div>
 </div>
 </section>

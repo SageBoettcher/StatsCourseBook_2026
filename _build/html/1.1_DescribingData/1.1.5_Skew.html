@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -601,7 +601,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="skew">
 <h1><span class="section-number">1.5. </span>Skew<a class="headerlink" href="#skew" title="Link to this heading">#</a></h1>
 <p>Data distributions are said to be <strong>skewed</strong> when there is a long tail of values to one side of the peak:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_Skew.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_Skew.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_Skew.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_Skew.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_Skew.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_Skew.png" style="width: 80%;" />
+</a>
 <p>When a distribution is symmetrical (no skew), the mean, median and mode tend to coincide (fall on top of each other).</p>
 <p>However, when a distribution has positive skew (a long tail of high values) the mean is dragged up above the median, and conversely when a distribution has negative skew (a long tail of low values) the mean is dragged down below the median.</p>
 <p>To work out whether a dataset is skewed or symmetrical, we would need to plot the data (usually in a histogram). More on plotting in the next chapter.</p>
@@ -609,14 +610,16 @@ document.write(`
 <h2><span class="section-number">1.5.1. </span>Boundaries can cause skew<a class="headerlink" href="#boundaries-can-cause-skew" title="Link to this heading">#</a></h2>
 <p>Skew often arises in cases where there is a natural boundary to the range of possible data values.</p>
 <p>For example, the distribution of income is highy positively skewed.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PosSkew.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PosSkew.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PosSkew.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PosSkew.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PosSkew.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_PosSkew.png" style="width: 80%;" />
+</a>
 <ul class="simple">
 <li><p>The median income is around £26,000.</p></li>
 <li><p>Nobody’s income can be more than £26,000 <em>below</em> the median income (as you can’t earn less than £0)</p></li>
 <li><p>However some people do earn much more than £26,000 creating a long tail of high incomes</p></li>
 </ul>
 <p>Similarly, the distribution of age at death in modern times is negatively skewed.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_NegSkew.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_NegSkew.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_NegSkew.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_NegSkew.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_NegSkew.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_NegSkew.png" style="width: 80%;" />
+</a>
 <ul class="simple">
 <li><p>the median age at death in the UK is 78</p></li>
 <li><p>a lifespan could be 78 years shorter than the median (if someone sadly died as a baby)</p></li>

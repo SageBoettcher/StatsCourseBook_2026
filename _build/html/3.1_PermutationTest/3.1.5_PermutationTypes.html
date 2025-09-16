@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -638,7 +638,8 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>: Mean height of men &gt; mean height of women</p></li>
 </ul>
 <p>Under the null hypothesis, each brother is equally likely to be taller or shorter than <em>his own sister</em>. Our test statistic is now the <em>mean difference</em> in height between each brother and his sister; this is not the same as the difference of means, because the difference between a brother and his own sister is more consistent than the difference between a man and a randomly chosen unrelated woman:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_diffMeans.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_diffMeans.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_diffMeans.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_diffMeans.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_diffMeans.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_diffMeans.png" style="width: 80%;" />
+</a>
 <p>If the null hypothesis were true, the mean difference between each brother and his sister would have to have arisen by chance because the taller person in each family just happened to be the brother. In that case the difference could just as well have arisen from assigning the labels ‘brother’ and ‘sister’ randomly without each family regardless of each person’s actual sex.</p>
 <p>Using the computer, we can actually do this repeatedly to find the null distribution - randomly flipping the labels ‘brother’ and ‘sister’ (or not flipping them) in each family.</p>
 <p>In shuffled data we <strong>retain features of the dataset that are independent of sex</strong>:</p>
@@ -651,7 +652,8 @@ document.write(`
 <ul class="simple">
 <li><p>randomly allocate the labels ‘Male’ and ‘Female’ <strong>within each family</strong></p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_PermPaired.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_PermPaired.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_PermPaired.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_PermPaired.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_PermPaired.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_PermPaired.png" style="width: 80%;" />
+</a>
 <p>Note in the shuffled datasets that the correlation (effect of family) is retained but the data now lie around the line <span class="math notranslate nohighlight">\(x=y\)</span> (shown in red), whereas previously most of the data lay on one side of the line <span class="math notranslate nohighlight">\(x=y\)</span> indicating that brothers were consistently taller than their sisters. The final permutation (highlighted in red) breaks the family structure (<strong>not</strong> correct in this case - hopefuly you can see why from the figure).</p>
 </section>
 <section id="paired-samples-correlation">
@@ -676,7 +678,8 @@ document.write(`
 <ul class="simple">
 <li><p>tall brothers have tall sisters</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_correlation.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_correlation.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_correlation.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_correlation.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_correlation.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_correlation.png" style="width: 80%;" />
+</a>
 <p>Note in the shuffled datasets that the correlation is lost, meaning the shuffled datasets are not ‘stretched out’ along the line <span class="math notranslate nohighlight">\(x=y\)</span> (shown in red). However, as in the original dataset, the shuffled datapoints mostly lie on one side of the line <span class="math notranslate nohighlight">\(x=y\)</span> indicating that brothers are (still) consistently taller than their sisters, because we didn’t ‘flip’ anyone’s sex in the shuffling process.</p>
 </section>
 </section>

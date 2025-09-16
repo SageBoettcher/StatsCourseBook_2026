@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -607,14 +607,16 @@ document.write(`
 </ul>
 <p>The above is a <strong>one-tailed test</strong> because the alternative hypothesis specifies the direction of the effect of interest. In this case we have a strong expectation that men are taller than women.</p>
 <p>In terms of the null distribution, this means we will consider our observed difference of means significant if it falls <strong>in one of the tails</strong> of the null distribution (the tail containing cases where the mean height of men is much <strong>greater</strong> than the mean height of women; specifically if <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> then the ‘tail’ contains the top 5% of values for the difference of means in shuffled data):</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_righttail.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_righttail.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_righttail.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_righttail.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_righttail.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_righttail.png" style="width: 80%;" />
+</a>
 <p>We could have stated an alternative hypothesis proposing the opposite direction of effect:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: Mean height of men = mean height of women</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>: Mean height of men &lt; mean height of women</p></li>
 </ul>
 <p>… in which case we would have considered the result significant only if it fell in the <strong>other tail</strong> (the tail containing cases where the mean height of men is much <strong>less</strong> than the mean height of women):</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_wrongtail.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_wrongtail.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_wrongtail.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_wrongtail.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_wrongtail.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_wrongtail.png" style="width: 80%;" />
+</a>
 <section id="two-tailed-test">
 <h2><span class="section-number">1.4.1. </span>Two tailed test<a class="headerlink" href="#two-tailed-test" title="Link to this heading">#</a></h2>
 <p>In some cases, we may wish to remain neutral about the direction of the expected effect; in this case we specify a two-tailed alternative hypothesis:</p>
@@ -625,9 +627,11 @@ document.write(`
 <p><em>note</em> the symbols <code class="docutils literal notranslate"><span class="pre">~=</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> simply mean ‘is not equal to’</p>
 <p>In the case of men’s vs. women’s heights this may seem odd (since we know from experience that men are taller than women). However there are many scenarios in which we wouldn’t have a strong expectation about the direction of the effect - for example, if we compared the heights of Psychology and Biomedical Sciences students.</p>
 <p>When we run a two-tailed test, we would consider our result (difference of means) significant if it fell in <em>either tail</em> of the null distribution. This means that we need to set the cut-off value for significance such that the area <em>in both tails</em> adds up to the <span class="math notranslate nohighlight">\(\alpha\)</span> value; so if we are testing at the 5% level, <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span>, the cutoff value in each tail needs to be such that each of the tails contains 2.5% of cases:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailSchematic.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailSchematic.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailSchematic.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailSchematic.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailSchematic.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailSchematic.png" style="width: 80%;" />
+</a>
 <p>This means that the difference of means needed to achieve statstical significance in a two-tailed test is higher or <em>more stringent</em> than for a one-tailed test. In our height example, the result would be significant for a one-tailed test but not a two-tailed test:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailedCutOff.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailedCutOff.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailedCutOff.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailedCutOff.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailedCutOff.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_OneTwoTailedCutOff.png" style="width: 80%;" />
+</a>
 <p>For this reason it may be tempting to “cheat” and claim that you had a hypothesis beforehand about the direction of the effect (when you really didn’t), but to do so would, of course, not be statistically valid.</p>
 </section>
 <section id="python">

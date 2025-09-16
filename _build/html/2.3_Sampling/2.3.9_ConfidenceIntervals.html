@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -655,15 +655,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -692,7 +692,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>104.6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(104.6)
 </pre></div>
 </div>
 </div>
@@ -708,7 +708,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.366319559953567
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(11.366319559953567)
 </pre></div>
 </div>
 </div>
@@ -725,7 +725,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\mu \sim \mathcal{N}(104.6, \frac{11.4}{\sqrt{60}}) \]</div>
 <p>Thinking about this visually we have the following…</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png" style="width: 80%;" />
+</a>
 <p>Note that the likelihood that <span class="math notranslate nohighlight">\(\mu \leq 100\)</span> is worked out from the likelihood distribution based on the sample (red curve).</p>
 <p>I also show the true sampling distribution fo the mean for lots of samples from the parent population (grey histogram) for comparison - note that if we had used a different sample, with a different value of <span class="math notranslate nohighlight">\(m\)</span>&lt;, we would get a different estimate of the probability that <span class="math notranslate nohighlight">\(\mu \leq 100\)</span></p>
 <section id="calculation-with-stats-norm-cdf">
@@ -741,7 +742,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0859777089110048
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.08597770891100479)
 </pre></div>
 </div>
 </div>
@@ -770,7 +771,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5111b9af57b425588457d9a9f010a87931664b9d5d763541091562cdfe7a703c.png" src="../_images/5111b9af57b425588457d9a9f010a87931664b9d5d763541091562cdfe7a703c.png" />
+<img alt="../_images/eb256d72611d325ab0a68b5deb2d70976bbeceff094de085d9ef6ecefc0f4c06.png" src="../_images/eb256d72611d325ab0a68b5deb2d70976bbeceff094de085d9ef6ecefc0f4c06.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -792,7 +793,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0062
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0053)
 </pre></div>
 </div>
 </div>
@@ -803,7 +804,8 @@ document.write(`
 <section id="id1">
 <h2><span class="section-number">3.9.4. </span>Confidence intervals<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>The 95% confidence interval is the interval of the likelihood distribution that contains 95% of the area under the curve:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png" style="width: 80%;" />
+</a>
 <p>Therefore, a 95% confidence interval is an interval around a sample mean with a width such that for a single 95% confidence interval computed on a single sample, we (the researcher) have 95% confidence that that interval contains <span class="math notranslate nohighlight">\(\mu\)</span>, the true mean of the parent population</p>
 <p>Another way of thinking about this is that:</p>
 <ul class="simple">
@@ -818,13 +820,15 @@ document.write(`
 <ul class="simple">
 <li><p>note that <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(s\)</span> are different in each of the 100 samples</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png" style="width: 80%;" />
+</a>
 <p>You can see that the position and width of the 95% CIs varies from sample to sample</p>
 <p>However, if I put the samples in order (from lowest sample mean to highest) you can see that indeed, the 95% CI does contain the true population mean <span class="math notranslate nohighlight">\(\mu\)</span> in about 95/100 cases - actually 96/100 as this is ia random simulation</p>
 <ul class="simple">
 <li><p>just a reminder that the population mean <span class="math notranslate nohighlight">\(\mu\)</span> is the mean IQ <em>of A-level maths students</em>, <strong>not</strong> the general-population mean of 100)</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png" style="width: 80%;" />
+</a>
 <section id="the-magical-z-1-96">
 <h3>The magical <span class="math notranslate nohighlight">\(Z=1.96\)</span><a class="headerlink" href="#the-magical-z-1-96" title="Link to this heading">#</a></h3>
 <p>For a normally distributed variable:</p>
@@ -837,7 +841,8 @@ document.write(`
 <ul class="simple">
 <li><p>Remember the rule of thumb for the normal distribution:</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_ruleofthumb.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_ruleofthumb.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_ruleofthumb.png" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_ruleofthumb.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_ruleofthumb.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_ruleofthumb.png" style="width: 60%;" />
+</a>
 </section>
 <section id="ci-for-maths-iq">
 <h3>95% CI for maths IQ<a class="headerlink" href="#ci-for-maths-iq" title="Link to this heading">#</a></h3>

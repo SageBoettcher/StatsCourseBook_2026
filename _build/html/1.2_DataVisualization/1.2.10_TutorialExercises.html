@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -641,14 +641,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 </pre></div>
 </div>
 </div>
@@ -656,7 +656,8 @@ document.write(`
 <section id="titanic-data">
 <h2><span class="section-number">2.9.1. </span>1. Titanic Data<a class="headerlink" href="#titanic-data" title="Link to this heading">#</a></h2>
 <p>The Titanic dataset contains information on 891 passengers from the Titanic.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/titanic.jpg"><img alt="Picture of the Titanic" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/titanic.jpg" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/titanic.jpg"><img alt="Picture of the Titanic" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/titanic.jpg" style="width: 50%;" />
+</a>
 <p>This is actually a popular dataset for people starting out with machine learning - the task is to build a model to predict who survived (you may like to try this yourself after commpleting the session on Logistic Regression after Easter).</p>
 <p>For now let’s use some plot to look at the factors affecting survival.</p>
 <p>The dataset contains the following information on each passenger:</p>
@@ -977,7 +978,8 @@ document.write(`
 <section id="penguin-data">
 <h2><span class="section-number">2.9.2. </span>2. Penguin data<a class="headerlink" href="#penguin-data" title="Link to this heading">#</a></h2>
 <p>How can we recognise penguins of different species? Let’s look at the Palmer Penguins dataset which contains data on penguins from three species (Artwork by &#64;allison_horst):</p>
-<a class="reference internal image-reference" href="../_images/MT_wk2_penguins.png"><img alt="../_images/MT_wk2_penguins.png" src="../_images/MT_wk2_penguins.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="../_images/MT_wk2_penguins.png"><img alt="../_images/MT_wk2_penguins.png" src="../_images/MT_wk2_penguins.png" style="width: 50%;" />
+</a>
 <p>We can see that they differ in the shape of their bills, and their size.</p>
 <p>Let’s load the data</p>
 <div class="cell docutils container">
@@ -1181,14 +1183,16 @@ document.write(`
 <p>I mentioned that Seaborn was built by a neuroscientist, Michael Waskom, and a couple of the example datasets are from neuroscience.</p>
 <p>Here we explore the <tt>dots</tt> dataset, from a study by <a href="https://pubmed.ncbi.nlm.nih.gov/12417672/">Roitman and Shadlen (2002)</a>. This study contains firing rates over time from neurons in the parietal cortex of a monkey performing a perceptual decision-making task.</p>
 <p>In the task, the monkey observes a <em>random dot kinematogram</em> - a stimulus containing dots that mainly move about at random. A small proportion of dots move <strong>coherently</strong> upwards of downwards.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif" style="width: 25%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif" style="width: 25%;" />
+</a>
 <p>The monkey’s task is to indicate the direction in which the dots are moving - instead of pressing a button, the monkey moves its gaze to one of two targets on the screen:</p>
 <ul class="simple">
 <li><p>up = move eyes to target T1</p></li>
 <li><p>down = move gaze to target T2</p></li>
 </ul>
 <p>The explanation for this dataset is somewhat involved (although PPL and BMS students will in fact cover this study in lectures after Christmas) but it may be helpful to see the following figure, which is what we are eventually aiming for:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png" style="width: 75%;" />
+</a>
 <p><strong>We are going to try and reproduce this figure</strong></p>
 <p>Let’s start by loading the data and plotting the timeseries:</p>
 <div class="cell docutils container">

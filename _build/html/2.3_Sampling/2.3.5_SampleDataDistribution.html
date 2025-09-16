@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -642,15 +642,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -767,7 +767,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a47163e1c385e39ce24ed0fd8b021bb293a39d45240dec593c699cc35a7c00f6.png" src="../_images/a47163e1c385e39ce24ed0fd8b021bb293a39d45240dec593c699cc35a7c00f6.png" />
+<img alt="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" src="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" />
 </div>
 </div>
 <p>The dataset (10,000 responses) is large enough that we can assume the distribution is quite representative of the populationa as a whole.</p>
@@ -809,29 +809,29 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>5744</th>
-      <td>198240</td>
-      <td>18</td>
+      <th>8138</th>
+      <td>101050</td>
+      <td>87</td>
     </tr>
     <tr>
-      <th>5091</th>
-      <td>101040</td>
-      <td>42</td>
+      <th>212</th>
+      <td>372310</td>
+      <td>50</td>
     </tr>
     <tr>
-      <th>4917</th>
-      <td>683500</td>
-      <td>75</td>
+      <th>7328</th>
+      <td>931180</td>
+      <td>89</td>
     </tr>
     <tr>
-      <th>4945</th>
-      <td>659520</td>
-      <td>80</td>
+      <th>3729</th>
+      <td>253480</td>
+      <td>15</td>
     </tr>
     <tr>
-      <th>5542</th>
-      <td>609060</td>
-      <td>11</td>
+      <th>0</th>
+      <td>186640</td>
+      <td>53</td>
     </tr>
     <tr>
       <th>...</th>
@@ -839,29 +839,29 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>6683</th>
-      <td>879270</td>
-      <td>40</td>
+      <th>6398</th>
+      <td>525960</td>
+      <td>43</td>
     </tr>
     <tr>
-      <th>9961</th>
-      <td>647800</td>
-      <td>73</td>
+      <th>2949</th>
+      <td>398540</td>
+      <td>28</td>
     </tr>
     <tr>
-      <th>2323</th>
-      <td>444300</td>
-      <td>54</td>
+      <th>6454</th>
+      <td>287460</td>
+      <td>79</td>
     </tr>
     <tr>
-      <th>7092</th>
-      <td>766320</td>
-      <td>41</td>
+      <th>1706</th>
+      <td>266560</td>
+      <td>33</td>
     </tr>
     <tr>
-      <th>7386</th>
-      <td>358190</td>
-      <td>17</td>
+      <th>100</th>
+      <td>919120</td>
+      <td>94</td>
     </tr>
   </tbody>
 </table>
@@ -887,7 +887,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1b7848d0cf7d1d6bacbc0ea27856045984d7e1c145413a5fb9197396807cd7b4.png" src="../_images/1b7848d0cf7d1d6bacbc0ea27856045984d7e1c145413a5fb9197396807cd7b4.png" />
+<img alt="../_images/a7c4dbc4745337d46353792402ab5e31e28b9ab06b2d174eb455f5615095c6eb.png" src="../_images/a7c4dbc4745337d46353792402ab5e31e28b9ab06b2d174eb455f5615095c6eb.png" />
 </div>
 </div>
 <p>Hopefully we can see that the distribution within the sample resembles the shape of the distribution in the national sample, with two peaks, although somewhat noisier</p>
@@ -906,7 +906,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8624193e9f0e53a434ea6e59242c994f6f5b60b43ba55f0b3cc6d962a83a03ac.png" src="../_images/8624193e9f0e53a434ea6e59242c994f6f5b60b43ba55f0b3cc6d962a83a03ac.png" />
+<img alt="../_images/5745308d877751194faf006c7851de6b11f8426ed547241cdbf01cbda7ef810a.png" src="../_images/5745308d877751194faf006c7851de6b11f8426ed547241cdbf01cbda7ef810a.png" />
 </div>
 </div>
 <p>Notice that we always manage to reproduce the bimodal shape, albeit with random variability.</p>
@@ -928,7 +928,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e020659caae787ecac15484d488bef9a4823890d17d0c8596279c8866f925a57.png" src="../_images/e020659caae787ecac15484d488bef9a4823890d17d0c8596279c8866f925a57.png" />
+<img alt="../_images/d7a5ac75838f40814b74753769a7878cc699e92013067639ceb9c93cb949c700.png" src="../_images/d7a5ac75838f40814b74753769a7878cc699e92013067639ceb9c93cb949c700.png" />
 </div>
 </div>
 <p>You can see two things:</p>
@@ -959,7 +959,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5f4868c4f7db456ed867bb5a5df96faa1a2a0a06623da7f2a5151e15eec970c5.png" src="../_images/5f4868c4f7db456ed867bb5a5df96faa1a2a0a06623da7f2a5151e15eec970c5.png" />
+<img alt="../_images/e2ec0125f1b574170a2bcb9f2dd6c8d2fb1f86d06d36ff70cb6d56dbece97a2e.png" src="../_images/e2ec0125f1b574170a2bcb9f2dd6c8d2fb1f86d06d36ff70cb6d56dbece97a2e.png" />
 </div>
 </div>
 </section>

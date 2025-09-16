@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -641,15 +641,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -658,7 +658,8 @@ document.write(`
 <section id="titanic-data">
 <h2>1. Titanic Data<a class="headerlink" href="#titanic-data" title="Link to this heading">#</a></h2>
 <p>The Titanic dataset contains information on 891 passengers from the Titanic.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/titanic.jpg"><img alt="Picture of the Titanic" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/titanic.jpg" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/titanic.jpg"><img alt="Picture of the Titanic" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/titanic.jpg" style="width: 50%;" />
+</a>
 <p>This is actually a popular dataset for people starting out with machine learning - the task is to build a model to predict who survived (you may like to try this yourself after commpleting the session on Logistic Regression after Easter).</p>
 <p>For now let’s use some plot to look at the factors affecting survival.</p>
 <p>The dataset contains the following information on each passenger:</p>
@@ -936,7 +937,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6dc893cb945a515aaee17dcb5fe74b13c6437c5faa125ce63432b34aaf618368.png" src="../_images/6dc893cb945a515aaee17dcb5fe74b13c6437c5faa125ce63432b34aaf618368.png" />
+<img alt="../_images/4f558f326eeb4c1414f60eca771b1c87d59bbe0695b8ef3f2e1df46607d9f7de.png" src="../_images/4f558f326eeb4c1414f60eca771b1c87d59bbe0695b8ef3f2e1df46607d9f7de.png" />
 </div>
 </div>
 <p><strong>b. What was the age distribution in each class?</strong></p>
@@ -957,7 +958,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a271dfef950175e3e39e29cb33506423b84997fd1f43636fec82be66899edbba.png" src="../_images/a271dfef950175e3e39e29cb33506423b84997fd1f43636fec82be66899edbba.png" />
+<img alt="../_images/8b6d65f5a8ceadb5364a8f0fb086020411141fb3cd48c8a8e36752f7e7dc65e3.png" src="../_images/8b6d65f5a8ceadb5364a8f0fb086020411141fb3cd48c8a8e36752f7e7dc65e3.png" />
 </div>
 </div>
 <font color='red'>
@@ -988,7 +989,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cbb836888446038e48da77f6a0fa275ab3640e464aff4869be8515d4c6d99da0.png" src="../_images/cbb836888446038e48da77f6a0fa275ab3640e464aff4869be8515d4c6d99da0.png" />
+<img alt="../_images/b0100453d3613531245c9477d9fa2417e6f6938371ac00ce85d59045df18f847.png" src="../_images/b0100453d3613531245c9477d9fa2417e6f6938371ac00ce85d59045df18f847.png" />
 </div>
 </div>
 <font color='red'>
@@ -1018,7 +1019,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b2919af536b9a72ac827373b6685dc2db7ca17833616fe6b8dcfb20e81c94ac7.png" src="../_images/b2919af536b9a72ac827373b6685dc2db7ca17833616fe6b8dcfb20e81c94ac7.png" />
+<img alt="../_images/acf051ff61a9dba57304868c4e8251092a4d101d24cb786cb936e04c534e8a8e.png" src="../_images/acf051ff61a9dba57304868c4e8251092a4d101d24cb786cb936e04c534e8a8e.png" />
 </div>
 </div>
 <font color='red'>
@@ -1048,7 +1049,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dabf07875d9d18a36dda814136f54b1b9d27ad7668f16197deb61f670c0e7e13.png" src="../_images/dabf07875d9d18a36dda814136f54b1b9d27ad7668f16197deb61f670c0e7e13.png" />
+<img alt="../_images/8e9c1c79e7f7df03850a7bd45a5a105dac98e1b24f56ce3ccd06ed88a9eb197a.png" src="../_images/8e9c1c79e7f7df03850a7bd45a5a105dac98e1b24f56ce3ccd06ed88a9eb197a.png" />
 </div>
 </div>
 <font color='red'>
@@ -1058,7 +1059,8 @@ document.write(`
 <section id="penguin-data">
 <h2>2. Penguin data<a class="headerlink" href="#penguin-data" title="Link to this heading">#</a></h2>
 <p>How can we recognise penguins of different species? Let’s look at the Palmer Penguins dataset which contains data on penguins from three species (Artwork by &#64;allison_horst):</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/master/images/MT_wk2_penguins.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/master/images/MT_wk2_penguins.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/master/images/MT_wk2_penguins.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/master/images/MT_wk2_penguins.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/master/images/MT_wk2_penguins.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/master/images/MT_wk2_penguins.png" style="width: 50%;" />
+</a>
 <p>We can see that they differ in the shape of their bills, and their size.</p>
 <p>Let’s load the data</p>
 <div class="cell docutils container">
@@ -1229,8 +1231,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b7681eee99dc26e797bde2e81d9f3645e6c46d8a79a30c857218e7098366966e.png" src="../_images/b7681eee99dc26e797bde2e81d9f3645e6c46d8a79a30c857218e7098366966e.png" />
-<img alt="../_images/f222e34285789b73759a1f98556bf8c4c32ed2ac718c7de2a9d474794e69fe85.png" src="../_images/f222e34285789b73759a1f98556bf8c4c32ed2ac718c7de2a9d474794e69fe85.png" />
+<img alt="../_images/8274987ad190b91abdb2ebadfee9307f7c37e9dfe222374ff123003a0d326c80.png" src="../_images/8274987ad190b91abdb2ebadfee9307f7c37e9dfe222374ff123003a0d326c80.png" />
+<img alt="../_images/1cbab60dda1439dbc14769e0578ebced1679cf0abf5ddec5d5d62a85794bd817.png" src="../_images/1cbab60dda1439dbc14769e0578ebced1679cf0abf5ddec5d5d62a85794bd817.png" />
 </div>
 </div>
 <font color='red'>
@@ -1250,7 +1252,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4427fee81927ada53aae985898569f2e86c0117ad04601fa11903fa1985158b3.png" src="../_images/4427fee81927ada53aae985898569f2e86c0117ad04601fa11903fa1985158b3.png" />
+<img alt="../_images/f66a5bdd8bb0dd865637435d12af0b9f755ead457081e8fb22d389904034a119.png" src="../_images/f66a5bdd8bb0dd865637435d12af0b9f755ead457081e8fb22d389904034a119.png" />
 </div>
 </div>
 <p>Looks like</p>
@@ -1268,7 +1270,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2220c77fd48496b79b66b5a17488247b267f654e7c4c33fb6ea89b4dee3a15d5.png" src="../_images/2220c77fd48496b79b66b5a17488247b267f654e7c4c33fb6ea89b4dee3a15d5.png" />
+<img alt="../_images/1c77204d27f98fa5869bccd9807a3e172c53009be817d89e181f6389ba8b9005.png" src="../_images/1c77204d27f98fa5869bccd9807a3e172c53009be817d89e181f6389ba8b9005.png" />
 </div>
 </div>
 <p>Do you notice some clusters in the plot? How could they be explained?</p>
@@ -1282,7 +1284,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0d9723d0b0249ea478948d95fd77d16dc5ecde8cb7cd8c06bd116818e865c32b.png" src="../_images/0d9723d0b0249ea478948d95fd77d16dc5ecde8cb7cd8c06bd116818e865c32b.png" />
+<img alt="../_images/6a08adcdd7aa1c1196ed8d694eebfdee086f88b453206fc3f162a76acd81fae5.png" src="../_images/6a08adcdd7aa1c1196ed8d694eebfdee086f88b453206fc3f162a76acd81fae5.png" />
 </div>
 </div>
 <font color='red'>
@@ -1298,14 +1300,16 @@ document.write(`
 <p>I mentioned that Seaborn was built by a neuroscientist, Michael Waskom, and a couple of the example datasets are from neuroscience.</p>
 <p>Here we explore the <tt>dots</tt> dataset, from a study by <a href="https://pubmed.ncbi.nlm.nih.gov/12417672/">Roitman and Shadlen (2002)</a>. This study contains firing rates over time from neurons in the parietal cortex of a monkey performing a perceptual decision-making task.</p>
 <p>In the task, the monkey observes a <em>random dot kinematogram</em> - a stimulus containing dots that mainly move about at random. A small proportion of dots move <strong>coherently</strong> towards the left or right (or in this case, upwards!).</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif" style="width: 25%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_RDKUP.gif" style="width: 25%;" />
+</a>
 <p>The monkey’s task is to indicate the direction in which the dots are moving - instead of pressing a button, the monkey moves its gaze to one of two targets on the screen:</p>
 <ul class="simple">
 <li><p>left = move eyes to target T1</p></li>
 <li><p>right = move gaze to target T2</p></li>
 </ul>
 <p>The explanation for this dataset is somewhat involved (although PPL and BMS students will in fact cover this study in lectures after Christmas) but it may be helpful to see the following figure, which is what we are eventually aiming for:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk2_cells.png" style="width: 75%;" />
+</a>
 <p><strong>We are going to try and reproduce this figure</strong></p>
 <p>Let’s start by loading the data and plotting the timeseries:</p>
 <div class="cell docutils container">
@@ -1458,7 +1462,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2a2c97bba0dd3134105d98a2daaad815ad2ae45f3961c672fbbe169e43bb8ebc.png" src="../_images/2a2c97bba0dd3134105d98a2daaad815ad2ae45f3961c672fbbe169e43bb8ebc.png" />
+<img alt="../_images/12ff2543a69d95fb6a02fd563ccf13df292e109998c448994feb1f8ebbdc76c0.png" src="../_images/12ff2543a69d95fb6a02fd563ccf13df292e109998c448994feb1f8ebbdc76c0.png" />
 </div>
 </div>
 <p>Time zero is the onset of the moving dots. We can see that firing rate initially dips, then rises over the course of several hundred milliseconds.</p>
@@ -1487,7 +1491,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/da11b5299baec75afb353c8f201b411b8f3c7097d0e713b13c17356e74762a7a.png" src="../_images/da11b5299baec75afb353c8f201b411b8f3c7097d0e713b13c17356e74762a7a.png" />
+<img alt="../_images/cc396c6267623edb290714fd50e86f7712d65cdd5a533d0bf8a985d2139f3122.png" src="../_images/cc396c6267623edb290714fd50e86f7712d65cdd5a533d0bf8a985d2139f3122.png" />
 </div>
 </div>
 <p>What do you see? Describe the graph in words.</p>
@@ -1515,7 +1519,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05ac617371f05c3c7cc67de4871b1da3a647cea33d910659dbff2506791aac5c.png" src="../_images/05ac617371f05c3c7cc67de4871b1da3a647cea33d910659dbff2506791aac5c.png" />
+<img alt="../_images/17e5e465d16f8023a2845e739daedd888d0fbed6458366cdfbe920212ec58ea0.png" src="../_images/17e5e465d16f8023a2845e739daedd888d0fbed6458366cdfbe920212ec58ea0.png" />
 </div>
 </div>
 <p><strong>NOTE</strong> the error bars have gone because there is only one trace for each coherence level x choice combination</p>
@@ -1531,7 +1535,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2b88367348c9bb2f16747c684fd85288f48dd8cefa76e8995e45ead9e738908e.png" src="../_images/2b88367348c9bb2f16747c684fd85288f48dd8cefa76e8995e45ead9e738908e.png" />
+<img alt="../_images/2abcf739f91ab1541eb0c508032689028e679a58a631c7ccd10b36b196cfdd43.png" src="../_images/2abcf739f91ab1541eb0c508032689028e679a58a631c7ccd10b36b196cfdd43.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1571,7 +1575,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a9784ae5dde9e6848db57ab9507e2dc5b7f4ab97375624c5f87f919a983be9de.png" src="../_images/a9784ae5dde9e6848db57ab9507e2dc5b7f4ab97375624c5f87f919a983be9de.png" />
+<img alt="../_images/d161b5794c55b0e177c4e935b36b75f5481eeb5fadb534dd4c4da122b9a2e28b.png" src="../_images/d161b5794c55b0e177c4e935b36b75f5481eeb5fadb534dd4c4da122b9a2e28b.png" />
 </div>
 </div>
 <p>Focussing on trials in which <tt>choice == T1</tt>, we see:</p>
@@ -1605,7 +1609,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0290515a0576e3ea686d02c6035716d65da872ab81d2e91373d73e19c02e7771.png" src="../_images/0290515a0576e3ea686d02c6035716d65da872ab81d2e91373d73e19c02e7771.png" />
+<img alt="../_images/b56116acc7b07b4ca2706614afce69c835c7fa3065e9459d88332bf43f913b3e.png" src="../_images/b56116acc7b07b4ca2706614afce69c835c7fa3065e9459d88332bf43f913b3e.png" />
 </div>
 </div>
 <p><strong>Note-</strong></p>

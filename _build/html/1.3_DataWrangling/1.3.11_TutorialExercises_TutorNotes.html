@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -716,15 +716,15 @@ system.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1156,7 +1156,7 @@ We notice that the maximum value for several variables is 99.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f0d95cea9f31f5b0d8ffaf9a0147d854f098653c3c2e23fb087fdf959c752ae4.png" src="../_images/f0d95cea9f31f5b0d8ffaf9a0147d854f098653c3c2e23fb087fdf959c752ae4.png" />
+<img alt="../_images/8b77e38849f58fbbfdab2673dbc92a6a9f1e7839130bdd51a99e0efdce74813c.png" src="../_images/8b77e38849f58fbbfdab2673dbc92a6a9f1e7839130bdd51a99e0efdce74813c.png" />
 </div>
 </div>
 <font color='red'>
@@ -1183,7 +1183,30 @@ OK it looks like 99 was a filler value for `DeprivationIndex`, `confpolice` and 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d600c33f9effb04a146d1bc4829bd3f0c7416ec846058b01f8dfccac4950f9a4.png" src="../_images/d600c33f9effb04a146d1bc4829bd3f0c7416ec846058b01f8dfccac4950f9a4.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">crime</span><span class="o">.</span><span class="n">DeprivationIndex</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">crime</span><span class="o">.</span><span class="n">confpolice</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">crime</span><span class="o">.</span><span class="n">antisoc</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+
+<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/numpy/__init__.py:400,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">__former_attrs__</span><span class="p">[</span><span class="n">attr</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">__expired_attributes__</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">400</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span>         <span class="sa">f</span><span class="s2">&quot;`np.</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">` was removed in the NumPy 2.0 release. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">__expired_attributes__</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span>         <span class="n">name</span><span class="o">=</span><span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">&quot;chararray&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span>         <span class="s2">&quot;`np.chararray` is deprecated and will be removed from &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span>         <span class="s2">&quot;the main namespace in the future. Use an array with a string &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span>         <span class="s2">&quot;or bytes dtype instead.&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: `np.NaN` was removed in the NumPy 2.0 release. Use `np.nan` instead.
+</pre></div>
+</div>
 </div>
 </div>
 <font color=red>
@@ -1458,7 +1481,7 @@ Name: ID, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ccca39da8ca91a893fe94fd5d9ca1af2069f903ffe509d35ebbf3d2aae7ab1a2.png" src="../_images/ccca39da8ca91a893fe94fd5d9ca1af2069f903ffe509d35ebbf3d2aae7ab1a2.png" />
+<img alt="../_images/da49473658e99edaf513afca759e969756987a929948b990beb25df25353ec5d.png" src="../_images/da49473658e99edaf513afca759e969756987a929948b990beb25df25353ec5d.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1560215053763441
 </pre></div>
 </div>
@@ -1613,7 +1636,7 @@ You may need to discuss the use of scientific notation with students, who might 
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID                     0
 Sex                    0
-Age                   31
+Age                    0
 AgeGroup               0
 EthnicGroup           13
 Education           1993
@@ -1678,7 +1701,7 @@ The most likely people to be victims of crime are young people, students, and th
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/242882e6ecb60383780391d9fb304a9846767b192b5cc4f672e8cb4a545bca74.png" src="../_images/242882e6ecb60383780391d9fb304a9846767b192b5cc4f672e8cb4a545bca74.png" />
+<img alt="../_images/2366b2a10e3f7496d949fe5598a995ae17a9868a29fb8db9df9e015c54825ebd.png" src="../_images/2366b2a10e3f7496d949fe5598a995ae17a9868a29fb8db9df9e015c54825ebd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1690,7 +1713,7 @@ The most likely people to be victims of crime are young people, students, and th
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9facf3403868d8b845fe158aef84ad9c705df96dcac4e39bc2431588d35168c8.png" src="../_images/9facf3403868d8b845fe158aef84ad9c705df96dcac4e39bc2431588d35168c8.png" />
+<img alt="../_images/088452c9cf080371a6095820f22a93e9bc36289296655067b48c83e9eb4e93c3.png" src="../_images/088452c9cf080371a6095820f22a93e9bc36289296655067b48c83e9eb4e93c3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1701,7 +1724,7 @@ The most likely people to be victims of crime are young people, students, and th
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8a46c377b75fa2bf666ed55414ecc932d6721cb6c45d394325ee61c2db12414a.png" src="../_images/8a46c377b75fa2bf666ed55414ecc932d6721cb6c45d394325ee61c2db12414a.png" />
+<img alt="../_images/916dd8efb8f709689de931e473b28138ce69a042019bd72eca977cce1cde3648.png" src="../_images/916dd8efb8f709689de931e473b28138ce69a042019bd72eca977cce1cde3648.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1712,7 +1735,7 @@ The most likely people to be victims of crime are young people, students, and th
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9404751dac1d9c8de62770d82838d2cd3bdc6712589fba48d3d259ec30b6e405.png" src="../_images/9404751dac1d9c8de62770d82838d2cd3bdc6712589fba48d3d259ec30b6e405.png" />
+<img alt="../_images/2d1953b1a414ab2d208188c8b571d87585a45185aebc22c8cbfa7e5b1095c67d.png" src="../_images/2d1953b1a414ab2d208188c8b571d87585a45185aebc22c8cbfa7e5b1095c67d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1723,7 +1746,7 @@ The most likely people to be victims of crime are young people, students, and th
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b9ff40910e3e70b3bd858e461d138b716d72c70bd2dfb60ad34643b95cb5d90f.png" src="../_images/b9ff40910e3e70b3bd858e461d138b716d72c70bd2dfb60ad34643b95cb5d90f.png" />
+<img alt="../_images/b025bcbb0477800a4eb168167dc6bab1a396208329f4d3aa5a78ae715ad5ea19.png" src="../_images/b025bcbb0477800a4eb168167dc6bab1a396208329f4d3aa5a78ae715ad5ea19.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1735,7 +1758,7 @@ The most likely people to be victims of crime are young people, students, and th
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d0328933c6a8f78c6509bee1a80ff83ed5d5bb922f6da85075c2390f8a9b40ba.png" src="../_images/d0328933c6a8f78c6509bee1a80ff83ed5d5bb922f6da85075c2390f8a9b40ba.png" />
+<img alt="../_images/f8c0e2752270744284afa85b8bb74d6ff6e95c7f8819ac4df783c5a07584430f.png" src="../_images/f8c0e2752270744284afa85b8bb74d6ff6e95c7f8819ac4df783c5a07584430f.png" />
 </div>
 </div>
 </section>
@@ -1757,7 +1780,7 @@ Interestingly, whilst for most people there is a relationship between deprivatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f30896dbe2bfe5c073e100091e44b872f76fcd7c94662ce320985784f363e085.png" src="../_images/f30896dbe2bfe5c073e100091e44b872f76fcd7c94662ce320985784f363e085.png" />
+<img alt="../_images/6e47967e497ab53757f4e8eb092e4020fa4d2da56ddca34b0488df98b44a036f.png" src="../_images/6e47967e497ab53757f4e8eb092e4020fa4d2da56ddca34b0488df98b44a036f.png" />
 </div>
 </div>
 </section>
@@ -1777,7 +1800,7 @@ Interestingly, whilst for most people there is a relationship between deprivatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7dcf0066024eab353fd6d95e3264593e06321b79c1a9c3ae06fe0716cdab50b8.png" src="../_images/7dcf0066024eab353fd6d95e3264593e06321b79c1a9c3ae06fe0716cdab50b8.png" />
+<img alt="../_images/f09f63b805bb7454fa2e93c90e3e3080ce0c9aa9b8ff838aee3cd4e7e86eafa2.png" src="../_images/f09f63b805bb7454fa2e93c90e3e3080ce0c9aa9b8ff838aee3cd4e7e86eafa2.png" />
 </div>
 </div>
 <font color=red>
@@ -1808,7 +1831,7 @@ Interestingly, whilst for most people there is a relationship between deprivatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bb4ebbb207fd4d9b1e6766b4cde44f984d394735e504d5882de5aeaccdaf4422.png" src="../_images/bb4ebbb207fd4d9b1e6766b4cde44f984d394735e504d5882de5aeaccdaf4422.png" />
+<img alt="../_images/ca9df7741bf5e30c58ae21dca0942d03b7a582962bf3bc70c28c2b7b8f0753c7.png" src="../_images/ca9df7741bf5e30c58ae21dca0942d03b7a582962bf3bc70c28c2b7b8f0753c7.png" />
 </div>
 </div>
 </section>
@@ -1826,7 +1849,7 @@ Interestingly, whilst for most people there is a relationship between deprivatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e05c57f7f0d75e2171de8de8c55232d6ca12d32cab010ee99eb8a813b02d4dd1.png" src="../_images/e05c57f7f0d75e2171de8de8c55232d6ca12d32cab010ee99eb8a813b02d4dd1.png" />
+<img alt="../_images/c252d8fb0286c71aedbedfccd67d8cde4beee547b7aa869e0781d4fed2b1ca61.png" src="../_images/c252d8fb0286c71aedbedfccd67d8cde4beee547b7aa869e0781d4fed2b1ca61.png" />
 </div>
 </div>
 </section>
@@ -1843,7 +1866,7 @@ Interestingly, whilst for most people there is a relationship between deprivatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/412ac8529cf192720a8a5a8a9077abab38c6f5b7f1c5ceca5e38323d2d2a0230.png" src="../_images/412ac8529cf192720a8a5a8a9077abab38c6f5b7f1c5ceca5e38323d2d2a0230.png" />
+<img alt="../_images/f554cfc5f17b6ce096010d7a0e583b5061a44ae5fc42ae7150583fbcca965d31.png" src="../_images/f554cfc5f17b6ce096010d7a0e583b5061a44ae5fc42ae7150583fbcca965d31.png" />
 </div>
 </div>
 </section>

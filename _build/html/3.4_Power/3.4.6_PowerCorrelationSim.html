@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -654,7 +654,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="power-analysis-by-simulation">
 <h1><span class="section-number">4.6. </span>Power analysis by simulation<a class="headerlink" href="#power-analysis-by-simulation" title="Link to this heading">#</a></h1>
 <p>We can think about theh Hypothesis Testing framework as a 2x2 grid - two possible states of reality and two (matching or non-matching) conclusions.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/t1t2_error.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/t1t2_error.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/t1t2_error.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/t1t2_error.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/t1t2_error.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/t1t2_error.png" style="width: 80%;" />
+</a>
 <p>In general, null hypothesis testing concerns one state of reality - that is we <strong>assume the null is true</strong></p>
 <p>In contrast, power analysis concerns the other possible state of reality - we <strong>assume <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true</strong></p>
 <p>In this notebook, focussing on an example of a correlation, we illustrate these hypothetical states of the world by generate two populations of ‘data’ from alternative realities:</p>
@@ -690,15 +691,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -721,7 +722,8 @@ document.write(`
 <h2><span class="section-number">4.7.1. </span>Eyeballing the data<a class="headerlink" href="#eyeballing-the-data" title="Link to this heading">#</a></h2>
 <p>What does a correlation of 0.25 look like for 50 data points?
 Here are some examples of datasets that actually have r=0.25:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/r25_examples.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/r25_examples.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/r25_examples.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/r25_examples.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/r25_examples.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/r25_examples.png" style="width: 100%;" />
+</a>
 <p><strong>Would you trust those correlations?</strong></p>
 </section>
 <section id="simulating-the-population">
@@ -775,7 +777,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/20a53a0a77da3d56b1d80a00c9d1523852560d446cbd360a70d7116040402ab5.png" src="../_images/20a53a0a77da3d56b1d80a00c9d1523852560d446cbd360a70d7116040402ab5.png" />
+<img alt="../_images/26bc0655e9298f7f1aba3a471f5a4dd038c36be2b5e7a8901de10078bda60864.png" src="../_images/26bc0655e9298f7f1aba3a471f5a4dd038c36be2b5e7a8901de10078bda60864.png" />
 </div>
 </div>
 <p>The generated dataset has two columns and 25,000 rows.</p>
@@ -815,11 +817,11 @@ Here are some examples of datasets that actually have r=0.25:</p>
     <tr>
       <th>Maths</th>
       <td>1.000000</td>
-      <td>-0.006735</td>
+      <td>0.010636</td>
     </tr>
     <tr>
       <th>French</th>
-      <td>-0.006735</td>
+      <td>0.010636</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -845,7 +847,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0977
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0618)
 </pre></div>
 </div>
 </div>
@@ -885,7 +887,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5bbbcda2cb9d5c98c6b58bf93bc78446ab2252972415f33b39ff7d371b372c6c.png" src="../_images/5bbbcda2cb9d5c98c6b58bf93bc78446ab2252972415f33b39ff7d371b372c6c.png" />
+<img alt="../_images/21f70e98b9e9c3c65f34cd0fe0fb1a8fcab737d008eb11484581067c61157524.png" src="../_images/21f70e98b9e9c3c65f34cd0fe0fb1a8fcab737d008eb11484581067c61157524.png" />
 </div>
 </div>
 <p>We can check the correlation in the full population of 25000 samples, hopefully this should be close to 0.25.</p>
@@ -922,11 +924,11 @@ Here are some examples of datasets that actually have r=0.25:</p>
     <tr>
       <th>Maths</th>
       <td>1.000000</td>
-      <td>0.254199</td>
+      <td>0.248643</td>
     </tr>
     <tr>
       <th>French</th>
-      <td>0.254199</td>
+      <td>0.248643</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -956,13 +958,14 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.623
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.55)
 </pre></div>
 </div>
 </div>
 </div>
 <p>So, in my simulation I manage to reject the null in about 40% of simulations (note the exact value you get will vary slightly each time you run the simulation). So my test has a power of 40%</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Minion_what.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Minion_what.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Minion_what.jpg" style="width: 15%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Minion_what.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Minion_what.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Minion_what.jpg" style="width: 15%;" />
+</a>
 <p>Yes, that’s right. In a population where the <em>true</em> correlation between two variables (scores on Maths and French tests) is <span class="math notranslate nohighlight">\(\rho=0.25\)</span>, for samples of size <span class="math notranslate nohighlight">\(n=50\)</span>, I will fail to detect a significant correlation (ie, there is a false negative or Type II error) <strong>over half the time</strong>.</p>
 <p>This would be true for any data with a true correlation of <span class="math notranslate nohighlight">\(\rho=0.25\)</span> and sample size of <span class="math notranslate nohighlight">\(n=50\)</span>. <span class="math notranslate nohighlight">\(n=50\)</span> is really not enough to detect a weakish correlation.</p>
 <p>Try changing <span class="math notranslate nohighlight">\(n\)</span> in the code block below to be smaller (eg <span class="math notranslate nohighlight">\(n\)</span>=25) or larger (<span class="math notranslate nohighlight">\(n\)</span>=150) and see what happens to the power.</p>
@@ -983,7 +986,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.593
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.526)
 </pre></div>
 </div>
 </div>
@@ -1021,14 +1024,15 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fe02c5949fcb23fe3e38cea801aafc213be8249b1553b164957f9dd95a66decc.png" src="../_images/fe02c5949fcb23fe3e38cea801aafc213be8249b1553b164957f9dd95a66decc.png" />
+<img alt="../_images/1d3ee9ab7e4184c47cbf1620c53f76d48cca85e51dd2ca22fd6d49cbb97b37f3.png" src="../_images/1d3ee9ab7e4184c47cbf1620c53f76d48cca85e51dd2ca22fd6d49cbb97b37f3.png" />
 </div>
 </div>
 <p>The relationship between sample size and power is slightly bumpy as we checked only 1000 simulated samples at each sample size. If you increased nReps to 10,000 the curve would look smoother (but the simulation would take a long time to run).</p>
 <p>Conventionally a power of 80% (indicated by the red dashed line on the graph) is considered desirable (80% is a completely arbitrary value by the way).</p>
 <p>What sample size do we need to ge
 t power of 80%? It looks from the graph like you would need around n=120. Here are the results if we run a finer grained simulation in that range:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp7_PowerSImFine.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp7_PowerSImFine.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp7_PowerSImFine.png" style="width: 85%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp7_PowerSImFine.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp7_PowerSImFine.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp7_PowerSImFine.png" style="width: 85%;" />
+</a>
 </section>
 <section id="recap">
 <h2><span class="section-number">4.7.6. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
