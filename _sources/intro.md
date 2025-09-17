@@ -25,6 +25,3 @@ I strongly encourage you to use DataCamp for the following:
 
 A big shout out to DataCamp for providing free access for students on
 this course, thanks!
-
-
-**This is a test to check if the push works** 
