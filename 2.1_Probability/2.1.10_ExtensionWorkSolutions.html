@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -701,16 +701,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 2
 roll 2. Outcome = 5
 roll 3. Outcome = 4
-roll 4. Outcome = 3
-roll 5. Outcome = 3
-roll 6. Outcome = 1
-roll 7. Outcome = 4
+roll 4. Outcome = 2
+roll 5. Outcome = 4
+roll 6. Outcome = 2
+roll 7. Outcome = 1
 roll 8. Outcome = 4
-roll 9. Outcome = 6
-Total rolls needed to get a six: 9
+roll 9. Outcome = 2
+roll 10. Outcome = 5
+roll 11. Outcome = 6
+Total rolls needed to get a six: 11
 </pre></div>
 </div>
 </div>
@@ -774,7 +776,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6.,  4.,  2.,  2.,  1.,  1.,  2.,  1., 10.,  8.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4., 14.,  8.,  2.,  1.,  3., 10.,  5., 13.,  3.])
 </pre></div>
 </div>
 </div>
@@ -789,7 +791,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(3)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(5)
 </pre></div>
 </div>
 </div>
@@ -824,7 +826,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/350e6f07046c57de5e7d5989d7d3a7a5b08c61013ab368f7910cf9b122599111.png" src="../_images/350e6f07046c57de5e7d5989d7d3a7a5b08c61013ab368f7910cf9b122599111.png" />
+<img alt="../_images/1281f2f0f279bac3f681436459fe23124fc4f9e7fe54a53375dcee11d46ae45f.png" src="../_images/1281f2f0f279bac3f681436459fe23124fc4f9e7fe54a53375dcee11d46ae45f.png" />
 </div>
 </div>
 <p>Did it surprise you that the most likely number of rolls needed (mode of the distribution) is 1?</p>
@@ -850,7 +852,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.0544)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.0264)
 </pre></div>
 </div>
 </div>
@@ -869,7 +871,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.1167)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.1158)
 </pre></div>
 </div>
 </div>
@@ -906,7 +908,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/89d73bf2349cb8c3cc4a64103f89137d4c5677f81fbc27c88fdaecc72ed478e7.png" src="../_images/89d73bf2349cb8c3cc4a64103f89137d4c5677f81fbc27c88fdaecc72ed478e7.png" />
+<img alt="../_images/32e23a567cb57148f3a47bcebb04f6db9322c080fb725735a928d3002c2a3379.png" src="../_images/32e23a567cb57148f3a47bcebb04f6db9322c080fb725735a928d3002c2a3379.png" />
 </div>
 </div>
 <ul class="simple">
@@ -924,7 +926,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/074fde9baba79d92548ab32686e157509c82cdbc17c23fb39ae3b85245d33fb5.png" src="../_images/074fde9baba79d92548ab32686e157509c82cdbc17c23fb39ae3b85245d33fb5.png" />
+<img alt="../_images/5622263755d0e42623d5385e0dc60d952d0a44b5d6ff84a95366c99af8f6ec41.png" src="../_images/5622263755d0e42623d5385e0dc60d952d0a44b5d6ff84a95366c99af8f6ec41.png" />
 </div>
 </div>
 </section>
