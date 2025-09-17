@@ -30,7 +30,7 @@ You have two options here: Use Google Colab (in the cloud), or use JupyterLab (o
 
 
 ```{warning}
-Students working the the Anna Watts computing lab can choose to use the desktop computers. However, if you do this, you need to save your work to One Drive. Anything you save on the computer will be wiped when you log off.
+Students working in the Life and Mind computing lab can choose to use the desktop computers. However, if you do this, you need to save your work to One Drive. Anything you save on the computer will be wiped when you log off.
 ```
 
 
