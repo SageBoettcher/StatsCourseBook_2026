@@ -1,0 +1,15 @@
+# macOS system files
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# R session history
+.Rhistory
+
+# VS Code settings
+.vscode/
