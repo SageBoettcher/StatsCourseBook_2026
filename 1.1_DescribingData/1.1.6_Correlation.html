@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -610,19 +610,23 @@ document.write(`
 <h1><span class="section-number">1.6. </span>Correlation<a class="headerlink" href="#correlation" title="Link to this heading">#</a></h1>
 <p><strong>Correlation</strong>, and the related measure <strong>covariance</strong>, tell us whether there is a relationship between two variables.</p>
 <p>Consider the following (made up) dataset, containing scores of 100 children on English and Maths tests:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrHists.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrHists.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrHists.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrHists.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrHists.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrHists.png" style="width: 80%;" />
+</a>
 <p>The histograms how us the distribution of scores on each test, but perhaps we are interested in a question we cannot answer from those histograms: do students who do well on the English test also do well on the maths test? This is a question about <em>correlation</em>.</p>
 <p>Here we present the data in a <em>scatter plot</em> which shows the relationship between the two <em>variables</em>: English score and Maths score. I’ve also replicated the histograms for each test in the margins.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_VarCovCorrSummary.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_VarCovCorrSummary.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_VarCovCorrSummary.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_VarCovCorrSummary.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_VarCovCorrSummary.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_VarCovCorrSummary.png" style="width: 80%;" />
+</a>
 <p>Correlation and covariance are high when:</p>
 <ul class="simple">
 <li><p>There is a relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> (so knowing a student’s score on the maths test would really change our prediction of how well they did on the English test, or vice versa)</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrRot.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrRot.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrRot.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrRot.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrRot.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrRot.png" style="width: 80%;" />
+</a>
 <ul class="simple">
 <li><p>When that relationship is tight (so most students did well on both tests or poorly on both, not well on one test and poorly on the other)</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" style="width: 80%;" />
+</a>
 <p><strong>The correlation coefficient <span class="math notranslate nohighlight">\(r\)</span> is always a number between 1 (perfect positive correlation; all points on a line) and -1 (perfect negative correlation)</strong></p>
 <p>Correlation and covariance are closely related. As a descriptive statistic, correlation is most often used, as it gives us a ‘pure’ measure of the strength of the relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> (corrected for the spread within <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> independently).</p>
 <section id="variance">
@@ -647,17 +651,20 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ s_{xy}  = \sum\frac{(x_i - \bar{x})(y_i - \bar{y})}{(n-1)} \]</div>
 <p>Each datapoint makes a contribution to the sum which can be positive (if <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are both above the mean, or both below the mean) or negative (<span class="math notranslate nohighlight">\(x\)</span> is above the mean but <span class="math notranslate nohighlight">\(y\)</span> is below the mean, or vice versa).</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovFormula.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovFormula.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovFormula.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovFormula.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovFormula.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovFormula.png" style="width: 80%;" />
+</a>
 <p>The covariance is calculated by adding up these contributions for all data points:</p>
 <ul class="simple">
 <li><p>If most data points make positive contributions, covariance is large and positive</p></li>
 <li><p>If most data points make negative contributions, covariance is large and negative</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovPosNeg.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovPosNeg.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovPosNeg.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovPosNeg.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovPosNeg.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovPosNeg.png" style="width: 100%;" />
+</a>
 <ul class="simple">
 <li><p>If there is an equal mixture of positive and negative contributions, covariance is small (near zero)</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovNone.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovNone.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovNone.png" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovNone.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovNone.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CovNone.png" style="width: 60%;" />
+</a>
 <p>Here is a video of me explaining covariance:</p>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uC35OeAYfak?si=Bdkmb-vJCeKrqir0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -679,7 +686,8 @@ document.write(`
 </li>
 </ul>
 <p>In our test scores example, imagine that maths scores were actually out of 170 points, but were converted to a percentage.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrCovUnits.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrCovUnits.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrCovUnits.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrCovUnits.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrCovUnits.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrCovUnits.png" style="width: 80%;" />
+</a>
 <p>remember,</p>
 <div class="math notranslate nohighlight">
 \[ r = \frac{s_{xy}}{s_x s_y} \]</div>
@@ -727,15 +735,18 @@ document.write(`
 <ul class="simple">
 <li><p>Whilst the relationship between GDP and CO_2 is curved, the relationship between ranks is linear</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpNonLinearity.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpNonLinearity.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpNonLinearity.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpNonLinearity.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpNonLinearity.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpNonLinearity.png" style="width: 80%;" />
+</a>
 <ul class="simple">
 <li><p>Whilst the raw data show heteroscedasticity, the ranks do not</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpr_Het.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpr_Het.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpr_Het.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpr_Het.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpr_Het.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpr_Het.png" style="width: 80%;" />
+</a>
 <ul class="simple">
 <li><p>The effect of outliers is minimzed by using ranks - the largest rank in the dataset <span class="math notranslate nohighlight">\(x_1, x_2.... x_n\)</span> is simply <span class="math notranslate nohighlight">\(n\)</span>, whether the corresponding data value is 100 or 1000000.</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpOutlier.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpOutlier.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpOutlier.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpOutlier.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpOutlier.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrSpOutlier.png" style="width: 80%;" />
+</a>
 <p>The marked data points are the same points in each plot - note how they move closer to the crowd in the ranked plot.</p>
 <p>As with all rank-based statistics (see also: median, IQR and tests based on ranks such as the Rank-Sum Test), Spearman’s correlation requires few assumptions and is robust to outliers, but at the cost of ‘wasting’ some information
 (i.e. the exact numerical values of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>). This idea will be explored further later in the course.</p>

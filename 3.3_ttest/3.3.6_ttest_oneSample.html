@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -647,15 +647,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -664,7 +664,8 @@ document.write(`
 </section>
 <section id="example">
 <h2><span class="section-number">3.5.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/rowingTeam.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/rowingTeam.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/rowingTeam.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/rowingTeam.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/rowingTeam.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/rowingTeam.png" style="width: 50%;" />
+</a>
 <p>Here are the heights in cm of eight men on a rowing team</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -751,7 +752,7 @@ as the sample size is so small</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1a0fe062cf7105e429b017d2db1923da9b744b401553a10b1d2d4ac7914d3096.png" src="../_images/1a0fe062cf7105e429b017d2db1923da9b744b401553a10b1d2d4ac7914d3096.png" />
+<img alt="../_images/c30cd21237f798f94ed3793f6ef5747c465a84d314e22f1161e9bb33d041ece7.png" src="../_images/c30cd21237f798f94ed3793f6ef5747c465a84d314e22f1161e9bb33d041ece7.png" />
 </div>
 </div>
 <p>As usual, it’s difficult to say if the data are normally distributed from a plot of a small sample -
@@ -874,7 +875,8 @@ that mean of the first input <tt>heights</tt> is greater than the reference valu
 <p>Our t value of 1.67 means that the difference between the mean height of the rowers and the standard value (175cm, the mean height of British men) is 1.67 times the standard error (where <span class="math notranslate nohighlight">\( SE = \frac{s}{\sqrt{n}}\)</span>).</p>
 <p>Such a large difference (in the expected direction) would occur 0.067 (6.7%) of the time due to chance if the null hypothesis were true (rowers were no taller than other men), hence the p value of 0.067. This is higher than our alpha value (0.05) so the test is not significant.</p>
 <p>This diagram shows the expected distribution of t-values if the null were true, with our obtained t-value marked:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestRowing.png"><img alt="There should be a picture of the t-distribution here" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestRowing.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestRowing.png"><img alt="There should be a picture of the t-distribution here" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestRowing.png" style="width: 50%;" />
+</a>
 </section>
 <section id="draw-conclusions">
 <h3>Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
@@ -907,7 +909,7 @@ that mean of the first input <tt>heights</tt> is greater than the reference valu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1a0fe062cf7105e429b017d2db1923da9b744b401553a10b1d2d4ac7914d3096.png" src="../_images/1a0fe062cf7105e429b017d2db1923da9b744b401553a10b1d2d4ac7914d3096.png" />
+<img alt="../_images/c30cd21237f798f94ed3793f6ef5747c465a84d314e22f1161e9bb33d041ece7.png" src="../_images/c30cd21237f798f94ed3793f6ef5747c465a84d314e22f1161e9bb33d041ece7.png" />
 </div>
 </div>
 <p>The mean height of the rowers was XXX.X cm and the standard deviation was X.XX cm.</p>

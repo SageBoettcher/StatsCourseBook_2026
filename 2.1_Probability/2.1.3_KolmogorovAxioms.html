@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -616,7 +616,8 @@ document.write(`
 <li><p>36 possible sequences (1,2),(3,1),(6,6) etc - squares on the diagram below</p></li>
 <li><p>11 possible total scores (2-12) - colours on the diagram below</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_eventsDef.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_eventsDef.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_eventsDef.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_eventsDef.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_eventsDef.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_eventsDef.png" style="width: 80%;" />
+</a>
 <p>The definition of elementary events is the choice of the statistician and will reflect the statistical question you are trying to answer (<em>“what is the probability of rolling (5,6)”</em> is indeed a different question from <em>“what is the probability of scoring 11”</em>)</p>
 </section>
 <section id="the-axioms">
@@ -639,7 +640,8 @@ document.write(`
 <li><p>For example, each possible outcome in a single diceroll has <span class="math notranslate nohighlight">\(p=\frac{1}{6}\)</span></p></li>
 </ul>
 <p>It is worth also considering the case in which there are no discrete elementary events. We describe the probability assocated with a continuous variable using a <strong>probability density function</strong> such as the one for a Normal distribution:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF1.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF1.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF1.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF1.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF1.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF1.png" style="width: 80%;" />
+</a>
 <ul class="simple">
 <li><p>The area under the curve of the Probability Density Function is 1</p></li>
 </ul>
@@ -661,7 +663,8 @@ document.write(`
 <li><p>the height must be defined as a <em>range</em>; probability is then the <em>area</em> within that range.</p></li>
 </ul>
 <p>For example, what is the probability that a child’s height is 95cm, to the nearest cm (ie, height is in the range [94.5, 95.5)).</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF3.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF3.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF3.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF3.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF3.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF3.png" style="width: 80%;" />
+</a>
 <p>To do this in Python we could use <code class="docutils literal notranslate"><span class="pre">stats.normal.cdf()</span></code> twice:</p>
 <ul class="simple">
 <li><p>once to get the tail to the left of 95.5</p></li>
@@ -671,7 +674,8 @@ document.write(`
 </pre></div>
 </div>
 <p>Why can’t we simply calculate the probability of the height being <em>exactly</em> 95cm, by reading off the y-axis value associated with 95cm?</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF2.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF2.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF2.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF2.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF2.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp9_PDF2.png" style="width: 80%;" />
+</a>
 <p>Because probability is defined as the area under the curve, and for a single <em>point</em> on the <span class="math notranslate nohighlight">\(x\)</span>-axis, rather than a range, there is no area.</p>
 <p>When you think about it, what would <em>exactly 95cm</em> mean?</p>
 <ul class="simple">

@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -646,9 +646,11 @@ document.write(`
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(r_{crit}\)</span> is the smallest value of <span class="math notranslate nohighlight">\(r\)</span> for which <span class="math notranslate nohighlight">\(p&lt;0.05\)</span>, <strong>for a given <span class="math notranslate nohighlight">\(n\)</span></strong></p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit.png" style="width: 80%;" />
+</a>
 <p>As <span class="math notranslate nohighlight">\(n\)</span> gets larger, <span class="math notranslate nohighlight">\(r_{crit}\)</span> gets smaller because the disribution of sample-values of <span class="math notranslate nohighlight">\(r\)</span> gets narrower - this can be seen in the following figure:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_n.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_n.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_n.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_n.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_n.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_n.png" style="width: 80%;" />
+</a>
 </section>
 </section>
 <section id="proportion-of-false-negatives-is-not-fixed">
@@ -656,10 +658,12 @@ document.write(`
 <p>In power analysis, the whole procedure is based on <strong>assuming <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true</strong></p>
 <p>Assuming <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true, we work out how often we would get false negative, based on the effect size, <span class="math notranslate nohighlight">\(\alpha\)</span>-value and <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>One way to do this is simulating a <em>correlated population</em> and sampling from it, as we did in a previous notebook.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_power.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_power.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_power.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_power.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_power.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rCrit_power.png" style="width: 80%;" />
+</a>
 <p>Note that <span class="math notranslate nohighlight">\(r_{crit}\)</span> is still the same <span class="math notranslate nohighlight">\(r_{crit}\)</span> determined based on the assumption that the null hypohthesis is true - it won’t move around based on what <span class="math notranslate nohighlight">\(\rho\)</span>is for this population (ie <span class="math notranslate nohighlight">\(r_{crit}\)</span> would be the same for versions of <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> where <span class="math notranslate nohighlight">\(\rho=0.1\)</span> and <span class="math notranslate nohighlight">\(\rho=0.9\)</span>, because <span class="math notranslate nohighlight">\(r_{crit}\)</span> is based on the assumption that <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is true and <span class="math notranslate nohighlight">\(\rho=0\)</span>)</p>
 <p>Looking at some samples drawn from a population with a fixed effect size (<span class="math notranslate nohighlight">\(\rho=0.25\)</span>), we can see that the distribution of sample correlation coefficients overlaps differently with <span class="math notranslate nohighlight">\(r_{crit}\)</span> depending on the sample size <span class="math notranslate nohighlight">\(n\)</span>:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_pVsPower.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_pVsPower.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_pVsPower.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_pVsPower.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_pVsPower.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_pVsPower.png" style="width: 80%;" />
+</a>
 <p>This is because of a “double whammy”:</p>
 <ul class="simple">
 <li><p>The distribution of <span class="math notranslate nohighlight">\(r\)</span> from the <em>correlated population</em> stays centred on <span class="math notranslate nohighlight">\(r=\rho=0.25\)</span> and gets tighter around that value</p>
@@ -684,7 +688,8 @@ document.write(`
 <li><p>The proportion of false positives (if the null were true) is fixed regardless of <span class="math notranslate nohighlight">\(n\)</span></p></li>
 <li><p>The proportion of false negatives increases as <span class="math notranslate nohighlight">\(n\)</span> gets smaller</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_nPower.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_nPower.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_nPower.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_nPower.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_nPower.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_nPower.png" style="width: 80%;" />
+</a>
 </section>
 <section id="implications">
 <h2><span class="section-number">4.10.5. </span>Implications<a class="headerlink" href="#implications" title="Link to this heading">#</a></h2>

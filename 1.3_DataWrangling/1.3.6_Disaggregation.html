@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -686,14 +686,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 </pre></div>
 </div>
 </div>
@@ -853,6 +853,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_28266/1115780473.py:2: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  hospital.AGE.replace(774, np.nan, inplace=True )
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -961,7 +970,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/be5aa0f8de3eb46c0d9a5f1cc6b30d5c52e7a8fc35fec3cfced6c401db939b8f.png" src="../_images/be5aa0f8de3eb46c0d9a5f1cc6b30d5c52e7a8fc35fec3cfced6c401db939b8f.png" />
+<img alt="../_images/33c3630d69dbec9145373a1690e9b8240707631ae035943cac50f22187c69d51.png" src="../_images/33c3630d69dbec9145373a1690e9b8240707631ae035943cac50f22187c69d51.png" />
 </div>
 </div>
 <p><strong>Note-</strong></p>
@@ -982,7 +991,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ce2d4c757106cd57f1e18d64191f474278b903be444ad2428a042f66fe0c558d.png" src="../_images/ce2d4c757106cd57f1e18d64191f474278b903be444ad2428a042f66fe0c558d.png" />
+<img alt="../_images/d9aa9000cc00b7fc505859eaa06d358ba37591d94c28e064c93f4481a0ecb06e.png" src="../_images/d9aa9000cc00b7fc505859eaa06d358ba37591d94c28e064c93f4481a0ecb06e.png" />
 </div>
 </div>
 <p><strong>Note-</strong></p>
@@ -997,7 +1006,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/92850769803ab8da99400b9ce9da83525ca066b63538a970aa06fa68db8def4b.png" src="../_images/92850769803ab8da99400b9ce9da83525ca066b63538a970aa06fa68db8def4b.png" />
+<img alt="../_images/0d42e5cd7c7f4a35e5e3dc486b91ca6a94ebec6b9047250a02cd939151a04a52.png" src="../_images/0d42e5cd7c7f4a35e5e3dc486b91ca6a94ebec6b9047250a02cd939151a04a52.png" />
 </div>
 </div>
 <p><strong>Note-</strong></p>
@@ -1017,7 +1026,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c5e1b6444d803abab43585d0fd67004f0857286a85978d9af417e2062f02ae69.png" src="../_images/c5e1b6444d803abab43585d0fd67004f0857286a85978d9af417e2062f02ae69.png" />
+<img alt="../_images/915bf8bb4ae3f3331b45628a31a30f97af2f79b8b99cb1a8617bf1eb81f04be6.png" src="../_images/915bf8bb4ae3f3331b45628a31a30f97af2f79b8b99cb1a8617bf1eb81f04be6.png" />
 </div>
 </div>
 <p>Is this due to difference in severity of heart attacks by sex, or perhaps differences int he effectiveness of treatment?</p>
@@ -1044,7 +1053,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/77012b296eef9ac663adc341e46c54e4bc2b3bc529d13525b17859ce730bcde9.png" src="../_images/77012b296eef9ac663adc341e46c54e4bc2b3bc529d13525b17859ce730bcde9.png" />
+<img alt="../_images/b0012a19336304f47280bcadbd1aa1158def09f0295e1e40b5d1159e74c51fa3.png" src="../_images/b0012a19336304f47280bcadbd1aa1158def09f0295e1e40b5d1159e74c51fa3.png" />
 </div>
 </div>
 <p>If we plot mortality conditional upon age disaggregated by men and women, we can see that <em>across all ages</em> men are actually more likely to die than women; the higher overall mortality for women is explained by the presence of more older women in the sample (which in turn probably reflects the fact that women have longer life expectany than men).</p>
@@ -1068,7 +1077,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/71b81cdbf25efc32a06d1d99fd9930e252a3687e690283ec7f51c83fba4b08ec.png" src="../_images/71b81cdbf25efc32a06d1d99fd9930e252a3687e690283ec7f51c83fba4b08ec.png" />
+<img alt="../_images/8eea1a8e9c09f4a6b79c64333a2d45b0786c5201df2f9cb2b1876aaa0ca83112.png" src="../_images/8eea1a8e9c09f4a6b79c64333a2d45b0786c5201df2f9cb2b1876aaa0ca83112.png" />
 </div>
 </div>
 <section id="conclusion">

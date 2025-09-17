@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -608,7 +608,8 @@ document.write(`
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ga_xz7UHwkU?si=ablRv3StJ6Or8ATl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 <p>We can think of the hypothesis testing framework as a 2x2 grid of ‘reality’ vs ‘conclusions’</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HoHa.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HoHa.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HoHa.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HoHa.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HoHa.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HoHa.png" style="width: 80%;" />
+</a>
 <p>In this framework there are two ways of making an error:</p>
 <ul class="simple">
 <li><p>we reject the null hypothesis when it is in fact true (Type I error or false positive)</p></li>
@@ -620,7 +621,8 @@ document.write(`
 <li><p><strong>Hits</strong> when <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true, and we detect that (rejecting the null)</p></li>
 <li><p><strong>Correct Rejects</strong> when <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is correct and we detect that (slightly confusingly, a ‘correct reject’ is when we correctly <em>fail</em> to rejct the null!)</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HitsEtc.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HitsEtc.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HitsEtc.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HitsEtc.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HitsEtc.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HitsEtc.png" style="width: 80%;" />
+</a>
 <section id="assuming-mathcal-h-o-vs-assuming-mathcal-h-a">
 <h2><span class="section-number">4.3.1. </span>Assuming <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> vs assuming <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span><a class="headerlink" href="#assuming-mathcal-h-o-vs-assuming-mathcal-h-a" title="Link to this heading">#</a></h2>
 <p>When calculating the <span class="math notranslate nohighlight">\(p\)</span>-value for a test, we <em>assume <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is true</em> and then work out the probabliity that we might reject <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> due to chance. In other words, we are working on the basis of a certain state of reality, <strong>assuming <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is true</strong>.</p>
@@ -629,14 +631,16 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(p\)</span> is the proportion of false positives</p></li>
 <li><p>Specificity is <span class="math notranslate nohighlight">\((1-p)\)</span></p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_spec.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_spec.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_spec.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_spec.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_spec.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_spec.png" style="width: 80%;" />
+</a>
 <p>In contrast, in power analysis, we consider the <strong>alternative reality in which <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true</strong>. Power is then theh probability that we correctly reject the null.</p>
 <p><strong>Assuming <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true</strong>:</p>
 <ul class="simple">
 <li><p><strong>Power</strong> is (1-proportion of false negatives)</p></li>
 <li><p><strong>Sensitivity</strong> = power</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_power.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_power.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_power.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_power.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_power.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_power.png" style="width: 80%;" />
+</a>
 <p><strong>Terminology</strong></p>
 <p>Because the terms <em>sensitivity</em> and <em>specificity</em> are easy to mix up, I prefer to talk about:</p>
 <ul class="simple">
@@ -651,7 +655,8 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: Everyone is innocent until proven guity</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>: He’s guilty, dammit!</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_crime.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_crime.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_crime.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_crime.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_crime.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_crime.png" style="width: 80%;" />
+</a>
 <p>In this analogy:</p>
 <ul class="simple">
 <li><p>A Type I error (false positive) is a wrongful conviction</p></li>

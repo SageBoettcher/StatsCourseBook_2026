@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -648,14 +648,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 </pre></div>
 </div>
 </div>
@@ -663,7 +663,8 @@ document.write(`
 </section>
 <section id="example">
 <h2><span class="section-number">3.7.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/appletree.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/appletree.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/appletree.jpg" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/appletree.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/appletree.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/appletree.jpg" style="width: 30%;" />
+</a>
 <p>Below we have data on the average weight, in grams, of apples from each of 20 apple trees.</p>
 <p>10 of the trees received MiracleGro fertilizer and the other 10 received Brand X.</p>
 <p>Test the hypothesis that the trees given MiracleGro produced heavier apples.</p>
@@ -831,7 +832,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e65b55eba1298df5d0e851a9de05f59e431b764be4ddc78ca40c39aef45b6c49.png" src="../_images/e65b55eba1298df5d0e851a9de05f59e431b764be4ddc78ca40c39aef45b6c49.png" />
+<img alt="../_images/c7affb1c66e40ffe31428d360fa66cbb50cf63c581eac021736016ca6497e213.png" src="../_images/c7affb1c66e40ffe31428d360fa66cbb50cf63c581eac021736016ca6497e213.png" />
 </div>
 </div>
 <p>It looks like both distributions are unimodal but a bit skewed.</p>
@@ -1165,7 +1166,7 @@ There is a video explaining why here.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=2.350347501385599, pvalue=0.014564862730138283)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(2.350347501385599), pvalue=np.float64(0.014564862730138283), df=np.float64(20.0))
 </pre></div>
 </div>
 </div>
@@ -1186,7 +1187,8 @@ that mean of the first input <tt>apples.MiracleGro</tt> is greater than the seco
 <p>Our t value of 2.35 means that the difference in mean apple weights between MiracleGro and BrandX trees is 2.35 times the standard error (where <span class="math notranslate nohighlight">\( SE = s \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\)</span>).</p>
 <p>Such a large difference (in the expected direction) would occur 0.0146 (1.46%) of the time due to chance if the null hypothesis were true (if MiracleGro was really no better than Brand X), hence the p value of 0.0146.</p>
 <p>This diagram shows the expected distribution of t-values if the null were true, with our obtained t-value marked:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestApples.png"><img alt="There should be a picture of the t-distribution here" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestApples.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestApples.png"><img alt="There should be a picture of the t-distribution here" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestApples.png" style="width: 50%;" />
+</a>
 </section>
 <section id="draw-conclusions">
 <h3>Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
@@ -1303,7 +1305,7 @@ that mean of the first input <tt>apples.MiracleGro</tt> is greater than the seco
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e65b55eba1298df5d0e851a9de05f59e431b764be4ddc78ca40c39aef45b6c49.png" src="../_images/e65b55eba1298df5d0e851a9de05f59e431b764be4ddc78ca40c39aef45b6c49.png" />
+<img alt="../_images/c7affb1c66e40ffe31428d360fa66cbb50cf63c581eac021736016ca6497e213.png" src="../_images/c7affb1c66e40ffe31428d360fa66cbb50cf63c581eac021736016ca6497e213.png" />
 </div>
 </div>
 <p>An independent samples t-test was therefore used to compare the means (alpha = XXX, XXX-tailed).</p>
@@ -1316,7 +1318,7 @@ that mean of the first input <tt>apples.MiracleGro</tt> is greater than the seco
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=2.350347501385599, pvalue=0.014564862730138283)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(2.350347501385599), pvalue=np.float64(0.014564862730138283), df=np.float64(20.0))
 </pre></div>
 </div>
 </div>

@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -604,7 +604,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="standard-deviation-and-iqr">
 <h1><span class="section-number">1.4. </span>Standard Deviation and IQR<a class="headerlink" href="#standard-deviation-and-iqr" title="Link to this heading">#</a></h1>
 <p>The <strong>standard deviation</strong> and <strong>inter quartile range (IQR)</strong> are measures of the <em>spread</em> of a distribution.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_spread.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_spread.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_spread.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_spread.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_spread.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_spread.png" style="width: 80%;" />
+</a>
 <p>In a distribution with high spread, the datapoints are relatvely far from the mean (top image), resulting in a wide histogram (bottom image).</p>
 <p>Standard deviaiton and IQR both tell you something about the spread of values in your dataset - but different things.</p>
 <p>Here is a video summarizing the conceptual differences between these measures.</p>
@@ -626,7 +627,8 @@ document.write(`
 \[ s_x  = \sqrt{\sum\frac{(x_i - \bar{x})^2}{(n-1)}}\]</div>
 <p>Where <span class="math notranslate nohighlight">\(s_x\)</span> is the standard deviation of the values <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>One way to think about the standard deviation is that it is something like the average distance of data points from the mean (it is not quite that, because we get the average <em>squared</em> distance from each data point to the mean and then take its square root).</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_stdev.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_stdev.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_stdev.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_stdev.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_stdev.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_stdev.png" style="width: 80%;" />
+</a>
 <p>Squaring the values has two consequences:</p>
 <ul class="simple">
 <li><p>By squaring, we avoid positive and negative deviations cancelling out - positive deviations (values above the mean) and negative deviations (values below the mean) all become positive squared deviations</p></li>
@@ -645,10 +647,12 @@ document.write(`
 <section id="inter-quartile-range-iqr">
 <h2><span class="section-number">1.4.2. </span>Inter Quartile Range (IQR)<a class="headerlink" href="#inter-quartile-range-iqr" title="Link to this heading">#</a></h2>
 <p>The inter quartile range or IQR is the difference between the 25th and 75th centile of a distribution - this difference is naturally larger in distributions with greater spread.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQR.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQR.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQR.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQR.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQR.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQR.png" style="width: 80%;" />
+</a>
 <p>The 25th and 75th centile are the boundaries that contain the middle half of the data - for example, in 2015, 25% of UK households had an income below £22,000, and 25% had an income over £44,000. The IQR is the difference between these values (£22,000) - although often it is more informative to actually give the 25th and 75th centiles.</p>
 <p>The IQR as a measure of spread is naturally robust to outliers, because outliers are found at the ends of a distribution, not in the middle …</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQRoutlier.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQRoutlier.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQRoutlier.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQRoutlier.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQRoutlier.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_IQRoutlier.png" style="width: 80%;" />
+</a>
 <p>… therefore adding an outlier (in this case a very tall person) makes absolutely no difference to the value of the 75th centile and hence, no difference to IQR.</p>
 </section>
 </section>

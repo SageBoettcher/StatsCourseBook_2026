@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -654,15 +654,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -685,7 +685,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;frequency&#39;)
 </pre></div>
 </div>
-<img alt="../_images/a47163e1c385e39ce24ed0fd8b021bb293a39d45240dec593c699cc35a7c00f6.png" src="../_images/a47163e1c385e39ce24ed0fd8b021bb293a39d45240dec593c699cc35a7c00f6.png" />
+<img alt="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" src="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" />
 </div>
 </div>
 <p>How would you describe this data?</p>
@@ -791,13 +791,14 @@ The code to get the normal curve and histogram to match in scale is a bit fiddly
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/68b57fe30079166ab37527b022cbbfefed0fd303cfcecb26d2c84e4e5a0b967b.png" src="../_images/68b57fe30079166ab37527b022cbbfefed0fd303cfcecb26d2c84e4e5a0b967b.png" />
+<img alt="../_images/348d10e59384deb332a1e21c3463c5735cce410003bddb1a92399eb497efa7f3.png" src="../_images/348d10e59384deb332a1e21c3463c5735cce410003bddb1a92399eb497efa7f3.png" />
 </div>
 </div>
 <p>This is clearly quite a good fit.</p>
 <p>Now try changing <span class="math notranslate nohighlight">\(n\)</span>, in the code block above, to <span class="math notranslate nohighlight">\(n=4\)</span> (<b><i>hint:</b></i> change the histogram bins and x-axis values to  <tt>np.arange(0,100,binwidth)</tt>, and change <tt>binwidth</tt> to 1)</p>
 <p>Hopefully, you can see that although the histogram on its own looked quite normal, it is actually not a great fit to the normal distribution we would expect if the Central Limit Theorem applied - the peak is too flat and there are fewer sample means out in the tails than we would expect - the distribution looks like a piece of Toblerone</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/toblerone.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/toblerone.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/toblerone.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/toblerone.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/toblerone.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/toblerone.png" style="width: 30%;" />
+</a>
 </section>
 <section id="q-q-plot">
 <h2>Q-Q plot<a class="headerlink" href="#q-q-plot" title="Link to this heading">#</a></h2>
@@ -812,7 +813,7 @@ The code to get the normal curve and histogram to match in scale is a bit fiddly
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c8700176c18c8076f6b35651fb621309e450d79d67fc6d7726446936caa048a6.png" src="../_images/c8700176c18c8076f6b35651fb621309e450d79d67fc6d7726446936caa048a6.png" />
+<img alt="../_images/da96a740d0a46eec758733f1014d39cd95e7311edf0791b53507f1ce2acbc27c.png" src="../_images/da96a740d0a46eec758733f1014d39cd95e7311edf0791b53507f1ce2acbc27c.png" />
 </div>
 </div>
 <ul>

@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -658,15 +658,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -783,7 +783,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a47163e1c385e39ce24ed0fd8b021bb293a39d45240dec593c699cc35a7c00f6.png" src="../_images/a47163e1c385e39ce24ed0fd8b021bb293a39d45240dec593c699cc35a7c00f6.png" />
+<img alt="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" src="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" />
 </div>
 </div>
 <p>Obviously, 10,000 is a very large sample (perhaps a national sample). We might be interested giving the questionnarie to a smaller group (say, 100 first year statistics students in Oxford) to see if their attitudes were similar to the larger national sample.</p>
@@ -801,11 +801,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[27 88 76 28 82 72 76 20 16 30 60 35 26 24 53 39 33 20 83  9 39 28 86 32
- 75 26 78 82 81 36 41 26 71 20 81 27 38 78 14 56 74 83 68 71  7 38 30 40
- 88 23 42 21 30 40 23 41 19 39 29 75 55 33 88 84 31 79 86 83 46 38 48 71
- 85 13 37 34 80 75 43 79 83 74 23 75 23 12 26 42 37 80 87 24 60 53 71 74
- 72 26 54 14]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[78 32 75 81 79 74 87 78 26 15 78 22 78 38 67 81 80 21 74 45 79 51 30 67
+ 19 30 36 22 38 18 78 32 40 75 21 80 57 47 39 22 32 75 82 81 24 43 37 77
+ 20 27 77 28 76 79 45 77 39 21 54 78 20 82 25 43 41 81 79 36 33 60 84 48
+ 35 26 64 17 23 34 45 41 77 60 14 13 78 21 32  7 74 82 88 35 18 30 29 72
+ 22 19 68 34]
 </pre></div>
 </div>
 </div>
@@ -823,7 +823,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/af4ded081c40c8e2e40e5a286999076b38979065d5ce5194f8866b8ad9ab47c3.png" src="../_images/af4ded081c40c8e2e40e5a286999076b38979065d5ce5194f8866b8ad9ab47c3.png" />
+<img alt="../_images/0349a7acd26bee22708a0dfb2c4e72c4e89959b8813490660aea4c71e13420d3.png" src="../_images/0349a7acd26bee22708a0dfb2c4e72c4e89959b8813490660aea4c71e13420d3.png" />
 </div>
 </div>
 <p>Hopefully we can see that the distribution within the sample resembles the shape of the distribution in the national sample, with two peaks, although somewhat noisier</p>
@@ -843,7 +843,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e7f4f56a11fa05ebc494bc5dd0ce5ebc0f5c39d12ffe460c9f96ed20b6647788.png" src="../_images/e7f4f56a11fa05ebc494bc5dd0ce5ebc0f5c39d12ffe460c9f96ed20b6647788.png" />
+<img alt="../_images/a2a8195a9c8aaa32c89f8f692e52ab3a5acb4d384b61579d3dbefae3fc24fa7b.png" src="../_images/a2a8195a9c8aaa32c89f8f692e52ab3a5acb4d384b61579d3dbefae3fc24fa7b.png" />
 </div>
 </div>
 <p>Notice that we always manage to reproduce the bimodal shape, albeit with random variability.</p>
@@ -860,7 +860,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49.8748
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(49.8748)
 </pre></div>
 </div>
 </div>
@@ -894,7 +894,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;sample mean&#39;)
 </pre></div>
 </div>
-<img alt="../_images/c831e92b745efd498ba5484feff0faa656d30b6be403af63dedf20ebe179f81a.png" src="../_images/c831e92b745efd498ba5484feff0faa656d30b6be403af63dedf20ebe179f81a.png" />
+<img alt="../_images/22e1ce193e8cced56f95d54015744d19f764bb263559423034cbc8318b20bac8.png" src="../_images/22e1ce193e8cced56f95d54015744d19f764bb263559423034cbc8318b20bac8.png" />
 </div>
 </div>
 <p>The distribution of sample means is approximately normal.</p>
@@ -908,7 +908,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49.897039
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(49.827558999999994)
 </pre></div>
 </div>
 </div>
@@ -925,7 +925,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.4668112255458463
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.4619507085884154)
 </pre></div>
 </div>
 </div>
@@ -941,7 +941,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.792720561876358
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(24.79272056187634)
 </pre></div>
 </div>
 </div>
@@ -957,8 +957,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd of sampling distribution (from simulation) = 2.4668112255458463
-SEM from the formula = 2.479272056187636
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd of sampling distribution (from simulation) = 2.4619507085884154
+SEM from the formula = 2.479272056187634
 </pre></div>
 </div>
 </div>
@@ -998,7 +998,7 @@ SEM from the formula = 2.479272056187636
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/094280f3ca01bd1af7250fdcdd785b3650b7ad0048cc8377b62f1903b7190beb.png" src="../_images/094280f3ca01bd1af7250fdcdd785b3650b7ad0048cc8377b62f1903b7190beb.png" />
+<img alt="../_images/ed0f34a90f029def1c8783e84227d6afb1924a67627099ec5cb7a00ff2b0f2d5.png" src="../_images/ed0f34a90f029def1c8783e84227d6afb1924a67627099ec5cb7a00ff2b0f2d5.png" />
 </div>
 </div>
 </section>
@@ -1025,7 +1025,7 @@ SEM from the formula = 2.479272056187636
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/857b1b73e22e891ce506cf90240fbabead8f290c4510709db07699b2d671c5f5.png" src="../_images/857b1b73e22e891ce506cf90240fbabead8f290c4510709db07699b2d671c5f5.png" />
+<img alt="../_images/54ac56b3c1acd24a3fa65830e4016081f66b7b11fcbc389bb863360fd4d168cb.png" src="../_images/54ac56b3c1acd24a3fa65830e4016081f66b7b11fcbc389bb863360fd4d168cb.png" />
 </div>
 </div>
 <p>Now we make our predicted normal sampling distribution of the mean.</p>
@@ -1055,7 +1055,7 @@ SEM from the formula = 2.479272056187636
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.479272056187636
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.479272056187634
 </pre></div>
 </div>
 </div>
@@ -1078,7 +1078,7 @@ SEM from the formula = 2.479272056187636
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
-<img alt="../_images/dbe877cb93feb1240cf58b9208bb3e64272defb06d70b90f1ab56955911b8756.png" src="../_images/dbe877cb93feb1240cf58b9208bb3e64272defb06d70b90f1ab56955911b8756.png" />
+<img alt="../_images/f8e61127575a00dfc832b7fef99fb78ed3a071247e84da8a46810416b3b64a6a.png" src="../_images/f8e61127575a00dfc832b7fef99fb78ed3a071247e84da8a46810416b3b64a6a.png" />
 </div>
 </div>
 <p>This is not a bad match!</p>
@@ -1107,7 +1107,7 @@ SEM from the formula = 2.479272056187636
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.0173 or 1.73%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.0174 or 1.7399999999999998%
 </pre></div>
 </div>
 </div>
@@ -1128,7 +1128,7 @@ SEM from the formula = 2.479272056187636
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.01753478848973844 or 1.753478848973844%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.01753478848973833 or 1.7534788489738329%
 </pre></div>
 </div>
 </div>

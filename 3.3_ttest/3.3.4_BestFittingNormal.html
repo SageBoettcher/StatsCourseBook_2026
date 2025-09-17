@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -606,19 +606,22 @@ document.write(`
 <p>From these two numbers, we can reconstruct an estimate of the height distribution for all the ballerinas in the world (!) as the normal distribution with the matching mean and standard deviation, AKA the <strong>best fitting normal</strong></p>
 <div class="math notranslate nohighlight">
 \[ height \sim \mathcal{N}(157.3, 6.3^2) \]</div>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_BestFit.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_BestFit.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_BestFit.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_BestFit.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_BestFit.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_BestFit.png" style="width: 80%;" />
+</a>
 <section id="by-fitting-the-normal-we-gain-some-information">
 <h2><span class="section-number">3.3.1. </span>By fitting the Normal we gain some information<a class="headerlink" href="#by-fitting-the-normal-we-gain-some-information" title="Link to this heading">#</a></h2>
 <p>If it is correct that heights are normally distributed, we should have a quite precise model of the heights of ballerinas worldwide by fitting the best-fitting normal to our data. Importantly this should be more ‘correct’ than assuming that heights in the population have the same distribution as in the sample (which is not perfectly normal)</p>
 <p>Compare the best fitting normals to the data KDE for ballerinas:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_NormalVsKDE.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_NormalVsKDE.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_NormalVsKDE.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_NormalVsKDE.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_NormalVsKDE.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_NormalVsKDE.png" style="width: 80%;" />
+</a>
 <p>If it is true that heights in the population of ballerinas are normally distributed, the best fitting normal should be a more accurate estimate of the population height distribution; the double mode in the KDE is a quirk of the small sample (10 ballerinas) that we measured.</p>
 </section>
 <section id="incorrect-assumption-of-normality">
 <h2><span class="section-number">3.3.2. </span>Incorrect assumption of normality<a class="headerlink" href="#incorrect-assumption-of-normality" title="Link to this heading">#</a></h2>
 <p>If the data are not really drawn from a normal distribution, the best fitting normal will be a poor estimate of the population data distribution.</p>
 <p>Often non-normal data distributions have outliers that would be really implausible under the normal distribution, and if we try to fit a normal to such data it ends up needing to be very wide to accommodate the outliers.</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_wideNormal.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_wideNormal.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_wideNormal.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_wideNormal.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_wideNormal.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_wideNormal.png" style="width: 80%;" />
+</a>
 <p>in the salary example shown above, the best fitting normal suggests that the most common salary is about £80k and that many people earn negative amounts of money - clearly not a good match to the sample data, or a plausible estimate of the salaries in the population as a whole!</p>
 </section>
 <section id="the-best-fitting-normmal-is-just-an-estimate">
@@ -634,7 +637,8 @@ document.write(`
 <ul class="simple">
 <li><p><strong>the sample mean and standard deviation are just estimates of the population mean and standard deviation and vary randomly from sample to sample</strong></p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_samplingdists.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_samplingdists.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_samplingdists.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_samplingdists.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_samplingdists.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_samplingdists.png" style="width: 80%;" />
+</a>
 </section>
 </section>
 

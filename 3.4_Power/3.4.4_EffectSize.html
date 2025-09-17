@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -680,15 +680,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -901,7 +901,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/32b7fbd81ff2eb299b873092dd1b887b6811902c0f9c40c9cf96cd89058ea8f5.png" src="../_images/32b7fbd81ff2eb299b873092dd1b887b6811902c0f9c40c9cf96cd89058ea8f5.png" />
+<img alt="../_images/70a22df81de5c240c07d72362b76c72951bace7d1477410060c86d72ee58f3b7.png" src="../_images/70a22df81de5c240c07d72362b76c72951bace7d1477410060c86d72ee58f3b7.png" />
 </div>
 </div>
 <p>Hm, no, we probably could not tell who is a psychology student and who is a geography student, just from their heights, but it looks like there is a difference between the groups overall.</p>
@@ -917,7 +917,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=1.7743564827449236, pvalue=0.04561467878556142)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(1.7743564827449236), pvalue=np.float64(0.04561467878556142), df=np.float64(20.0))
 </pre></div>
 </div>
 </div>
@@ -945,7 +945,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a3a97bb76174685f1a005d0e5fe043a672253bac9931e6d8f091a18c103029f9.png" src="../_images/a3a97bb76174685f1a005d0e5fe043a672253bac9931e6d8f091a18c103029f9.png" />
+<img alt="../_images/39f9d204abad8a6bb5ecd41d786ee2969599f6126ee772407b89e3d46b323af7.png" src="../_images/39f9d204abad8a6bb5ecd41d786ee2969599f6126ee772407b89e3d46b323af7.png" />
 </div>
 </div>
 <p>Although the mean and sd for each group are about the same, if we conduct a <span class="math notranslate nohighlight">\(t\)</span>-test on the larger dataset, we find the difference is <em>much</em> more significant</p>
@@ -959,7 +959,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=1.7743564827449236, pvalue=0.04561467878556142)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(1.7743564827449236), pvalue=np.float64(0.04561467878556142), df=np.float64(20.0))
 </pre></div>
 </div>
 </div>
@@ -974,7 +974,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=4.770032273659233, pvalue=1.6851503676180662e-06)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(4.770032273659233), pvalue=np.float64(1.6851503676180662e-06), df=np.float64(218.0))
 </pre></div>
 </div>
 </div>
@@ -1011,7 +1011,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33f67218221a25608ece23b1f43ea500d1aa8352f6405a8f7afa5b3481ded909.png" src="../_images/33f67218221a25608ece23b1f43ea500d1aa8352f6405a8f7afa5b3481ded909.png" />
+<img alt="../_images/fd03ef431ef5fe807c208d731fe43cd7fc18c3a18514aa359876ef59e2be526a.png" src="../_images/fd03ef431ef5fe807c208d731fe43cd7fc18c3a18514aa359876ef59e2be526a.png" />
 </div>
 </div>
 <p>For the dataset on the right (lower sd within each group) we can see a much clearer separation between the psychology and geography students - in practical terms, it would be easier to guess a person’s subject based on their height.</p>
@@ -1053,7 +1053,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.758944074335872
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.758944074335872)
 </pre></div>
 </div>
 </div>
@@ -1069,7 +1069,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.759734056610692
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.759734056610692)
 </pre></div>
 </div>
 </div>
@@ -1104,7 +1104,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cf92d49edf99899e75d3e5818e844c7136a9f266a9ff20a47314aaaf34215671.png" src="../_images/cf92d49edf99899e75d3e5818e844c7136a9f266a9ff20a47314aaaf34215671.png" />
+<img alt="../_images/0d40c4db5685288d135ca178766a7ae1d3e94bf8c00dd5af4a851bb73dc7bbb7.png" src="../_images/0d40c4db5685288d135ca178766a7ae1d3e94bf8c00dd5af4a851bb73dc7bbb7.png" />
 </div>
 </div>
 <p>Although the ‘sheep’ data are much more spread out, the difference of means between groups is also larger.</p>

@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -659,15 +659,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -731,13 +731,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TAILS
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HEADS
 TAILS
 HEADS
 HEADS
-HEADS
 TAILS
 HEADS
+TAILS
 HEADS
 HEADS
 TAILS
@@ -767,7 +767,7 @@ TAILS
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.0
 </pre></div>
 </div>
 </div>
@@ -790,8 +790,8 @@ TAILS
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>output array: [0. 0. 0. 1. 1. 1. 1. 1. 1. 0.]
-sum = 6.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>output array: [0. 1. 1. 1. 1. 1. 0. 0. 1. 1.]
+sum = 7.0
 </pre></div>
 </div>
 </div>
@@ -833,7 +833,7 @@ sum = 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b4469ed45ea08575f089b7200acfa3596d5342b9cdf397f032f671865639d42a.png" src="../_images/b4469ed45ea08575f089b7200acfa3596d5342b9cdf397f032f671865639d42a.png" />
+<img alt="../_images/bbe76a33f25cae2afce7bcbab3c9493fc829f9139d22e95f9525feb672efdf8c.png" src="../_images/bbe76a33f25cae2afce7bcbab3c9493fc829f9139d22e95f9525feb672efdf8c.png" />
 </div>
 </div>
 <p>Indeed, the fairer outcomes are more likely</p>
@@ -863,7 +863,8 @@ sum = 6.0
 <h2><span class="section-number">1.8.3. </span>Exercise: Galton Board simulation<a class="headerlink" href="#exercise-galton-board-simulation" title="Link to this heading">#</a></h2>
 <p>In the Galton Board, ball bearings are dropped from a funnel onto a board with pins sticking out.</p>
 <p>As each ball bearing goes down the board, each time it hits a pin it bounces left or right:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_GaltonBoard.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_GaltonBoard.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_GaltonBoard.jpg" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_GaltonBoard.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_GaltonBoard.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_GaltonBoard.jpg" style="width: 30%;" />
+</a>
 <p>The ball’s ultimate horizontal position depends upon how many times it (randomly) bounces left or right.</p>
 <ul class="simple">
 <li><p>To arrive at the very right hand side of the board, it must bounce rightwards evey time it hits a pin</p></li>
@@ -873,7 +874,7 @@ sum = 6.0
 <p>Here is a nice YouTube video of the Galton board in action:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.lib.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.lib.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;EvHiee7gs9Y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -919,7 +920,7 @@ sum = 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1afe9aeaa1ca98d2b92fd1c90484dbd7bb58105639c4cd482b589799de5bb6a5.png" src="../_images/1afe9aeaa1ca98d2b92fd1c90484dbd7bb58105639c4cd482b589799de5bb6a5.png" />
+<img alt="../_images/bb10a26db982352e4e898dff9219b9e8f3bbe23c44ee29a8f66406106c03320d.png" src="../_images/bb10a26db982352e4e898dff9219b9e8f3bbe23c44ee29a8f66406106c03320d.png" />
 </div>
 </div>
 <p>If you run the code block above a few times, you should see the simulated trajectory change each time</p>
@@ -1079,7 +1080,7 @@ sum = 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6ce776c99353897d26b7dc3111f702aed2fcb46737e7da19aaa5379df74cfea9.png" src="../_images/6ce776c99353897d26b7dc3111f702aed2fcb46737e7da19aaa5379df74cfea9.png" />
+<img alt="../_images/ed4c7674dc319d3a10ab82c46763c71ad6667d39ecde353a995e846ef763ab5b.png" src="../_images/ed4c7674dc319d3a10ab82c46763c71ad6667d39ecde353a995e846ef763ab5b.png" />
 </div>
 </div>
 <p>The darker lines are places where more than one ball has passed through</p>
@@ -1104,7 +1105,7 @@ sum = 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e5a486f9ea61f70390dff8dff2540374c34224e3d804bcff6e91c581e1c82f67.png" src="../_images/e5a486f9ea61f70390dff8dff2540374c34224e3d804bcff6e91c581e1c82f67.png" />
+<img alt="../_images/3d7e531d5cf0c5d03977622626a070cbcd1583945984d26d0ad567b1cb4dc4e1.png" src="../_images/3d7e531d5cf0c5d03977622626a070cbcd1583945984d26d0ad567b1cb4dc4e1.png" />
 </div>
 </div>
 </section>

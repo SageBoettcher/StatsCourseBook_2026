@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -652,14 +652,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 </pre></div>
 </div>
 </div>
@@ -863,7 +863,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7812255461336072
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7812255461336072)
 </pre></div>
 </div>
 </div>
@@ -893,7 +893,7 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c733ceeb8368524bfb4c67f0b113ed77ecb7f3dafead1a46867e67d895460942.png" src="../_images/c733ceeb8368524bfb4c67f0b113ed77ecb7f3dafead1a46867e67d895460942.png" />
+<img alt="../_images/53579442efb3f035f6e4b4f5a7a8470ba03678129f1f6ba661fbb7b768f2d282.png" src="../_images/53579442efb3f035f6e4b4f5a7a8470ba03678129f1f6ba661fbb7b768f2d282.png" />
 </div>
 </div>
 <p><strong>c) Carry out the test</strong></p>
@@ -901,7 +901,7 @@ n post = 61
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function that gives the correlation for two series x and y</span>
 <span class="c1"># note that np.corrcoef returns a 2x2 matrix so we need to get just the relevant element</span>
-<span class="k">def</span> <span class="nf">mycorr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mycorr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 
@@ -911,8 +911,8 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=0.7812255461336072, pvalue=9.999000099990002e-05, null_distribution=array([ 0.07993423, -0.088853  ,  0.18136358, ...,  0.28247891,
-       -0.03146534, -0.10565321]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.7812255461336072), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([ 0.01139877, -0.04261314, -0.28244802, ..., -0.02691201,
+       -0.22074255,  0.08244642], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1012,14 +1012,14 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ae6f37fc8564788c3693a1ac905394742ece751ecc6db75ce3fbbba9fbb4d101.png" src="../_images/ae6f37fc8564788c3693a1ac905394742ece751ecc6db75ce3fbbba9fbb4d101.png" />
+<img alt="../_images/a598957f770d821a42a49f50ba6fbd243bee1915fad45204f46419bffcb28b56.png" src="../_images/a598957f770d821a42a49f50ba6fbd243bee1915fad45204f46419bffcb28b56.png" />
 </div>
 </div>
 <p><strong>c) Carry out the test</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function that gives the difference of means for two independent samples</span>
-<span class="k">def</span> <span class="nf">dMeans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dMeans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <span class="c1"># run the permutation test</span>
@@ -1030,8 +1030,8 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=3.9630672926447517, pvalue=0.1065893410658934, null_distribution=array([-0.21220657, -2.06384977,  2.7286385 , ...,  0.22347418,
-        7.1943662 ,  1.45790297]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(3.9630672926447517), pvalue=np.float64(0.10178982101789821), null_distribution=array([ 3.05539906, -0.13959311, -5.91236307, ..., -4.85946792,
+       -1.55555556, -1.95492958], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1118,7 +1118,7 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/556355a80e89523ffa86d5b98ea33f97455c771d853583ae73c751246fc94069.png" src="../_images/556355a80e89523ffa86d5b98ea33f97455c771d853583ae73c751246fc94069.png" />
+<img alt="../_images/da69c192985f0e59e611200bda60e7b18fb5fa017eb44b80b0ac52373c3966fb.png" src="../_images/da69c192985f0e59e611200bda60e7b18fb5fa017eb44b80b0ac52373c3966fb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1133,14 +1133,14 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a019a1b726d5e2293cce6297e42a55c8b47756774fe720c969b67831caeb39db.png" src="../_images/a019a1b726d5e2293cce6297e42a55c8b47756774fe720c969b67831caeb39db.png" />
+<img alt="../_images/a13968e54dd4f8d3a3780cfd61dc27a7e30f24840137259d2f1729d7fa852d1e.png" src="../_images/a13968e54dd4f8d3a3780cfd61dc27a7e30f24840137259d2f1729d7fa852d1e.png" />
 </div>
 </div>
 <p><strong>c. Carry out the test</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function that gives the mean pairwise difference in scores for the group</span>
-<span class="k">def</span> <span class="nf">mDiff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mDiff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
 
 <span class="c1"># run the permutation test</span>
@@ -1153,8 +1153,8 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=2.584717607973417, pvalue=9.999000099990002e-05, null_distribution=array([ 0.25249169,  1.62126246, -0.5448505 , ...,  0.        ,
-        0.31229236,  0.28571429]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.584717607973417), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.63122924,  0.20598007,  0.50498339, ...,  0.4717608 ,
+       -0.84385382,  0.23255814], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1285,14 +1285,14 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/87cbaa3b71f36a255b3bf3d5c1e5048c51ecca77b5caa06b0f39fbcda8275036.png" src="../_images/87cbaa3b71f36a255b3bf3d5c1e5048c51ecca77b5caa06b0f39fbcda8275036.png" />
+<img alt="../_images/20ee3c6be488be5ba84bd3ef9445981d76432d62907a807f0d07381e0bde7572.png" src="../_images/20ee3c6be488be5ba84bd3ef9445981d76432d62907a807f0d07381e0bde7572.png" />
 </div>
 </div>
 <p><strong>c. Carry out the test</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function that gives the difference of means for two independent samples</span>
-<span class="k">def</span> <span class="nf">dMeans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dMeans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <span class="c1"># run the permutation test</span>
@@ -1303,8 +1303,8 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=0.8040571480904846, pvalue=0.2435756424357564, null_distribution=array([-1.56667277,  0.91432366, -0.42265775, ...,  0.81784046,
-       -0.8775071 , -1.48397289]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8040571480904846), pvalue=np.float64(0.23747625237476253), null_distribution=array([ 1.369173  ,  1.65862258,  0.69379064, ...,  0.94189028,
+       -2.54528803,  0.76270721], shape=(10000,)))
 </pre></div>
 </div>
 </div>

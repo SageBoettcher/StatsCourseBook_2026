@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -701,7 +701,8 @@ document.write(`
 </div>
 <section id="example-brother-sister-heights">
 <h2><span class="section-number">2.6.1. </span>Example: brother/sister heights<a class="headerlink" href="#example-brother-sister-heights" title="Link to this heading">#</a></h2>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/tallVshort.jpg"><img alt="A picture of people of different heights" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/tallVshort.jpg" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/tallVshort.jpg"><img alt="A picture of people of different heights" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/tallVshort.jpg" style="width: 30%;" />
+</a>
 <p>A researcher hypothesises that men are taller than women.</p>
 <p>He also notices that there is a considerable genetic influence on height, with some families being taller than others</p>
 <p>He decides to control for this by comparing the heights of brothers and sisters (shared genetic influence, shared upbringing). This is a <b>paired</b> design.</p>
@@ -714,15 +715,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -908,7 +909,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;height (cm)&#39;)
 </pre></div>
 </div>
-<img alt="../_images/210969502b0f409e88c367c59eab5d812e47a8e08737338faea7e5a44bd2ef35.png" src="../_images/210969502b0f409e88c367c59eab5d812e47a8e08737338faea7e5a44bd2ef35.png" />
+<img alt="../_images/4bbca6006a0f24408e598ddc747d48dbb4c420f338a074667d5785fd88c91316.png" src="../_images/4bbca6006a0f24408e598ddc747d48dbb4c420f338a074667d5785fd88c91316.png" />
 </div>
 </div>
 <p>There’s a lot of overlap for sure, and just a hint that the men are taller than the women.</p>
@@ -928,7 +929,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ece6f3ca7f38479d56557d7b27488a473e91b99ad3f96d4f8ec02c98b201260a.png" src="../_images/ece6f3ca7f38479d56557d7b27488a473e91b99ad3f96d4f8ec02c98b201260a.png" />
+<img alt="../_images/299960aeb2eabf017c4c2c5fd65886b991a6746efcb8fd078a9eac7b62ac896f.png" src="../_images/299960aeb2eabf017c4c2c5fd65886b991a6746efcb8fd078a9eac7b62ac896f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -941,7 +942,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7d19b2a1a1563b97c1de99882dae14f70238ad259b8edd165c71320cf09c6cf7.png" src="../_images/7d19b2a1a1563b97c1de99882dae14f70238ad259b8edd165c71320cf09c6cf7.png" />
+<img alt="../_images/21c93dcd4807074a2d06c627eee4fc496304090b9ffa0e1e6e92ca21732b65db.png" src="../_images/21c93dcd4807074a2d06c627eee4fc496304090b9ffa0e1e6e92ca21732b65db.png" />
 </div>
 </div>
 <section id="between-pairs-effect-correlation">
@@ -972,7 +973,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7974f010c5557a69dbcd3313905ce333e58ead4a4bab159a939bba665a9def2b.png" src="../_images/7974f010c5557a69dbcd3313905ce333e58ead4a4bab159a939bba665a9def2b.png" />
+<img alt="../_images/bdaf8145edc914fe481f440bc94ef2faa6ff19ca39aa149f9e9b1b6864357918.png" src="../_images/bdaf8145edc914fe481f440bc94ef2faa6ff19ca39aa149f9e9b1b6864357918.png" />
 </div>
 </div>
 <p>Look at the graph - most of the datapoints fall on one side of the line (below it)</p>
@@ -1005,7 +1006,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06e612d591881dac3d2df916a0fc4d1f856e1aad3657a30e5befb3ed3581da8e.png" src="../_images/06e612d591881dac3d2df916a0fc4d1f856e1aad3657a30e5befb3ed3581da8e.png" />
+<img alt="../_images/ffce4facb5991e5837e2b000ea2e388864062b34b8300c1b90a20489cde00244.png" src="../_images/ffce4facb5991e5837e2b000ea2e388864062b34b8300c1b90a20489cde00244.png" />
 </div>
 </div>
 <p>The blue line is the regression line (and the shading represents a confidence interval for the regression line - we will cover confidence intervals in detail later but basically, it reflects the fact that we are not totally sure this sample reflects all men and women in the popluation; we expect the ‘true’ regression line to fall somewhere in the shaded region)</p>
@@ -1033,7 +1034,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
-<img alt="../_images/66aa3cc7c284cab8c21776087d892f0f477cb42b9c3db83f320863386ee575fd.png" src="../_images/66aa3cc7c284cab8c21776087d892f0f477cb42b9c3db83f320863386ee575fd.png" />
+<img alt="../_images/393265c9c780a3fc916b9ed227fcaf526aaecda9ad3313acd4f78e1b0f4d0799.png" src="../_images/393265c9c780a3fc916b9ed227fcaf526aaecda9ad3313acd4f78e1b0f4d0799.png" />
 </div>
 </div>
 <p>Since this plot is now made up of three axes (the main scatter plot and the two marginal histograms), if we want to adjust one of those axes, we use a set of arguments in a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>:</p>
@@ -1052,7 +1053,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/338d5882bd41df7c6dfc35d8a6e44be7c42b2a46baf9ada44e5c20589328e454.png" src="../_images/338d5882bd41df7c6dfc35d8a6e44be7c42b2a46baf9ada44e5c20589328e454.png" />
+<img alt="../_images/f3bdc42c0b549c4806e1e04d6a09b5a826f1a9f7b16c1e383634d06f2d2881fe.png" src="../_images/f3bdc42c0b549c4806e1e04d6a09b5a826f1a9f7b16c1e383634d06f2d2881fe.png" />
 </div>
 </div>
 <p>Finally, we can add the line <span class="math notranslate nohighlight">\(x=y\)</span>.</p>
@@ -1073,7 +1074,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d8bbe64137795269da9ae84429356352386a1aa57b19676e9e3e0209fdb19741.png" src="../_images/d8bbe64137795269da9ae84429356352386a1aa57b19676e9e3e0209fdb19741.png" />
+<img alt="../_images/077a0a0614d959b9996c230a7edba3c3e488c0a1a6ed4116000c6d47218f31ea.png" src="../_images/077a0a0614d959b9996c230a7edba3c3e488c0a1a6ed4116000c6d47218f31ea.png" />
 </div>
 </div>
 </section>
@@ -1091,7 +1092,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7d615c91d9405ecb9757c6928977c93d81c4515bc95450aee238188948e21b45.png" src="../_images/7d615c91d9405ecb9757c6928977c93d81c4515bc95450aee238188948e21b45.png" />
+<img alt="../_images/4ea78346a75c393d40c9b98e52e728b258c212b1cf3e3ac97ab397c03838f0c5.png" src="../_images/4ea78346a75c393d40c9b98e52e728b258c212b1cf3e3ac97ab397c03838f0c5.png" />
 </div>
 </div>
 <p>… Note that areas (squares) with more data points in them are darker blue.</p>
@@ -1211,7 +1212,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a55da70b261dde3e495dd1d7db5adb2938a1776ae4da67e0903e76b8b5885c16.png" src="../_images/a55da70b261dde3e495dd1d7db5adb2938a1776ae4da67e0903e76b8b5885c16.png" />
+<img alt="../_images/46af72d85d5f296c9b8b4f624d6930fbba6df8eca772d41107b5a45431be4b6f.png" src="../_images/46af72d85d5f296c9b8b4f624d6930fbba6df8eca772d41107b5a45431be4b6f.png" />
 </div>
 </div>
 <p>We can clearly see a positive correlation between weight and height, but it is hard to see any detail about the relationship as the dots are packed so closely together.</p>
@@ -1224,7 +1225,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4a7c5dfa8b7bc0264dfddeb0bc167f53cfe8322203da8b4e80f6f7224d17a418.png" src="../_images/4a7c5dfa8b7bc0264dfddeb0bc167f53cfe8322203da8b4e80f6f7224d17a418.png" />
+<img alt="../_images/7241d640c803b016f1a8274a4f99bedab19c24a96df2ed54e02d26dd4abcd41f.png" src="../_images/7241d640c803b016f1a8274a4f99bedab19c24a96df2ed54e02d26dd4abcd41f.png" />
 </div>
 </div>
 <p>We can now see that the density of datapoints is higher in the middle of the cloud, and interestingly can see a hint that there are two separate peaks within the data distribution (look closely - the dark region of the histogram dips in the middle).</p>
@@ -1237,7 +1238,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/42f8a558c5580dc35d0086baeecaa7bf9ce77d59f095bf367bad00eb22bd1a3f.png" src="../_images/42f8a558c5580dc35d0086baeecaa7bf9ce77d59f095bf367bad00eb22bd1a3f.png" />
+<img alt="../_images/484c4de7338831de1cea4088e67ca82436874ea1c41cc3065cc4fc73bf751bb6.png" src="../_images/484c4de7338831de1cea4088e67ca82436874ea1c41cc3065cc4fc73bf751bb6.png" />
 </div>
 </div>
 <p>However, the data cloud for women is now occluding the data cloud for men.</p>
@@ -1250,7 +1251,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d47ad180ca55f1033e1e63c3b677fafa6eec4d139963127cb557d8062daebb7e.png" src="../_images/d47ad180ca55f1033e1e63c3b677fafa6eec4d139963127cb557d8062daebb7e.png" />
+<img alt="../_images/b68e01528426f49d2e515694ff70fb647d6e36d8ce43680b847b4eb0f3a9f4bf.png" src="../_images/b68e01528426f49d2e515694ff70fb647d6e36d8ce43680b847b4eb0f3a9f4bf.png" />
 </div>
 </div>
 </section>
