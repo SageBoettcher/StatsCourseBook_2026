@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '0.1_PrepWork/MT_wk0_random';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.9. ChatGPT" href="MT_wk0_ChatGPT.html" />
+    <link rel="next" title="1.9. ChatGPT and Generative AI" href="MT_wk0_ChatGPT.html" />
     <link rel="prev" title="1.6. FOR loop with IF statement" href="MT_wk0_ForIf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -189,7 +189,7 @@
 <li class="toctree-l2"><a class="reference internal" href="MT_wk0_ForIf.html">1.6. FOR loop with IF statement</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.7. Simulating a random process</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="MT_wk0_ChatGPT.html">1.9. ChatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MT_wk0_ChatGPT.html">1.9. ChatGPT and Generative AI</a></li>
 </ul>
 </details></li>
 </ul>
@@ -616,7 +616,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.7. Simulating a random process</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.7.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number">1.7.2. Random number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number">1.7.2. Random number</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehension">Comprehension</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-coin-flip">1.8. Simulated coin flip</a><ul class="visible nav section-nav flex-column">
@@ -625,14 +628,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehension-questions">Comprehension questions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-galton-board-simulation">1.8.3. Exercise: Galton Board simulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-single-ball">Simulate a single ball</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-galton-board-simulation">1.8.3. Exercise: Galton Board simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-single-ball">1.8.4. Simulate a Single Ball</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Comprehension Questions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.8.4. Double Loop</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">1.8.5. Exercises</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-of-the-galton-board-simulation">1.8.6. Significance of the Galton Board simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.8.5. Double Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">1.8.6. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-of-the-galton-board-simulation">1.8.7. Significance of the Galton Board simulation</a></li>
 </ul>
 </li>
 </ul>
@@ -649,10 +652,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="simulating-a-random-process">
 <h1><span class="section-number">1.7. </span>Simulating a random process<a class="headerlink" href="#simulating-a-random-process" title="Link to this heading">#</a></h1>
-<p>In statistics we are interested in understanding how random variability affects a measurement.</p>
-<p>For example, a person takes a multiple choice style IQ test. Their score will reflect their true IQ, bubt also some elment of random chance (they will have guessed the questions they couldn’t answer, and may have been lucky or unlucky in terms of how many guesses were correct).</p>
-<p>As we will see in the course, randomness has predictable properties (!), for example, the influecne of randomm chance tends to average out over lots of measurements (you might be lucky and guess 3/3 questions correctly, but not 100/100)</p>
-<p>To understand the impact of randomess on our measurements, we can simulate a random process. That is what we will do in the next section.</p>
+<div class="alert alert-block alert-success">
+<b> This page (and subsequent pages) is a Jupyter Notebook. Download it or open it in Colab so you can actually run the code blocks!</b> 
+<p>Remember, there’s no way you can actually “break” anything, so don’t be afraid to edit things within this notebook. Errors are not necessarily a bad thing (even if they do look scary), have a go at working through some of the examples below. Today is not about understanding all of the specifics or the exact code you will be confronted with, but rather its important to try things out before the course starts so we can be sure you have a working set up for next week</p>
+</div>
+<p>One of the powerful things about coding is that we can use the computer to <strong>simulate random events</strong>. This means we can model things like rolling dice, flipping coins, or drawing cards. These (and other) examples all represent processes where the outcome is uncertain but they follow known probabilities.</p>
+<p><strong>Why is this useful?</strong></p>
+<p>Our interest in statistics is often in whether the measurements we observe reflect a real effect or are simply <em>the result of chance</em>. To answer this, we study how random variability influences data and what tends to happen on average when chance is involved.</p>
+<p>For example, imagine someone taking a multiple-choice style IQ test. Their score reflects their true ability, but also some element of random chance. They might have guessed on questions they didn’t know, and depending on luck, some of those guesses could be correct. As we’ll see in this course, randomness has predictable properties: its influence tends to average out when we look across many measurements. You might get lucky and guess 3 out of 3 questions correctly, but it’s extremely unlikely to guess 100 out of 100.</p>
+<p>By running simulations quickly, the computer allows us to explore these patterns of randomness in ways that would take a <em>very</em> long time to test by hand. To understand how randomness shapes our measurements, we can simulate random processes. That’s exactly what we’ll start doing in the next section.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">1.7.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -676,7 +684,7 @@ document.write(`
 </section>
 <section id="random-number">
 <h2><span class="section-number">1.7.2. </span>Random number<a class="headerlink" href="#random-number" title="Link to this heading">#</a></h2>
-<p>We can ask the computer to generate a random number. The <code class="docutils literal notranslate"><span class="pre">np.random()</span></code> library is good for this!</p>
+<p>We can ask the computer to generate random numbers, which is the basis of simulating random processes. The <code class="docutils literal notranslate"><span class="pre">numpy.random()</span></code> library is especially useful for this.</p>
 <p>For example, the following code block generates a random integer between 0 and 9.</p>
 <ul class="simple">
 <li><p>Run the code block a few times - you should get a different random number in the range [0,10) (ie 0-9 inclusive) each time</p></li>
@@ -688,19 +696,24 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
 </div>
-<p>Of course we can make a loop to give us a few such random numbers - uncomment and complete the code block below</p>
+<section id="comprehension">
+<h3>Comprehension<a class="headerlink" href="#comprehension" title="Link to this heading">#</a></h3>
+<p><strong>a.Create a for loop to generate multiple random numbers</strong></p>
+<ul class="simple">
+<li><p><em>The code below is set up to generate <code class="docutils literal notranslate"><span class="pre">n</span></code> random numbers and store them in an array that is length <code class="docutils literal notranslate"><span class="pre">n</span></code>. Uncomment and complete the code block below so that each slot in the variable <code class="docutils literal notranslate"><span class="pre">MyRandomNumbers</span></code> is filled with a new random integer between 1 and 10. If you are stuck look back on the For Loop worksheet</em></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n=100 # we will generate n random numbers</span>
-<span class="c1">#MyRandomNumbers = np.empty(n) # create the output array</span>
+<span class="c1">#MyRandomNumbers = np.zeros(n) # create the output array</span>
 
 <span class="c1">#for i in range(n):</span>
-<span class="c1">#    YOUR CODE HERE</span>
+    <span class="c1">#YOUR CODE HERE</span>
     
 <span class="c1">#print(MyRandomNumbers)</span>
 </pre></div>
@@ -709,21 +722,26 @@ document.write(`
 </div>
 </section>
 </section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="simulated-coin-flip">
 <h1><span class="section-number">1.8. </span>Simulated coin flip<a class="headerlink" href="#simulated-coin-flip" title="Link to this heading">#</a></h1>
 <p>A random number can act as a model for a real world process.</p>
-<p>For example, if we flip a fair coin, the chance of getting ‘heads’ is 0.5.</p>
-<p>If we pick a random integer in the range <tt>[0,2)</tt> (ie, we pick <tt>0</tt> or <tt>1</tt>), the chance of getting <tt>1</tt> is 0.5.</p>
-<p>We can think of this particular random number generator (in the range <tt>[0,2)</tt>) as a model for the coin toss, in that the chance of getting, say, 8/10 ‘heads’ if we really tossed the coin is the same as getting 8/10 <tt>1</tt>’s from the random number generator.</p>
+<p>For example, if we flip a fair coin, the chance of getting ‘heads’ is 0.5 (50%). We can model this using a random integer ins the range  <tt>[0,2]</tt> . This means the computer will always return either <tt>0</tt> or <tt>1</tt> Lets say:</p>
 <ul class="simple">
-<li><p>Run the code below a few times - the list of random ‘coin toss outcomes’ should change each time</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">=</span> <span class="pre">Tails</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">=</span> <span class="pre">Heads</span></code></p></li>
+</ul>
+<p>Beacause each outcome is equally likely the chance of getting 1 (or heads) is .5, just like flipping a real coin.</p>
+<p>This makes this particular random number generator a simple model of a coin toss: so the probability of gettting 8 heads out of 10 coin flips is the same as the probability of generating 8 ones out of 10 runs of <code class="docutils literal notranslate"><span class="pre">np.random.randint(0,2)</span></code></p>
+<ul class="simple">
+<li><p>Run the code below a few times - here we are using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to simulate the flipping of a coin 10 times, and producing a readable outcome. The result of random ‘coin toss outcomes’ should change each time</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">10</span> <span class="c1"># number of coin flips</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;HEADS&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;TAILS&#39;</span><span class="p">)</span>
@@ -731,8 +749,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HEADS
-HEADS
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TAILS
+TAILS
 HEADS
 HEADS
 TAILS
@@ -747,50 +765,30 @@ HEADS
 </div>
 <section id="count-the-heads">
 <h2><span class="section-number">1.8.1. </span>Count the heads<a class="headerlink" href="#count-the-heads" title="Link to this heading">#</a></h2>
-<p>Ultimately we might not be so interested in the whole sequence as some summary of it - for example how likely is it that we can get 8/10 ‘heads’ for a fair coin?</p>
+<p>Ultimately we aren’t as interested in the entire sequence of coin flips as we are in a <em>summary</em> of the results. For example:</p>
 <ul class="simple">
-<li><p>Uncomment the code below and modify it so that it fills up the output array ‘heads’ with 1s and 0s according to the random ‘coin toss’</p></li>
+<li><p>how many times out of the 10 flips did we get a ‘heads’? or even further…</p></li>
+<li><p>how likely is it that we can get 8/10 ‘heads’ using a fair coin?</p></li>
 </ul>
+<p>To explore this we can store each coin flip as either a 1 or a 0 depending on whether the out come was heads or not. In the end we will print the entire array as well as the sum. If you run your code multiple times you should find that the number of heads varies, although you will more often get values near to 5 (as the coin is fair) than extreme values (such as 9 or 1)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">10</span>
-<span class="n">heads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">10</span>                <span class="c1"># number of coin flips</span>
+<span class="n">heads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># create an empty array</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> 
         <span class="n">heads</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">heads</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-        
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">heads</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
-</pre></div>
-</div>
-</div>
-</div>
-<p>If you run your code multiple times you should find that the number of heads varies, although you will more often get values near to 5/10 (as the coin is fair) than extreme values (such as 9/10 or 1/10)</p>
-<p>There are two differences from the previous example:</p>
-<ul class="simple">
-<li><p>We code the outputs as <tt>1</tt> and <tt>0</tt>, rather than the strings <tt>HEADS</tt> and <tt>TAILS</tt></p></li>
-<li><p>We store the outcomes in a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array (rather than printing them to the screen)</p>
-<ul>
-<li><p>This array is later summed to count the number of heads:</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;output array: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">heads</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;heads array: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">heads</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sum = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">heads</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>output array: [1. 0. 0. 1. 0. 1. 1. 0. 0. 1.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>heads array: [0. 0. 1. 0. 1. 1. 1. 0. 0. 1.]
 sum = 5.0
 </pre></div>
 </div>
@@ -799,17 +797,24 @@ sum = 5.0
 </section>
 <section id="double-loop">
 <h2><span class="section-number">1.8.2. </span>Double loop<a class="headerlink" href="#double-loop" title="Link to this heading">#</a></h2>
-<p>What if we are interested in how much more often we get a ‘close-to-even’ outcome (4/10, 5/10, 6/10) vs an extreme outcome?</p>
-<p>We need to run the 10-coin-toss simulation lots of times and note how any heads we got (out of 10) each time.</p>
+<p>What if we want to go beyond a single simulation of 10 flips. Instead we want to know how often are we getting “average” outcomes (4, 5, or 6 heads out of 10 flips) vs. more extreme outcomes (0, 1, 9, or 10 heads out of 10 flips)</p>
+<p>To answer this, we need to repeat our simuluation many time. Each time, we’ll flip 10 coins, count the number of heads and record the results. Doing this once gives us a single data point (e.g., “this time we got 7 heads”) Doing it 100s or 1000s of times will allow us to see the overall pattern of results. Our goal here will be:</p>
 <ul class="simple">
-<li><p>Each time we simulate 10 coin tosses and count the number of heads is one ‘repetition’ of the simulation</p></li>
+<li><p>Each time we simulate 10 coin tosses and count the number of heads. This will be referred to as one <em>repetition</em> of the simulation</p></li>
+<li><p>Above you created repetitions informally by running the code block multiple times yourself</p></li>
+<li><p>Now we’ll again try to automate this process by putting a second <code class="docutils literal notranslate"><span class="pre">for</span></code> loop around our existing loop</p></li>
 </ul>
-<p>Above, you created <em>repetitions</em> informally by running the code block above any times.</p>
-<p>We can actually make a loop <em>around our loop</em> to do this automatically!</p>
+<p>This <strong>double loop</strong> contains:</p>
+<ul class="simple">
+<li><p>An <strong>inner loop</strong> which simulates the 10 coin tosses</p></li>
+<li><p>An <strong>outer loop</strong> repeats the process as many times as you like (e.g., 1000 repetitions)</p></li>
+</ul>
+<p>Overall, the code in your inner loop runs once for every coin flip in a single repetition, and the outer loop controls how many repetitions you do. That means the total number of flips is the number of flips per repetition multiplied by the number of repetitions. For example, if your inner loop flips the coin 10 times and your outer loop runs 5 repetitions, you’ll have flipped a total of 50 coins.</p>
+<p>Ultimately, this will let us build up a large set of results that shows us how often “average” outcomes occur compared to extreme ones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reps</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># how mmany times will we repeat our 10-coin-toss simulation?</span>
-<span class="n">nHeads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span>
+<span class="n">nHeads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span> <span class="c1">#an empty array to store our results</span>
 
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
     <span class="n">n</span><span class="o">=</span><span class="mi">10</span>
@@ -823,20 +828,24 @@ sum = 5.0
         
     <span class="n">nHeads</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">heads</span><span class="p">)</span>
     
-<span class="c1"># histogram of the number of repetitions in which 0,1,2... etc heads were obtained    </span>
+<span class="c1"># histogram of the number of repetitions in which 0,1,2... etc heads were obtained  </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;‘Average coin tosses&#39; (4–6)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">nHeads</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">10.5</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of heads&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total number of heads out of 10&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/396aafe66979eb61c8ff142420f828edc966fefcf50a6fe469cc0453e86b9c64.png" src="../_images/396aafe66979eb61c8ff142420f828edc966fefcf50a6fe469cc0453e86b9c64.png" />
+<img alt="../_images/b33d1b45c773c39b0962beb212b5dc8fd2bf095f89179e189afec5aa598b241b.png" src="../_images/b33d1b45c773c39b0962beb212b5dc8fd2bf095f89179e189afec5aa598b241b.png" />
 </div>
 </div>
-<p>Indeed, the fairer outcomes are more likely</p>
+<p>Indeed, the expected outcomes of 4,5,6 are more likely than the extremes!</p>
 <section id="comprehension-questions">
 <h3>Comprehension questions<a class="headerlink" href="#comprehension-questions" title="Link to this heading">#</a></h3>
 <p><strong>a. In the douple loop we have two counter variables, <tt>i</tt> and <tt>j</tt>…</strong></p>
@@ -848,6 +857,10 @@ sum = 5.0
 <ul class="simple">
 <li><p>Think then uncomment the code below and check!</p></li>
 </ul>
+<p><strong>c. What would you expect if you changed the number of reps to 10? how about 10000?</strong></p>
+<ul class="simple">
+<li><p>Think then try it above!</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(&#39;i:&#39; + str(i))</span>
@@ -856,21 +869,20 @@ sum = 5.0
 </div>
 </div>
 </div>
-<p>Remember in Python we count from zero (soooo confusing!)</p>
+<p><strong>Remember in Python we count from zero (soooo confusing!)</strong></p>
 </section>
 </section>
 <section id="exercise-galton-board-simulation">
 <h2><span class="section-number">1.8.3. </span>Exercise: Galton Board simulation<a class="headerlink" href="#exercise-galton-board-simulation" title="Link to this heading">#</a></h2>
-<p>In the Galton Board, ball bearings are dropped from a funnel onto a board with pins sticking out.</p>
-<p>As each ball bearing goes down the board, each time it hits a pin it bounces left or right:</p>
+<p>In the <strong>Galton Board</strong>, small balls are dropped from a funnel onto a board with evenly spaced pins. Each time a ball hits a pin it will <strong>randomly</strong> bounced either to the <strong>left</strong> or to the <strong>right</strong>.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_GaltonBoard.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_GaltonBoard.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_GaltonBoard.jpg" style="width: 30%;" />
 </a>
-<p>The ball’s ultimate horizontal position depends upon how many times it (randomly) bounces left or right.</p>
+<p>The ball’s final horizontal position depends upon 1) how many pins there are and 2) how many times it has bounced to the left or right. That is:</p>
 <ul class="simple">
-<li><p>To arrive at the very right hand side of the board, it must bounce rightwards evey time it hits a pin</p></li>
-<li><p>If the ball bounces leftwards and rightwards equally often, it will land in the centre</p></li>
+<li><p>To land at the far right, it must bounce <strong>right</strong> at <em>every</em> pin it hits</p></li>
+<li><p>If it bounces to the <strong>left</strong> and <strong>right</strong> <em>equally often</em>, it will land in the centre</p></li>
 </ul>
-<p>When a large number of balls are released into the Galton Board, we effectvely have a large number of ‘repeats’ of the random bouncing process, which reveals that balanced/fair outcomes (with roughly equal numbers of leftwards and rightward bounces) are more likely</p>
+<p>When we release a large number of balls  into the Galton Board, we effectvely have a large number of <em>‘repetitions’</em> of the random bouncing process. This reveals that balanced/fair outcomes (with roughly equal numbers of leftwards and rightward bounces) are most common – producing a potentially familiar bell shaped pile of balls</p>
 <p>Here is a nice YouTube video of the Galton board in action:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -891,10 +903,17 @@ sum = 5.0
         ></iframe>
         </div></div>
 </div>
+</section>
 <section id="simulate-a-single-ball">
-<h3>Simulate a single ball<a class="headerlink" href="#simulate-a-single-ball" title="Link to this heading">#</a></h3>
-<p>We start by simulating the trajectory of a single ball. Let’s assume out Galton board has 10 rows of pins:</p>
-<iframe width=”560" height=”315" src=”https://youtu.be/EvHiee7gs9Y?si=OihJCk0ZJQG2l2jk"></iframe>
+<h2><span class="section-number">1.8.4. </span>Simulate a Single Ball<a class="headerlink" href="#simulate-a-single-ball" title="Link to this heading">#</a></h2>
+<p>We’ll start by simulating the path of just one ball as it falls through the Galton board. This will help us understand what’s happening step by step before we move on to many balls.</p>
+<p>Let’s imagine our Galton board has <strong>10 rows of pins</strong>. Each time the ball hits a pin, it can bounce either <strong>left</strong> or <strong>right</strong>, and each direction is equally likely. After passing through all 10 rows, the ball will have made 10 random choices. We will keep track of its <strong>horizontal position</strong> after each bounce.</p>
+<p>Suppose <code class="docutils literal notranslate"><span class="pre">x</span></code> is an array that stores the horizontal position of the ball. At the start (<code class="docutils literal notranslate"><span class="pre">x[0]</span></code>) the ball is in the center of the board so this will be coded as 0. For each of the 10 pins, we generate a random number to simulate whether the ball went <code class="docutils literal notranslate"><span class="pre">left</span></code> or <code class="docutils literal notranslate"><span class="pre">right</span></code>:</p>
+<ul class="simple">
+<li><p>If the number is 0, the ball bounces right (x increases by 1).</p></li>
+<li><p>If the number is 1, the ball bounces left (x decreases by 1).</p></li>
+</ul>
+<p>After each bounce, we record the new position in the array. Finally, we plot the full trajectory of the ball as it moves down through the rows. Each time you run the code, the ball will take a slightly different path — because the left/right choices are random! As a note, we want to make sure the board has 10 pins (not counting the start position!)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nPins</span><span class="o">=</span><span class="mi">10</span>
@@ -903,28 +922,41 @@ sum = 5.0
 <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># we start at position x=0</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nPins</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># note the 10 bounces are in positions x[1-10], not x[0-9]</span>
+    <span class="n">curPos</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># collect the current position of the ball</span>
+    
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># bounce right - increase x by 1</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">curPos</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># bounce right - increase x by 1</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span> <span class="c1"># bounce left - decrease x by 1</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">curPos</span><span class="o">-</span><span class="mi">1</span> <span class="c1"># bounce left - decrease x by 1</span>
 
-<span class="n">y</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">nPins</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
 
 <span class="c1"># plot the trajectory of the ball</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k.-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">y</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">nPins</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Set the Y Axis</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">nPins</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">nPins</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k.-&#39;</span><span class="p">)</span> <span class="c1"># Plot the X, and Y positions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="n">nPins</span><span class="p">,</span><span class="n">nPins</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;horizontal position of ball&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;vertical position of ball (pins)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">nPins</span><span class="p">,</span> <span class="n">nPins</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># optional: adds light grid lines</span>
+
+<span class="n">y_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nPins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nPins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>  <span class="c1"># replace top tick with &quot;start&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">y_positions</span><span class="p">,</span> <span class="n">y_labels</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/477419efbc0e029b0484a04495c0f8dd7fc2231a185a36c9c4b0225609004a7b.png" src="../_images/477419efbc0e029b0484a04495c0f8dd7fc2231a185a36c9c4b0225609004a7b.png" />
+<img alt="../_images/25873d294ccb89001b8f35bef875fe7180d85802525bb29ac4d4a360e1dad2ff.png" src="../_images/25873d294ccb89001b8f35bef875fe7180d85802525bb29ac4d4a360e1dad2ff.png" />
 </div>
 </div>
 <p>If you run the code block above a few times, you should see the simulated trajectory change each time</p>
-</section>
 <section id="id1">
 <h3>Comprehension Questions<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p><strong>a. What are we doing with the code <code class="docutils literal notranslate"><span class="pre">x=np.empty(nPins)</span></code>?</strong></p>
@@ -934,7 +966,7 @@ sum = 5.0
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># len(x)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#len(x)</span>
 </pre></div>
 </div>
 </div>
@@ -972,7 +1004,7 @@ sum = 5.0
 <ul>
 <li><p>The Galton board simulation is cumulative (we keep track of hthe total number of leftwardss- and rightwards- bounces so far)</p></li>
 <li><p>This allows us to plot the trajectory</p></li>
-<li><p>The coin toss simulation we recoprd each outcome separately and add them up at the end</p></li>
+<li><p>The coin toss simulation we record each outcome separately and add them up at the end</p></li>
 </ul>
 </li>
 </ul>
@@ -980,16 +1012,22 @@ sum = 5.0
 <ul class="simple">
 <li><p>Ultimately, the distribution of end points on the Galton board will have the same shape as the distribution of number of heads!</p></li>
 </ul>
+<p><strong>g. What would you expect if you increas the number of pins above to 20?</strong></p>
 </section>
 </section>
 <section id="id2">
-<h2><span class="section-number">1.8.4. </span>Double Loop<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>The point of the Galton Board is to release lots of ball bearings and observe where they are omre <em>likely</em> to end up</p>
-<p>To simulate this we create an outer loop that runs our one-ball simmulation many times</p>
-<p>If you are feeling adventurous, you can try yourself to complete the second loop around the outside of the code below!</p>
+<h2><span class="section-number">1.8.5. </span>Double Loop<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>The point of the Galton Board is to release many balls and see where they are <strong>more likely</strong> to end up. To simulate this, we’ll add an outer loop that repeats our one-ball simulation many times and records each ball’s final horizontal bin (similar to the coin toss).</p>
+<p>If you’re feeling adventurous, try completing the outer loop yourself:</p>
 <ul class="simple">
-<li><p>fill in the sections marked “…..”</p></li>
-<li><p>If you don’t fancy it, you can skip ahead to the pre-coded solution</p></li>
+<li><p>Fill in the sections marked …</p></li>
+<li><p>If you’d rather not, skip ahead to the pre-coded solution</p></li>
+</ul>
+<p><strong>What your code should do</strong></p>
+<ul class="simple">
+<li><p>Outer loop: repeat the one-ball simulation nBalls times.</p></li>
+<li><p>Inner loop: for each ball, step through the nPins rows (left/right) and track horizontal position.</p></li>
+<li><p>Record: after the inner loop finishes, save the ball’s final bin (number of rights, or final x mapped to a bin) into an array.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1003,10 +1041,12 @@ sum = 5.0
 <span class="c1">#    x[0]=0 # we start at position x=0</span>
 
 <span class="c1">#    for i in range(1,nPins+1):</span>
+<span class="c1">#        curPos = x[i-1] # collect the current position of the ball</span>
+
 <span class="c1">#        if np.random.randint(0,2) == 0:</span>
-<span class="c1">#            x[i]=x[i-1]+1 # bounce right - increase x by 1</span>
+<span class="c1">#            x[i]=curPos+1 # bounce right - increase x by 1</span>
 <span class="c1">#        else:</span>
-<span class="c1">#            x[i]=x[i-1]-1 # bounce left - decrease x by 1</span>
+<span class="c1">#            x[i]=curPos-1 # bounce left - decrease x by 1</span>
 
 <span class="c1">#    y=range(nPins+1, 0, -1)</span>
 
@@ -1016,10 +1056,21 @@ sum = 5.0
 <span class="c1">#    finalPos[j]=x[nPins]</span>
 
 <span class="c1">## Plot the trajectories</span>
-<span class="c1">#plt.xlim(-10,10)</span>
-<span class="c1">#plt.xlabel(&#39;horizontal position of ball&#39;)</span>
-<span class="c1">#plt.ylabel(&#39;vertical position of ball (pins)&#39;)</span>
-<span class="c1">#plt.show()</span>
+
+<span class="c1"># y=range(nPins+1, 0, -1) # Set the Y Axis</span>
+
+<span class="c1"># plt.xlim(-nPins,nPins)</span>
+<span class="c1"># plt.xlabel(&#39;horizontal position of ball&#39;)</span>
+<span class="c1"># plt.ylabel(&#39;vertical position of ball (pins)&#39;)</span>
+<span class="c1"># plt.xticks(np.arange(-nPins, nPins+1, 1), rotation=45)</span>
+<span class="c1"># plt.grid(True, linestyle=&#39;:&#39;, alpha=0.5)  # optional: adds light grid lines</span>
+
+<span class="c1"># y_positions = np.arange(nPins + 1, 0, -1)</span>
+<span class="c1"># y_labels = [&#39;start&#39;] + [str(i) for i in range(1, nPins + 1)]  # replace top tick with &quot;start&quot;</span>
+<span class="c1"># plt.yticks(y_positions, y_labels)</span>
+
+<span class="c1"># plt.show()</span>
+
     
 </pre></div>
 </div>
@@ -1049,7 +1100,7 @@ sum = 5.0
 …<br></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reps</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># how mmny times will we repeat our single-ball simulation?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reps</span> <span class="o">=</span> <span class="mi">40</span> <span class="c1"># how mmny times will we repeat our single-ball simulation?</span>
 <span class="n">finalPos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">reps</span><span class="p">)</span> <span class="c1"># array to store the final horiontal positions</span>
 
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
@@ -1059,10 +1110,12 @@ sum = 5.0
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># we start at position x=0</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nPins</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">curPos</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># collect the current position of the ball</span>
+        
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># bounce right - increase x by 1</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">curPos</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># bounce right - increase x by 1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span> <span class="c1"># bounce left - decrease x by 1</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">curPos</span><span class="o">-</span><span class="mi">1</span> <span class="c1"># bounce left - decrease x by 1</span>
 
     <span class="n">y</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">nPins</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -1071,33 +1124,40 @@ sum = 5.0
     
     <span class="n">finalPos</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">nPins</span><span class="p">]</span>
     
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">## Plot the trajectories</span>
+
+<span class="n">y</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">nPins</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Set the Y Axis</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="n">nPins</span><span class="p">,</span><span class="n">nPins</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;horizontal position of ball&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;vertical position of ball (pins)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">nPins</span><span class="p">,</span> <span class="n">nPins</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># optional: adds light grid lines</span>
+
+<span class="n">y_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nPins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nPins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>  <span class="c1"># replace top tick with &quot;start&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">y_positions</span><span class="p">,</span> <span class="n">y_labels</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b4bb332da097d0a21922c161ac8852f14563128019672a280e39a16bdd1113bf.png" src="../_images/b4bb332da097d0a21922c161ac8852f14563128019672a280e39a16bdd1113bf.png" />
+<img alt="../_images/07ee327db8a4030cee6bb875384593848914cb805ce34aac646aa831d7b5d4a4.png" src="../_images/07ee327db8a4030cee6bb875384593848914cb805ce34aac646aa831d7b5d4a4.png" />
 </div>
 </div>
-<p>The darker lines are places where more than one ball has passed through</p>
+<p>The darker lines on the plot show where multiple balls have passed through the same path — these represent the most common trajectories.</p>
 <ul class="simple">
-<li><p>Run the simulation a few times - You should get a slightly different set of trajectories each time</p></li>
-<li><p>You will notice that the balls are most likely to end up near the middle</p>
-<ul>
-<li><p>This reflects the fact that even mixtures of leftwards- and rightwards- bounces are more likely than extreme cases in which the ball bounces in the same direction all the time</p></li>
+<li><p>Run the simulation a few times. You should get a slightly different pattern of paths each time, because every set of random left–right bounces is unique.</p></li>
+<li><p>You’ll notice that the balls are most likely to end up near the middle of the board.</p></li>
+<li><p>This happens because combinations of mixed left and right bounces are much more common than the extreme cases where the ball bounces in the same direction every time.</p></li>
 </ul>
-</li>
-</ul>
-<p>We saved the final postions of the balls in the array <tt>finalPos</tt>, and we can use this to plot a histogram of their final positions:</p>
+<p>After running the simulation, we’ve saved the final horizontal positions of all the balls in the array <code class="docutils literal notranslate"><span class="pre">finalPos</span></code>. We can use this array to create a histogram showing how often each final position occurred:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># histogram of the final positions for many balls    </span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">finalPos</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">10.5</span><span class="p">,</span><span class="mf">10.5</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span><span class="mi">11</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span><span class="mi">11</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">rotation</span> <span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;final $x$ positions&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     
@@ -1105,21 +1165,22 @@ sum = 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f16ef258897dbef4322661c2878a7c215a21f712f1dcda2410e0a078dfc1451e.png" src="../_images/f16ef258897dbef4322661c2878a7c215a21f712f1dcda2410e0a078dfc1451e.png" />
+<img alt="../_images/5450c6bd878f62e289ff4c01d1f9d4f8c1748db549deac40b3a9e303c280271c.png" src="../_images/5450c6bd878f62e289ff4c01d1f9d4f8c1748db549deac40b3a9e303c280271c.png" />
 </div>
 </div>
 </section>
 <section id="exercises">
-<h2><span class="section-number">1.8.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>You may like to increase the number of balls in the simulation - you should get a tidier-looking distribution of end points with more balls</p></li>
 <li><p>You could try increasing the number of pins. What happens to the histogram of endpoints when you do this?</p></li>
 </ul>
 </section>
 <section id="significance-of-the-galton-board-simulation">
-<h2><span class="section-number">1.8.6. </span>Significance of the Galton Board simulation<a class="headerlink" href="#significance-of-the-galton-board-simulation" title="Link to this heading">#</a></h2>
-<p>The Galton board illustrates how a combination of multiple random influences produces a certain pattern of final outcomes, namely a Normal Distribution.</p>
-<p>We will meet this idea again in the block on Statistical Theory.</p>
+<h2><span class="section-number">1.8.7. </span>Significance of the Galton Board simulation<a class="headerlink" href="#significance-of-the-galton-board-simulation" title="Link to this heading">#</a></h2>
+<p>The Galton Board demonstrates how many small random influences, when combined, tend to produce a predictable overall pattern. Here we saw the familiar bell-shaped curve known as the Normal Distribution.</p>
+<p>Each individual bounce of a ball is random and unpredictable, but when we repeat the process many times, the collective result forms an ordered and consistent distribution. This simple simulation captures one of the most important ideas in statistics: that randomness, when aggregated, often produces structure.</p>
+<p>We’ll return to this idea later in the course, in the block on Statistical Theory, when we explore why the Normal Distribution appears so frequently in real-world data.</p>
 </section>
 </section>
 
@@ -1167,7 +1228,7 @@ sum = 5.0
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.9. </span>ChatGPT</p>
+        <p class="prev-next-title"><span class="section-number">1.9. </span>ChatGPT and Generative AI</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1189,7 +1250,10 @@ sum = 5.0
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.7. Simulating a random process</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.7.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number">1.7.2. Random number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number">1.7.2. Random number</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehension">Comprehension</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-coin-flip">1.8. Simulated coin flip</a><ul class="visible nav section-nav flex-column">
@@ -1198,14 +1262,14 @@ sum = 5.0
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehension-questions">Comprehension questions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-galton-board-simulation">1.8.3. Exercise: Galton Board simulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-single-ball">Simulate a single ball</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-galton-board-simulation">1.8.3. Exercise: Galton Board simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-single-ball">1.8.4. Simulate a Single Ball</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Comprehension Questions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.8.4. Double Loop</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">1.8.5. Exercises</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-of-the-galton-board-simulation">1.8.6. Significance of the Galton Board simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.8.5. Double Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">1.8.6. Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-of-the-galton-board-simulation">1.8.7. Significance of the Galton Board simulation</a></li>
 </ul>
 </li>
 </ul>

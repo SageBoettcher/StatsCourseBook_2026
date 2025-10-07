@@ -189,7 +189,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.6. FOR loop with IF statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MT_wk0_random.html">1.7. Simulating a random process</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="MT_wk0_ChatGPT.html">1.9. ChatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MT_wk0_ChatGPT.html">1.9. ChatGPT and Generative AI</a></li>
 </ul>
 </details></li>
 </ul>
@@ -615,11 +615,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.6.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-a-condition">1.6.2. Checking a condition</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truth-in-coding">1.6.2. Truth in Coding</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehension">Comprehension</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statement">1.6.3. IF statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statement">1.6.3. IF statement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Comprehension</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -633,8 +636,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="for-loop-with-if-statement">
 <h1><span class="section-number">1.6. </span>FOR loop with IF statement<a class="headerlink" href="#for-loop-with-if-statement" title="Link to this heading">#</a></h1>
-<p>Sometimes we don’t just want to do the same operation on every input - we might want to do different operations depending on some condition.</p>
-<p>For this we need a statement of the form IF…THEN</p>
+<div class="alert alert-block alert-success">
+<b> This page (and subsequent pages) is a Jupyter Notebook. Download it or open it in Colab so you can actually run the code blocks!</b> 
+<p>Remember, there’s no way you can actually “break” anything, so don’t be afraid to edit things within this notebook. Errors are not necessarily a bad thing (even if they do look scary), have a go at working through some of the examples below. Today is not about understanding all of the specifics or the exact code you will be confronted with, but rather its important to try things out before the course starts so we can be sure you have a working set up for next week</p>
+</div>
+<p><strong>What is an If statement?</strong></p>
+<p>So far, we’ve seen how a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop lets us repeat an action many times. But sometimes, instead of repeating, we want the computer to make a choice — to do one thing if a condition is true, and something else otherwise. That’s where an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement comes in.</p>
+<p>An if statement checks whether a condition holds (for example, “is this number greater than 10?”). If the answer is yes, Python runs the block of code underneath. If not, it skips it.</p>
+<p>So while a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop controls how many times code runs, an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement controls whether a piece of code runs at all, based on a condition.</p>
+<p><strong>Combining For Loops and If Statements</strong></p>
+<p>By combining <code class="docutils literal notranslate"><span class="pre">for</span></code> loops with <code class="docutils literal notranslate"><span class="pre">if</span></code> statements when we can loop through many items and apply conditions to each one. This is especially useful when working with data, because we often don’t want to just do the same operation on every iteration but instead we might want to do slightly different operations depending on some condition.</p>
+<p>Try working through the code below to learn more about <code class="docutils literal notranslate"><span class="pre">if</span></code> statements and how they can be combined with <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">1.6.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -656,10 +668,28 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="checking-a-condition">
-<h2><span class="section-number">1.6.2. </span>Checking a condition<a class="headerlink" href="#checking-a-condition" title="Link to this heading">#</a></h2>
-<p>It is said that you should only eat shellfish in months that don’t have “r” in the name.</p>
-<p>We can check whether a word has an r in the name using the test <code class="docutils literal notranslate"><span class="pre">in</span></code>, which returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<section id="truth-in-coding">
+<h2><span class="section-number">1.6.2. </span>Truth in Coding<a class="headerlink" href="#truth-in-coding" title="Link to this heading">#</a></h2>
+<p>In coding, many decisions come down to whether something is true or false. These are called Booleans (named after the mathematician George Boole). Python has two special keywords for this:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+<p>These are the only two Boolean values and they are sometimes represented as 1s and 0s. They often come from comparisons, like checking whether one number is bigger than another:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Conditions in Python aren’t limited to numbers — we can also test membership and relationships between items. The keyword <code class="docutils literal notranslate"><span class="pre">in</span></code> checks whether something is contained inside a list, string, or other collection:</p>
+<p>As an example, it is said that you should only eat shellfish in months that don’t have “r” in the name. We can check whether a word has an r in the name using the test <code class="docutils literal notranslate"><span class="pre">in</span></code>, which will return <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;r&quot;</span> <span class="ow">in</span> <span class="s2">&quot;January&quot;</span>
@@ -684,7 +714,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We can make a variable called <code class="docutils literal notranslate"><span class="pre">month</span></code> and set it to any string we like (we will need to do this to make our loop work):</p>
+<p>Try creating a variable called <tt>month</tt> and setting this to any string you like. To make sure this new variable works simply use the <code class="docutils literal notranslate"><span class="pre">print</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month</span> <span class="o">=</span> <span class="s2">&quot;Eleventember&quot;</span>
@@ -698,11 +728,11 @@ document.write(`
 </div>
 </div>
 </div>
-<p>… and we can then check if <code class="docutils literal notranslate"><span class="pre">month</span></code> contains an r:</p>
+<p>Now check if the <tt>month</tt> contains an r. Change the value of <tt>month</tt> and rerun the code severak times to confirm you understand.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month</span> <span class="o">=</span> <span class="s2">&quot;Eleventember&quot;</span>
-<span class="s2">&quot;r&quot;</span> <span class="ow">in</span> <span class="s2">&quot;month&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month</span> <span class="o">=</span> <span class="s2">&quot;Blue&quot;</span>
+<span class="s2">&quot;r&quot;</span> <span class="ow">in</span> <span class="n">month</span>
 </pre></div>
 </div>
 </div>
@@ -712,21 +742,21 @@ document.write(`
 </div>
 </div>
 </div>
-<p>To summarize, <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span> <span class="pre">in</span> <span class="pre">month</span></code> translates as:</p>
+<p>To summarize, when you write the code <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span> <span class="pre">in</span> <span class="pre">month</span></code> the value of this statement is a Boolean: i.e., either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 <ul class="simple">
-<li><p>if there is an r in the string contained in the variable <tt>month</tt>, return <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p>if there <strong>is</strong> an r in the string contained in the variable <tt>month</tt>, return <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
 <li><p>otherwise return <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 </ul>
 <section id="comprehension">
 <h3>Comprehension<a class="headerlink" href="#comprehension" title="Link to this heading">#</a></h3>
 <p><strong>a. what will happen if I run this code block?</strong></p>
 <ul class="simple">
-<li><p>Think first, the uncomment it and see</p></li>
+<li><p>Think first, the uncomment it and see, careful, theres a trick!</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># month = &quot;Bananas&quot;</span>
-<span class="c1"># r in &quot;month&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#month = &quot;rice&quot;</span>
+<span class="c1">#&quot;r&quot; in &quot;month&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -735,7 +765,41 @@ document.write(`
 </section>
 <section id="if-statement">
 <h2><span class="section-number">1.6.3. </span>IF statement<a class="headerlink" href="#if-statement" title="Link to this heading">#</a></h2>
-<p>We can set up an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to print different statements depending on whether there is an r in the name of the month</p>
+<p>As previously mentioned <code class="docutils literal notranslate"><span class="pre">if</span></code> statements will execute the code below when the condition of the if statment is True, you can combine this with an <code class="docutils literal notranslate"><span class="pre">else</span></code> statement or an else if (<code class="docutils literal notranslate"><span class="pre">elif</span></code>) to cover other possibilities. Specifically an <code class="docutils literal notranslate"><span class="pre">else</span></code> runs if none of the previous conditions were trye and <code class="docutils literal notranslate"><span class="pre">elif</span></code> lets you check for additional specific conditions.</p>
+<p>Try changing the <t>condition</t> variable below and see what happens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You will only see this printed if the condition was True&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You will only see this printed if the condition was True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;here the condition was True&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;here the condition was False&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>here the condition was False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we can set up an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to print different statements depending on whether there is an r in the name of the month</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month</span> <span class="o">=</span> <span class="s2">&quot;August&quot;</span>
@@ -753,14 +817,15 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Now can you make a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that checks every month and prints a sentence about whether to eat shellfish, as in the <tt>if</tt> statement above?</p>
+<p>Rather than only checking whether it is safe to eat shellfish 1 month at a time, it would be most convenient to <em>loop</em> through all of the months and check whether there is an r in each months name. To do this, we will use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statment together with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<p>First you will need to create a list of all of the months you want to check, use a for loop like we used previously , and now include an if statement that is executed on each iteration through the months.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">months</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;January&#39;</span><span class="p">,</span><span class="s1">&#39;February&#39;</span><span class="p">,</span><span class="s1">&#39;March&#39;</span><span class="p">,</span><span class="s1">&#39;April&#39;</span><span class="p">,</span><span class="s1">&#39;May&#39;</span><span class="p">,</span><span class="s1">&#39;June&#39;</span><span class="p">,</span>
         <span class="s1">&#39;July&#39;</span><span class="p">,</span><span class="s1">&#39;August&#39;</span><span class="p">,</span><span class="s1">&#39;September&#39;</span><span class="p">,</span><span class="s1">&#39;October&#39;</span><span class="p">,</span><span class="s1">&#39;November&#39;</span><span class="p">,</span><span class="s1">&#39;Decemeber&#39;</span><span class="p">]</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span> <span class="c1"># complete the code</span>
-    <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;r&quot;</span> <span class="ow">in</span> <span class="n">months</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">months</span><span class="p">)):</span> <span class="c1"># </span>
+    <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;r&quot;</span> <span class="ow">in</span> <span class="n">months</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span> 
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Don</span><span class="se">\&#39;</span><span class="s1">t eat shellfish in &#39;</span> <span class="o">+</span> <span class="n">months</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Do eat shellfish in &#39;</span> <span class="o">+</span> <span class="n">months</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> 
@@ -785,6 +850,25 @@ Don&#39;t eat shellfish in Decemeber
 </div>
 </div>
 </div>
+<section id="id1">
+<h3>Comprehension<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><em>Lets break the code above and make sure you know what is happening. For each code chunk below try to guess what the result will be. Think first, then uncomment it and see if you are correct</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#len(months)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#i = 4</span>
+<span class="c1">#print(months[i])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -853,11 +937,14 @@ Don&#39;t eat shellfish in Decemeber
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.6.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-a-condition">1.6.2. Checking a condition</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#truth-in-coding">1.6.2. Truth in Coding</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehension">Comprehension</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statement">1.6.3. IF statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statement">1.6.3. IF statement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Comprehension</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

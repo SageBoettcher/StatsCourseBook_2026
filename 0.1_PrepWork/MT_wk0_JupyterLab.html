@@ -585,14 +585,15 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">1.3.1. Anaconda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">1.3.2. JupyterLab</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-navigator">File navigator</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace">Workspace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-navigator">File navigator</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-open-an-existing-notebook">1.3.3. Exercise 1: Open an existing Notebook</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-cells">Markdown cells</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cells">Code cells</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-work">Saving your work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">Bonus</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-creating-a-new-notebook">1.3.4. Exercise 2: Creating a New Notebook</a><ul class="nav section-nav flex-column">
@@ -618,7 +619,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="using-anaconda-and-jupyterlab">
 <h1><span class="section-number">1.3. </span>Using Anaconda and JupyterLab<a class="headerlink" href="#using-anaconda-and-jupyterlab" title="Link to this heading">#</a></h1>
-<p><em>For instructions on working in Colab, see the next section of these notes</em></p>
+<p>As previously mentioned, this course is taught using the programming language Python, however there are different options for the environement in which you write and run your code. For this course the difference is essentially whether you want to work locally on your computer or from a web browser.</p>
+<ol class="arabic simple">
+<li><p><strong>Anaconda and JupyterLab</strong> are tools for working with Python directly from your computer. Anaconda is like a package manager: it installs Python along with the most useful  libraries you’ll need for statistics and data analysis, so everything works together smoothly. JupyterLab is an environment where you can write and run Python code in small, interactive steps, with your code, results, and notes all in one place. Think of it as a digital notebook: you can type instructions for the computer, see the output immediately, and mix code with explanations and graphs.</p></li>
+<li><p><strong>Google Colab</strong> (short for Colaboratory) works very similarly to JupyterLab, but it runs entirely in your web browser. Your work is stored in Google Drive and can be shared as easily as a Google Doc.</p></li>
+</ol>
+<p><b> <em>For instructions on working in Colab, see the next section of these notes</em>. </b></p>
 <p>In this section you will see how to:</p>
 <ul class="simple">
 <li><p>Access ready-made example Jupyter Notebooks in JupyterLab</p></li>
@@ -628,7 +634,7 @@ document.write(`
 <p>Read through and check you can <strong>complete the Exercise at the bottom of this page</strong></p>
 <section id="anaconda">
 <h2><span class="section-number">1.3.1. </span>Anaconda<a class="headerlink" href="#anaconda" title="Link to this heading">#</a></h2>
-<p>Once you have installed Anaconda Navigator on your computer, you will be able to open it from the Start Menu or Finder. It should be near the top of the list of Applications (because Anaconda begins with A!) and has a green circle symbol (actually an <a href=https://en.wikipedia.org/wiki/Ouroboros>Ouruboros</a>).</p>
+<p>Once you have installed Anaconda Navigator on your computer (see the IT_setup.pdf on canvas if you are struggling), you will be able to open it from the Start Menu or Finder. It should be near the top of the list of Applications (because Anaconda begins with A!) and has a green circle symbol (actually an <a href=https://en.wikipedia.org/wiki/Ouroboros>Ouruboros</a>).</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_AnacondaLogo.svg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_AnacondaLogo.svg" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_AnacondaLogo.svg" style="width: 30%;" />
 </a>
 <p>When you open Anaconda Navigator, you will see a window with lots of tiles for different Python-related apps:</p>
@@ -638,28 +644,32 @@ document.write(`
 <section id="jupyterlab">
 <h2><span class="section-number">1.3.2. </span>JupyterLab<a class="headerlink" href="#jupyterlab" title="Link to this heading">#</a></h2>
 <p>We will be using JupyterLab to work with Jupyter Notebooks. You can Launch JupyterLab from Anaconda Navigator by clicking “Launch”.</p>
-<p>JupyterLab will open, not as its own window, but <strong>as a tab in your default Web Browser</strong></p>
+<p>JupyterLab will open, not as its own window, but <strong>as a tab in your default Web Browser</strong>. However this does not mean you are “using the internet” the browser is simply a convenient infastructure for opening the application.</p>
+<section id="workspace">
+<h3>Workspace<a class="headerlink" href="#workspace" title="Link to this heading">#</a></h3>
+<p>Bwlow you see an example of how JupyterLab might look once it is open. On the right there is a window where the Jupyter Notebooks themselves are opened. Within the notebook, you can see a “Code Cell” is highlighted which has some Python code. Above the highlighted cell is “Markdown Cell” which appears as text. Below we provide more explaination for the difference between code cells and markdown cells</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_JupyterLab.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_JupyterLab.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_JupyterLab.png" style="width: 80%;" />
 </a>
+</section>
 <section id="file-navigator">
 <h3>File navigator<a class="headerlink" href="#file-navigator" title="Link to this heading">#</a></h3>
 <p>At the left of the window you will see a file navigator - this shows you the files in your current folder.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>It is a good idea to create a folder (eg on your Desktop) to keep the documents for this course. Say for example you create a folder on your desktop called “StatsCourse”. You can navigate to this folder using the browser pane in JupyterLab and can the open documents (such as the downloaded Jupyter Notebook) by double clicking them.</p>
+</div>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_FilePane.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_FilePane.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_FilePane.png" style="width: 80%;" />
 </a>
-</section>
-<section id="workspace">
-<h3>Workspace<a class="headerlink" href="#workspace" title="Link to this heading">#</a></h3>
-<p>On the right there is a window where the Jupyter Notebooks themselves are opened.</p>
 </section>
 </section>
 <section id="exercise-1-open-an-existing-notebook">
 <h2><span class="section-number">1.3.3. </span>Exercise 1: Open an existing Notebook<a class="headerlink" href="#exercise-1-open-an-existing-notebook" title="Link to this heading">#</a></h2>
 <p>First we will explore the Jupyter Notebook format using a ready made notebook downloaded from the course notes website.</p>
 <p>These course notes are made up of some pages that are just text (“Markdown”) and some that are actual Jupyter Notebooks.</p>
-<p>Any file that is an actual Jupyter Notebook can be downloaded automatically to your computer by clicking the download button and selecting <strong>.ipynb</strong>, which is the extension for Jupyter Notebook files</p>
+<p>Any file that is an actual Jupyter Notebook can be downloaded automatically to your computer by clicking the download button and selecting <strong>.ipynb</strong>, which is the extension for Jupyter Notebook files. Keep an eye out for this extension when you are saving your own work. To try this out now, navigate to section <strong>1.5 The FOR loop</strong> and try to download the notebook.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_DownloadNotebook.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_DownloadNotebook.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_DownloadNotebook.png" style="width: 80%;" />
 </a>
+<br>
 <ul class="simple">
 <li><p>The file will go to wherever internet downloads go on your computer - probably your <strong>Downloads</strong> folder!</p></li>
 <li><p>Move it to the folder you have created for this course</p></li>
@@ -667,7 +677,7 @@ document.write(`
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_FilePane.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_FilePane.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_FilePane.png" style="width: 80%;" />
 </a>
-<p>You can now run and/or edit this Notebook file!</p>
+<br>
 <section id="markdown-cells">
 <h3>Markdown cells<a class="headerlink" href="#markdown-cells" title="Link to this heading">#</a></h3>
 <p>Cells with text and images are called <strong>Markdown</strong> cells. <em>Markdown</em> refers to the codes we use to format the text in these cells, for example headings are indicated by hashtags (one hash is the biggest heading, more hashes = smaller subheadings)</p>
@@ -679,12 +689,13 @@ document.write(`
 <li><p>Bold font is indicated by double-star **text** –&gt; <strong>text</strong></p></li>
 <li><p>Italic font is indicated by single-star *text* –&gt; <em>text</em></p></li>
 </ul>
-<p>You can find examples of all of these in my example notebooks</p>
+<p>You can find examples of all of these in the example notebooks</p>
+<p>Although Markdown Cells can serve many different purposes, here you will see they are most often there to provide you with a bit of context, or provide direction and instructions. You may wish to use Markdown cells yourself for adding notes, answering questions, or adding comments to contexutalise your code. While you are editing the markdown cell it will look like plain text but as soon as you “run” the cell it will appear formatted.</p>
 </section>
 <section id="code-cells">
 <h3>Code cells<a class="headerlink" href="#code-cells" title="Link to this heading">#</a></h3>
 <p>These contain Python code</p>
-<p>Note that any code preceded by a hashtag # is a <strong>comment</strong> -  explanatory text that is visible to human readers but is ignored by the computer</p>
+<p>Note that any code preceded by a hashtag # is a <strong>comment</strong> -  explanatory text that is visible to human readers but is ignored by the computer. In other words, when you are writing code, you will be switching back and forth between two languages Python – so you can talk to the computer – and English (or your written language of choice) so you can talk to yourself/tutor/anyone else who might be reading your code. Make sure the “non-computer” language is commented out or else you may get an error.</p>
 <ul class="simple">
 <li><p>Sometimes I <strong>comment out</strong> code in notebooks that I don’t want to automatically run - you can then <strong>uncomment</strong> it (by removing the hashtags at the start of the lines) when you are ready to run it.</p></li>
 <li><p>The code block below is “commented out” - students are invited to think ahead about what the output of the code will be, before deleting the hashtags and running the code to check their answer.</p></li>
@@ -708,6 +719,20 @@ document.write(`
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_JupyterLabSaveAs.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_JupyterLabSaveAs.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_JupyterLabSaveAs.png" style="width: 80%;" />
 </a>
 </section>
+<section id="bonus">
+<h3>Bonus<a class="headerlink" href="#bonus" title="Link to this heading">#</a></h3>
+<p>There are several keyboard shortcuts that you might find useful when working with Jupyter notebooks</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Enter</span></code> or <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">+</span> <span class="pre">Enter</span></code> : run the current cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">S</span></code> or <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">+</span> <span class="pre">Enter</span></code> : Save the notebook</p></li>
+</ul>
+<p>when you are not currently editing a cell</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code> will insert a cell above the one currently selected</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">B</span></code> will insert a cell below the one currently selected</p></li>
+</ul>
+<p>to exit out of editing a cell use the <code class="docutils literal notranslate"><span class="pre">escape</span></code> key</p>
+</section>
 </section>
 <section id="exercise-2-creating-a-new-notebook">
 <h2><span class="section-number">1.3.4. </span>Exercise 2: Creating a New Notebook<a class="headerlink" href="#exercise-2-creating-a-new-notebook" title="Link to this heading">#</a></h2>
@@ -728,12 +753,13 @@ document.write(`
 <ul class="simple">
 <li><p>You could add other libraries to the input list if you found one you wanted to use (another plotting library for example)</p></li>
 </ul>
+<p>You are now ready to write so code. The first thing we will probably want to do is load in an example data file.</p>
 </section>
 </section>
 <section id="exercise-3-load-data">
 <h2><span class="section-number">1.3.5. </span>Exercise 3: Load data<a class="headerlink" href="#exercise-3-load-data" title="Link to this heading">#</a></h2>
-<p>This is a statistics course, so of course we will need to work with data files!</p>
-<p>You may be used to seeing data in files such as Excel spreadsheets. Often data are stored in text files such as <strong>.csv</strong> (comma separated values) files. This is a generic file type that can be read by Excel, Numbers, and by programming tools such as Python, R and Matlab.</p>
+<p>This is a statistics course, so of course we will need to work with data files! Data files are a simple way of storing information – for example, numbers from an experiment, survey responses, or health measurements – in a structured format. Most often data is organised into rows and columns, where each row represents an observation, case, or participant and each column represents a variable or a measurements (e.g., age, response time, test score, BMI, Friendliness, political affiliation, etc.)</p>
+<p>You may be used to seeing data in files such as Excel spreadsheets, however, data are very often stored in text files such as <strong>.csv</strong> (comma separated values) files. This is a generic file type that can be read by Excel, Numbers, and by programming tools such as Python, R and Matlab.</p>
 <p>We will generally be reading .csv data files into Python as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> dataframes. This can be done using the tool <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> as in the exercise below.</p>
 <ul class="simple">
 <li><p>From Canvas, downlad the example data file ‘ExampleData.csv’</p>
@@ -753,7 +779,7 @@ document.write(`
 </ul>
 </li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">pd.read_csv('data/ExampleData.csv')</span></code>
+<p><code class="docutils literal notranslate"><span class="pre">cats</span> <span class="pre">=</span> <span class="pre">pd.read_csv('data/ExampleData.csv')</span></code>
 <br>
 <code class="docutils literal notranslate"><span class="pre">display(cats)</span></code></p>
 <section id="what-is-in-the-data-file">
@@ -839,14 +865,15 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">1.3.1. Anaconda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">1.3.2. JupyterLab</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-navigator">File navigator</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workspace">Workspace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-navigator">File navigator</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-open-an-existing-notebook">1.3.3. Exercise 1: Open an existing Notebook</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-cells">Markdown cells</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cells">Code cells</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-work">Saving your work</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">Bonus</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-creating-a-new-notebook">1.3.4. Exercise 2: Creating a New Notebook</a><ul class="nav section-nav flex-column">
