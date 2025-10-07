@@ -12,21 +12,27 @@ You may wish to set up Anaconda/JupyterLab so you can work locally on your own l
 
 This should be possible for most laptops by following the instructions PDF (IT SetUp) on Canvas.
 
-We can't promise to make everyone's software work on their own computer but we will have a go and today is a good time to try as someone will be around to help.
+We can't promise to make everyone's software work on their own computer but we will have a go and today is a good time to try as someone will be around to help. 
 
+### Coding basics
+
+When people talk about "coding" they usually mean writing some form of instructions for a computer. Since computers don't speak our "language" we revert to programming languages like Python. Importantly computers -- like robots will follow instuctions step-by-step like a recipe. 
+
+In this course the "something" we want the computer to do is help us with probability and statistics. We will use Python which is a popular beginner friendly programming language. Coding in python often looks like writing short sentences which follow simple rules. 
+
+```{example code}
+print("Welcome to Oxford")
+```
+
+This line of code tells the computer exactly what to do display the words inside the quotation marks. Importantly, <b> coding is not about knowing fancy math or being a computer scientist, but instead giving clear, logical instructions so the computer can help us solve problems. </b>
 
 ### Familiarise yourself with Jupyter
 
-Throughout this course we will work with Python exercises and worked examples gathered in this book.
-
-These exercises and examples are written as Jupyter notebooks - a type of file in which blocks of text and code can be included
-
-When you view the book online you see the code already 'executed' - each code block has been run and its output is displayed below the block
+Throughout this course we will work with Python exercises and examples gathered in this book. These exercises and examples are written as Jupyter notebooks - a type of file in which blocks of text and code can be included When you view the book online you see the code already 'executed' - each code block has been run and its output is displayed below the block
 
 However, you will want to interact with the code not just look at it!
 
 You have two options here: Use Google Colab (in the cloud), or use JupyterLab (on your computer). The next two pages in these notes introduce how your create and save Jupyter notebooks in these two environments. It is important you work through the instructions for your chosen environment (JupyterLab or Colab) and complete the exercise in which you load the example "cats" data, whilst we are here to support you if you get stuck.
-
 
 
 ```{warning}

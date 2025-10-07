@@ -14,8 +14,7 @@ Here was what you were supposed to do:
 <li>Select Python Fundamentals.
 <li>Within Python Fundamentals there are four “courses”.
 
-I’m recommending you work through course 1 (Introduction to Python)
-and the first section of course 2 (Intermediate Python).
+I’m recommending you work through course 1 (Introduction to Python) and the first section of course 2 (Intermediate Python).
 
 That would mean covering the following (free) modules:
 <ul>
@@ -26,16 +25,11 @@ That would mean covering the following (free) modules:
 </ul>
 </ul>
 
-If you have done all that, you can go on to the exercises on the next
-pages of this book.
+If you have done all that, you can go on to the exercises on the next pages of this book. If you have not completed the Datacamp work please make sure you do so before the course starts next week. 
 
 ```{warning}
-It would be great if you have a go at some of the exercises in this
-book in the introductory session, so you get
-familiar with opening the notebooks in Google colab or downloading to
-work locally with JupyterLab, and with saving your work.
+It would be great if you have a go at some of the exercises in this book in the introductory session, so you get
+familiar with opening the notebooks in Google colab or downloading to work locally with JupyterLab, and with saving your work.
 
-Do have at least a little go with them even if you still need to
-complete datacamp.
-
+Do have at least a little go with them even if you still need to complete datacamp.
 ```

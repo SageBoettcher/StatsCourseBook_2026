@@ -1,7 +1,13 @@
 
 # Using Anaconda and JupyterLab
 
-*For instructions on working in Colab, see the next section of these notes*
+As previously mentioned, this course is taught using the programming language Python, however there are different options for the environement in which you write and run your code. For this course the difference is essentially whether you want to work locally on your computer or from a web browser. 
+
+1) **Anaconda and JupyterLab** are tools for working with Python directly from your computer. Anaconda is like a package manager: it installs Python along with the most useful  libraries you’ll need for statistics and data analysis, so everything works together smoothly. JupyterLab is an environment where you can write and run Python code in small, interactive steps, with your code, results, and notes all in one place. Think of it as a digital notebook: you can type instructions for the computer, see the output immediately, and mix code with explanations and graphs. 
+
+2) **Google Colab** (short for Colaboratory) works very similarly to JupyterLab, but it runs entirely in your web browser. Your work is stored in Google Drive and can be shared as easily as a Google Doc.
+
+<b> *For instructions on working in Colab, see the next section of these notes*. </b>
 
 In this section you will see how to: 
 * Access ready-made example Jupyter Notebooks in JupyterLab
@@ -12,7 +18,7 @@ Read through and check you can **complete the Exercise at the bottom of this pag
 
 ## Anaconda
 
-Once you have installed Anaconda Navigator on your computer, you will be able to open it from the Start Menu or Finder. It should be near the top of the list of Applications (because Anaconda begins with A!) and has a green circle symbol (actually an <a href=https://en.wikipedia.org/wiki/Ouroboros>Ouruboros</a>).
+Once you have installed Anaconda Navigator on your computer (see the IT_setup.pdf on canvas if you are struggling), you will be able to open it from the Start Menu or Finder. It should be near the top of the list of Applications (because Anaconda begins with A!) and has a green circle symbol (actually an <a href=https://en.wikipedia.org/wiki/Ouroboros>Ouruboros</a>).
 
 ```{image} https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_AnacondaLogo.svg
 :width: 30%
@@ -30,7 +36,11 @@ When you open Anaconda Navigator, you will see a window with lots of tiles for d
 
 We will be using JupyterLab to work with Jupyter Notebooks. You can Launch JupyterLab from Anaconda Navigator by clicking "Launch".
 
-JupyterLab will open, not as its own window, but **as a tab in your default Web Browser**
+JupyterLab will open, not as its own window, but **as a tab in your default Web Browser**. However this does not mean you are "using the internet" the browser is simply a convenient infastructure for opening the application. 
+
+### Workspace
+
+Bwlow you see an example of how JupyterLab might look once it is open. On the right there is a window where the Jupyter Notebooks themselves are opened. Within the notebook, you can see a "Code Cell" is highlighted which has some Python code. Above the highlighted cell is "Markdown Cell" which appears as text. Below we provide more explaination for the difference between code cells and markdown cells
 
 ```{image} https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_JupyterLab.png
 :width: 80%
@@ -42,18 +52,14 @@ JupyterLab will open, not as its own window, but **as a tab in your default Web 
 
 At the left of the window you will see a file navigator - this shows you the files in your current folder.
 
+```{important}
 It is a good idea to create a folder (eg on your Desktop) to keep the documents for this course. Say for example you create a folder on your desktop called "StatsCourse". You can navigate to this folder using the browser pane in JupyterLab and can the open documents (such as the downloaded Jupyter Notebook) by double clicking them.
+```
 
 ```{image} https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_FilePane.png
 :width: 80%
 :align: center
 ```
-
-### Workspace
-
-On the right there is a window where the Jupyter Notebooks themselves are opened.
-
-
 
 ## Exercise 1: Open an existing Notebook
 
@@ -61,23 +67,25 @@ First we will explore the Jupyter Notebook format using a ready made notebook do
 
 These course notes are made up of some pages that are just text ("Markdown") and some that are actual Jupyter Notebooks.
 
-Any file that is an actual Jupyter Notebook can be downloaded automatically to your computer by clicking the download button and selecting **.ipynb**, which is the extension for Jupyter Notebook files
+Any file that is an actual Jupyter Notebook can be downloaded automatically to your computer by clicking the download button and selecting **.ipynb**, which is the extension for Jupyter Notebook files. Keep an eye out for this extension when you are saving your own work. To try this out now, navigate to section **1.5 The FOR loop** and try to download the notebook.
 
 ```{image} https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_DownloadNotebook.png
 :width: 80%
 :align: center
 ```
 
+<br>
+
 * The file will go to wherever internet downloads go on your computer - probably your **Downloads** folder!
 * Move it to the folder you have created for this course
 * Open it in JupyterLab by going to JupyterLab, finding the file in the file browser pane at the left of the screen, and double-clicking it.
+
 
 ```{image} https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk0_FilePane.png
 :width: 80%
 :align: center
 ```
-
-You can now run and/or edit this Notebook file!
+<br>
 
 ### Markdown cells
 
@@ -92,13 +100,15 @@ For your purposes, probably the only ones you need to know are:
 * Bold font is indicated by double-star \*\*text\*\* --> **text**
 * Italic font is indicated by single-star \*text\* --> *text*
 
-You can find examples of all of these in my example notebooks
+You can find examples of all of these in the example notebooks
+
+Although Markdown Cells can serve many different purposes, here you will see they are most often there to provide you with a bit of context, or provide direction and instructions. You may wish to use Markdown cells yourself for adding notes, answering questions, or adding comments to contexutalise your code. While you are editing the markdown cell it will look like plain text but as soon as you "run" the cell it will appear formatted. 
 
 ### Code cells
 
 These contain Python code
 
-Note that any code preceded by a hashtag # is a **comment** -  explanatory text that is visible to human readers but is ignored by the computer
+Note that any code preceded by a hashtag # is a **comment** -  explanatory text that is visible to human readers but is ignored by the computer. In other words, when you are writing code, you will be switching back and forth between two languages Python -- so you can talk to the computer -- and English (or your written language of choice) so you can talk to yourself/tutor/anyone else who might be reading your code. Make sure the "non-computer" language is commented out or else you may get an error.
 
 * Sometimes I **comment out** code in notebooks that I don't want to automatically run - you can then **uncomment** it (by removing the hashtags at the start of the lines) when you are ready to run it.
 * The code block below is "commented out" - students are invited to think ahead about what the output of the code will be, before deleting the hashtags and running the code to check their answer.
@@ -127,6 +137,7 @@ You can choose the cell type (you will want either **Code** or **Markdown**) fro
 :align: center
 ```
 
+
 ### Saving your work
 
 Don't forget to save your work! You can do this via the **File** menu in the top left of the JupyterLab Window.
@@ -139,6 +150,20 @@ A dialogue box appears where you should enter the filename, including the comple
 :width: 80%
 :align: center
 ```
+
+### Bonus
+
+There are several keyboard shortcuts that you might find useful when working with Jupyter notebooks
+
+* ` Ctrl + Enter ` or ` command + Enter ` : run the current cell
+* ` Ctrl + S ` or ` command + Enter ` : Save the notebook
+
+when you are not currently editing a cell 
+
+* `A` will insert a cell above the one currently selected
+* `B` will insert a cell below the one currently selected
+
+to exit out of editing a cell use the `escape` key
 
 ## Exercise 2: Creating a New Notebook
 
@@ -168,11 +193,13 @@ You will need to copy this block into any new notebooks you create
 
 * You could add other libraries to the input list if you found one you wanted to use (another plotting library for example)
 
+You are now ready to write so code. The first thing we will probably want to do is load in an example data file.
+
 ## Exercise 3: Load data
 
-This is a statistics course, so of course we will need to work with data files!
+This is a statistics course, so of course we will need to work with data files! Data files are a simple way of storing information -- for example, numbers from an experiment, survey responses, or health measurements -- in a structured format. Most often data is organised into rows and columns, where each row represents an observation, case, or participant and each column represents a variable or a measurements (e.g., age, response time, test score, BMI, Friendliness, political affiliation, etc.)
 
-You may be used to seeing data in files such as Excel spreadsheets. Often data are stored in text files such as **.csv** (comma separated values) files. This is a generic file type that can be read by Excel, Numbers, and by programming tools such as Python, R and Matlab.
+You may be used to seeing data in files such as Excel spreadsheets, however, data are very often stored in text files such as **.csv** (comma separated values) files. This is a generic file type that can be read by Excel, Numbers, and by programming tools such as Python, R and Matlab.
 
 We will generally be reading .csv data files into Python as `Pandas` dataframes. This can be done using the tool `pd.read_csv()` as in the exercise below.
 
@@ -188,7 +215,7 @@ We will generally be reading .csv data files into Python as `Pandas` dataframes.
 * You may prefer to create a folder inside `IntroSession` called `data` and put the ExampleData.csv in there
     * If so use the following code to load it:
     
-`data = pd.read_csv('data/ExampleData.csv')`
+`cats = pd.read_csv('data/ExampleData.csv')`
 <br>
 `display(cats)`
 
@@ -201,7 +228,6 @@ This is a universal file type for storing data and can be opened by other progra
  * If you like, you can open ExampleData.csv in a text editor (such as TextEdit) to have a look at it
 
 Once we read it into `Pandas` it is in the computer's memory so to speak, in a formmat that Python recognizes and upon which we can perform statistical operations (like testing for a difference between the values in two columnms of the datafiles).
-
 
 
 ### Note - loading data in example notebooks
