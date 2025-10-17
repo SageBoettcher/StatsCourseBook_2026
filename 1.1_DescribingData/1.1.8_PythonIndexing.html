@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -207,6 +207,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.11_ExtraPractice.html">1.11. Extra Practice Notebook</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -624,24 +625,29 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-a-subset-of-rows">1.8.5. Get descriptives for a subset of rows</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-the-relevant-rows">Step 1: find the relevant rows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-find-the-relevant-column">Step 2: find the relevant column</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-in-the-actual-function">Step 3: add in the actual function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-a-subset-of">1.8.5. Get descriptives for a subset of</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-the-relevant-rows">Step 1: find the relevant rows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-find-the-relevant-column">Step 2: find the relevant column</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-in-the-actual-function">Step 3: add in the actual function</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercises</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-one-category">1.8.6. Get descriptives for one category</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercises</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-multiple-conditions">1.8.7. Match multiple conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercises</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-multiple-conditions">1.8.7. Match multiple conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercises</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-for-correlation">1.8.8. Syntax for correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-type">Correlation type</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercises</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Exercises</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#all-by-all-correlation-matrix">All-by-all correlation matrix</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-using-scipy-stats">Correlation using <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></a></li>
 </ul>
@@ -661,27 +667,30 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python-descriptives-and-indexing">
 <h1><span class="section-number">1.8. </span>Python: Descriptives and Indexing<a class="headerlink" href="#python-descriptives-and-indexing" title="Link to this heading">#</a></h1>
-<p>In this notebook we cover some key <tt>Pandas</tt> syntax and functions:</p>
+<p>In this notebook we cover some key features of the <tt>Pandas</tt> library which will be one of the libraries we will be using most often when working with data in Python.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Pandas</span></code> provides efficient and flexible ways to store, clean, explore, and analyse data. Its core structure, the DataFrame, is like a digital spreadsheet (i.e., like excel): it has rows and columns, each of which can hold numerical or categorical information. Almost every dataset you’ll work with in psychology, biomedical, or human sciences can be handled easily with Pandas.</p>
+<p>Here we will focus on two fundamental skills:</p>
 <ul class="simple">
-<li><p>Syntax for getting various descriptive statistics from a <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> dataframe</p></li>
-<li><p>Syntax for <strong>indexing</strong> a dataframe - finding the rows and columns that you need</p>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> syntax to calculate descriptive statistics (such as means, medians, and standard deviations).</p></li>
+<li><p>Learning how to <em>index</em> a DataFrame (i.e., how to select specific rows and columns you want to analyse)</p>
 <ul>
-<li><p>this allows you to get descriptives for specific rows and columns</p></li>
+<li><p>Indexing is crucial because it lets you apply statistical functions only to the parts of your data you’re interested in.</p></li>
 </ul>
 </li>
 </ul>
-<p>Here we meet <strong>indexing</strong> in the context of descriptive statistics, but indexing is something you will do every single time you write code for data analysis. Incorrect syntax in indexing is the number one biggest source of bugs for student on this course, so it is well worth spending the time to get to grips with it.</p>
-<p>You absolutely should work through all the exercises in this notebook in advance of the tutorial.</p>
+<p>We’ll meet <strong>indexing</strong> here in the context of descriptive statistics, but you’ll use it every single time you analyse data in Python. In fact, incorrect indexing is the most common source of bugs students encounter in this course, so it’s well worth mastering early!</p>
+<p>Please Work through all the exercises in this notebook carefully <em>before</em> your tutorial.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">1.8.1. </span>Set up Python Libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
-<p>As usual you will need to run this code block to import the relevant Python libraries</p>
+<p>As usual, start by running the code block below to import the Python libraries you’ll need for this notebook.</p>
+<p><strong>NOTE:</strong> Here we are importing the library <code class="docutils literal notranslate"><span class="pre">pandas</span></code> using the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>. That means whenever you call a function from the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library you’ll use the shorthand <code class="docutils literal notranslate"><span class="pre">pd</span></code> which conveniently saving yourself <strong>4</strong> extra keystrokes!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> 
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
@@ -695,7 +704,9 @@ document.write(`
 </section>
 <section id="import-a-dataset-to-work-with">
 <h2><span class="section-number">1.8.2. </span>Import a dataset to work with<a class="headerlink" href="#import-a-dataset-to-work-with" title="Link to this heading">#</a></h2>
-<p>We will work with weather data from the Oxford weather station. This code block will read it automatically from the internet.</p>
+<p>We’ll be working with weather data recorded at the Oxford Weather Station. The code block below will automatically download the dataset from the internet using the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function loads the data from a comma-separated values (CSV) file and stores it in a DataFrame. Here we’ve decided to name that DataFrame <code class="docutils literal notranslate"><span class="pre">weather</span></code> but we could have called it whatever we want as this is just a variable name.</p>
+<p>We’ll then use the <code class="docutils literal notranslate"><span class="pre">display()</span></code> function to show a quick preview of the DataFrame so you can see what the data look like (rows, columns, and headings).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/OxfordWeather.csv&quot;</span><span class="p">)</span>
@@ -883,11 +894,15 @@ document.write(`
 <p>71343 rows × 10 columns</p>
 </div></div></div>
 </div>
+<ul class="simple">
+<li><p>What do you think each of the columns is referring to?</p></li>
+<li><p>What does each row represent?</p></li>
+</ul>
 </section>
 <section id="get-descriptive-statistics">
 <h2><span class="section-number">1.8.3. </span>Get descriptive statistics<a class="headerlink" href="#get-descriptive-statistics" title="Link to this heading">#</a></h2>
-<p>We will look at indexing in the context of getting descriptive statistics for the different variables in a dataframe, and/or for a selection of rows.</p>
-<p>Pandas has a number of built-in functions to get descriptive statistics:</p>
+<p>In this section, we’ll explore indexing in the context of <em>descripive statistics</em>. You might want to calculate these statistics for different variables (columns) and/or for a specific subset of rows.</p>
+<p>The Pandas library includes a range of built-in functions that make this quick and straightforward:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df.mean()</span></code>   -  gets the mean</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.median()</span></code> - gets the median</p></li>
@@ -897,7 +912,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">df.max()</span></code> - gets the maximum value</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.corr()</span></code> - gets the correlation coefficient (Pearson or Spearman)</p></li>
 </ul>
-<p>in the function names above, <code class="docutils literal notranslate"><span class="pre">df</span></code> is just a placeholder for “dataframe”</p>
+<p><strong>NOTE:</strong> In these examples, <code class="docutils literal notranslate"><span class="pre">df</span></code> is simply a placeholder for your DataFrame so you should be sure to replace it with the actual name of your dataset (e.g., weather).</p>
 <p>You can replace <code class="docutils literal notranslate"><span class="pre">df</span></code> with the name of your dataframe (and we need to tell the function to use only columns containing numerical data)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -922,16 +937,17 @@ dtype: float64
 </div>
 <p>Which columns from the dataframe are missing from the table of means?</p>
 <ul class="simple">
-<li><p>Month is missing because the values are strings (words); we only get the mean for numerical columns</p></li>
+<li><p><strong>Month</strong> is missing. Pandas will only calculate statistics for columns containing numerical data. If your DataFrame includes text (strings) or categorical variables, you may need to specify only the numeric columns within the function call.</p></li>
 </ul>
 </section>
 <section id="decriptives-for-a-single-column">
 <h2><span class="section-number">1.8.4. </span>Decriptives for a single column<a class="headerlink" href="#decriptives-for-a-single-column" title="Link to this heading">#</a></h2>
-<p>Format:</p>
+<p>Sometimes you’ll want to calculate a descriptive statistic (like the mean) for just one variable rather than for the whole DataFrame.</p>
+<p>The general format is::</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">df.column.mean()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.column_name.mean()</span></code></p></li>
 </ul>
-<p>You might just want the mean for one column, in which case you can include the column name as follows:</p>
+<p>For example, in our dataframe (weather) you may want to know the mean of the column which shows the max temperature (Tmax), you can write:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -950,10 +966,10 @@ dtype: float64
 </ul>
 <section id="why-does-it-work">
 <h3>Why does it work?<a class="headerlink" href="#why-does-it-work" title="Link to this heading">#</a></h3>
-<p>The commmand <code class="docutils literal notranslate"><span class="pre">weather.Tmax.mean()</span></code> has two steps.</p>
+<p>The commmand <code class="docutils literal notranslate"><span class="pre">weather.Tmax.mean()</span></code> actually involves <strong>two steps</strong>.</p>
 <p><strong>Step 1:</strong></p>
-<p>The syntax <code class="docutils literal notranslate"><span class="pre">weather.Tmax</span></code> (or more generally, <code class="docutils literal notranslate"><span class="pre">df.column</span></code>) returns just the one column of the dataframe as a <tt>series</tt> (essentially a one-column table).</p>
-<p>Look:</p>
+<p>The syntax <code class="docutils literal notranslate"><span class="pre">weather.Tmax</span></code> (or more generally, <code class="docutils literal notranslate"><span class="pre">df.column</span></code>) returns just the one column of the dataframe as a <tt>Pandas series</tt>. A series is essentially a one-dimensional version of a DataFrame that holds a single column of data along with its index (the row labels)</p>
+<p>Let’s take a Look at the result of the call <code class="docutils literal notranslate"><span class="pre">weather.Tmax</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">Tmax</span>
@@ -977,7 +993,10 @@ Name: Tmax, Length: 71343, dtype: float64
 </div>
 </div>
 </div>
-<p>If we liked, we could give this single-column series a name a ‘save’ it:</p>
+<ul class="simple">
+<li><p>What does the first number in this list (it should be 8.3) refer to ? how about the second number?</p></li>
+</ul>
+<p>If we liked, we could give this single-column series a name a ‘save’ it into a variable with a name of our choosing:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DailyMaxima</span>  <span class="o">=</span> <span class="n">weather</span><span class="o">.</span><span class="n">Tmax</span>
@@ -1002,9 +1021,20 @@ Name: Tmax, Length: 71343, dtype: float64
 </div>
 </div>
 </div>
+<p>From there, we could use the <code class="docutils literal notranslate"><span class="pre">mean</span></code> function and apply it to our new variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DailyMaxima</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(13.890153065515406)
+</pre></div>
+</div>
+</div>
+</div>
 <p>However, we don’t need to do that as we can just tack the <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> function onto it directly as follows:</p>
-<p><strong>Step 2:</strong></p>
-<p>The syntax <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> gets the mean of the thing before the dot (i.e. the series you created with the command <code class="docutils literal notranslate"><span class="pre">weather.Tmax</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1017,6 +1047,8 @@ Name: Tmax, Length: 71343, dtype: float64
 </div>
 </div>
 </div>
+<p><strong>Step 2:</strong></p>
+<p>Here, the syntax <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> gets the mean of the thing before the dot (i.e. the series you created with the command <code class="docutils literal notranslate"><span class="pre">weather.Tmax</span></code>)</p>
 </section>
 <section id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h3>
@@ -1057,214 +1089,221 @@ Name: Tmax, Length: 71343, dtype: float64
 </div>
 </section>
 </section>
-<section id="get-descriptives-for-a-subset-of-rows">
-<h2><span class="section-number">1.8.5. </span>Get descriptives for a subset of rows<a class="headerlink" href="#get-descriptives-for-a-subset-of-rows" title="Link to this heading">#</a></h2>
+<section id="get-descriptives-for-a-subset-of">
+<h2><span class="section-number">1.8.5. </span>Get descriptives for a subset of<a class="headerlink" href="#get-descriptives-for-a-subset-of" title="Link to this heading">#</a></h2>
+<p>Sometimes you don’t want descriptives for the entire dataset — you just want to look at a subset of the rows that meet certain conditions (for example, all data from a particular year). Pandas provides an elegant way to do this using the <code class="docutils literal notranslate"><span class="pre">query</span></code> function.</p>
+<p><strong>What does .query() do?</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">query</span></code> function lets you filter a DataFrame using a simple, readable condition written as a string. It checks each row to see whether it meets your specified criteria and then returns only the rows that do.</p>
+<p>Some basic use cases are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df.query('columnname</span> <span class="pre">==</span> <span class="pre">number')</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.query('columnname</span> <span class="pre">==</span> <span class="pre">&quot;string&quot;')</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.query('columnname1</span> <span class="pre">==</span> <span class="pre">value1</span> <span class="pre">and</span> <span class="pre">columnname2</span> <span class="pre">==</span> <span class="pre">value2')</span></code></p></li>
 </ul>
-<p>Say I want to know the mean daily maximum temperatures for the year 1921.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>Say we want to know the <strong>mean daily maximum temperature for the year 1921</strong>.</p>
 <section id="step-1-find-the-relevant-rows">
-<h3>Step 1: find the relevant rows<a class="headerlink" href="#step-1-find-the-relevant-rows" title="Link to this heading">#</a></h3>
-<p>I first need to somehow pull out the rows of the table where the value for <tt>YYYY</tt> is <tt>1921</tt></p>
-<p>I can do this using the function <code class="docutils literal notranslate"><span class="pre">df.query</span></code>, for example <tt>weather.query(‘YYYY == 1921’)</tt></p>
+<h4>Step 1: find the relevant rows<a class="headerlink" href="#step-1-find-the-relevant-rows" title="Link to this heading">#</a></h4>
+<p>We first need to pull out the rows where the column YYYY equals 1921.</p>
+<p><strong>Notes:</strong></p>
 <ul class="simple">
-<li><p><strong>note</strong> the quote marks surrounding the whole query</p></li>
-<li><p><strong>note</strong> the double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code>, which is used for <em>checking</em> if two values are equal (as opposed to setting a value)</p></li>
+<li><p>The entire query is enclosed in quotation marks (’ ‘).</p></li>
+<li><p>The double equals sign (==) is used to check if two values are equal, this is different from a single equals (=), which is used for <em>assigning</em> values (e.g., <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">15</span></code>, would assign the value of 15 to the variable a; <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">15</span></code> would check if the variable a is equal to 15 and produce either a True or a False)</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get all the rows where year is 1921</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;weather.YYYY == 1921&#39;</span><span class="p">)</span>
+<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/scope.py:231,</span> in <span class="ni">Scope.resolve</span><span class="nt">(self, key, is_local)</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_resolvers</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">231</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolvers</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span> <span class="c1"># if we&#39;re here that means that we have no locals and we also have</span>
-<span class="g g-Whitespace">    </span><span class="mi">234</span> <span class="c1"># no resolvers</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/collections/__init__.py:1006,</span> in <span class="ni">ChainMap.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span>         <span class="k">pass</span>
-<span class="ne">-&gt; </span><span class="mi">1006</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__missing__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/collections/__init__.py:998,</span> in <span class="ni">ChainMap.__missing__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">997</span> <span class="k">def</span><span class="w"> </span><span class="fm">__missing__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">998</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &#39;weather&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/scope.py:242,</span> in <span class="ni">Scope.resolve</span><span class="nt">(self, key, is_local)</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span>     <span class="c1"># last ditch effort we look in temporaries</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="c1"># these are created when parsing indexing expressions</span>
-<span class="g g-Whitespace">    </span><span class="mi">241</span>     <span class="c1"># e.g., df[df &gt; 0]</span>
-<span class="ne">--&gt; </span><span class="mi">242</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">temps</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-
-<span class="ne">KeyError</span>: &#39;weather&#39;
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">UndefinedVariableError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># get all the rows where year is 1921</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;weather.YYYY == 1921&#39;</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/frame.py:4828,</span> in <span class="ni">DataFrame.query</span><span class="nt">(self, expr, inplace, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4826</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="g g-Whitespace">   </span><span class="mi">4827</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">4828</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4830</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4831</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">res</span><span class="p">]</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/frame.py:4954,</span> in <span class="ni">DataFrame.eval</span><span class="nt">(self, expr, inplace, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4951</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
-<span class="g g-Whitespace">   </span><span class="mi">4952</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;resolvers&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resolvers&quot;</span><span class="p">,</span> <span class="p">()))</span> <span class="o">+</span> <span class="n">resolvers</span>
-<span class="ne">-&gt; </span><span class="mi">4954</span> <span class="k">return</span> <span class="n">_eval</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/eval.py:339,</span> in <span class="ni">eval</span><span class="nt">(expr, parser, engine, local_dict, global_dict, resolvers, level, target, inplace)</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span> <span class="c1"># get our (possibly passed-in) scope</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span> <span class="n">env</span> <span class="o">=</span> <span class="n">ensure_scope</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span>     <span class="n">global_dict</span><span class="o">=</span><span class="n">global_dict</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">336</span>     <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">337</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">339</span> <span class="n">parsed_expr</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="n">parser</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">341</span> <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;numexpr&quot;</span> <span class="ow">and</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span>         <span class="n">is_extension_array_dtype</span><span class="p">(</span><span class="n">parsed_expr</span><span class="o">.</span><span class="n">terms</span><span class="o">.</span><span class="n">return_type</span><span class="p">)</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">350</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">351</span> <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">353</span>         <span class="s2">&quot;Engine has switched to &#39;python&#39; because numexpr does not support &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span>         <span class="s2">&quot;extension array dtypes. Please set your engine to python manually.&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span>         <span class="ne">RuntimeWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">356</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">357</span>     <span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:809,</span> in <span class="ni">Expr.__init__</span><span class="nt">(self, expr, engine, parser, env, level)</span>
-<span class="g g-Whitespace">    </span><span class="mi">807</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">parser</span>
-<span class="g g-Whitespace">    </span><span class="mi">808</span> <span class="bp">self</span><span class="o">.</span><span class="n">_visitor</span> <span class="o">=</span> <span class="n">PARSERS</span><span class="p">[</span><span class="n">parser</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">809</span> <span class="bp">self</span><span class="o">.</span><span class="n">terms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:828,</span> in <span class="ni">Expr.parse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">824</span> <span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">825</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">826</span><span class="sd">     Parse an expression.</span>
-<span class="g g-Whitespace">    </span><span class="mi">827</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">828</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_visitor</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:413,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">413</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:419,</span> in <span class="ni">BaseExprVisitor.visit_Module</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span>     <span class="k">raise</span> <span class="ne">SyntaxError</span><span class="p">(</span><span class="s2">&quot;only a single expression is allowed&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">419</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:413,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">413</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:422,</span> in <span class="ni">BaseExprVisitor.visit_Expr</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">421</span> <span class="k">def</span><span class="w"> </span><span class="nf">visit_Expr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">422</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:413,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">413</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:719,</span> in <span class="ni">BaseExprVisitor.visit_Compare</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">717</span>     <span class="n">op</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">translate_In</span><span class="p">(</span><span class="n">ops</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">718</span>     <span class="n">binop</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">BinOp</span><span class="p">(</span><span class="n">op</span><span class="o">=</span><span class="n">op</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">comps</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="ne">--&gt; </span><span class="mi">719</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">binop</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">721</span> <span class="c1"># recursive case: we have a chained comparison, a CMP b CMP c, etc.</span>
-<span class="g g-Whitespace">    </span><span class="mi">722</span> <span class="n">left</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:413,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">413</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:535,</span> in <span class="ni">BaseExprVisitor.visit_BinOp</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span> <span class="k">def</span><span class="w"> </span><span class="nf">visit_BinOp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">535</span>     <span class="n">op</span><span class="p">,</span> <span class="n">op_class</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_transform_eq_ne</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span>     <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_downcast_constants</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">537</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_evaluate_binop</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">op_class</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:453,</span> in <span class="ni">BaseExprVisitor._maybe_transform_eq_ne</span><span class="nt">(self, node, left, right)</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span> <span class="k">def</span><span class="w"> </span><span class="nf">_maybe_transform_eq_ne</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span>     <span class="k">if</span> <span class="n">left</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">453</span>         <span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">if</span> <span class="n">right</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">455</span>         <span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:413,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">413</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:644,</span> in <span class="ni">BaseExprVisitor.visit_Attribute</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">641</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">ctx</span>
-<span class="g g-Whitespace">    </span><span class="mi">642</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Load</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span>     <span class="c1"># resolve the value</span>
-<span class="ne">--&gt; </span><span class="mi">644</span>     <span class="n">resolved</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span>         <span class="n">v</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">resolved</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:413,</span> in <span class="ni">BaseExprVisitor.visit</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="n">method</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visit_</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span> <span class="n">visitor</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">413</span> <span class="k">return</span> <span class="n">visitor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/expr.py:545,</span> in <span class="ni">BaseExprVisitor.visit_Name</span><span class="nt">(self, node, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">544</span> <span class="k">def</span><span class="w"> </span><span class="nf">visit_Name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Term</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">545</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">term_type</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/ops.py:91,</span> in <span class="ni">Term.__init__</span><span class="nt">(self, name, env, side, encoding)</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="n">tname</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_local</span> <span class="o">=</span> <span class="n">tname</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">LOCAL_TAG</span><span class="p">)</span> <span class="ow">or</span> <span class="n">tname</span> <span class="ow">in</span> <span class="n">DEFAULT_GLOBALS</span>
-<span class="ne">---&gt; </span><span class="mi">91</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_name</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">encoding</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/ops.py:115,</span> in <span class="ni">Term._resolve_name</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="k">if</span> <span class="n">local_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">scope</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span>     <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">scope</span><span class="p">[</span><span class="n">local_name</span><span class="p">],</span> <span class="nb">type</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="n">is_local</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="ne">--&gt; </span><span class="mi">115</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">local_name</span><span class="p">,</span> <span class="n">is_local</span><span class="o">=</span><span class="n">is_local</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;ndim&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">res</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/pandas/core/computation/scope.py:244,</span> in <span class="ni">Scope.resolve</span><span class="nt">(self, key, is_local)</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">temps</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">244</span>     <span class="k">raise</span> <span class="n">UndefinedVariableError</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">is_local</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
-
-<span class="ne">UndefinedVariableError</span>: name &#39;weather&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YYYY</th>
+      <th>Month</th>
+      <th>MM</th>
+      <th>DD</th>
+      <th>DD365</th>
+      <th>Tmax</th>
+      <th>Tmin</th>
+      <th>Tmean</th>
+      <th>Trange</th>
+      <th>Rainfall_mm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>34333</th>
+      <td>1921</td>
+      <td>Dec</td>
+      <td>12</td>
+      <td>31</td>
+      <td>1</td>
+      <td>9.1</td>
+      <td>3.3</td>
+      <td>6.2</td>
+      <td>5.8</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>34334</th>
+      <td>1921</td>
+      <td>Jan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>12.2</td>
+      <td>7.1</td>
+      <td>9.7</td>
+      <td>5.1</td>
+      <td>9.7</td>
+    </tr>
+    <tr>
+      <th>34335</th>
+      <td>1921</td>
+      <td>Jan</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>11.9</td>
+      <td>8.7</td>
+      <td>10.3</td>
+      <td>3.2</td>
+      <td>6.1</td>
+    </tr>
+    <tr>
+      <th>34336</th>
+      <td>1921</td>
+      <td>Jan</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>9.9</td>
+      <td>5.9</td>
+      <td>7.9</td>
+      <td>4.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>34337</th>
+      <td>1921</td>
+      <td>Jan</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>12.3</td>
+      <td>9.8</td>
+      <td>11.1</td>
+      <td>2.5</td>
+      <td>5.5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>34693</th>
+      <td>1921</td>
+      <td>Dec</td>
+      <td>12</td>
+      <td>26</td>
+      <td>361</td>
+      <td>10.8</td>
+      <td>-3.1</td>
+      <td>3.9</td>
+      <td>13.9</td>
+      <td>5.6</td>
+    </tr>
+    <tr>
+      <th>34694</th>
+      <td>1921</td>
+      <td>Dec</td>
+      <td>12</td>
+      <td>27</td>
+      <td>362</td>
+      <td>11.2</td>
+      <td>5.4</td>
+      <td>8.3</td>
+      <td>5.8</td>
+      <td>1.3</td>
+    </tr>
+    <tr>
+      <th>34695</th>
+      <td>1921</td>
+      <td>Dec</td>
+      <td>12</td>
+      <td>28</td>
+      <td>363</td>
+      <td>13.9</td>
+      <td>3.9</td>
+      <td>8.9</td>
+      <td>10.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>34696</th>
+      <td>1921</td>
+      <td>Dec</td>
+      <td>12</td>
+      <td>29</td>
+      <td>364</td>
+      <td>7.6</td>
+      <td>1.7</td>
+      <td>4.7</td>
+      <td>5.9</td>
+      <td>0.8</td>
+    </tr>
+    <tr>
+      <th>34697</th>
+      <td>1921</td>
+      <td>Dec</td>
+      <td>12</td>
+      <td>30</td>
+      <td>365</td>
+      <td>11.7</td>
+      <td>1.9</td>
+      <td>6.8</td>
+      <td>9.8</td>
+      <td>4.5</td>
+    </tr>
+  </tbody>
+</table>
+<p>365 rows × 10 columns</p>
+</div></div></div>
 </div>
 <p>Note the size of this table - there are 365 rows. Why?</p>
 <ul class="simple">
 <li><p>In the original table <code class="docutils literal notranslate"><span class="pre">weather</span></code>, there is one row per day</p></li>
 <li><p>365 of those rows (days) match the criterion ‘YYYY = 1921’ because there are 365 days in a year.</p></li>
 </ul>
-<p>If I wanted to, I could give this table a name and ‘save’ it for later use:</p>
+<p>If I wanted to, I could give this table a name and <em>save</em> it for later use, note the use of the single vs. double equal sign:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather1921</span> <span class="o">=</span> <span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921&#39;</span><span class="p">)</span> <span class="c1"># create a new dataframe for just 1921</span>
@@ -1455,8 +1494,8 @@ Name: Tmax, Length: 71343, dtype: float64
 <p>… but I don’t need to do this as I can tack on more commands to complete my goal in a single line of code.</p>
 </section>
 <section id="step-2-find-the-relevant-column">
-<h3>Step 2: find the relevant column<a class="headerlink" href="#step-2-find-the-relevant-column" title="Link to this heading">#</a></h3>
-<p>Now that I have grabbed the relevant rows, I narrow it down to column <tt>Tmax</tt></p>
+<h4>Step 2: find the relevant column<a class="headerlink" href="#step-2-find-the-relevant-column" title="Link to this heading">#</a></h4>
+<p>Now that I have grabbed the relevant <strong>rows</strong>, I need to access the relevant <strong>column</strong> <tt>Tmax</tt></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span>
@@ -1482,8 +1521,8 @@ Name: Tmax, Length: 365, dtype: float64
 </div>
 </section>
 <section id="step-3-add-in-the-actual-function">
-<h3>Step 3: add in the actual function<a class="headerlink" href="#step-3-add-in-the-actual-function" title="Link to this heading">#</a></h3>
-<p>FInally, I can tack on teh function I want to run on my selected rows and column: <code class="docutils literal notranslate"><span class="pre">mean()</span></code>:</p>
+<h4>Step 3: add in the actual function<a class="headerlink" href="#step-3-add-in-the-actual-function" title="Link to this heading">#</a></h4>
+<p>Finally, I can use a function to complete some set of operations on the values I’ve obtained from Steps 1 &amp; 2. Above I mentioned that we want to know the mean daily maximum temperature for 1921. So the final step is to include the function <code class="docutils literal notranslate"><span class="pre">mean()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1491,11 +1530,12 @@ Name: Tmax, Length: 365, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.651232876712331
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(15.651232876712331)
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="id1">
 <h3>Exercises<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -1520,8 +1560,11 @@ Name: Tmax, Length: 365, dtype: float64
 </section>
 <section id="get-descriptives-for-one-category">
 <h2><span class="section-number">1.8.6. </span>Get descriptives for one category<a class="headerlink" href="#get-descriptives-for-one-category" title="Link to this heading">#</a></h2>
-<p>What about getting the mean daily maximum temperatures for, say, October? So I need to pull out all the rows in which <code class="docutils literal notranslate"><span class="pre">'Month'</span></code> matches <code class="docutils literal notranslate"><span class="pre">'Oct'</span></code></p>
-<p>The syntax is very similar, but now I am matching a string <code class="docutils literal notranslate"><span class="pre">&quot;Oct&quot;</span></code>, so it needs to be in quotes:</p>
+<p>So far, we’ve filtered rows based on numeric values (like the year 1921). But what if we want to calculate descriptives for a specific category, such as a particular month?</p>
+<section id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>say we want to know the <strong>mean daily maximum temperature for October</strong>. We need to pull out all the rows where the column ‘Month’ matches the string ‘Oct’.</p>
+<p>The syntax is almost the same as before, but since we’re matching a string rather than a number, the category name must be enclosed in quotation marks inside the query:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Month == &quot;Oct&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1529,26 +1572,43 @@ Name: Tmax, Length: 365, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.112638544251446
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(14.112638544251446)
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p><strong>note</strong> you can actually use single and double quotes interchangeably in Python, but in cases like this where you have quotes within quotes, it is better to use both types to avoid the computer getting confused about which opening and closing quotes to pair up.</p></li>
-</ul>
+<p><strong>Some Notes:</strong></p>
+<ol class="arabic">
+<li><p>you can actually use single and double quotes interchangeably in Python, but in cases like this where you have quotes within quotes, it is better to use both types to avoid the computer getting confused about which opening and closing quotes to pair up.</p>
 <p>so you could do either of these</p>
 <ul class="simple">
-<li><p>weather.query(‘Month == “Oct”’).Tmax.mean()</p></li>
-<li><p>weather.query(“Month == ‘Oct’”).Tmax.mean()</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weather.query('Month</span> <span class="pre">==</span> <span class="pre">&quot;Oct&quot;').Tmax.mean()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weather.query(&quot;Month</span> <span class="pre">==</span> <span class="pre">'Oct'&quot;).Tmax.mean()</span></code></p></li>
 </ul>
 <p>but not these</p>
 <ul class="simple">
-<li><p>weather.query(‘Month == ‘Oct’’).Tmax.mean()</p></li>
-<li><p>weather.query(“Month == “Oct””).Tmax.mean()</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weather.query('Month</span> <span class="pre">==</span> <span class="pre">'Oct'').Tmax.mean()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weather.query(&quot;Month</span> <span class="pre">==</span> <span class="pre">&quot;Oct&quot;&quot;).Tmax.mean()</span></code></p></li>
 </ul>
-<section id="id2">
-<h3>Exercises<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+</li>
+<li><p>if you are not sure how the months are coded you can try running <code class="docutils literal notranslate"><span class="pre">weather.Month.unique()</span></code> which will print a list of the <em>unique</em> values in the column Month</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">Month</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;, &#39;May&#39;, &#39;Jun&#39;, &#39;Jul&#39;, &#39;Aug&#39;, &#39;Sep&#39;,
+       &#39;Oct&#39;, &#39;Nov&#39;, &#39;Dec&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Exercises<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Complete the following quick practice questions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1571,30 +1631,17 @@ Name: Tmax, Length: 365, dtype: float64
 </section>
 <section id="match-multiple-conditions">
 <h2><span class="section-number">1.8.7. </span>Match multiple conditions<a class="headerlink" href="#match-multiple-conditions" title="Link to this heading">#</a></h2>
-<p>What if I want to know the mean daily maximum temperature in 1921 for June only?</p>
-<p>We can simply use <code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> to pass <code class="docutils literal notranslate"><span class="pre">df.query()</span></code> multiple conditions:</p>
+<p>What if we want to know the <strong>mean daily maximum temperature for June 1921</strong>. That is, only for rows where the year is 1921 <strong>and</strong> the month is “Jun”?</p>
+<p>We can simply pass multiple conditions to <code class="docutils literal notranslate"><span class="pre">df.query()</span></code> by connecting them with <code class="docutils literal notranslate"><span class="pre">and</span></code> (or its symbol form <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>). Each condition should be written as you would on its own, and you combine them inside the same set of quotes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean daily maximum temperature in 1920</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean daily maximumm temperature in 1921</span>
+<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921 &amp; Month == &quot;Jun&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.651232876712331
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean daily maximumm temperature in 1920</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921 &amp; MM == 6&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.443333333333335
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(21.443333333333335)
 </pre></div>
 </div>
 </div>
@@ -1602,12 +1649,25 @@ Name: Tmax, Length: 365, dtype: float64
 <ul class="simple">
 <li><p><strong>Think</strong> hopefully the value for June is higher than the average for the whole year? If not something has gone wrong!</p></li>
 </ul>
-<section id="id3">
-<h3>Exercises<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1921&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(15.651232876712331)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id4">
+<h3>Exercises<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Complete the following quick practice questions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the mean daily rainfall in June 2007</span>
+
 <span class="c1"># answer = 2.62</span>
 </pre></div>
 </div>
@@ -1616,6 +1676,7 @@ Name: Tmax, Length: 365, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the minimum temperature in January 1947</span>
+
 <span class="c1"># answer = -12.4. This was an unusually cold winter.</span>
 <span class="c1"># note that you were asked for the min temperature in that month, not the mean of the daily minimum Tmin)</span>
 </pre></div>
@@ -1626,13 +1687,117 @@ Name: Tmax, Length: 365, dtype: float64
 </section>
 <section id="syntax-for-correlation">
 <h2><span class="section-number">1.8.8. </span>Syntax for correlation<a class="headerlink" href="#syntax-for-correlation" title="Link to this heading">#</a></h2>
-<p>When we run a correlation, we need to index <em>two</em> columns - the two we are correlating.</p>
-<p>Say we want to get the correlation between the minimum and maximum daily temperatures,<code class="docutils literal notranslate"><span class="pre">Tmin</span></code> and <code class="docutils literal notranslate"><span class="pre">Tmax</span></code>:</p>
-<p>Correlation is ‘symmetrical’ (it doesn’t matter which variable is <span class="math notranslate nohighlight">\(x\)</span> and which is <span class="math notranslate nohighlight">\(y\)</span>) but for the purposes of the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function we are using, we first find one of the columns (doesn’t matter which one):</p>
-<p><code class="docutils literal notranslate"><span class="pre">weather.Tmin</span></code></p>
-<p>… and call the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function <code class="docutils literal notranslate"><span class="pre">df.corr()</span></code> to operate on it:</p>
-<p><code class="docutils literal notranslate"><span class="pre">weather.Tmin.corr()</span></code></p>
-<p>Inside the brackets, we tell it which column to correlate against <code class="docutils literal notranslate"><span class="pre">weather.Tmin</span></code>:</p>
+<p>When we calculate the correlation between two variables we will need to access <em>two</em> columns - specifically, the two variables we are comparing.</p>
+<section id="id5">
+<h3>Example<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Say we want to find the <strong>correlation between the minimum and maximum daily temperatures</strong>, stored in the columns <code class="docutils literal notranslate"><span class="pre">Tmin</span></code> and <code class="docutils literal notranslate"><span class="pre">Tmax</span></code>.</p>
+<p>Correlation is a <em>symmetrical</em> measure which means that it doesn’t matter which variable is treated as <span class="math notranslate nohighlight">\(x\)</span> and which as <span class="math notranslate nohighlight">\(y\)</span>. However, in Python we still need to choose one column to start from when using the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function.</p>
+<p>So we will begin by selecting one column (again, it doesn’t matter which one):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">weather.Tmin</span></code> will simply print out the contents of the column</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">Tmin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         5.6
+1         0.0
+2        -8.3
+3        -7.8
+4       -10.6
+         ... 
+71338     4.1
+71339     2.6
+71340     3.9
+71341     6.7
+71342     1.0
+Name: Tmin, Length: 71343, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can call the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function <code class="docutils literal notranslate"><span class="pre">.corr()</span></code> to calculate the correlation. If you are every unsure about how a function works you can use Python’s built in <code class="docutils literal notranslate"><span class="pre">help()</span></code> function.</p>
+<p>From this we learn that <code class="docutils literal notranslate"><span class="pre">.corr()</span></code> takes an argument <code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code> of type <em>Series</em>. This means that we need to specify <em>another column (or Series)</em> to correlate with our first one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">weather</span><span class="o">.</span><span class="n">Tmin</span><span class="o">.</span><span class="n">corr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method corr in module pandas.core.series:
+
+corr(other: &#39;Series&#39;, method: &#39;CorrelationMethod&#39; = &#39;pearson&#39;, min_periods: &#39;int | None&#39; = None) -&gt; &#39;float&#39; method of pandas.core.series.Series instance
+    Compute correlation with `other` Series, excluding missing values.
+    
+    The two `Series` objects are not required to be the same length and will be
+    aligned internally before the correlation function is applied.
+    
+    Parameters
+    ----------
+    other : Series
+        Series with which to compute the correlation.
+    method : {&#39;pearson&#39;, &#39;kendall&#39;, &#39;spearman&#39;} or callable
+        Method used to compute correlation:
+    
+        - pearson : Standard correlation coefficient
+        - kendall : Kendall Tau correlation coefficient
+        - spearman : Spearman rank correlation
+        - callable: Callable with input two 1d ndarrays and returning a float.
+    
+        .. warning::
+            Note that the returned matrix from corr will have 1 along the
+            diagonals and will be symmetric regardless of the callable&#39;s
+            behavior.
+    min_periods : int, optional
+        Minimum number of observations needed to have a valid result.
+    
+    Returns
+    -------
+    float
+        Correlation with other.
+    
+    See Also
+    --------
+    DataFrame.corr : Compute pairwise correlation between columns.
+    DataFrame.corrwith : Compute pairwise correlation with another
+        DataFrame or Series.
+    
+    Notes
+    -----
+    Pearson, Kendall and Spearman correlation are currently computed using pairwise complete observations.
+    
+    * `Pearson correlation coefficient &lt;https://en.wikipedia.org/wiki/Pearson_correlation_coefficient&gt;`_
+    * `Kendall rank correlation coefficient &lt;https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient&gt;`_
+    * `Spearman&#39;s rank correlation coefficient &lt;https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient&gt;`_
+    
+    Automatic data alignment: as with all pandas operations, automatic data alignment is performed for this method.
+    ``corr()`` automatically considers values with matching indices.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; def histogram_intersection(a, b):
+    ...     v = np.minimum(a, b).sum().round(decimals=1)
+    ...     return v
+    &gt;&gt;&gt; s1 = pd.Series([.2, .0, .6, .2])
+    &gt;&gt;&gt; s2 = pd.Series([.3, .6, .0, .1])
+    &gt;&gt;&gt; s1.corr(s2, method=histogram_intersection)
+    0.3
+    
+    Pandas auto-aligns the values with matching indices
+    
+    &gt;&gt;&gt; s1 = pd.Series([1, 2, 3], index=[0, 1, 2])
+    &gt;&gt;&gt; s2 = pd.Series([1, 2, 3], index=[2, 1, 0])
+    &gt;&gt;&gt; s1.corr(s2)
+    -1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>So in order to calculate the correlation between <code class="docutils literal notranslate"><span class="pre">Tmin</span></code> and <code class="docutils literal notranslate"><span class="pre">Tmax</span></code> we write:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the correlation between columns Tmin and Tmax of dataframe weather</span>
@@ -1641,11 +1806,17 @@ Name: Tmax, Length: 365, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8414800914062079
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.8414800914062079)
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Concept Check</strong></p>
+<ul class="simple">
+<li><p>Is this a high correlation?</p></li>
+<li><p>Would you expect the sign to change if you swap the order of Tmin and Tmax?</p></li>
+<li><p>Why or Why Not?</p></li>
+</ul>
 <p>We could change what we correlate against <code class="docutils literal notranslate"><span class="pre">Tmin</span></code> by changing what is inside the brackets, eg:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1655,7 +1826,7 @@ Name: Tmax, Length: 365, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9502479355058366
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9502479355058373)
 </pre></div>
 </div>
 </div>
@@ -1669,15 +1840,16 @@ Name: Tmax, Length: 365, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9502479355058366
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9502479355058373)
 </pre></div>
 </div>
 </div>
 </div>
 <p>… we just need one column specified outside the brackets and one inside</p>
+</section>
 <section id="correlation-type">
 <h3>Correlation type<a class="headerlink" href="#correlation-type" title="Link to this heading">#</a></h3>
-<p>We can set the type of correlation to Pearson or Spearman as appropriate (the default is Pearson’s <span class="math notranslate nohighlight">\(r\)</span>):</p>
+<p>We can set the type of correlation to Pearson or Spearman as appropriate (the default is Pearson’s <span class="math notranslate nohighlight">\(r\)</span>), Have a look above at the help for this function and see if you can find out where this argument is specified:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the correlation between columns Tmin and Tmax of dataframe weather</span>
@@ -1686,13 +1858,13 @@ Name: Tmax, Length: 365, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8438796074978867
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.8438796074978867)
 </pre></div>
 </div>
 </div>
 </div>
-<section id="id4">
-<h4>Exercises<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<section id="id6">
+<h4>Exercises<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <p>Complete the following practice questions to help you get to grips with the syntax for correlation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1956,24 +2128,29 @@ Name: Tmax, Length: 365, dtype: float64
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-a-subset-of-rows">1.8.5. Get descriptives for a subset of rows</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-the-relevant-rows">Step 1: find the relevant rows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-find-the-relevant-column">Step 2: find the relevant column</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-in-the-actual-function">Step 3: add in the actual function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-a-subset-of">1.8.5. Get descriptives for a subset of</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-the-relevant-rows">Step 1: find the relevant rows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-find-the-relevant-column">Step 2: find the relevant column</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-in-the-actual-function">Step 3: add in the actual function</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercises</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-descriptives-for-one-category">1.8.6. Get descriptives for one category</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercises</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-multiple-conditions">1.8.7. Match multiple conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercises</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-multiple-conditions">1.8.7. Match multiple conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercises</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-for-correlation">1.8.8. Syntax for correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-type">Correlation type</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercises</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Exercises</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#all-by-all-correlation-matrix">All-by-all correlation matrix</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-using-scipy-stats">Correlation using <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></a></li>
 </ul>

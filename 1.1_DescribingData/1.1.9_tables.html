@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -205,6 +205,7 @@
 <li class="toctree-l2"><a class="reference internal" href="1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.11_ExtraPractice.html">1.11. Extra Practice Notebook</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -617,9 +618,20 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.9.1. Set up Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.9.2. Import a dataset to work with</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-look-df-describe">1.9.3. Quick look: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-df-agg">1.9.4. Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disaggregate-by-category-df-groupby">1.9.5. Disaggregate by category: df.groupby()</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">1.9.6. Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-df-agg">1.9.4. Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-for-a-subset-of-data-df-query-column-x-agg">1.9.5. Custom table for a subset of data: <code class="docutils literal notranslate"><span class="pre">df.query('column</span> <span class="pre">==</span> <span class="pre">X').agg()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disaggregate-by-category-df-groupby">1.9.6. Disaggregate by category: df.groupby()</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">1.9.7. Practice</a></li>
 </ul>
             </nav>
         </div>
@@ -633,12 +645,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tables-of-descriptive-statistics">
 <h1><span class="section-number">1.9. </span>Tables of descriptive statistics<a class="headerlink" href="#tables-of-descriptive-statistics" title="Link to this heading">#</a></h1>
-<p>When you are writing a report on a dataset you might like to generate a nice table with the descriptive statistics that you need all together in one place</p>
-<p>Below we review a couple of useful pieces of Python syntax for making tables:</p>
+<p>When writing a report or analysing a dataset, you’ll often want to create a table of descriptive statistics. This can provide a clear summary that gathers all the key measures you need in one place. Additionally, you can <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> makes this easy with several built-in functions that can automatically calculate and neatly display these statistics for your dataset.</p>
+<p>Below we review a couple of useful functions for making tables:</p>
 <ul class="simple">
-<li><p>df.describe()</p></li>
-<li><p>df.agg()</p></li>
-<li><p>df.groupby()</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.describe()</span></code>: <em>quickly generates a summary table (count, mean, standard deviation, min, quartiles, max) for all numeric columns.</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.agg()</span></code>: <em>lets you choose exactly which statistics to compute (for example, just the mean and standard deviation).</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.groupby()</span></code>: <em>groups your data by a categorical variable (for example, month or year) and calculates summary statistics for each group.</em></p></li>
 </ul>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">1.9.1. </span>Set up Python Libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
@@ -858,6 +870,16 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></p></li>
 </ul>
 <p>We can output a standard set of descriptives for all the numerical columns in the dataframe by just using <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></p>
+<p>This command outputs a standard set of descriptive statistics for all the numerical columns in your DataFrame. By default, it shows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">count</span></code> – how many non-missing values there are,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mean</span></code> – the average value,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">std</span></code> – the standard deviation,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> – the smallest and largest values,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">25%</span></code>, <code class="docutils literal notranslate"><span class="pre">50%</span></code>, <code class="docutils literal notranslate"><span class="pre">75%</span></code> – the quartiles (useful for understanding data spread).</p></li>
+</ul>
+<p>This gives you a quick way to check the range, central tendency, and variability of each variable all at once — a great first step whenever you start exploring a dataset.</p>
+<p><strong>Tip:</strong> If your DataFrame also contains text or categorical data, describe() will automatically skip those columns unless you specify otherwise. Here, <tt>Month</tt> is missing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -995,17 +1017,21 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p><strong>Note-</strong></p>
-<ul class="simple">
-<li><p><tt>Month</tt> is missing from the table because the values are not numerical</p></li>
-</ul>
-<p>This can be good for a quick look but most likely you will not need all these stats on all the variables - if you were producing a report for an assignment (or a client) you would want to customize the table</p>
+<p>This can be good for a quick look of your dataset. However, for many practical applications, you most likely you will not need <strong>all</strong> metrics on <strong>all</strong> variables. For example, if you were producing a report for an assignment (or a client) you may want to customize the table.</p>
 </section>
 <section id="custom-table-df-agg">
 <h2><span class="section-number">1.9.4. </span>Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code><a class="headerlink" href="#custom-table-df-agg" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">df.agg({'columname':['mean',</span> <span class="pre">'std',</span> <span class="pre">'count']})</span></code></p>
-<p>You can create a table with the just the stats you need using the function <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></p>
-<p>The syntax is a bit fiddly but you can copy from this example which gives the mean and standard deviation for <tt>Tmin</tt> and <tt>Tmax</tt>:</p>
+<p>You can create a tailored summary table using the <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code> function (short for <em>aggregate</em>).</p>
+<p>Here the syntax is as follows:</p>
+<p><code class="docutils literal notranslate"><span class="pre">df.agg({'columname1':['stat1',</span> <span class="pre">'stat2',</span> <span class="pre">'stat3'],</span> <span class="pre">'columnname2':['stat1']})</span></code></p>
+<p>This function takes a dictionary which is a Python structure which takes keys and values:</p>
+<ul class="simple">
+<li><p>The keys are the names of the columns you want to summarise.</p></li>
+<li><p>The values (inside the lists) are the statistics you want to calculate for each column.</p></li>
+</ul>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>here’s how to produce a table showing the <strong>mean and standard deviation for <code class="docutils literal notranslate"><span class="pre">Tmin</span></code> and <code class="docutils literal notranslate"><span class="pre">Tmax</span></code></strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get mean and sd for Tmin and Tmax</span>
@@ -1051,11 +1077,18 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Finally, instead of doing that for the whole dataframe <code class="docutils literal notranslate"><span class="pre">weather</span></code>, you can select rows using <code class="docutils literal notranslate"><span class="pre">df.query()</span></code> as before:</p>
+</section>
+</section>
+<section id="custom-table-for-a-subset-of-data-df-query-column-x-agg">
+<h2><span class="section-number">1.9.5. </span>Custom table for a subset of data: <code class="docutils literal notranslate"><span class="pre">df.query('column</span> <span class="pre">==</span> <span class="pre">X').agg()</span></code><a class="headerlink" href="#custom-table-for-a-subset-of-data-df-query-column-x-agg" title="Link to this heading">#</a></h2>
+<p>Finally, instead of creating a table for the entire DataFrame (<code class="docutils literal notranslate"><span class="pre">weather</span></code>), you can combine what you’ve learned about filtering rows with <code class="docutils literal notranslate"><span class="pre">.query()</span></code> and summarising data with <code class="docutils literal notranslate"><span class="pre">.agg()</span></code>. This would allow you to generate descriptive statistics for just a subset of your data</p>
+<section id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Get the <strong>average and standard deviation for the minimum and maximum temperature for June</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get mean and sd for Tmin and Tmax in June</span>
-<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MM == 6&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Tmin&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">],</span> <span class="s1">&#39;Tmax&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">]})</span>
+<span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Month == &quot;Jun&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Tmin&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">],</span> <span class="s1">&#39;Tmax&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">]})</span>
 </pre></div>
 </div>
 </div>
@@ -1098,10 +1131,14 @@ document.write(`
 </div></div></div>
 </div>
 </section>
+</section>
 <section id="disaggregate-by-category-df-groupby">
-<h2><span class="section-number">1.9.5. </span>Disaggregate by category: df.groupby()<a class="headerlink" href="#disaggregate-by-category-df-groupby" title="Link to this heading">#</a></h2>
-<p>The syntax <code class="docutils literal notranslate"><span class="pre">df.groupby()</span></code> breaks a dataframe down by the categories you have chosen to group by. Any function you then apply will be done sparately for each of these categories.</p>
-<p>For example, say we want to report the mean value of the peak daily temperature in each month. Remember to get the mean value of the peak daily temperature overall we did:</p>
+<h2><span class="section-number">1.9.6. </span>Disaggregate by category: df.groupby()<a class="headerlink" href="#disaggregate-by-category-df-groupby" title="Link to this heading">#</a></h2>
+<p>The syntax <code class="docutils literal notranslate"><span class="pre">df.groupby()</span></code> allows you to split a DataFrame into groups based on the values in one or more categorical columns.
+Any function you apply afterwards will then be performed separately for each group. This provides a powerful way to summarise your data by category.</p>
+<section id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>say we want to <strong>report the mean value of the peak daily temperature in each month</strong>. Remember to get the mean value of the peak daily temperature <em>overall</em> we did:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1114,7 +1151,13 @@ document.write(`
 </div>
 </div>
 </div>
-<p>To break it down by month, we insert <code class="docutils literal notranslate"><span class="pre">.groupby('MM')</span></code>:</p>
+<p>But if we want to see how this value changes from month to month, we can use <code class="docutils literal notranslate"><span class="pre">groupby('MM')</span></code> to <em>disaggregate</em> the data.</p>
+<p>This tells Pandas to:</p>
+<ul class="simple">
+<li><p>Split the DataFrame into groups based on the unique values in the MM column.</p></li>
+<li><p>Calculate the mean of Tmax within each group.</p></li>
+</ul>
+<p>The output will be a Series showing one mean value for each month:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;MM&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmax</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1140,7 +1183,12 @@ Name: Tmax, dtype: float64
 </div>
 </div>
 </div>
-<p>We can of course combine <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> with <code class="docutils literal notranslate"><span class="pre">agg()</span></code> to make a custom table for each group of data, eg</p>
+<p>We can of course combine <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> with <code class="docutils literal notranslate"><span class="pre">agg()</span></code> to make a custom table of statistics for each group in the data.</p>
+<p>This lets you summarise several variables or calculate multiple descriptive statistics on a category by category basis.</p>
+</section>
+<section id="id3">
+<h3>Example<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>If we want to show the <strong>mean and standard deviation for the minimum and maximum temperature, by month</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get mean and sd for Tmin and Tmax in each month</span>
@@ -1278,12 +1326,10 @@ Name: Tmax, dtype: float64
 </table>
 </div></div></div>
 </div>
-<ul class="simple">
-<li><p><strong>Note</strong> <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> is handy to break down datasets according to a categorical variable. In this sense it works similarly to the <code class="docutils literal notranslate"><span class="pre">hue</span></code> argument in some of the plotting functions you will see next week, which allows us to plot data separately for different cases of a categorical variable.</p></li>
-</ul>
+</section>
 </section>
 <section id="practice">
-<h2><span class="section-number">1.9.6. </span>Practice<a class="headerlink" href="#practice" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.7. </span>Practice<a class="headerlink" href="#practice" title="Link to this heading">#</a></h2>
 <p>Try these quick practice questions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1371,9 +1417,20 @@ Name: Tmax, dtype: float64
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.9.1. Set up Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">1.9.2. Import a dataset to work with</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-look-df-describe">1.9.3. Quick look: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-df-agg">1.9.4. Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disaggregate-by-category-df-groupby">1.9.5. Disaggregate by category: df.groupby()</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">1.9.6. Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-df-agg">1.9.4. Custom table: <code class="docutils literal notranslate"><span class="pre">df.agg()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-table-for-a-subset-of-data-df-query-column-x-agg">1.9.5. Custom table for a subset of data: <code class="docutils literal notranslate"><span class="pre">df.query('column</span> <span class="pre">==</span> <span class="pre">X').agg()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disaggregate-by-category-df-groupby">1.9.6. Disaggregate by category: df.groupby()</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">1.9.7. Practice</a></li>
 </ul>
   </nav></div>
 

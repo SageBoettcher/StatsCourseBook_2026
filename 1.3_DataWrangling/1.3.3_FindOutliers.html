@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '1.3_DataWrangling/1.3.3_FindOutliers';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -205,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -216,6 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.3.1_Intro.html">3. Data Wrangling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -617,12 +621,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.3.1. Set up Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">3.3.2. Import a dataset to work with</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-outliers">3.3.3. Finding outliers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-min-max-values-are-plausible">Check min/max values are plausible</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">Plot the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-min-max-values-are-plausible">1. Check min/max values are plausible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">2. Plot the data</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-will-i-know-if-it-is-a-real-outlier">How will I know if it is a real outlier?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-standard-cut-off">Use a ‘standard’ cut-off</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-standard-cut-off">3. Use a ‘standard’ cut-off</a></li>
 </ul>
 </li>
 </ul>
@@ -641,33 +645,34 @@ document.write(`
 <p>In this notebook we cover:</p>
 <ul class="simple">
 <li><p>Approaches for <strong>locating outliers</strong></p></li>
-<li><p>Replacing missing data with <strong>NaN</strong> (how to do it; what choices we need to make)</p></li>
+<li><p>Replacing missing data with <strong>NaN</strong> (how to do it and what choices we need to make)</p></li>
 </ul>
-<p>Outliers, by definition, have extreme values (very large or very small values). Therefore if a dataset contains outliers this can distort the calculated values of statistics such as the mean and standard deviation</p>
+<p>Outliers are data points with extreme values, that is, unusually large or small compared to the rest of the dataset. Because of their extremity, outliers can distort summary statistics such as the mean and standard deviation, potentially leading to misleading conclusions.</p>
 <p>In real datasets, outliers are common, often arising from one of the following causes:</p>
 <ul class="simple">
 <li><p>Real but unusual values</p>
 <ul>
-<li><p>many basketball players are outliers in terms of height</p></li>
+<li><p>basketball players might constitute genuine outliers in terms of height</p></li>
 </ul>
 </li>
-<li><p>Noise in a data recording system</p>
+<li><p>Noise in measurement systems</p>
 <ul>
-<li><p>in brain imaging data, motion artefacts generated by head movements (MRI) or blinks (EEG) are much larger than the real brain activity we are trying to record</p></li>
+<li><p>in brain imaging data, motion artefacts from head movements (MRI) or eye blinks (EEG) are much larger than the real neural signal we’re trying to record</p></li>
 </ul>
 </li>
 <li><p>Data entry error</p>
 <ul>
-<li><p>a human types the wrong number, uses the wrong units or misplaces a decimal point</p></li>
+<li><p>Humans make mistake - typing the wrong number, using incorrect units, or misplacing a decimal point.</p></li>
 </ul>
 </li>
-<li><p>Dummy values</p>
+<li><p>Dummy or placeholder values</p>
 <ul>
-<li><p>In some datasets an ‘obviously wrong’ numerical value, such as 9999, is used to indicate a missing datapoint</p></li>
+<li><p>In some datasets an ‘obviously wrong’ or ‘impossible’ numerical value, such as 9999, is used to indicate a missing datapoint</p></li>
 </ul>
 </li>
 </ul>
-<p>Identifying and removing outliers and bad data points is a crucial step in the process of preparing our data for analysis, sometimes called <em>data wrangling</em></p>
+<p>Identifying and dealing with these kinds of bad datapoints is a crucial step in data cleaning (or <em>data wrangling</em>).
+We need to decide whether to remove, replace, or retain outliers based on whether they represent genuine variability or error.</p>
 <p><strong>Here is a video about types of outliers and how we might deal with them:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -701,8 +706,12 @@ document.write(`
 </section>
 <section id="import-a-dataset-to-work-with">
 <h2><span class="section-number">3.3.2. </span>Import a dataset to work with<a class="headerlink" href="#import-a-dataset-to-work-with" title="Link to this heading">#</a></h2>
-<p>We  will work with the file heartAttack.csv, which contains data on several thousand patients admitted to hospital in New York City, diagnosed with a heart attack.</p>
-<p>From this dataset we can explore how demographic and disease factors affect the duration of stay in hospital and the  dollar cost of treatment.</p>
+<p>The data will be automatically loaded from the internet when you run the code block below:</p>
+<p>We  will work with the file <code class="docutils literal notranslate"><span class="pre">heartAttack.csv</span></code>, which contains information on several thousand patients admitted to hospital in New York City, diagnosed with a heart attack. Using this dataset, we can explore how demographic and clinical factors affect two key outcomes:</p>
+<ul class="simple">
+<li><p>The duration of hospital stay, and</p></li>
+<li><p>The cost (in dollars) of treatment.</p></li>
+</ul>
 <p>The dataset are downloaded with thanks (and with slight modifications for teaching purposes) from the website <a href="https://dasl.datadescription.com/">DASL</a> (Data and Story Library)</p>
 <p>The data will be automatically loaded fromt he internet when you run this code block:</p>
 <div class="cell docutils container">
@@ -846,30 +855,49 @@ document.write(`
 </div>
 <p>The columns of the dataframe are:</p>
 <ul class="simple">
-<li><p>CHARGES - dollar cost fo treatment</p></li>
-<li><p>LOS - length of hospital stay in days</p></li>
-<li><p>AGE - patient age in years</p></li>
-<li><p>SEX - patient’s biological sex</p></li>
-<li><p>DRG - a code noted on dischaarge fromm hospital</p></li>
-<li><p>DIED - 1 if the patient died, 0 if they survived</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CHARGES</span></code> - dollar cost fo treatment</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOS</span></code> - length of hospital stay in days</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AGE</span></code> - patient age in years</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SEX</span></code> - patient’s biological sex</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DRG</span></code> - a code noted on dischaarge fromm hospital</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DIED</span></code> - 1 if the patient died, 0 if they survived</p></li>
 </ul>
 </section>
 <section id="finding-outliers">
 <h2><span class="section-number">3.3.3. </span>Finding outliers<a class="headerlink" href="#finding-outliers" title="Link to this heading">#</a></h2>
-<p>When working with a new dataset it is always necessary to check for missing data and outliers. There are a couple of ways of checking:</p>
+<p>When working with a new dataset, it’s always important to check for missing data and outliers. As you  will see, there are several simple ways to do this. Here we will cover 3 main ways to detect outliers:</p>
+<ol class="arabic simple">
+<li><p><em>Min/Max</em></p></li>
+<li><p><em>Plot</em></p></li>
+<li><p><em>Standard Cutoff</em></p></li>
+</ol>
+<p>These are <strong>not</strong> mutually exclusive, and it often makes sense to consider each method as evidence for or against the presence of outliers.</p>
 <section id="check-min-max-values-are-plausible">
-<h3>Check min/max values are plausible<a class="headerlink" href="#check-min-max-values-are-plausible" title="Link to this heading">#</a></h3>
+<h3>1. Check min/max values are plausible<a class="headerlink" href="#check-min-max-values-are-plausible" title="Link to this heading">#</a></h3>
+<p>The first step will be to check whether the minimum and maximum values for each variable look plausible. Often, if a dataset contains an outlier or a misrecorded value, it will appear as the minimum or maximum in the summary statistics. Common causes for this can include:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">df.describe()</span></code></p></li>
+<li><p><strong>Misplaced Decimal Points</strong> - this can produce very large or small values.</p>
+<ul>
+<li><p>e.g., a person’s height could easily be misrecorded as 1765 cm (over 17 metres!) instead of 176.5 cm</p></li>
 </ul>
-<p>Often if there is an outlier or misrecorded data point, the outlier will be the minimum or maximum value in a dataset:</p>
-<ul class="simple">
-<li><p>If the decimal point is misplaced we get a very large (or small value) - eg a person’s height could easily be misrecorded as 1765 cm (over 17 metres!) instead of 176.5 cm</p></li>
-<li><p>If the wrong units are used we could get a very large or small value - eg a person’s height is recorded as 1.756 (m) when it should have been recorded as 176.5 (cm)</p></li>
-<li><p>sometimes ‘dummy’ values are used as placeholders for missing data - often the dummy value is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> but sometimes an obviously-wrong numerical value (such as 99, 999 or 9999) is used, which will generally be a large number compared to real numerical values.</p></li>
-<li><p>Occasionally 0 will be used as a placeholder value for missing data. This is generally a bad idea, as zero is often a plausible value for real data. If a variable has a large nummber of zero values, it is worth considering whether these could be missing data rather than real zeros.</p></li>
+</li>
+<li><p><strong>Wrong Units</strong> - mixing up our scale can also lead to extreme values</p>
+<ul>
+<li><p>e.g., a person’s height is recorded as 1.756 (m) when it should have been recorded as 176.5 (cm)</p></li>
 </ul>
-<p>Because outliers are often the max or min value, running <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> and checking the min and max values for each datapoint is a good first step in checking for outliers</p>
+</li>
+<li><p><strong>Dummy Values</strong> -<em>impossible</em> values can be used intentionally as placeholders for missing data</p>
+<ul>
+<li><p>often the dummy value is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> but sometimes an obviously-wrong numerical value (such as 99, 999 or 9999) is used, which will generally be a large number compared to real numerical values.</p></li>
+</ul>
+</li>
+<li><p><strong>Zero as a Placeholder</strong> sometimes <code class="docutils literal notranslate"><span class="pre">0</span></code> is used to mark missing data. This can be problematic as zero is often a plausible value for real data.</p>
+<ul>
+<li><p>If a variable has a large nummber of zero values, it is worth considering whether these could be missing data rather than real zeros.</p></li>
+</ul>
+</li>
+</ul>
+<p>Because outliers can show up as extreme values, running <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> and checking the <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> values for each datapoint is a good first step in checking for outliers</p>
 <p>Let’s try it with our hospital dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -972,21 +1000,22 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>I can see something suspicious!</p>
+<p>Look carefully at the minimum and maximum values for each column — do any of them look implausible?</p>
 <ul class="simple">
-<li><p>The max values for length of stay (<tt>LOS</tt>) is 9999 days (about 3 years)</p></li>
-<li><p>The max value for Age (<tt>AGE</tt>) is 9999 years</p></li>
+<li><p>The max values for length of stay (<code class="docutils literal notranslate"><span class="pre">LOS</span></code>) is 9999 days (about 3 years)</p></li>
+<li><p>The max value for Age (<code class="docutils literal notranslate"><span class="pre">AGE</span></code>) is 9999 years</p></li>
 </ul>
 <p>It looks like <tt>9999</tt> may have been used as a dummy value for missing data.</p>
 </section>
 <section id="plot-the-data">
-<h3>Plot the data<a class="headerlink" href="#plot-the-data" title="Link to this heading">#</a></h3>
-<p>What about the column <tt>CHARGES</tt>?</p>
+<h3>2. Plot the data<a class="headerlink" href="#plot-the-data" title="Link to this heading">#</a></h3>
+<p>Often it it is a good idea to plot data in order to identify outliers. We can use a histogram plot to better understand whether a particular value is <em>suspicious</em> or just an extreme value in a natural occuring distribution.</p>
+<p>Let’s take a closer look at the column <code class="docutils literal notranslate"><span class="pre">CHARGES</span></code>.</p>
 <ul class="simple">
-<li><p>The maximum value of $48910.12 is horrifyingly high, but as we are (hopefully) unfamiliar with medical billing, it is hard to say if this is an outlier</p></li>
-<li><p>The minimum value of $3 is also suspect, did they just give the patient a paracetomol and send them on their way?!</p></li>
+<li><p>The maximum value of <code class="docutils literal notranslate"><span class="pre">CHARGES</span></code> is <strong>\$48910.12</strong> is horrifyingly high, but since most of us are (fortunately) unfamiliar with medical billing, it is hard to say if this is an <strong>outlier</strong></p></li>
+<li><p>The minimum value of <strong>\$3</strong> is also suspicious, did they just give the patient a paracetomol and send them on their way?!</p></li>
 </ul>
-<p>To get a clearer picture we can plot the distribution of <tt>CHARGES</tt>:</p>
+<p>To get a clearer picture we can plot the distribution of <code class="docutils literal notranslate"><span class="pre">CHARGES</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;CHARGES&#39;</span><span class="p">)</span>
@@ -998,22 +1027,60 @@ document.write(`
 <img alt="../_images/90dcdbb90c3f6965dad7bff49ec4fe0cbc6807f7d21c946d8dddd5fad20fbab7.png" src="../_images/90dcdbb90c3f6965dad7bff49ec4fe0cbc6807f7d21c946d8dddd5fad20fbab7.png" />
 </div>
 </div>
-<p>Hm, the distribution of costs is skewed, but the maximum value of 49000 dollars appears to just be the ‘tip of the tail’ rather than an actual outlier. The minimum value of 3 dollars is also not particularly unique. I wouldn’t exclude any outliers from <tt>CHARGES</tt>.</p>
+<p>$5 $10</p>
+<p>While the distribution of costs definitely looks skewed the maximum value of $49000 appears to be the ‘tip of the tail’ rather than an actual outlier. The minimum value of \$3 is also not particularly unique.</p>
+<p>In this case, <strong>I wouldn’t exclude any outliers from <code class="docutils literal notranslate"><span class="pre">CHARGES</span></code></strong>.</p>
 <section id="how-will-i-know-if-it-is-a-real-outlier">
 <h4>How will I know if it is a real outlier?<a class="headerlink" href="#how-will-i-know-if-it-is-a-real-outlier" title="Link to this heading">#</a></h4>
-<p>One way is to plot the data. You can then tell ‘by inspection’ (by looking at the graph) whether any datapoints seem to be separated from the main body of the data distribution.</p>
-<p>Look what happens when we plot the distribution of Length of Stay:</p>
+<p>One way is to <strong>plot the data</strong>. By looking at the graph, you can then tell whether any datapoints seem to be separated from the main body of the data distribution.</p>
+<p>Look what happens when we plot the distribution of Length of Stay (<code class="docutils literal notranslate"><span class="pre">LOS</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;LOS&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Raw data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Length of Hospital Stay (days)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/417e2d178379fe1283a54507bd1ecd57794798fc75a9998d52531d22d976bb9f.png" src="../_images/417e2d178379fe1283a54507bd1ecd57794798fc75a9998d52531d22d976bb9f.png" />
+</div>
+</div>
+<p>When we plot the raw data, we can see that <span class="math notranslate nohighlight">\(x\)</span> - axis extends all the way up to 10000. Remember the axis limits are automatically determined by the data. Here we can’t actually see the bar at 9999 because only a few datapoints have this value compared to 12500 real datapoints!</p>
+<p><strong>The scale of the axis indicates that there must be at least 1 data point whereby <tt>LOS~=10000</tt>:</strong></p>
+<ul class="simple">
+<li><p>the autoscaling is a hint to use as data scientists that there are outlier values.</p></li>
+<li><p>It’s not a good way to present this fact to a client unfamiliar with <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code>’s quirks!</p></li>
+<li><p>this is the kind of plot you make for yourself, <em>not something you put in a report</em></p></li>
+</ul>
+<p>Let’s see what happens if we only plot hospital stays that are less than a year. To do this i will use the <code class="docutils literal notranslate"><span class="pre">.query()</span></code> function in my call to <code class="docutils literal notranslate"><span class="pre">sns.histplot</span></code>. I chose the cut-off value of 1-year arbitrarily. However, as you can see from the plot, there are no values that even approach 1 year, so I am happy with my choice of cut-off retained all real values of length of stay, and further confirms that the values of <code class="docutils literal notranslate"><span class="pre">LOS</span></code> close to 10000 are indeed outliers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;LOS &lt; 365&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;LOS&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;b. Stays over 1 year removed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Length of Hospital Stay (days)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2033cd59328c73fb4c8e0271f89fee407ce54557c8cf5bc748c04436f5fb1e2f.png" src="../_images/2033cd59328c73fb4c8e0271f89fee407ce54557c8cf5bc748c04436f5fb1e2f.png" />
+</div>
+</div>
+<p>You may want to plot the two plots above in a single figure. This can help you quickly compare the distributions with and without outliers. To do this we will use <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code>. You may have to tweak the overall figure size and might want to adjust colors to get things looking nice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># when I first plotted this it looked a bit squashed so I adjusted the figsize</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;LOS&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;LOS&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;a. Raw data&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Length of Hospital Stay (days)&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;LOS &lt; 365&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;LOS&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;LOS &lt; 365&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;LOS&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;b. Stays over 1 year removed&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Length of Hospital Stay (days)&#39;</span><span class="p">)</span>
 
@@ -1026,33 +1093,20 @@ document.write(`
 <img alt="../_images/a9e0577bc5499a11f2886fd73650681e90dcc3892e098e7977dacf797837f113.png" src="../_images/a9e0577bc5499a11f2886fd73650681e90dcc3892e098e7977dacf797837f113.png" />
 </div>
 </div>
-<p><strong>Panel a</strong> (raw data) tells us that the values of length of stay extend up to 10000</p>
-<ul class="simple">
-<li><p>we can’t see the bar at 9999 because only a few datapoints have this value compared to 12500 real datapoints,</p></li>
-<li><p>however, we can see that the axis has autoscaled to accommodate values up to 10000, suggesting there is at least one datapoint stranded up there near <tt>LOS=10000</tt></p>
-<ul>
-<li><p>the autoscaling is a hint to use as data scientists that there are outlier values.</p></li>
-<li><p>It’s not a good way to present this fact to a client unfamiliar with <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code>’s quirks!</p></li>
-<li><p>this is the kind of plot you make for yourself, not something you put in a report</p></li>
-</ul>
-</li>
-</ul>
-<p>In <strong>panel b</strong>, I excluded stays over one year from the dataframe and replotted - I chose the cut-off value of 1-year arbitrarily. However, I can see from panel b that no values even approach 1 year, so I am happy with my choice of cut-off retained all real values of length of stay and removed the outliers</p>
-<ul class="simple">
-<li><p>Have a look at the code block above to see how I excluded the cases where <tt>LOS&gt;365</tt></p></li>
-</ul>
 </section>
 </section>
 <section id="use-a-standard-cut-off">
-<h3>Use a ‘standard’ cut-off<a class="headerlink" href="#use-a-standard-cut-off" title="Link to this heading">#</a></h3>
-<p>Sometimes it’s not so clear where the boundary is between real data and outliers.</p>
-<p>In this case, researchers sometimes define outliers as those lying more than 3 standard deviations from the mean.</p>
+<h3>3. Use a ‘standard’ cut-off<a class="headerlink" href="#use-a-standard-cut-off" title="Link to this heading">#</a></h3>
+<p>Sometimes it’s not so clear where to draw the line between real data and outliers. In this case, researchers may define outliers following a simple rule of thumb:</p>
+<p><em><strong>Outliers can are data points which lay more than 3 standard deviations (SD) away from the mean.</strong></em></p>
+<p>This rule of thumb is usally adequate becuase:</p>
 <ul class="simple">
-<li><p>Under the normal distribution, values 3 standard deviations from the mean occur about 1/1000 of the time so the 3xSD cut-off should exclude relatively few real values</p></li>
+<li><p>Under a normal distribution, values 3 standard deviations from the mean occur about 1 in 1000 times. So the 3xSD cut-off should exclude relatively few real values</p></li>
 <li><p>If your data are not Normally distributed, this cutoff may be less suitable.</p></li>
 <li><p>Don’t worry if you don’t know what normal distribution is yet - this will make sense when you come back and revise!</p></li>
 </ul>
-<p>We can calculate the 3SD cutoff for <tt>CHARGES</tt>:</p>
+<p>Let’s check the suitability of the <strong>3SD cutoff</strong> for <tt>CHARGES</tt>.</p>
+<p><em>Do you think this will work well?</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">CHARGES</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1060,38 +1114,40 @@ document.write(`
 
 <span class="n">cutoff</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">s</span><span class="p">]</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">cutoff</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the low cutoff is: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cutoff</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the high cutoff is: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cutoff</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[np.float64(-9796.111336261192), np.float64(29554.286565573668)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the low cutoff is: -9796.111336261192
+the high cutoff is: 29554.286565573668
 </pre></div>
 </div>
 </div>
 </div>
+<p>Let’s replot the histogram with the cutoff values marked as red vertical lines:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># re-plot the hisptogram so we can see where the 3SD cut-off falls</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;CHARGES&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">cutoff</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">cutoff</span><span class="p">[</span><span class="mi">0</span><span class="p">]],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">cutoff</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">cutoff</span><span class="p">[</span><span class="mi">1</span><span class="p">]],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/90dcdbb90c3f6965dad7bff49ec4fe0cbc6807f7d21c946d8dddd5fad20fbab7.png" src="../_images/90dcdbb90c3f6965dad7bff49ec4fe0cbc6807f7d21c946d8dddd5fad20fbab7.png" />
+<img alt="../_images/94a6adb1a7871df7738fdbe347639780075e01b5a9fd400e5d6e7230b8827f35.png" src="../_images/94a6adb1a7871df7738fdbe347639780075e01b5a9fd400e5d6e7230b8827f35.png" />
 </div>
 </div>
-<p>By this criterion, charges below -9800 dollars and above 30000 are considered outliers.</p>
+<p>By this criterion, charges below ~-9800 dollars and above ~30000 are considered outliers.</p>
+<p><strong>These are not good cut-off values!</strong></p>
 <ul class="simple">
-<li><p>These are not good cut-off values!</p>
-<ul>
-<li><p>Looking again at the histogram of CHARGES above, 30001 dollars seems no less plausible than 29999</p></li>
-<li><p>-9800 dollars is an impossible value so wouldn’t exclude any cases anyway!</p></li>
+<li><p>Looking again at the histogram of CHARGES just above our high cutoff look no less plausible then CHARGES just below it.</p></li>
+<li><p>-9800 dollars is an impossible value so we wouldn’t include these cases anyway!</p></li>
 </ul>
-</li>
-</ul>
-<p>The 3SD approach didn’t work so well in this case because the data distribution is very skewed, so high positive values are actually quite plausible, whilst the natural cut-off value for low <tt>CHARGES</tt> (zero dollars) is not very far from the mean (in fact the minimum possible value, zero, is within the 3SD cutoff).</p>
+<p>The 3SD approach didn’t work so well in this case because the data distribution is very <strong>skewed</strong>. This results in values above our cutoff being actually quite plausible, whilst the natural cut-off value for low <tt>CHARGES</tt> (zero dollars) is not very far from the mean (in fact the minimum possible value, zero, is within the 3SD cutoff).</p>
 </section>
 </section>
 </section>
@@ -1163,12 +1219,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.3.1. Set up Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">3.3.2. Import a dataset to work with</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-outliers">3.3.3. Finding outliers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-min-max-values-are-plausible">Check min/max values are plausible</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">Plot the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-min-max-values-are-plausible">1. Check min/max values are plausible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">2. Plot the data</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-will-i-know-if-it-is-a-real-outlier">How will I know if it is a real outlier?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-standard-cut-off">Use a ‘standard’ cut-off</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-standard-cut-off">3. Use a ‘standard’ cut-off</a></li>
 </ul>
 </li>
 </ul>

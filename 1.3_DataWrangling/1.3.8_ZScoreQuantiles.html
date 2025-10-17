@@ -207,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -218,6 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.3.1_Intro.html">3. Data Wrangling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -618,11 +620,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.7.1. Set up Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">3.7.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score">3.7.3. Z score</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-the-z-score">Disadvantages of the Z score</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantiles">3.7.4. Quantiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score">3.7.3. Z score</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-rule-of-thumb">3.7.4. Z-score Rule of Thumb</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-disadvantages">3.7.5. Z-score Disadvantages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantiles">3.7.6. Quantiles</a></li>
 </ul>
             </nav>
         </div>
@@ -636,26 +637,28 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="standardizing-data">
 <h1><span class="section-number">3.7. </span>Standardizing data<a class="headerlink" href="#standardizing-data" title="Link to this heading">#</a></h1>
-<p>Some data are recorded in naturally meaningful units; examples are</p>
+<p>When we collect data different variables are expressed in different units or scales. Some data are recorded in naturally, meaningful units that we might be quite familiar with:</p>
 <ul class="simple">
-<li><p>height of adults in cm</p></li>
-<li><p>temperature in <span class="math notranslate nohighlight">\(^{\circ}C\)</span></p></li>
+<li><p>Height of adults in cm</p></li>
+<li><p>Temperature in <span class="math notranslate nohighlight">\(^{\circ}C\)</span></p></li>
+<li><p>Cost of a pint in GBP (£)</p></li>
 </ul>
-<p>In other cases, units may be hard to interpret because we don’t have a sense of what a typical score is, based on general knowledge</p>
+<p>However, in many other situations, the units are less intuitive — for instance:</p>
 <ul class="simple">
 <li><p>scores on an IQ test marked out of 180</p></li>
-<li><p>height of 6-year-olds in cm</p></li>
+<li><p>height of 2-year-olds in cm</p></li>
+<li><p>price of hospital visit in USD ($)</p></li>
 </ul>
-<p>A further problem is quantifying how unusual a data value is when values are presented as different units</p>
+<p>A further complication occurs when we are trying to quantify how unusual a data value is when values are presented as different units</p>
 <ul class="simple">
 <li><p>High school grades from different countries or systems (A-levels vs IB vs Abitur vs…..)</p></li>
 </ul>
-<p>In all cases it can be useful to present data in standard units.</p>
-<p>Two common ways of doing this are:</p>
-<ul class="simple">
-<li><p>Convert data to Z-scores</p></li>
-<li><p>Convert data to quantiles</p></li>
-</ul>
+<p>Across all of these cases, it can be helpful to express data in standardized units, which allows us to compare values across different scales or measurements.</p>
+<p>Two common ways of standardizing data are:</p>
+<ol class="arabic simple">
+<li><p>Convert data to Z-scores - <em>measuring how many standard deviations a value is from the mean</em></p></li>
+<li><p>Convert data to quantiles - <em>expressing values in terms of their percentile position within the distribution</em></p></li>
+</ol>
 <p>In this section we will review both these approaches.</p>
 <p><strong>Here is a video about standardizing data using centiles</strong></p>
 <div class="cell docutils container">
@@ -1144,7 +1147,7 @@ document.write(`
 </section>
 <section id="z-score">
 <h2><span class="section-number">3.7.3. </span>Z score<a class="headerlink" href="#z-score" title="Link to this heading">#</a></h2>
-<p>The Z-score tells us how many standard deviations above or below the mean of the distribution a given value lies.</p>
+<p>A Z-score tells us how many standard deviations a particular value lies above or below the mean of its distribution. This transformation helps us understand how unusual a given value is relative to the rest of the data — regardless of the original measurement units. For example, a Z-score of +2 means the value is two standard deviations above the mean, while a score of –1.5 means it’s 1.5 standard deviations below the mean.</p>
 <p>Let’s convert our weights to Z-scores. We will need to know the mean and standard deviation of weight:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1160,12 +1163,14 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We can then calculate a Z-score for each person’s weight.</p>
+<p>To give you some instinct for Z-score let’s consider some examples:</p>
 <ul class="simple">
-<li><p>Someone whose weight is exactly on the mean (74kg) will have a Z-score of 0.</p></li>
-<li><p>Someone whose weight is one standard deviation below the mean (65kg) will have a Z-score of -1
-etc</p></li>
+<li><p>Someone whose weight is exactly on the mean (73.73kg) will have a Z-score of 0.</p></li>
+<li><p>Someone whose weight is one standard deviation below the mean (65.83kg) will have a Z-score of -1 etc.</p></li>
 </ul>
+<p>We will calculate a Z-score for each person’s weight. To do this we will create a new column in our dataframe called <code class="docutils literal notranslate"><span class="pre">WeightZ</span></code>. Z score is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[Z = \frac{X - \text{Mean}}{\text{SD}}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new column and put the calcualted z-scores in it</span>
@@ -1657,29 +1662,37 @@ etc</p></li>
 </div></div></div>
 </div>
 <p>Look down the table for some heavy and light people. Do their z-scores look like you would expect?</p>
-<section id="disadvantages-of-the-z-score">
-<h3>Disadvantages of the Z score<a class="headerlink" href="#disadvantages-of-the-z-score" title="Link to this heading">#</a></h3>
-<p>Z score tells us how many standard deviations above or below the mean a datapoint lies.</p>
-<p>We can use some hand ‘rules of thumb’ to know how unusual a Z-score is, as long as the data distribution is approximately normal:
-* Don’t worry if you don’t know what the Normal distribution is yet - you will learn about this in detail later in the course</p>
+</section>
+<section id="z-score-rule-of-thumb">
+<h2><span class="section-number">3.7.4. </span>Z-score Rule of Thumb<a class="headerlink" href="#z-score-rule-of-thumb" title="Link to this heading">#</a></h2>
+<p>The Z-score tells us how many standard deviations above or below the mean a datapoint lies. This makes it very useful for identifying unusually high or low values within a dataset. When data is approximately <em>normal</em> you can easily infer a lot of information about a particular data-point based on its Z-Score. Specifically, we can use this handy rule-of-thumb to know how unusual a Z-score is:</p>
+<p><em>Don’t worry if you don’t know what the Normal distribution is yet - you will learn about this in detail later in the course</em></p>
+<ul class="simple">
+<li><p>Z-Score of 0 is higher than 50% of values</p></li>
+<li><p>Z-Score of 1 is higher than 85% of values</p></li>
+<li><p>Z-Score of 2 is higher than 97.5% of values</p></li>
+</ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk3_ZscoreRuleOfThumb.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk3_ZscoreRuleOfThumb.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk3_ZscoreRuleOfThumb.png" style="width: 75%;" />
 </a>
-<p>The Z-score does have a couple of disadvantages:</p>
+</section>
+<section id="z-score-disadvantages">
+<h2><span class="section-number">3.7.5. </span>Z-score Disadvantages<a class="headerlink" href="#z-score-disadvantages" title="Link to this heading">#</a></h2>
+<p>However, the Z-score does have a couple of disadvantages:</p>
 <ul class="simple">
-<li><p>it is only really meaningful for symmetrical data distributions (especially the Normal distribution) - for skewed distributions, there will be momre datapoints with a Z-score of, say, +2, than -2</p></li>
+<li><p>The Z-score is not easily understood by non statistically trained people</p></li>
+<li><p>Z-scores are only meaningful if the data are approximately normally distributed, for data that are strongly skewed or contain outliers, the mean and standard deviation may not accurately reflect the typical values</p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk3_ZscoreSkew.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk3_ZscoreSkew.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk3_ZscoreSkew.png" style="width: 75%;" />
 </a>
-<p>Additionally, the Z-score is not easily understood by non statistically trained people</p>
 <p>It is therefore sometimes more meaningful to standardize data by presenting them as <em>quantiles</em></p>
 </section>
-</section>
 <section id="quantiles">
-<h2><span class="section-number">3.7.4. </span>Quantiles<a class="headerlink" href="#quantiles" title="Link to this heading">#</a></h2>
-<p>Quantiles (or centiles) tell us what proportion of data points are expected to exceed a certain value. This is easy to interpret.</p>
-<p>For example, say my six year old daughter is 125cm tall, would you say she is tall for her age? You probably have no idea - this is in contrast to adult heights where people might have a sense of the distribution due to general knowledge (eg 150cm is small and 180cm is tall)</p>
-<p>In fact, a a 6 year old with height 125cm lies on the 95th centile, which means they are taller than 95% of children the same age (will definitley look tall in the playground).</p>
-<p>To calculate a given quantile of a dataset we use <code class="docutils literal notranslate"><span class="pre">df.quantile()</span></code>, eg</p>
+<h2><span class="section-number">3.7.6. </span>Quantiles<a class="headerlink" href="#quantiles" title="Link to this heading">#</a></h2>
+<p>Quantiles (also called centiles or percentiles) tell us what proportion of data points fall below or above a given value.
+They’re an intuitive way to describe where a particular observation lies within a distribution.</p>
+<p>For example, imagine my two-year-old son is 85 cm tall and 14kg. <em>Would you say he is big for his age?</em> You probably have no idea, because unlike adult sizes, most of us don’t have a good sense of the size distribution two-year-olds.</p>
+<p>In fact, the two-year-old described here lies on the 25th centile for height and the 91st centile for weight, this means he is only taller than 25% of boys the same age but he weighs more than 91%.</p>
+<p>To calculate a given quantile of a dataset we use <code class="docutils literal notranslate"><span class="pre">df.quantile()</span></code>, e.g., to find the 90th centile of the heights in our data set:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the 90th centile for height in out dataframe</span>
@@ -1694,15 +1707,13 @@ etc</p></li>
 </div>
 </div>
 <p>The 90th centile is 181cm, ie 10% of people are taller than 181cm.</p>
-<p>Adding quantiles to the table can be done using <code class="docutils literal notranslate"><span class="pre">df.qcut()</span></code>, which categorizes the data into quantiles. For example, I can produe a table saying which decile each person’s weight falls into as follows:</p>
+<p>Adding quantile information to a dataset can be done using <code class="docutils literal notranslate"><span class="pre">pd.qcut()</span></code>, which divides the data into equal-sized groups (quantiles) and assigns each observation to one of them.</p>
+<p>For example, we can categorize people’s weights into deciles. <strong>Deciles are 10ths, in the same way that centiles are 100ths.</strong></p>
 <ul class="simple">
-<li><p>Deciles are 10ths, in the same way that centiles are 100ths</p>
-<ul>
 <li><p>if someone’s weight in the 0th decile, that means their weight is in the bottom 10% of the sample</p></li>
-<li><p>if someone’s weight is in the 9th decile, it mmeans they are in teh top 10% ot the sample (heavier than 90% of people)</p></li>
+<li><p>if someone’s weight is in the 9th decile, it mmeans they are in the top 10% ot the sample (heavier than 90% of people)</p></li>
 </ul>
-</li>
-</ul>
+<p>Here we add deciles to the data frame in a new variable called <code class="docutils literal notranslate"><span class="pre">weightQ</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;weightQ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> 
@@ -2244,6 +2255,20 @@ etc</p></li>
 </div></div></div>
 </div>
 <p><strong>NOTE</strong> this is a bit fiddly as <code class="docutils literal notranslate"><span class="pre">df.qcut</span></code> won’t create empty bins. Since this dataset is quite small, we can’t create one bin for each centile as naturally some will be empty (as there are less than 100 datapoints)</p>
+<p>To visualise our new variable, we will use a scatterplot, where each data point shows an individuals <code class="docutils literal notranslate"><span class="pre">weight</span></code> and and the associated <code class="docutils literal notranslate"><span class="pre">weightQ</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;weightQ&quot;</span><span class="p">,</span>  <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;weightQ&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;weightQ&#39;, ylabel=&#39;weight&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/be07f1c23d0b188487f2048f4caf759edd66501694c83c563ff0c485ff7d88a8.png" src="../_images/be07f1c23d0b188487f2048f4caf759edd66501694c83c563ff0c485ff7d88a8.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -2313,11 +2338,10 @@ etc</p></li>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.7.1. Set up Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">3.7.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score">3.7.3. Z score</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-the-z-score">Disadvantages of the Z score</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantiles">3.7.4. Quantiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score">3.7.3. Z score</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-rule-of-thumb">3.7.4. Z-score Rule of Thumb</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-disadvantages">3.7.5. Z-score Disadvantages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantiles">3.7.6. Quantiles</a></li>
 </ul>
   </nav></div>
 

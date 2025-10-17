@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '1.3_DataWrangling/1.3.4_NaNing';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -205,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -216,6 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.3.1_Intro.html">3. Data Wrangling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -616,11 +620,11 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.4.1. Set up Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">3.4.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-only-the-bad-values">3.4.3. Replace only the bad values</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-a-dummy-value-with-df-replace">Replace a dummy value with <code class="docutils literal notranslate"><span class="pre">df.replace()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-values-over-a-cutoff-with-df-loc">Replace values over a cutoff with df.loc[]</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-the-whole-record">Replace the whole record</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-the-record-from-the-dataframe">Drop the record from the dataframe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-the-bad-values-with-nan">3.4.3. 1. Replace the bad values with <code class="docutils literal notranslate"><span class="pre">NaN</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-replace-a-dummy-value-with-df-replace">I. Replace a dummy value with <code class="docutils literal notranslate"><span class="pre">df.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-replace-values-over-a-cutoff-with-df-loc">II. Replace values over a cutoff with df.loc[]</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-the-whole-record">2. Replace the whole record</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-the-record-from-the-dataframe">3. Drop the record from the dataframe</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
@@ -637,30 +641,27 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="neutralizing-bad-datapoints">
 <h1><span class="section-number">3.4. </span>Neutralizing bad datapoints<a class="headerlink" href="#neutralizing-bad-datapoints" title="Link to this heading">#</a></h1>
-<p>Once you have found dummy values (such as 9999), bad datapoints or outliers, you will want to neutralize them in some way.</p>
-<p>You have about three options. Most often, the first option is best.</p>
+<p>Once you have found dummy values (such as 9999), bad datapoints or outliers, you will want to remove their influence from your analysis.</p>
+<p>To do this, you have three options:</p>
+<ol class="arabic simple">
+<li><p><em>Replace the bad values with a dummy value (such as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</em></p>
 <ul class="simple">
-<li><p>Replace the bad values with a dummy value (such as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</p>
-<ul>
-<li><p>This retains as much information as possible
-<br></p></li>
+<li><p>This retains as much information as possible</p></li>
 </ul>
 </li>
-<li><p>Replace the whole record (row of the dataframe) with a dummy value (such as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</p>
-<ul>
-<li><p>Useful if the bad value for one variable casts doubt on the data quality for the whole record, or for some reason you need to retain only complete records
-<br></p></li>
+<li><p><em>Replace the whole record (row of the dataframe) with a dummy value (such as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</em></p>
+<ul class="simple">
+<li><p>Useful if the bad value for one variable casts doubt on the data quality for the whole record, or for some reason you need to retain only complete records</p></li>
 </ul>
 </li>
-<li><p>Delete the whole record (row of the dataframe)</p>
-<ul>
+<li><p><em>Delete the whole record (row of the dataframe)</em></p>
+<ul class="simple">
 <li><p>Generally not recommended as could be seen as dishonest (see below)</p></li>
-<li><p>Exception would be obvious duplicate records or completely blank records
-<br></p></li>
+<li><p>Exception would be obvious duplicate records or completely blank records</p></li>
 </ul>
 </li>
-</ul>
-<p>Here is a video introducing the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (Not a Number) placeholder:</p>
+</ol>
+<p>Most often, the first option is best as this is a method which retains the most information possible, without distorting your data. To understand how this method works please watch this short video introducing the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (<em>Not a Number</em>) placeholder:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
@@ -836,22 +837,22 @@ document.write(`
 </div></div></div>
 </div>
 </section>
-<section id="replace-only-the-bad-values">
-<h2><span class="section-number">3.4.3. </span>Replace only the bad values<a class="headerlink" href="#replace-only-the-bad-values" title="Link to this heading">#</a></h2>
+<section id="replace-the-bad-values-with-nan">
+<h2><span class="section-number">3.4.3. </span>1. Replace the bad values with <code class="docutils literal notranslate"><span class="pre">NaN</span></code><a class="headerlink" href="#replace-the-bad-values-with-nan" title="Link to this heading">#</a></h2>
+<p>In most cases the best option is to <strong>replace only the bad values</strong>, while keeping the rest of the record intact.</p>
+<p>We’ll replace these bad values with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> which is a special placeholder that indicates missing or invalid data. Most Python and Pandas functions automatically ignore NaN values when performing calculations. For example, if we compute the mean of a column that contains NaNs, Pandas will simply calculate the mean of the non-NaN values.</p>
+<section id="i-replace-a-dummy-value-with-df-replace">
+<h3>I. Replace a dummy value with <code class="docutils literal notranslate"><span class="pre">df.replace()</span></code><a class="headerlink" href="#i-replace-a-dummy-value-with-df-replace" title="Link to this heading">#</a></h3>
+<p>If all the bad datapoints have the same value, for example <tt>9999</tt>, we can easily replace them using the following syntax. Here you are setting the column in your dataframe to be the exact same column, but with the values replaced.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">df.replace(old_value,</span> <span class="pre">new_value,</span> <span class="pre">inplace=True)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">df.loc[row_index,</span> <span class="pre">column_index]</span> <span class="pre">=</span> <span class="pre">new_value</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.ColName</span> <span class="pre">=</span> <span class="pre">df.ColName.replace(old_value,</span> <span class="pre">new_value)</span></code></p></li>
 </ul>
-<p>In most cases the best option is to replace only the bad values, retaining the rest of the record.</p>
-<p>We will replace the values with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> - ‘not a number’ which is a dummy value that will be ignored by most Python functions (for example, if we calculate the mean of a column containing NaNs, Pandas just calculates the mean of all the non-NaN values)</p>
-<section id="replace-a-dummy-value-with-df-replace">
-<h3>Replace a dummy value with <code class="docutils literal notranslate"><span class="pre">df.replace()</span></code><a class="headerlink" href="#replace-a-dummy-value-with-df-replace" title="Link to this heading">#</a></h3>
-<p>If all the bad datapoints have the same value, for example <tt>9999</tt>, we can easily replace them as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note use argument inplace=True to edit the original dataframe</span>
-<span class="n">hospital</span><span class="o">.</span><span class="n">LOS</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
-<span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note make sure you replace the original column!</span>
+
+<span class="n">hospital</span><span class="o">.</span><span class="n">LOS</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">LOS</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> 
+<span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> 
 
 <span class="c1"># check they have gone - max values for LOS and AGE should no longer be 9999</span>
 <span class="n">hospital</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -859,39 +860,109 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># note use argument inplace=True to edit the original dataframe</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">hospital</span><span class="o">.</span><span class="n">LOS</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># check they have gone - max values for LOS and AGE should no longer be 9999</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File /opt/miniconda3/envs/clean_env/lib/python3.11/site-packages/numpy/__init__.py:400,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">__former_attrs__</span><span class="p">[</span><span class="n">attr</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">__expired_attributes__</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">400</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span>         <span class="sa">f</span><span class="s2">&quot;`np.</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">` was removed in the NumPy 2.0 release. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">__expired_attributes__</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span>         <span class="n">name</span><span class="o">=</span><span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">&quot;chararray&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span>         <span class="s2">&quot;`np.chararray` is deprecated and will be removed from &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">409</span>         <span class="s2">&quot;the main namespace in the future. Use an array with a string &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">410</span>         <span class="s2">&quot;or bytes dtype instead.&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ne">AttributeError</span>: `np.NaN` was removed in the NumPy 2.0 release. Use `np.nan` instead.
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CHARGES</th>
+      <th>LOS</th>
+      <th>AGE</th>
+      <th>DRG</th>
+      <th>DIED</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>12145.000000</td>
+      <td>12843.000000</td>
+      <td>12840.000000</td>
+      <td>12841.000000</td>
+      <td>12841.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>9879.087615</td>
+      <td>7.567858</td>
+      <td>66.288162</td>
+      <td>121.690523</td>
+      <td>0.109805</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>6558.399650</td>
+      <td>5.114357</td>
+      <td>13.654237</td>
+      <td>0.658289</td>
+      <td>0.312658</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>20.000000</td>
+      <td>121.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5422.200000</td>
+      <td>4.000000</td>
+      <td>57.000000</td>
+      <td>121.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>8445.000000</td>
+      <td>7.000000</td>
+      <td>67.000000</td>
+      <td>122.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>12569.040000</td>
+      <td>10.000000</td>
+      <td>77.000000</td>
+      <td>122.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>47910.120000</td>
+      <td>38.000000</td>
+      <td>103.000000</td>
+      <td>123.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
-<section id="replace-values-over-a-cutoff-with-df-loc">
-<h3>Replace values over a cutoff with df.loc[]<a class="headerlink" href="#replace-values-over-a-cutoff-with-df-loc" title="Link to this heading">#</a></h3>
-<p>In some cases we want to replace a range of values; say for example we decided to remove charges over 30000 dollars.</p>
-<p>To do this we unfortunately have to use different syntax from our regular indexing with <code class="docutils literal notranslate"><span class="pre">df.query()</span></code>, as we are <em>setting</em> values in the dataframe. We use the function <code class="docutils literal notranslate"><span class="pre">df.loc[]</span></code> which accesses specific <em>locations</em> in the dataframe defined by row and column numbers.</p>
-<p>Say if I wanted to replace the value of <tt>SEX</tt> in the first row to <tt>’bananas’</tt> (!):</p>
+<section id="ii-replace-values-over-a-cutoff-with-df-loc">
+<h3>II. Replace values over a cutoff with df.loc[]<a class="headerlink" href="#ii-replace-values-over-a-cutoff-with-df-loc" title="Link to this heading">#</a></h3>
+<p>In some cases we want to replace a range of values rather than a specific value. Let’s say for example we decided to remove charges over 30000 dollars.</p>
+<p>To do this we will now learn to use slightly different syntax compare to our usual <code class="docutils literal notranslate"><span class="pre">df.query()</span></code>. This is because we are now going to <em>set</em> values in the data frame rather than simply <em>selecting</em> . For this we will use the function <code class="docutils literal notranslate"><span class="pre">df.loc[]</span></code> which accesses specific <em>locations</em> in the dataframe defined by row and column numbers and then we can use the <span class="math notranslate nohighlight">\(=\)</span> to assign value.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.loc[row_index,</span> <span class="pre">column_index]</span> <span class="pre">=</span> <span class="pre">new_value</span></code></p></li>
+</ul>
+<p>As an example if I wanted to replace the value of <tt>SEX</tt> in the first row to <tt>’bananas’</tt> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;SEX&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;bananas&#39;</span> <span class="c1"># remember row zero is the first row in Python!</span>
@@ -976,7 +1047,8 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Now, instead of giving a row number, I can use a criterion (<tt>hospital.CHARGES &gt; 30000</tt>) to find the rows I want to edit:</p>
+<p>Now, instead of giving a row number, I can use a condition or a logical criterion to identify which rows we want to edit. This will automatically change select the rows where the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>For example, lets replace the value of <code class="docutils literal notranslate"><span class="pre">CHARGES</span></code> for all patients where the charge is greater than 30000 to <code class="docutils literal notranslate"><span class="pre">NaN</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hospital</span><span class="o">.</span><span class="n">CHARGES</span> <span class="o">&gt;</span> <span class="mi">30000</span><span class="p">),</span><span class="s1">&#39;CHARGES&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="c1"># remember row zero is the first row in Python!</span>
@@ -1079,20 +1151,18 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<ul class="simple">
-<li><p><strong>Note</strong> the maximum value of CHARGES should now be 30000 dollars</p></li>
-</ul>
+<p><strong>Note</strong> the maximum value of CHARGES should now be 30000 dollars</p>
 </section>
 <section id="replace-the-whole-record">
-<h3>Replace the whole record<a class="headerlink" href="#replace-the-whole-record" title="Link to this heading">#</a></h3>
+<h3>2. Replace the whole record<a class="headerlink" href="#replace-the-whole-record" title="Link to this heading">#</a></h3>
 <p>Occasionally we decide a whole record or row of the data table (often corresponding to an individual) should be replaced with <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
-<p>Some situations in which we would replace the whole record with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> would be:</p>
+<p>For example, we may decided to take this approach when:</p>
 <ul class="simple">
-<li><p>We realise after the fact that a participant didn’t meet includion criteria for our study - for example, we are studying unmedicated patients witha  certain condition, and they disclosed after data collection that they are already on medication</p></li>
-<li><p>They have bad values for several variables</p></li>
-<li><p>we wish to only retain records that are complete</p></li>
+<li><p>We realise after the fact that a particular participant didn’t meet inclusion criteria for our stud (e.g., we are studying unmedicated patients witha  certain condition, and they disclosed after data collection that they are already on medication)</p></li>
+<li><p>They have <em>bad</em> values for several variables</p></li>
+<li><p>We wish to only retain records that are complete (e.g., a participant left many questions on a survey blank)</p></li>
 </ul>
-<p>We can replace the whole record with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> using <code class="docutils literal notranslate"><span class="pre">df.loc[]</span></code> and simply not specifying a column. For example, let’s make the whole second row of the dataframe become <code class="docutils literal notranslate"><span class="pre">NaN</span></code></p>
+<p>We can replace the whole record with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> using <code class="docutils literal notranslate"><span class="pre">df.loc[]</span></code> and simply <strong>not specifying a column</strong>. For example, let’s make the whole second row of the dataframe become <code class="docutils literal notranslate"><span class="pre">NaN</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="c1"># remember we count from zero in Python so second row = row 1 !</span>
@@ -1180,7 +1250,7 @@ document.write(`
 <p>Or say we want to replace the whole record for anyone with <tt>CHARGES</tt> under 100 dollars with <code class="docutils literal notranslate"><span class="pre">NaN</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hospital</span><span class="o">.</span><span class="n">CHARGES</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="c1"># remember we count from zero in Python so second row = row 1 !</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hospital</span><span class="o">.</span><span class="n">CHARGES</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> 
 <span class="n">hospital</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># check it worked - min charge should now be &gt;= $100</span>
 </pre></div>
 </div>
@@ -1282,17 +1352,17 @@ document.write(`
 </div>
 </section>
 <section id="drop-the-record-from-the-dataframe">
-<h3>Drop the record from the dataframe<a class="headerlink" href="#drop-the-record-from-the-dataframe" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">df.drop(row_index)</span></code></p></li>
-</ul>
-<p><strong>Generally not recommended</strong> - in general we replace missing data with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> so that it is transparent how many bad datapoints were collected.</p>
+<h3>3. Drop the record from the dataframe<a class="headerlink" href="#drop-the-record-from-the-dataframe" title="Link to this heading">#</a></h3>
+<p><strong>NOTE: THIS IS GENERALLY NOT RECOMMENDED</strong> - in general we replace missing data with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> so that it is transparent how many bad datapoints were collected.</p>
 <p>Imagine if we conducted a survey including a question “have you ever committed a crime”. Perhaps some people would not answer this question (and indeed this may be more likely if the answer is ‘yes’).</p>
 <p>If we deleted all the records for people who skipped the question, this could be misleading.</p>
 <p><strong>However</strong> sometimes we need to just remove rows. An example would be if a pile of paper forms were automatically scanned, and it turned out a lot of the were completely blank (spare forms). We would want to delete the records corresponding to those spare forms.</p>
 <p>Another example would be if a record was an exact duplicate of another (if the same form was scanned twice, for example)</p>
 <p>To remove records (rows) we use <code class="docutils literal notranslate"><span class="pre">df.drop()</span></code>.</p>
-<p>For example, perhaps we want to remove row 0 (the first row), as we this it is a prank entry (<tt>SEX == ‘bananas’</tt>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.drop(row_index)</span></code></p></li>
+</ul>
+<p>As an example, perhaps we want to remove row 0 (the first row), as we this it is a prank entry (<tt>SEX == ‘bananas’</tt>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1563,11 +1633,11 @@ It’s boring but if you master it now it will save some stress later on.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.4.1. Set up Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-dataset-to-work-with">3.4.2. Import a dataset to work with</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-only-the-bad-values">3.4.3. Replace only the bad values</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-a-dummy-value-with-df-replace">Replace a dummy value with <code class="docutils literal notranslate"><span class="pre">df.replace()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-values-over-a-cutoff-with-df-loc">Replace values over a cutoff with df.loc[]</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-the-whole-record">Replace the whole record</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-the-record-from-the-dataframe">Drop the record from the dataframe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-the-bad-values-with-nan">3.4.3. 1. Replace the bad values with <code class="docutils literal notranslate"><span class="pre">NaN</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-replace-a-dummy-value-with-df-replace">I. Replace a dummy value with <code class="docutils literal notranslate"><span class="pre">df.replace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-replace-values-over-a-cutoff-with-df-loc">II. Replace values over a cutoff with df.loc[]</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-the-whole-record">2. Replace the whole record</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-the-record-from-the-dataframe">3. Drop the record from the dataframe</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
