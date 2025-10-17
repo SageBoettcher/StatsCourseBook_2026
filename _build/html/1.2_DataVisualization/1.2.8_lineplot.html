@@ -207,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.2.1_Intro.html">2. Data Visualization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -218,6 +219,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.3_DataWrangling/1.3.1_Intro.html">3. Data Wrangling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -617,10 +619,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.7.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeseries-of-a-single-value">2.7.2. Timeseries of a single value</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-temperature-increasing">Is the temperature increasing?</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeseries-of-a-single-value">2.7.2. Timeseries of a single value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeseries-of-a-summary-statistic">2.7.3. Timeseries of a summary statistic</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-lineplot">Modifying Lineplot</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
@@ -642,12 +641,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="timeseries-data">
 <h1><span class="section-number">2.7. </span>Timeseries data<a class="headerlink" href="#timeseries-data" title="Link to this heading">#</a></h1>
-<p>A timeseries is (unsurprisingly) a series of measurements of the same thing, over time.</p>
-<p>Often the best way to visualize a timeseries is with <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code>, which can be used to plot:</p>
+<p>A timeseries is (unsurprisingly) a sequence of measurements of the <strong>same variable recorded over time</strong>. Timeseries data are common in many areas of research — for example, daily temperature readings, weekly sales figures, yearly population counts, or neural recordings.</p>
+<p>Often, the most effective way to visualise a timeseries is with Seaborn’s <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code>, which can be used to plot:</p>
 <ul class="simple">
-<li><p>Timeseries of a single value (such as the temperature on Christmas Day over the years)</p></li>
-<li><p>Multiple timeseries in parallel (such as the temperature in each month over the years)</p></li>
-<li><p>Timeseries of a summary statistic (such as mean temperature) with errorbars</p></li>
+<li><p>A <strong>single timeseries</strong> — e.g. the temperature on Christmas Day across several years.</p></li>
+<li><p><strong>Multiple timeseries</strong> in parallel — e.g. the temperature for each month across different years.</p></li>
+<li><p>A <strong>summary timeseries</strong> with error bars — e.g. the mean temperature per month across years, with variability (standard deviation or confidence intervals) shown as shaded bands or error bars.</p></li>
 </ul>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">2.7.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
@@ -667,10 +666,7 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="timeseries-of-a-single-value">
-<h2><span class="section-number">2.7.2. </span>Timeseries of a single value<a class="headerlink" href="#timeseries-of-a-single-value" title="Link to this heading">#</a></h2>
-<p>For example, let’s look again at the Oxford weather data:</p>
+<p>Let’s look again at the Oxford weather data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/OxfordWeather.csv&quot;</span><span class="p">)</span>
@@ -858,14 +854,16 @@ document.write(`
 <p>71343 rows × 10 columns</p>
 </div></div></div>
 </div>
-<section id="is-the-temperature-increasing">
-<h3>Is the temperature increasing?<a class="headerlink" href="#is-the-temperature-increasing" title="Link to this heading">#</a></h3>
-<p>Let’s try plotting the temperature on a particular day over the years to see if temperature is increasing.</p>
-<p>How about plotting the temperature on Halloween (31st October)?</p>
+</section>
+<section id="timeseries-of-a-single-value">
+<h2><span class="section-number">2.7.2. </span>Timeseries of a single value<a class="headerlink" href="#timeseries-of-a-single-value" title="Link to this heading">#</a></h2>
+<p><strong>Is the temperature increasing?</strong></p>
+<p>Let’s try plotting the temperature on the same day every year to get a sense if temperature is increasing with time.</p>
+<p>How about plotting the temperature on Halloween (31st October)? For this, we can use <code class="docutils literal notranslate"><span class="pre">weather.query</span></code> to subset the data to the specific day of interest. We also need to provide the variables of interest for the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axis, here <code class="docutils literal notranslate"><span class="pre">YYYY</span></code> and <code class="docutils literal notranslate"><span class="pre">Tmax</span></code> respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MM==10 and DD==31&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tmax&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># this command asks Python to output the plot created above </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
 </pre></div>
 </div>
 </div>
@@ -873,8 +871,20 @@ document.write(`
 <img alt="../_images/731397e8b5d6b0c6a145d0472251aabec9aebafa33a317b1cbcdc42352c72425.png" src="../_images/731397e8b5d6b0c6a145d0472251aabec9aebafa33a317b1cbcdc42352c72425.png" />
 </div>
 </div>
-<p>NOTE - did you notice the use of <code class="docutils literal notranslate"><span class="pre">weather.query('MM==10</span> <span class="pre">and</span> <span class="pre">DD==31')</span></code> as the dataset in the plotting function above?</p>
-<p>Effectively what we did there was create a new dataframe from which to make the plot - we could have done this more explicitly:</p>
+<p>By combining a line plot with a scatter plot, we can make the individual data points more visible and clearly show the observations that make up the overall trend — although in this case, the combination might feel a bit <em>busy</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MM==10 and DD==31&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tmax&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MM==10 and DD==31&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tmax&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6da5ab2be1a3713f27136cb70f477be4a6672ebed4acf3e55ca171449a6c90cc.png" src="../_images/6da5ab2be1a3713f27136cb70f477be4a6672ebed4acf3e55ca171449a6c90cc.png" />
+</div>
+</div>
+<p><em><strong>NOTE - By using <code class="docutils literal notranslate"><span class="pre">weather.query('MM==10</span> <span class="pre">and</span> <span class="pre">DD==31')</span></code> as the dataset directly in the plotting function above, we effectively created a new dataframe from which to make the plot. We could also have done this more explicitly, as shown below:</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">halloween</span> <span class="o">=</span> <span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MM==10 and DD==31&#39;</span><span class="p">)</span>
@@ -887,19 +897,33 @@ document.write(`
 <img alt="../_images/731397e8b5d6b0c6a145d0472251aabec9aebafa33a317b1cbcdc42352c72425.png" src="../_images/731397e8b5d6b0c6a145d0472251aabec9aebafa33a317b1cbcdc42352c72425.png" />
 </div>
 </div>
-<p>The first version, which didn’t explicitly create and name a second dataframe, is just a bit tidier (once you start having multiple copies of your data it is easy to make a mistake where you do something to one and not another) but both solutions do work.</p>
-</section>
+<p>There are pros and cons to each approach:</p>
+<ul class="simple">
+<li><p>The inline version (filtering inside the plotting command) is tidier and avoids creating multiple copies of your data.</p>
+<ul>
+<li><p>This can help prevent mistakes where you modify one dataframe but forget to update another.</p></li>
+</ul>
+</li>
+<li><p>The explicit version, where you create and name a new dataframe (like halloween), is useful when you plan to reuse that subset several times.</p>
+<ul>
+<li><p>It keeps your code readable and saves time if you’ll be making several plots or calculations with the same filtered data.</p></li>
+</ul>
+</li>
+</ul>
+<p>Both methods are valid — it’s mostly a matter of convenience and clarity for your specific workflow.</p>
 </section>
 <section id="timeseries-of-a-summary-statistic">
 <h2><span class="section-number">2.7.3. </span>Timeseries of a summary statistic<a class="headerlink" href="#timeseries-of-a-summary-statistic" title="Link to this heading">#</a></h2>
-<p>Sometimes we want our line to represent not each individual line of the dataframe, but some summary value.</p>
-<p>For example, if we want to plot the mean temperature in each year, that would be the average of 365 values in our data table (the 365 values for <tt>Tmean</tt> for each year).</p>
-<p>If the <span class="math notranslate nohighlight">\(x\)</span> variable has the same value in many rows of the dataframe (for example, each value of year, <tt>YYYY</tt>, appears in 365 rows of our dataframe), <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> automatically plots the mean of those values, with shading to represent the uncertainty associated with those values</p>
+<p>Sometimes we want our line to represent not individual data points, but a summary statistic, such as the <strong>mean</strong> or <strong>median</strong> value across groups. For example, if we want to plot the <strong>mean temperature for each year</strong>, we need to summarise the data across all 365 daily values in that year (the 365 entries in the <tt>Tmean</tt> column).</p>
+<p>When the variable on the <span class="math notranslate nohighlight">\(x\)</span>-axis (here, <tt>YYYY</tt>) has repeated values in the dataframe — for instance, 365 rows per year — <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> automatically calculates and plots the mean of the <span class="math notranslate nohighlight">\(y\)</span>-values for each unique <span class="math notranslate nohighlight">\(x\)</span>-value.</p>
+<p>By default, Seaborn also adds a shaded region around the line to represent uncertainty:</p>
 <ul class="simple">
-<li><p>the default is that the shading represents the 95% confidence interval, which is about 2x the standard error</p></li>
-<li><p>this tells us something about the estimated measurement variability and sampling error</p></li>
-<li><p>the standard error is defined as <span class="math notranslate nohighlight">\(SD/\sqrt{n}\)</span> and will be covered later in the course</p></li>
+<li><p>The shaded area corresponds to the <strong>95% confidence interval</strong>, which is roughly twice the standard error.</p></li>
+<li><p>This shading gives an indication of <strong>measurement variability</strong> and sampling uncertainty.</p></li>
+<li><p>The <strong>standard error (SE)</strong> is defined as:
+<span class="math notranslate nohighlight">\(SE = \frac{SD}{\sqrt{n}}\)</span></p></li>
 </ul>
+<p>We’ll cover confidence intervals and standard error in more detail later in the course.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">weather</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tmean&#39;</span><span class="p">)</span>
@@ -909,18 +933,33 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b96776f767927bc609c7cc6c393c6fa2afd67c9f84d12ac404b4563b11c7cc51.png" src="../_images/b96776f767927bc609c7cc6c393c6fa2afd67c9f84d12ac404b4563b11c7cc51.png" />
+<img alt="../_images/b606e63ff28c3d737587743fd2d2f9774e2aa5e35c97ebead836d0666f89424e.png" src="../_images/b606e63ff28c3d737587743fd2d2f9774e2aa5e35c97ebead836d0666f89424e.png" />
 </div>
 </div>
-<p><strong>Note-</strong></p>
-<ul class="simple">
+<p><strong>Note:</strong></p>
+<ol class="arabic simple">
 <li><p>The mean temperature appears to be rising</p></li>
 <li><p>There is a massive drop in the last year on record, 2022! Why?</p>
-<ul>
+<ul class="simple">
 <li><p>HINT: check the date of the final recording in 2022</p></li>
 </ul>
 </li>
-</ul>
+</ol>
+<p>This change over time might be slightly hard to see. To make this clear we can add a <strong>reference line</strong>. Here we will use a reference line that represents the <strong>overall average</strong> temperature across time. Notice, for the past ~30 years or so, the line plot is consistently above the reference line. Check to make sure you understand the syntax of the call to <code class="docutils literal notranslate"><span class="pre">plot.plt()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">weather</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tmean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">weather</span><span class="o">.</span><span class="n">YYYY</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">weather</span><span class="o">.</span><span class="n">YYYY</span><span class="o">.</span><span class="n">max</span><span class="p">()],[</span><span class="n">weather</span><span class="o">.</span><span class="n">Tmean</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">weather</span><span class="o">.</span><span class="n">Tmean</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span><span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;mean temperature by year&#39;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># this command asks Python to output the plot created above </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/46d6ca80b13e3401334677c1c88b6429a48f0424442ebd364bc1d408b91d5515.png" src="../_images/46d6ca80b13e3401334677c1c88b6429a48f0424442ebd364bc1d408b91d5515.png" />
+</div>
+</div>
 <section id="modifying-lineplot">
 <h3>Modifying Lineplot<a class="headerlink" href="#modifying-lineplot" title="Link to this heading">#</a></h3>
 <p>We can use additional arguments to get <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> to plot a different descriptive statistic and a different choice of errorbars/shading.</p>
@@ -934,13 +973,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">weather</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tmean&#39;</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;median temperature by year&#39;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;median temperature by year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># this command asks Python to output the plot created above </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3b37c52f3a542664d00bd3a061d47e697095001ed9a6bc5efd61d346390a3116.png" src="../_images/3b37c52f3a542664d00bd3a061d47e697095001ed9a6bc5efd61d346390a3116.png" />
+<img alt="../_images/e9f0b883ceaef2d988ea8f50217ecb551673b67a7d445016f708cfac5b9210bd.png" src="../_images/e9f0b883ceaef2d988ea8f50217ecb551673b67a7d445016f708cfac5b9210bd.png" />
 </div>
 </div>
 <section id="exercises">
@@ -961,8 +1001,8 @@ document.write(`
 </section>
 <section id="timeseries-for-multiple-categories">
 <h2><span class="section-number">2.7.4. </span>Timeseries for multiple categories<a class="headerlink" href="#timeseries-for-multiple-categories" title="Link to this heading">#</a></h2>
-<p>We can create lineplots <em>disaggregated</em> by a categorical variable by using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> argument.</p>
-<p>Let’s plot the mean temperature in each month, over the years:</p>
+<p>We can create lineplots <em>disaggregated</em> by a categorical variable by using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> argument. This allows us to plot multiple timeseries on the same axes — one for each category of a chosen variable.</p>
+<p>For example, let’s plot the mean temperature in each month over the years:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">weather</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;YYYY&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tmean&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;MM&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -1042,10 +1082,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.7.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeseries-of-a-single-value">2.7.2. Timeseries of a single value</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-temperature-increasing">Is the temperature increasing?</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeseries-of-a-single-value">2.7.2. Timeseries of a single value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeseries-of-a-summary-statistic">2.7.3. Timeseries of a summary statistic</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-lineplot">Modifying Lineplot</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>

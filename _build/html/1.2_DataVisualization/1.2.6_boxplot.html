@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '1.2_DataVisualization/1.2.6_boxplot';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -205,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.2.1_Intro.html">2. Data Visualization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -216,6 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.3_DataWrangling/1.3.1_Intro.html">3. Data Wrangling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -614,27 +618,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.5.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-inspect-the-data">2.5.2. Load and inspect the data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">2.5.3. Boxplot</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#less-is-more">Less is more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oxford-weather-example">2.5.1. Oxford Weather example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">Set up Python libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-inspect-the-data">Load and inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-is-more">Less is more</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violinplot">2.5.4. Violinplot</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violinplot">2.5.2. Violinplot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">2.5.5. Barplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">2.5.3. Barplot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#countplot">2.5.6. Countplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#countplot">2.5.4. Countplot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swarmplot">2.5.7. Swarmplot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lineplot">2.5.8. Lineplot</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-transpose">Note - Transpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swarmplot">2.5.5. Swarmplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lineplot">2.5.6. Lineplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-transpose-and-maybe-too-much-info-for-now">Note on Transpose (and maybe too much info for now…)</a></li>
 </ul>
 </li>
 </ul>
@@ -650,12 +657,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="comparing-categories">
 <h1><span class="section-number">2.5. </span>Comparing Categories<a class="headerlink" href="#comparing-categories" title="Link to this heading">#</a></h1>
-<p>If we want to compare data distributions across categories, it can be useful to have a plot that highlights key features (eg, the median and quartiles) whilst eliminating unnecessary detail. Sometimes less is more!</p>
-<p>In this notebook we cover <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> functions that can be used to compare between categories.</p>
-<p>To compare distributions across categories, we can use:</p>
+<p>If we want to compare <strong>data across categories</strong>, it can be useful to have a plot that highlights <strong>key features</strong> (eg, the mean/median and std/quartiles) while removing unnecessary detail. Sometimes less is more!</p>
+<p>In this notebook we cover several <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> functions that can be used to visualise a comparison between groups or categories</p>
+<p>To compare across categories, we can use:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sns.boxplot()</span></code> - compare key descriptives for each category at a glance</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sns.violinplot()</span></code>- compare the full distribution for each category at a glance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sns.boxplot()</span></code> - shows key descriptive statistics (median, quartiles, and potential outliers) for each category at a glance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sns.violinplot()</span></code>- displays the full shape of each distribution while still summarising key statistics, giving a more detailed picture than the boxplot.</p></li>
 </ul>
 <p>Here is a video introducing the boxplot and violin plot:</p>
 <div class="cell docutils container">
@@ -671,9 +678,9 @@ document.write(`
 </div>
 <p>To compare a single summary statistic (such as the mean or count) across categories, we can use:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sns.barplot()</span></code> - compare a single statistic (eg the mean) across categories</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sns.countplot()</span></code> - compare the number of datapoints in each category</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sns.swarmplot()</span></code> - plot individual datapoints in each category</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sns.barplot()</span></code> - displays a summary statistic (typically the mean, though others can be specified) for each category, often with error bars showing variability.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sns.countplot()</span></code> - shows the number of observations in each category (essentially a bar chart of counts).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sns.swarmplot()</span></code> - plots individual data points for each category, letting you see both the distribution and the underlying sample size.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> - plot individual datapoints in each category with linking lines</p></li>
 </ul>
 <p>Here is a video discussing plots for comparing a summary statistic across categories:</p>
@@ -688,27 +695,13 @@ document.write(`
 <div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/tBeqZHHWWAI?si=L_opbBOjAYKjpfjL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Oxford Weather example</span>
-
-<span class="n">We</span> <span class="n">will</span> <span class="n">work</span> <span class="k">with</span> <span class="n">historical</span> <span class="n">data</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">Oxford</span> <span class="n">weather</span> <span class="n">centre</span><span class="p">,</span> <span class="n">which</span> <span class="n">has</span> <span class="n">data</span> <span class="k">for</span> <span class="n">every</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">Oxford</span> <span class="n">since</span> <span class="mi">1827</span><span class="err">!</span>
-
-<span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/OxfordSnow.jpg&quot;</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;50%&quot;</span>  <span class="o">/&gt;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-    <span class="n">We</span> <span class="n">will</span> <span class="n">work</span> <span class="k">with</span> <span class="n">historical</span> <span class="n">data</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">Oxford</span> <span class="n">weather</span> <span class="n">centre</span><span class="p">,</span> <span class="n">which</span> <span class="n">has</span> <span class="n">data</span> <span class="k">for</span> <span class="n">every</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">Oxford</span> <span class="n">since</span> <span class="mi">1827</span><span class="err">!</span>
-       <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
+<section id="oxford-weather-example">
+<h2><span class="section-number">2.5.1. </span>Oxford Weather example<a class="headerlink" href="#oxford-weather-example" title="Link to this heading">#</a></h2>
+<p>We will work with historical data from the Oxford weather centre, which has data for every day in Oxford since 1827!</p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/OxfordSnow.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/OxfordSnow.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/OxfordSnow.jpg" style="width: 50%;" />
+</a>
 <section id="set-up-python-libraries">
-<h2><span class="section-number">2.5.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
+<h3>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h3>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -729,7 +722,7 @@ document.write(`
 </div>
 </section>
 <section id="load-and-inspect-the-data">
-<h2><span class="section-number">2.5.2. </span>Load and inspect the data<a class="headerlink" href="#load-and-inspect-the-data" title="Link to this heading">#</a></h2>
+<h3>Load and inspect the data<a class="headerlink" href="#load-and-inspect-the-data" title="Link to this heading">#</a></h3>
 <p>Let’s load some historical data about the weather in Oxford, from the file “OxfordWeather.csv”. The code below will load this automatically from the internet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -927,9 +920,16 @@ document.write(`
 </ul>
 </section>
 <section id="boxplot">
-<h2><span class="section-number">2.5.3. </span>Boxplot<a class="headerlink" href="#boxplot" title="Link to this heading">#</a></h2>
+<h3>Boxplot<a class="headerlink" href="#boxplot" title="Link to this heading">#</a></h3>
 <p>Say we want to plot the mean temperature in each month of the year. We have almost 200 datapoints for every date (and 30ish dates within each month, so 6000 measurements per month!)</p>
-<p>We can summarise the distribution of temperatures in each month using a boxplot:</p>
+<p>We can summarise the distribution of temperatures in each month using a boxplot, some noteable parameters below:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: the name of the dataset (e.g. a Pandas DataFrame) that contains the variable you want to plot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: specifies which variable from your dataset that you want to appear on the <span class="math notranslate nohighlight">\(x\)</span> axis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: specifies which variable from your dataset that you want to appear on the <span class="math notranslate nohighlight">\(y\)</span> axis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hue</span></code>: adds a categorical variable by which to divide the data into subgroups, plotting each subgroup in a different color</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">linecolor</span></code>: controls the appearance of the boxes(fill color, border/dot colour).</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">weather</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;MM&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Tmax&quot;</span><span class="p">)</span>
@@ -938,34 +938,37 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ea9a4122215033963445e886692cc0b6a3660c29fb47e9efb0a9fb5664a9542f.png" src="../_images/ea9a4122215033963445e886692cc0b6a3660c29fb47e9efb0a9fb5664a9542f.png" />
+<img alt="../_images/60972a90362e5876491e6cbe6f7c5da97be2575e4127e440372052fdb40431e2.png" src="../_images/60972a90362e5876491e6cbe6f7c5da97be2575e4127e440372052fdb40431e2.png" />
 </div>
 </div>
-<p>The boxplot is designed to show a handful of key features of the data distribution:</p>
+<p>The <strong>boxplot</strong> is designed to show a handful of key features of the data distribution:</p>
 <ul class="simple">
-<li><p>The top and bottom of the box are the 25th and 75th quantiles (1st and 3rd quartiles)</p></li>
-<li><p>The line within the box is the 50th centile (median)</p></li>
-<li><p>the whiskers are the ‘robust range’ of the data</p>
+<li><p>The <strong>bottom</strong> and <strong>top</strong> of the box are the <strong>25th</strong> and <strong>75th</strong> quantiles (<em>1st</em> and <em>3rd</em> <em>quartiles</em>)</p></li>
+<li><p>The <strong>line inside the box</strong> is the <strong>50th centile</strong> (the <em>median</em>)</p></li>
+<li><p>the whiskers represent the <em>robust range</em> of the data</p>
 <ul>
-<li><p>in datasets with no outliers, the whiskers reach to the smallest and largest values</p></li>
-<li><p>values more than 1.5 x IQR from the end of the box are treated as outliers and plotted as separate dots</p></li>
+<li><p>if there are <strong>no outliers</strong>, the whiskers reach to the smallest and largest values</p></li>
+<li><p>any values more than <strong>1.5 x IQR</strong> (interquartile range) are treated as <strong>outliers</strong> and plotted as individual dots</p></li>
 </ul>
 </li>
 </ul>
 <section id="less-is-more">
-<h3>Less is more<a class="headerlink" href="#less-is-more" title="Link to this heading">#</a></h3>
+<h4>Less is more<a class="headerlink" href="#less-is-more" title="Link to this heading">#</a></h4>
 <p>Using a simple boxplot for each month, we can easily see the <strong>trend across months</strong> for warmer weather in the summer and cooler weather in the winter.</p>
 <p>Within each month we can also see some information about the distribution - for example:</p>
 <ul class="simple">
 <li><p>Temperatures are more variable in winter and summer, than in autumn and spring</p></li>
-<li><p>In winter, the distribution of temperatures has negative skew (there are some unusually cold years) but in summer the converse is true - this is evident from the position of the median within each box but is clearer in a violinplot (see below)</p></li>
+<li><p>In winter, the distribution of temperatures has negative skew (there are some unusually cold years)</p></li>
+<li><p>In summer the opposite is true, and there is a slight positive skew</p></li>
 </ul>
+<p><em>Note: Skew is evident from the position of the median within each box and the placement of outliers but this will become clearer in a violinplot (see below)</em></p>
+</section>
 </section>
 </section>
 <section id="violinplot">
-<h2><span class="section-number">2.5.4. </span>Violinplot<a class="headerlink" href="#violinplot" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.2. </span>Violinplot<a class="headerlink" href="#violinplot" title="Link to this heading">#</a></h2>
 <p>Using Python, you can make a slighly fancier version of the boxplot called a <strong>violinplot</strong>.</p>
-<p>The violinplot shows the full distribution of data rather than the summary captured in a boxplot - the violin body is basically a KDE plot.</p>
+<p>The violinplot shows the <strong>full distribution of data</strong> rather than the few summary statistics captured in a boxplot. The <em>violin</em> shapeshows a smoothed estimate of the data’s density mirrored on both sides of the central line, (essentially a KDE plot flipped on its side)</p>
 <p>Let’s give it a try using the function <code class="docutils literal notranslate"><span class="pre">sns.violinplot()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -975,23 +978,25 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0c50acc9f9895c583ba0ecf6c8796e1852822ddb1ce5b49ae7efbe864de2e870.png" src="../_images/0c50acc9f9895c583ba0ecf6c8796e1852822ddb1ce5b49ae7efbe864de2e870.png" />
+<img alt="../_images/87503ebed575b7a9de97473950aacdc3128a5d5c9f48e7f4d4313f8c6cb9686c.png" src="../_images/87503ebed575b7a9de97473950aacdc3128a5d5c9f48e7f4d4313f8c6cb9686c.png" />
 </div>
 </div>
 <p>This is a nice compromise - still easy to “eyeball” the pattern across categories (in this case, across months) but giving plenty of detail within each category also</p>
 <p>Note for example that the trend for:</p>
 <ul class="simple">
-<li><p>negative skew in temperature in winter (outliers are cold days)</p></li>
-<li><p>positive skew in summer (outliers are hot days)</p></li>
+<li><p><strong>negative skew</strong> in temperature in winter (outliers represent cold days)</p></li>
+<li><p><strong>positive skew</strong> in summer (outliers represent hot days)</p></li>
 </ul>
-<p>…is much more clearly visible in the violin plot than in a box plot.</p>
+<p>…is much more clearly visible in the violin plot than in a box plot. The shape of each “violin” makes the asymmetry of the distribution clear at a glance.</p>
 <section id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h3>
 <p>Try the following quick exercise:</p>
+<ul class="simple">
+<li><p>make a violin plot showing the minimum temperature in each month</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a violin plot showing the minimum temperature in each month</span>
-<span class="c1"># Your code here!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here!</span>
 </pre></div>
 </div>
 </div>
@@ -999,10 +1004,10 @@ document.write(`
 </section>
 </section>
 <section id="barplot">
-<h2><span class="section-number">2.5.5. </span>Barplot<a class="headerlink" href="#barplot" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.3. </span>Barplot<a class="headerlink" href="#barplot" title="Link to this heading">#</a></h2>
 <p>Sometimes, we want to show even less information, for example just the mean or median for each category.</p>
 <p>We can do this using <code class="docutils literal notranslate"><span class="pre">sns.barplot()</span></code>.</p>
-<p>Say I want to plot the mean value of the maximum daily temperature (Tmax) in each month:</p>
+<p>For example, let’s plot the <strong>mean value of the maximum daily temperature (<code class="docutils literal notranslate"><span class="pre">Tmax</span></code>) in each month</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">weather</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;MM&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Tmax&#39;</span><span class="p">)</span>
@@ -1011,10 +1016,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f8121fcb277a7e09ea584d033b2d5c9c5b278977cd26a7914d273244595dd87e.png" src="../_images/f8121fcb277a7e09ea584d033b2d5c9c5b278977cd26a7914d273244595dd87e.png" />
+<img alt="../_images/b32caff3e02dceff16d1f6fc6da0718a1209e122a8cffee4dd9cce9f02cfbc43.png" src="../_images/b32caff3e02dceff16d1f6fc6da0718a1209e122a8cffee4dd9cce9f02cfbc43.png" />
 </div>
 </div>
-<p>The height of each bar is the mean temperature in that month; the error bars show the 95% confidence interval (but could be altered to show the standard deviation or standard error if you liked - don’t worry if these terms are unfamiliar as confidence intervals and standard error will be covered later in the course)</p>
+<ul class="simple">
+<li><p>The <strong>height</strong> of each bar is the <strong>mean</strong> temperature in that month. If you’d prefer to summarise the data using a different statistic, you can change the function used via the parameter <code class="docutils literal notranslate"><span class="pre">estimator</span></code>.</p></li>
+<li><p>The <strong>error bars</strong> show the <strong>95% confidence interval</strong> around the mean by default, but this can also be adjust to display other measures of variability via the parameter <code class="docutils literal notranslate"><span class="pre">errorbar</span></code>.</p></li>
+</ul>
 <section id="id1">
 <h3>Exercises<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Try the following quick exercise:</p>
@@ -1028,22 +1036,9 @@ document.write(`
 </section>
 </section>
 <section id="countplot">
-<h2><span class="section-number">2.5.6. </span>Countplot<a class="headerlink" href="#countplot" title="Link to this heading">#</a></h2>
-<p>Sometimes we are just interested in how many data points fall in each category.</p>
-<p>Since there isn’t a straightforward and compelling example with the weather dataset, here is one using the <em>Titanic</em> dataset that comes with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;alive&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/842ecab5b42fbae2855c53a9895809420c5a0305ac2ec31b32ca1e0f5195b8aa.png" src="../_images/842ecab5b42fbae2855c53a9895809420c5a0305ac2ec31b32ca1e0f5195b8aa.png" />
-</div>
-</div>
-<p>Back to the weather data - one thing we could easily count is the number of instances of each date (1st of the month, 2nd of the month, 3rd of the month….)</p>
+<h2><span class="section-number">2.5.4. </span>Countplot<a class="headerlink" href="#countplot" title="Link to this heading">#</a></h2>
+<p>Sometimes we are interested in <strong>how many data points</strong> fall in each category, rather than summarising via some statistic (e.g., mean, median). For this, we can use <code class="docutils literal notranslate"><span class="pre">sns.countplot</span></code></p>
+<p>One thing we can count from our weather dataset is the number of instances of each date (1st of the month, 2nd of the month, 3rd of the month….) although, I suppose the results won’t be especially surprising…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">weather</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;DD&#39;</span><span class="p">)</span>
@@ -1052,10 +1047,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8af021db7d91690f6d74387243eebf92572f7959dbce010fa56a318d607e9f83.png" src="../_images/8af021db7d91690f6d74387243eebf92572f7959dbce010fa56a318d607e9f83.png" />
+<img alt="../_images/69167d3b5e242ae2d112380b6c2a7bb60f026f224f47e900434824b5c117d77e.png" src="../_images/69167d3b5e242ae2d112380b6c2a7bb60f026f224f47e900434824b5c117d77e.png" />
 </div>
 </div>
-<p>Another way we could use <code class="docutils literal notranslate"><span class="pre">sns.countplot()</span></code> is by creating a dataframe that contains only days fulfilling some criterion (eg, days with no rain) and then make a countplot, as follows:</p>
+<p>Another way we could use <code class="docutils literal notranslate"><span class="pre">sns.countplot()</span></code> is by creating a dataframe that contains only days fulfilling some criterion (eg, days with no rain) and then make a countplot based on this new dataframe:</p>
+<p><em>Note You can achieve the same result in a single line of code by applying the filter directly instide the plotting function: <code class="docutils literal notranslate"><span class="pre">sns.countplot(data=weather.query('Rainfall_mm</span> <span class="pre">==</span> <span class="pre">0'),</span> <span class="pre">x='MM')</span></code>.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drydays</span> <span class="o">=</span> <span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Rainfall_mm == 0&#39;</span><span class="p">)</span> <span class="c1"># creates a whole new dataframe with only the 0mm rainfall days</span>
@@ -1065,7 +1061,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/27ccaf6f8deb695ddc4fb7e4a625b726db62d3f7dac32a40c7aff716b5768711.png" src="../_images/27ccaf6f8deb695ddc4fb7e4a625b726db62d3f7dac32a40c7aff716b5768711.png" />
+<img alt="../_images/6a382c2c92ada77b3fd2ec34d1e43a99bfd24f99be846cf92de54e870ffbcc53.png" src="../_images/6a382c2c92ada77b3fd2ec34d1e43a99bfd24f99be846cf92de54e870ffbcc53.png" />
 </div>
 </div>
 <section id="id2">
@@ -1081,9 +1077,9 @@ document.write(`
 </section>
 </section>
 <section id="swarmplot">
-<h2><span class="section-number">2.5.7. </span>Swarmplot<a class="headerlink" href="#swarmplot" title="Link to this heading">#</a></h2>
-<p>For small-ish datasets, it can be good to plot individual datapoints instead of, or as well as, a plot of the distribution.</p>
-<p>Consider the following made-up dataset containing interview scores for 10 Oxford applicants, who were each seen by three interviewers:</p>
+<h2><span class="section-number">2.5.5. </span>Swarmplot<a class="headerlink" href="#swarmplot" title="Link to this heading">#</a></h2>
+<p>For smaller datasets, it can be helpful to plot <strong>individual datapoints</strong> instead of, or as well as, a plot of the distribution.</p>
+<p>Let’s look at an example using a small, made-up dataset containing interview scores for 10 Oxford applicants.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">InterviewScores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/CluedoInterview.csv&quot;</span><span class="p">)</span>
@@ -1192,7 +1188,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Given that this is a small data set we may wish to plot the students’ scores from each interviewer.</p>
+<p>Each applicant was assessed by three interviewers, and we want to visualise their scores. Given that this is a small data set we may wish to plot every students’ scores from each interviewer.</p>
 <p>We can do this using a swarmplot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1203,13 +1199,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6727afad2a922d7f2cf79535e5bd1564c94cdeaf0386a0e99550c8e990c26f0e.png" src="../_images/6727afad2a922d7f2cf79535e5bd1564c94cdeaf0386a0e99550c8e990c26f0e.png" />
+<img alt="../_images/1aa34b2b6c28d90084c9caac68e4e10387c928bfe9ec616d2529577644fec515.png" src="../_images/1aa34b2b6c28d90084c9caac68e4e10387c928bfe9ec616d2529577644fec515.png" />
 </div>
 </div>
 <p>Maybe it would be nice to add a violinplot for each distribution as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScores</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">],</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span> <span class="c1"># we may as well make the colours meaningful ;-))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScores</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">],</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># we may as well make the colours meaningful ;-))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScores</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">])</span> <span class="c1"># use black dots for visibility</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;interview score&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1217,21 +1213,20 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b0d352f2342d3ad62793e13276a723a88cfbcf66b377e1910a5bd7e82a86a078.png" src="../_images/b0d352f2342d3ad62793e13276a723a88cfbcf66b377e1910a5bd7e82a86a078.png" />
+<img alt="../_images/0a3953541348baf389670e0ec8458315b19f2ea07d7e0fd41f92dddc4847785c.png" src="../_images/0a3953541348baf389670e0ec8458315b19f2ea07d7e0fd41f92dddc4847785c.png" />
 </div>
 </div>
 <p><strong>Note-</strong></p>
-<p>We can see that each professor gives a different mean and range of scores</p>
+<p>We can see that each professor gives a different mean and range of scores, but we can’t see how much agreement there is between the professors.</p>
 </section>
 <section id="lineplot">
-<h2><span class="section-number">2.5.8. </span>Lineplot<a class="headerlink" href="#lineplot" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.6. </span>Lineplot<a class="headerlink" href="#lineplot" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sns.lineplot(data</span> <span class="pre">=</span> <span class="pre">df.T)</span></code></p></li>
 </ul>
-<p>In the violin/swarm plot above, an important feature of the dataset is lost.</p>
 <p>The data set contains three scores for each student (we can think of this as a <em>repeated measures</em> design), so an important question to ask is whether the professors were consistent:</p>
 <ul class="simple">
-<li><p>Professor Plum gives higher and momre spread-out scores othan Professor Green</p></li>
+<li><p>Professor Plum gives higher and more spread-out scores othan Professor Green</p></li>
 <li><p>But do students who score well with Professor Plum also score well with Professor Green?</p></li>
 </ul>
 <p>Currently we can’s answer that question, as we can see the students’ individual scores from each professor, but we don’t know which dot in Professor Plum’s column corresponds to which dot in Professors Green and Peacock’s columns.</p>
@@ -1247,7 +1242,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/beed09ad7fba8043a32483c7b1a48e6af9620fb35ff002de4752c1a5dac207f4.png" src="../_images/beed09ad7fba8043a32483c7b1a48e6af9620fb35ff002de4752c1a5dac207f4.png" />
+<img alt="../_images/4c4c4200b56caa78177aebd4909353cf142bf1f8f5b0f9b1a578051d7cf9a294.png" src="../_images/4c4c4200b56caa78177aebd4909353cf142bf1f8f5b0f9b1a578051d7cf9a294.png" />
 </div>
 </div>
 <p><strong>Note-</strong></p>
@@ -1257,24 +1252,25 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">InterviewScoresShuffle</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/CluedoInterviewShuffle.csv&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScoresShuffle</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">])</span> 
-<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScoresShuffle</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">],</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span> 
+<span class="c1">#sns.violinplot(data=InterviewScoresShuffle, palette=[&#39;g&#39;,&#39;b&#39;,&#39;m&#39;], fill=False ) </span>
 <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScoresShuffle</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1f3a0f8551016b2d3524bdd6e7cce86cba9f88f0d01f7ab0cb77ff158c791482.png" src="../_images/1f3a0f8551016b2d3524bdd6e7cce86cba9f88f0d01f7ab0cb77ff158c791482.png" />
+<img alt="../_images/291e6ffb3e25a0f14cb63ad2fce7e29ce4a4a2c294370fe95b1ca2081c27a7fd.png" src="../_images/291e6ffb3e25a0f14cb63ad2fce7e29ce4a4a2c294370fe95b1ca2081c27a7fd.png" />
 </div>
 </div>
-<section id="note-transpose">
-<h3>Note - Transpose<a class="headerlink" href="#note-transpose" title="Link to this heading">#</a></h3>
+<section id="note-on-transpose-and-maybe-too-much-info-for-now">
+<h3>Note on Transpose (and maybe too much info for now…)<a class="headerlink" href="#note-on-transpose-and-maybe-too-much-info-for-now" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df.T</span></code></p></li>
 </ul>
 <p>To get a lineplot of categorical data, the syntax is a little fiddly. If we just run <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> on our dataframe, it will try to plot each <strong>column</strong> as a line.</p>
-<p>Repeated measures data such as these are most often tabulated as <em>wideform data</em> (each row is an individual, and each column is a measurement for that given individual), as in this dataset. Therefore we would like to plot each <em>row</em> as a line, not each column as a line.</p>
-<p>We trick <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> into plotting each row (individual person) as aa line, by <strong>transposing</strong> the dataframe (making the rowns into columns and vice versa), hence instead of <code class="docutils literal notranslate"><span class="pre">data=InterviewScores</span></code> we told <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> that <code class="docutils literal notranslate"><span class="pre">data=InterviewScores.T</span></code>. Here is the transposed dataframe:</p>
+<p>However, repeated measures data such as these are most often stored as <em>wideform data</em> . This means, each row is an individual (interviewee), and each column is a measurement for that given individual (scores from different professors).</p>
+<p>In our case, we actually want to plot each <em>row</em> as a line (one per interviewee), not each column.</p>
+<p>To do this, we can transpose the dataframe effectively swapping the rows and columns using <code class="docutils literal notranslate"><span class="pre">.T</span></code> attribute. This tricks <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> into plotting each row (individual person) as aa line, Here is the transposed dataframe:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">InterviewScores</span><span class="o">.</span><span class="n">T</span>
@@ -1472,7 +1468,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>For <strong>longform data</strong> we can simply use the <code class="docutils literal notranslate"><span class="pre">hue</span></code> property of <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> to get separate lines, no need to transpose anything.</p>
+<p>For <strong>longform data</strong>, that is, data where each row represents a single interview event, we can simply use the <code class="docutils literal notranslate"><span class="pre">hue</span></code> property of <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code> to get separate lines, no need to transpose anything.</p>
 <p>Here is the interview dataset in longform:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1729,15 +1725,15 @@ document.write(`
 <p>… and here is how we plot it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScoresLongform</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Interviewer&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Score&quot;</span><span class="p">)</span> 
-<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScoresLongform</span><span class="p">,</span>  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Interviewer&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Score&quot;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScoresLongform</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Interviewer&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Score&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;studentID&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScoresLongform</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Interviewer&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Score&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span> 
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScoresLongform</span><span class="p">,</span>  <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Interviewer&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Score&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">InterviewScoresLongform</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Interviewer&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Score&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">InterviewScoresLongform</span><span class="o">.</span><span class="n">studentID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">legend</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e2a293d5104c043f5d7809d86cf95558ae9772d8231c8f3818827a9ebd7177ac.png" src="../_images/e2a293d5104c043f5d7809d86cf95558ae9772d8231c8f3818827a9ebd7177ac.png" />
+<img alt="../_images/023b4c33a4c1152f086d3457ba19eea62d262850e50771018ad81bb1e38923b1.png" src="../_images/023b4c33a4c1152f086d3457ba19eea62d262850e50771018ad81bb1e38923b1.png" />
 </div>
 </div>
 </section>
@@ -1808,27 +1804,30 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.5.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-inspect-the-data">2.5.2. Load and inspect the data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">2.5.3. Boxplot</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#less-is-more">Less is more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oxford-weather-example">2.5.1. Oxford Weather example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">Set up Python libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-inspect-the-data">Load and inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-is-more">Less is more</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violinplot">2.5.4. Violinplot</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violinplot">2.5.2. Violinplot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">2.5.5. Barplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">2.5.3. Barplot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#countplot">2.5.6. Countplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#countplot">2.5.4. Countplot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swarmplot">2.5.7. Swarmplot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lineplot">2.5.8. Lineplot</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-transpose">Note - Transpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swarmplot">2.5.5. Swarmplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lineplot">2.5.6. Lineplot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-transpose-and-maybe-too-much-info-for-now">Note on Transpose (and maybe too much info for now…)</a></li>
 </ul>
 </li>
 </ul>

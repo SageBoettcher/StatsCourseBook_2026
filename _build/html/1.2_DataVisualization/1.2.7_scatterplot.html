@@ -207,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.2.1_Intro.html">2. Data Visualization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -218,6 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.3_DataWrangling/1.3.1_Intro.html">3. Data Wrangling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -629,7 +631,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-line-is-not-a-regression-line">Reference line is not a regression line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-line-is-not-a-regression-line">Reference line is not a regression line!!</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot-with-regression-line">2.6.3. Scatterplot with regression line</a></li>
@@ -654,14 +656,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d-data-correlation-and-pairwise-effects">
 <h1><span class="section-number">2.6. </span>2D Data: Correlation and Pairwise Effects<a class="headerlink" href="#d-data-correlation-and-pairwise-effects" title="Link to this heading">#</a></h1>
-<p>In some datasets, the key point of interest is the relationship between two variables. Important experimental examples would be:</p>
+<p>In some datasets, the main question of interest is not about the value of a single variable on its own, but rather about the <strong>relationship between two variables</strong>.</p>
+<p>Important experimental examples would be:</p>
 <ul class="simple">
-<li><p>paried designs (where pairs of participants are compared, to balance out external variables) - for example:</p>
+<li><p><strong>paried designs</strong>: where <em>pairs of participants</em> are compared, to balance out external variables. For example:</p>
 <ul>
-<li><p>patients and control participants may be matched on age and sex</p></li>
+<li><p>patients and control participants are  <em>matched</em> on age and sex before comparing the groups</p></li>
 </ul>
 </li>
-<li><p>Repeated measures designs, where the same participant completes all conditions in the experiment</p>
+<li><p><strong>repeated measures designs</strong>, where the <em>same participant</em> completes all conditions in the experiment For example:</p>
 <ul>
 <li><p>A patient’s blood pressure before and after taking a drug</p></li>
 <li><p>Reaction time on the same task with and without distraction</p></li>
@@ -682,10 +685,10 @@ document.write(`
 </div>
 <p>If we want to see the relationship between paired measurements, we need a type of plot that shows that relationship. Good examples are:</p>
 <ul class="simple">
-<li><p>scatterplot <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code></p></li>
-<li><p>scatterplot with regression line <code class="docutils literal notranslate"><span class="pre">sns.regplot()</span></code></p></li>
-<li><p>2D histogram <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code></p></li>
-<li><p>2D KDE plot <code class="docutils literal notranslate"><span class="pre">sns.kde()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code>: <em>Displays a <strong>scatterplot</strong> showing individual data points, showing the overall pattern and strength of the relationship.</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sns.regplot()</span></code>: Show <strong>scatterplot with regression line</strong>, or a <em>line of best fit</em> which can help visualise the trend and any potential linear relationship between the variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code>: A <strong>2D histogram</strong> shows the density of points in each area of the plot, useful when there are many overlapping data points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sns.kde()</span></code>: A <strong>2D KDE plot</strong> shows a smoothed density estimate of the joint distribution, giving a contour-style view of where most data lie.</p></li>
 </ul>
 <p>Here is a video about plotting paired measurements:</p>
 <div class="cell docutils container">
@@ -703,12 +706,8 @@ document.write(`
 <h2><span class="section-number">2.6.1. </span>Example: brother/sister heights<a class="headerlink" href="#example-brother-sister-heights" title="Link to this heading">#</a></h2>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/tallVshort.jpg"><img alt="A picture of people of different heights" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/tallVshort.jpg" style="width: 30%;" />
 </a>
-<p>A researcher hypothesises that men are taller than women.</p>
-<p>He also notices that there is a considerable genetic influence on height, with some families being taller than others</p>
-<p>He decides to control for this by comparing the heights of brothers and sisters (shared genetic influence, shared upbringing). This is a <b>paired</b> design.</p>
-<p>I have provided some made-up data</p>
-<p><strong>Note</strong> that datasets with multiple measurements for each individual tend to be presented as <strong>wideform</strong> tables - that is, with one <strong>row</strong> per ‘case’ (person, family etc) and one <strong>column</strong> per variable measured - the plotting examples below therefore use wideform data.</p>
-<p>A solution for longform data is covered briefly at the end of this notebook</p>
+<p>A researcher hypothesises that men are taller than women. However, he also notices that there is a considerable genetic influence on height, with some families being taller than others. To control for this, he decides to compare the heights of brothers and sisters. Since the siblings will have a shared genetic influence and shared upbringing he hopes that using a <b>paired</b> design will help answer his main question of interest.</p>
+<p><strong>Note:</strong> <em>Datasets with multiple measurements per case are often given in <strong>wide form</strong>: one row per family, and one column per measurement (e.g. <code class="docutils literal notranslate"><span class="pre">brother</span></code>, <code class="docutils literal notranslate"><span class="pre">sister</span></code>). The plotting examples below start from wideform data. A <strong>longform</strong> data file could convey the same information by using columns  like <code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">sex</span></code>, and <code class="docutils literal notranslate"><span class="pre">familyID</span></code>. In this case each row would represent a single person. A solution for ** longform data</em>* is covered briefly at the end of this notebook.*</p>
 <section id="set-up-python-libraries">
 <h3>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h3>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -897,28 +896,32 @@ document.write(`
 <section id="independent-kde-plots">
 <h3>Independent KDE plots<a class="headerlink" href="#independent-kde-plots" title="Link to this heading">#</a></h3>
 <p>Let’s use a KDE plot to compare the heights of the men (brothers) and women (sisters) in the sample.</p>
-<p>We can call KDE plot twice to plot the data from brothers and sisters overlayed</p>
+<p>We’ll do this by calling the <code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code> function <strong>twice</strong>: once for the brothers’ heights and once for the sisters’ heights.</p>
+<p><em>Note: By default, Seaborn will continue adding each new plot to the same figure until you explicitly call <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code></em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;brother&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sister&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;height (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;height (cm)&#39;)
-</pre></div>
-</div>
-<img alt="../_images/4bbca6006a0f24408e598ddc747d48dbb4c420f338a074667d5785fd88c91316.png" src="../_images/4bbca6006a0f24408e598ddc747d48dbb4c420f338a074667d5785fd88c91316.png" />
+<img alt="../_images/d5473373d39f1d831ba9422be4999bcb617bdadc779c04843bad851fb653d98e.png" src="../_images/d5473373d39f1d831ba9422be4999bcb617bdadc779c04843bad851fb653d98e.png" />
 </div>
 </div>
-<p>There’s a lot of overlap for sure, and just a hint that the men are taller than the women.</p>
-<p>But comparing all the men to all the women is wasting the power of our paired design! We deliberated measured brother-sister pairs in the hope of “cancelling out” shared genetic or environmental influences within families. We therefore need to ask if each brother is taller than his own sister.</p>
+<p>There’s quite a bit of overlap between the two distributions, with just a hint that the men tend to be taller than the women on average.</p>
+<p>However, by comparing <em>all</em> the men to <em>all</em> the women ignores the power of our <strong>paired design</strong>! We deliberated measured brother-sister pairs in the hope of “cancelling out” shared genetic or environmental influences within families. We therefore need to ask if each brother is taller than his own sister. To do this we will next turn to a <strong>scatterplot</strong></p>
 </section>
 </section>
 <section id="scatterplot">
 <h2><span class="section-number">2.6.2. </span>Scatterplot<a class="headerlink" href="#scatterplot" title="Link to this heading">#</a></h2>
-<p>On a scatterplot, each dot represents <strong>two</strong> people - a brother and sister:</p>
+<p>A scatter plot lets us visualise the paired nature of our data directly. Here, each dot represents a pair of siblings.</p>
+<ul class="simple">
+<li><p>The x-axis shows the brother’s height.</p></li>
+<li><p>The y-axis shows the sister’s height.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;brother&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sister&#39;</span><span class="p">)</span>
@@ -932,36 +935,29 @@ document.write(`
 <img alt="../_images/299960aeb2eabf017c4c2c5fd65886b991a6746efcb8fd078a9eac7b62ac896f.png" src="../_images/299960aeb2eabf017c4c2c5fd65886b991a6746efcb8fd078a9eac7b62ac896f.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;brother&#39;s height (cm)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;sister&#39;s height (cm)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/21c93dcd4807074a2d06c627eee4fc496304090b9ffa0e1e6e92ca21732b65db.png" src="../_images/21c93dcd4807074a2d06c627eee4fc496304090b9ffa0e1e6e92ca21732b65db.png" />
-</div>
-</div>
 <section id="between-pairs-effect-correlation">
 <h3>Between-pairs effect (correlation)<a class="headerlink" href="#between-pairs-effect-correlation" title="Link to this heading">#</a></h3>
-<p>Notice that in the scatterplot, the data points are spread out along a diagonal line, or to put it another way, height of brothers and sisters is correlated across families.</p>
-<p>This means that in general tall brothers have tall sisters and this variation between families rather dwarfs the effect of interest (that within each family the brother is taller than his own sister)</p>
-<p>This feature of the plot is evidence that a paired design was a particularly good choice for this question - in the paired design, the (large) variation between families is cancelled out allowing us to detect the (small) difference between male and females.</p>
+<p>From the scatter plot above, you can immediately see that there appears to be a relationship - or <strong>correlation</strong> - between the brothers’ and sisters’ heights. In other words, men that are generally tall, seem to have sisters that are also tall.</p>
+<p>This correlation supports the idea that that genetic and environmental factors influence height and confirms that using a <strong>paired design</strong> was a sensible choice. By pairing siblings from the same family we effectively control for these shared influences. However, the correlation alone does not yet answer our main question:</p>
+<ul class="simple">
+<li><p><em>Are men taller than women</em></p></li>
+</ul>
+<p>The key advantage of this design is taht it allows us to cancel out the large variation between families, so we can focus on detecting much smaller difference betweeen mailes and females within each family.</p>
 </section>
 <section id="within-pairs-effect-pairwise-difference">
 <h3>Within-pairs effect (pairwise difference)<a class="headerlink" href="#within-pairs-effect-pairwise-difference" title="Link to this heading">#</a></h3>
-<p>The family effect is actually “noise” in this study - what we really want to know is not whether some families are taller than others, but whether the male sibling in each family is taller than the female sibling once the family effect is accounted for (by compaaring only within families).</p>
-<p>To help us visualise this we add a <strong>reference line</strong>.</p>
+<p>In this study, the family effect is actually “noise”. What we really want to know, is not whether some families are overall taller, but rather whether the male sibling in each family is taller than the female sibling once the family effect is accounted for.</p>
+<p>We can visualise this by adding a <strong>reference line</strong> to our scatter plot.</p>
 </section>
 <section id="reference-line">
 <h3>Reference line<a class="headerlink" href="#reference-line" title="Link to this heading">#</a></h3>
-<p>If all the brothers were exactly the same height as their sisters, we would expect all data points to fall exactly on the line <span class="math notranslate nohighlight">\(x=y\)</span></p>
-<p>If brothers were roughly the same height as their sisters (with some random variation) we would expect the data points to fall equally often above and below the line <span class="math notranslate nohighlight">\(x=y\)</span></p>
-<p>If brothers are generally taller than their sisters, most of the datapoints will fall on one side of the line (think about which!)</p>
-<p>To add the line <span class="math notranslate nohighlight">\(x=y\)</span> we use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> function <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>. The arguments of this function are the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> values for the ends of the line (<span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> both range from 150-190), and the argument ‘r–’ which sets the color and line type.</p>
+<p>By drawing a line where <span class="math notranslate nohighlight">\(x=y\)</span> we can a point of reference to better understand the overall effect of gender on height</p>
+<ul class="simple">
+<li><p>If all the brothers were exactly the same height as their sisters then all data points would fall exactly on the line <span class="math notranslate nohighlight">\(x=y\)</span></p></li>
+<li><p>If brothers were roughly the same height as their sisters (with some random variation) we would expect the data points to fall equally often above and below the line <span class="math notranslate nohighlight">\(x=y\)</span></p></li>
+<li><p>If brothers are generally taller than their sisters, most of the datapoints will fall on one side of the line (think about which!)</p></li>
+</ul>
+<p>To add the line <span class="math notranslate nohighlight">\(x=y\)</span> we use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> function <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>. The arguments of this function are the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> coordinates of the line’s endpoints (here, both range from 150-190), and the argument ‘r–’ which sets the color (red) and line type (dashed).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;brother&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sister&#39;</span><span class="p">)</span>
@@ -978,23 +974,25 @@ document.write(`
 </div>
 <p>Look at the graph - most of the datapoints fall on one side of the line (below it)</p>
 <ul class="simple">
-<li><p>This means either than most of the brothers are taller than their sisters, or vice versa - which is it (look at the graph)?</p></li>
+<li><p>This means that <strong>either</strong> most of the brothers are taller than their sisters, <strong>or</strong> vice versa - which is it? Make sure you can tell this by looking at the plot.</p></li>
 </ul>
 <section id="exercise">
 <h4>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h4>
-<p>See if you can add another line of code to draw a red horizontal line at y=170</p>
+<ul class="simple">
+<li><p><em>See if you can add another line of code to draw a red horizontal line at <span class="math notranslate nohighlight">\(y=170\)</span></em></p></li>
+</ul>
 </section>
 </section>
 <section id="reference-line-is-not-a-regression-line">
-<h3>Reference line is not a regression line<a class="headerlink" href="#reference-line-is-not-a-regression-line" title="Link to this heading">#</a></h3>
-<p>More commonly, when you see a line on a scatter plot, the line is a regression line (more detail below). It can be helpful to add other reference lines, such as the line <span class="math notranslate nohighlight">\(x=y\)</span>, but I suggest you use obvious colouring (eg a red dashed line) to distinguish them from a regression line, and <strong>clearly state in the figure description</strong> (ie the text under the figure) that the red dashed line is the line <span class="math notranslate nohighlight">\(x=y\)</span> for reference</p>
+<h3>Reference line is not a regression line!!<a class="headerlink" href="#reference-line-is-not-a-regression-line" title="Link to this heading">#</a></h3>
+<p>More commonly, when you see a line on a scatter plot, the line is a regression line (more detail below). It can be helpful to add other reference lines, such as the line <span class="math notranslate nohighlight">\(x=y\)</span> but these carry very different meanings from the more common regression line. To make sure your plot is clear, I suggest you use obvious colouring for reference lines (eg a red dashed line) to distinguish them from a regression line,. It should also be <strong>clearly state in the figure description</strong> (ie the text under the figure) that the red dashed line is the line <span class="math notranslate nohighlight">\(x=y\)</span> for reference</p>
 </section>
 </section>
 <section id="scatterplot-with-regression-line">
 <h2><span class="section-number">2.6.3. </span>Scatterplot with regression line<a class="headerlink" href="#scatterplot-with-regression-line" title="Link to this heading">#</a></h2>
-<p>Sometimes we are interested in the between-pairs effect. For example we might be interested in the shared effect of genetics/environment, and would like to make a prediction along the lines ‘for each additional cm in height of the brother, we expect the height of his sister to increase by 0.8cm’</p>
-<p>We will cover regression analysis later in the course</p>
-<p>Here I just want to introduce a version of the scatterplot which includes the best fitting regression line, <code class="docutils literal notranslate"><span class="pre">sns.regplot()</span></code></p>
+<p>Sometimes we <em>are</em> actually interested in the <strong>between-pairs effect</strong>. For example, how strongly the brothers’ and sisters’ heights are related. For example, we might be interested in the shared effect of genetics/environment, and would like to make a prediction along the lines like: <em>For each additional cm in height of the brother, we expect the height of his sister to increase by 0.8cm</em></p>
+<p>This kind of statement comes from a regression analysis, which formally estimates the relationship between two variables. We will cover regression analysis in more detail later in the course</p>
+<p>For now, let’s just look at a version of the scatter plot that includes the best-fitting regression line, using Seaborn’s <code class="docutils literal notranslate"><span class="pre">sns.regplot()</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;brother&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sister&#39;</span><span class="p">)</span>
@@ -1006,24 +1004,25 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c23b721d4e0c62e39794a658c53b24eed209940b58daa23b5c6834a4fc641ddf.png" src="../_images/c23b721d4e0c62e39794a658c53b24eed209940b58daa23b5c6834a4fc641ddf.png" />
+<img alt="../_images/2ebf8ff3d8c46bd272a450e480d63541ae18d0f4f802f366845111284efdd972.png" src="../_images/2ebf8ff3d8c46bd272a450e480d63541ae18d0f4f802f366845111284efdd972.png" />
 </div>
 </div>
 <p>The blue line is the regression line (and the shading represents a confidence interval for the regression line - we will cover confidence intervals in detail later but basically, it reflects the fact that we are not totally sure this sample reflects all men and women in the popluation; we expect the ‘true’ regression line to fall somewhere in the shaded region)</p>
-<p>I’ve also included (red dashed line) the line <span class="math notranslate nohighlight">\(x=y\)</span> for reference - we can see that the regression line <em>is not the same</em> as the line <span class="math notranslate nohighlight">\(x=y\)</span> - it falls to one side of <span class="math notranslate nohighlight">\(x=y\)</span> and has a slightly different slope.</p>
-<p>If these ideas (regression line and confidence interval) are unfamiliar please think no more about it - they will be covered later in the course, but I mention this plot here so you have all commonly used plots in one chapter for revision.</p>
+<p>I’ve also included (red dashed line) the line <span class="math notranslate nohighlight">\(x=y\)</span> for reference - we can see that the regression line <em><strong>is not the same</strong></em> as the line <span class="math notranslate nohighlight">\(x=y\)</span> - it falls to one side of <span class="math notranslate nohighlight">\(x=y\)</span> and has a slightly different slope.</p>
+<p>If these ideas (regression line and confidence interval) are unfamiliar please think no more about it - they will be covered later in the course, but I mention this plot here so you will have available all of the commonly used plots in one chapter for revision.</p>
 </section>
 <section id="jointplot">
 <h2><span class="section-number">2.6.4. </span>Jointplot<a class="headerlink" href="#jointplot" title="Link to this heading">#</a></h2>
-<p>A disadvantage of the scatterplot is that we lose the ability to see the shape of each distribution (brothers’ and sisters’ heights), which we would get from a histogram or KDE plot</p>
+<p>A limitation of the scatterplot is that we lose the ability to see the <strong>shape of each individual distribution</strong> (brothers’ and sisters’ heights), which we would normally get from a histogram or KDE plot. Because of this, we can’t tell from the scatterplot if:</p>
 <ul class="simple">
-<li><p>is the distribution of heights symmetrical or skewed?</p></li>
-<li><p>is the distribution unimodal or bimodal</p></li>
+<li><p>the distribution of heights symmetrical or skewed?</p></li>
+<li><p>the distribution unimodal or bimodal</p></li>
 </ul>
-<p>We can get ‘the best of both worlds’ by using <tt>seaborn</tt> function <tt>jointplot</tt>, which shows the <b>marginal</b> distributions (the height distributions for brothers and sisters separately) at the side of the main scatter plot</p>
+<p>We can get <em>the best of both worlds</em> by using <tt>seaborn</tt> function <code class="docutils literal notranslate"><span class="pre">sns.jointplot()</span></code>. This shows the relationship between two variables in the center using a scaller plot but it also shows the <b>marginal</b> distributions - the seperate distributions for each variable - along the top and right-hand sides.</p>
+<p>This gives us both the pairwise relationship and the shape of each distribution in one combined figure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;brother&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sister&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;brother&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sister&#39;</span><span class="p">,</span> <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;brother&#39;s height (cm)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;sister&#39;s height (cm)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -1037,7 +1036,7 @@ document.write(`
 <img alt="../_images/393265c9c780a3fc916b9ed227fcaf526aaecda9ad3313acd4f78e1b0f4d0799.png" src="../_images/393265c9c780a3fc916b9ed227fcaf526aaecda9ad3313acd4f78e1b0f4d0799.png" />
 </div>
 </div>
-<p>Since this plot is now made up of three axes (the main scatter plot and the two marginal histograms), if we want to adjust one of those axes, we use a set of arguments in a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>:</p>
+<p>This plot is now made up of <strong>three axes</strong>: the main scatter plot, and the two marginal histograms. Therefore, if we want to adjust one of those axes, we use a set of arguments in a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">marginal_kws</span></code> are keyword argumments for the marginal histograms</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">joint_kws</span></code> are keyword arguments for the scatterplot itself</p></li>
@@ -1080,8 +1079,8 @@ document.write(`
 </section>
 <section id="d-histogram">
 <h2><span class="section-number">2.6.5. </span>2D Histogram<a class="headerlink" href="#d-histogram" title="Link to this heading">#</a></h2>
-<p>The functions <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.kde()</span></code> can actuaally be used for two dimensional data.</p>
-<p>Here is a histplot for our brother-sister height data, with the scatterplot overlaid:</p>
+<p>The Seaborn functions <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code> can be used to visualise two-dimensional data. They can highlight how two variables relate in terms of their <em>joint frequency</em> or density.</p>
+<p>Below is a 2D histogram for our brother–sister height data, with a scatter plot overlaid on top for reference:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;brother&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sister&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -1095,11 +1094,11 @@ document.write(`
 <img alt="../_images/4ea78346a75c393d40c9b98e52e728b258c212b1cf3e3ac97ab397c03838f0c5.png" src="../_images/4ea78346a75c393d40c9b98e52e728b258c212b1cf3e3ac97ab397c03838f0c5.png" />
 </div>
 </div>
-<p>… Note that areas (squares) with more data points in them are darker blue.</p>
+<p>… Note that the areas (squares) with more data points in them are shaded darker blue. However, in this example the plot isn’t particularly informative. With relatively few data points, small differences in where the points happen to fall can exaggerate apparent patterns, just like what we saw with a one-dimensional histogram based on a small sample.</p>
 <section id="large-datasets">
 <h3>Large datasets<a class="headerlink" href="#large-datasets" title="Link to this heading">#</a></h3>
-<p>A 2D histogram or KDE plot is particularly useful when a dataset is too large to be successfully visualized using a scatterplot.</p>
-<p>For example, consider the following dataset containing heights, weight and gender for 10,000 (fictional) people.</p>
+<p>A 2D histogram (or its smoother equivalent, a 2D KDE plot) becomes much more useful when working with large datasets, where a traditional scatter plot would become cluttered or unreadable.</p>
+<p>For example, consider the following dataset containing <strong>height</strong>, <strong>weight</strong>, and <strong>gender</strong> information for 10,000 (fictional) people. <em>Note these are no longer pairs of siblings!</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hws</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/weight-height.csv&#39;</span><span class="p">)</span>
@@ -1215,7 +1214,7 @@ document.write(`
 <img alt="../_images/46af72d85d5f296c9b8b4f624d6930fbba6df8eca772d41107b5a45431be4b6f.png" src="../_images/46af72d85d5f296c9b8b4f624d6930fbba6df8eca772d41107b5a45431be4b6f.png" />
 </div>
 </div>
-<p>We can clearly see a positive correlation between weight and height, but it is hard to see any detail about the relationship as the dots are packed so closely together.</p>
+<p>We can clearly see a positive correlation between height and weight such that taller people tend to weigh more. However, with such a large dataset, the points are packed so closely together that it’s difficult to see any detail in the relationship.</p>
 <p>We can try instead to plot a 2D histogram:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1228,8 +1227,8 @@ document.write(`
 <img alt="../_images/7241d640c803b016f1a8274a4f99bedab19c24a96df2ed54e02d26dd4abcd41f.png" src="../_images/7241d640c803b016f1a8274a4f99bedab19c24a96df2ed54e02d26dd4abcd41f.png" />
 </div>
 </div>
-<p>We can now see that the density of datapoints is higher in the middle of the cloud, and interestingly can see a hint that there are two separate peaks within the data distribution (look closely - the dark region of the histogram dips in the middle).</p>
-<p>The reason for this becomes clearer if we plot the data separately for men and women:</p>
+<p>We can now see that the density of data points is highest in the centre of the cloud, and interestingly, there appears to be a hint of two separate peaks within the overall distribution. If you look closely, you’ll notice that the darkest region of the histogram dips slightly in the middle — suggesting that the data may actually come from two overlapping groups.</p>
+<p>This becomes clearer when we plot the data separately for men and women:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hws</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Weight&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Gender&#39;</span><span class="p">)</span>
@@ -1622,6 +1621,7 @@ document.write(`
 <p>Why would we ever use the longform format?</p>
 <ul class="simple">
 <li><p>when the number of measurements in each ‘record’ or ‘group’ is variable (eg heights of all siblings in each family - the number of siblings will vary across families)</p></li>
+<li><p>Your data is recorded <em>per trial</em></p></li>
 </ul>
 </section>
 <section id="converting-longform-to-wideform">
@@ -1794,6 +1794,10 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<p>From this point, everything works just as before — you can continue exploring and plotting your own data using the same techniques we’ve practised throughout this exercise.</p>
+<p>When you first read in your dataset, take a moment to check whether it’s in long or wide form.
+This will help you decide which plotting functions (and which syntax) will work best, since some Seaborn functions expect long-form data (one observation per row), while others handle wide-form data directly.</p>
+<p>Being aware of your data’s structure will save you time and make your plotting smoother and more intuitive.</p>
 </section>
 </section>
 
@@ -1874,7 +1878,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-line-is-not-a-regression-line">Reference line is not a regression line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-line-is-not-a-regression-line">Reference line is not a regression line!!</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot-with-regression-line">2.6.3. Scatterplot with regression line</a></li>

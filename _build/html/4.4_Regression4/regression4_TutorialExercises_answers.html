@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -207,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice Notebook</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -903,10 +904,10 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   13.94</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Tue, 07 Oct 2025</td> <th>  Prob (F-statistic):</th> <td>9.75e-07</td>
+  <th>Date:</th>             <td>Fri, 10 Oct 2025</td> <th>  Prob (F-statistic):</th> <td>9.75e-07</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>16:36:44</td>     <th>  Log-Likelihood:    </th> <td> -3794.4</td>
+  <th>Time:</th>                 <td>09:41:39</td>     <th>  Log-Likelihood:    </th> <td> -3794.4</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1932</td>      <th>  AIC:               </th> <td>   7595.</td>
@@ -977,10 +978,10 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   95.51</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Tue, 07 Oct 2025</td> <th>  Prob (F-statistic):</th> <td>4.62e-90</td>
+  <th>Date:</th>             <td>Fri, 10 Oct 2025</td> <th>  Prob (F-statistic):</th> <td>4.62e-90</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>16:36:44</td>     <th>  Log-Likelihood:    </th> <td> -3594.3</td>
+  <th>Time:</th>                 <td>09:41:39</td>     <th>  Log-Likelihood:    </th> <td> -3594.3</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1932</td>      <th>  AIC:               </th> <td>   7201.</td>
@@ -1107,7 +1108,7 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_55109/1113143029.py:6: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;under 30&#39; has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_78909/1113143029.py:6: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;under 30&#39; has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
   data.loc[data[&#39;age&#39;].isin(range(0, 30)), &#39;age4&#39;] = &quot;under 30&quot;
 </pre></div>
 </div>
@@ -1249,9 +1250,6 @@ age4          3.0   114.285700  38.095233  13.026023  2.012164e-08
 Residual   1926.0  5632.680172   2.924548        NaN           NaN
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -1297,7 +1295,7 @@ Residual        1920.0  5622.002386   2.928126        NaN           NaN
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;age4&#39;, ylabel=&#39;ladder&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/3f82898b45a1111d1e456168f28b8d60a5445080932a6c8bf04beef590b6eb8b.png" src="../_images/3f82898b45a1111d1e456168f28b8d60a5445080932a6c8bf04beef590b6eb8b.png" />
+<img alt="../_images/9d7ddcebfcfbc620900016ffd77de24ed9f3e6336daa771e6d3d40a2ad87385c.png" src="../_images/9d7ddcebfcfbc620900016ffd77de24ed9f3e6336daa771e6d3d40a2ad87385c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1332,7 +1330,7 @@ Residual    1924.0  4505.993641    2.341993         NaN           NaN
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;age4&#39;, ylabel=&#39;ladder&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/959a1630a2a46addc04429cf670dd18a599eb32556badec3249e843720cd4033.png" src="../_images/959a1630a2a46addc04429cf670dd18a599eb32556badec3249e843720cd4033.png" />
+<img alt="../_images/d8f20921959b90d888c2cc277a08e49ebc5205af5488ed43ab10d17620e1b140.png" src="../_images/d8f20921959b90d888c2cc277a08e49ebc5205af5488ed43ab10d17620e1b140.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1343,10 +1341,10 @@ Residual    1924.0  4505.993641    2.341993         NaN           NaN
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x169f71010&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x150f0a810&gt;
 </pre></div>
 </div>
-<img alt="../_images/1d0f418104598c3f92e67a9fa6314e4017d7dd778f366a7b3d084ffe8d26658d.png" src="../_images/1d0f418104598c3f92e67a9fa6314e4017d7dd778f366a7b3d084ffe8d26658d.png" />
+<img alt="../_images/2230e47f4c8e897d1abdedd0a911c0528d190ef0bee011f202f45c8569a1b13b.png" src="../_images/2230e47f4c8e897d1abdedd0a911c0528d190ef0bee011f202f45c8569a1b13b.png" />
 </div>
 </div>
 </section>

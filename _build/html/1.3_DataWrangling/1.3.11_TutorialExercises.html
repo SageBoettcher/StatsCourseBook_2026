@@ -205,6 +205,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -216,6 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.3.1_Intro.html">3. Data Wrangling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -615,7 +617,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crime-survey-data">3.10.1. Crime Survey Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">Set up Python libraries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">Import the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-the-dataset">Variables in the dataset</a></li>
@@ -655,9 +656,9 @@ document.write(`
 <h1><span class="section-number">3.10. </span>Tutorial Exercises<a class="headerlink" href="#tutorial-exercises" title="Link to this heading">#</a></h1>
 <p>These tutorial exercises are designed to help you prepare for the first assignment.</p>
 <p>As a researcher, there are two distinct phases to data analysis:</p>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>Understanding the dataset yourself - this involves making lots of quick plots and descriptive statistics to</p>
-<ul>
+<ul class="simple">
 <li><p>check for outliers</p></li>
 <li><p>find out the data distributions</p></li>
 <li><p>look for differences between categories</p></li>
@@ -666,7 +667,7 @@ document.write(`
 </ul>
 </li>
 <li><p>Preparing a report for a reader - this involves a focus on readability and the reader</p>
-<ul>
+<ul class="simple">
 <li><p>explain any key features of the dataset</p></li>
 <li><p>highlighting key results with descriptive statistics and figures</p></li>
 <li><p>figures should be well labelled and tweaked to make your point as clearly as possible</p></li>
@@ -675,9 +676,9 @@ document.write(`
 <li><p>in all cases, jargon should be avoided</p></li>
 </ul>
 </li>
-</ul>
-<p>In these tutorial exercises, you will complete some guided tasks (and some open-ended ones) to explore the dataset for yourself.</p>
-<p>For the hand-in assignment, you will produce a report on the same dataset for a specified reader.</p>
+</ol>
+<hr style="border:0.5px solid #cccccc; margin: 10px 0;">
+<p><strong>In these tutorial exercises, you will complete some guided tasks (and some open-ended ones) to explore the dataset for yourself. For the hand-in assignment, you will produce a report on the same dataset for a specified reader.</strong></p>
 <section id="crime-survey-data">
 <h2><span class="section-number">3.10.1. </span>Crime Survey Data<a class="headerlink" href="#crime-survey-data" title="Link to this heading">#</a></h2>
 <p>We will work with a dataset extracted from the Crime Survey England and Wales 2013.</p>
@@ -688,18 +689,15 @@ crimes in the 12 months prior to the interview. Respondents to the survey are al
 perceptions of crime and attitudes towards crime related issues such as the police and criminal justice
 system.</em></p>
 <p>The dataset I have given you contains only some of the questions that respondants were asked, containing information about the respondants’ individual demographic features, neighbourhood, perceptions of crime and confidence in the police.</p>
-<p>The brief for the  hand-in report will be to write a short report for the Home Secretary addressing two topics:</p>
+<p><strong>The brief for the  hand-in report will be to write a short report for the Home Secretary addressing two topics:</strong></p>
 <ol class="arabic simple">
-<li><p>Which groups are the most likely to be victims of crime? and</p></li>
-<li><p>What factors affect confidence in policing?,</p></li>
+<li><p><strong>Which groups are the most likely to be victims of crime? and</strong></p></li>
+<li><p><strong>What factors affect confidence in policing?</strong></p></li>
 </ol>
-<p>Note that the idea is to write for a generic Home Secretary  - they have responsibility for Law and Order and as a politician are interested in how different sections of the public perceive these issues. You can assume they have no statistical training. However there is no need to accommodate the political attitudes or personal characteristics of any particular Home Secretary.</p>
+<p><em>Note that the idea is to write for a generic Home Secretary  - they have responsibility for Law and Order and as a politician are interested in how different sections of the public perceive these issues. You can assume they have no statistical training. However there is no need to accommodate the political attitudes or personal characteristics of any particular Home Secretary.</em></p>
 <p>In these preparatory exercises you will play around with the data to try and work out which factors are important predictors of that confidence.</p>
 <p>I have put my own conclusions at the bottom of this page - this is just to give an idea of the kinds of things you might look at.</p>
-<section id="note">
-<h3>Note<a class="headerlink" href="#note" title="Link to this heading">#</a></h3>
-<p>The survey was conducted in 2013 in the UK. Events of recent years may have affected the confidence of certain groups in the police; this would not be reflected in the data used here.</p>
-</section>
+<p><strong>Note:</strong> <em>The survey was conducted in 2013 in the UK. Events of recent years may have affected the confidence of certain groups in the police; this would not be reflected in the data used here.</em></p>
 <section id="set-up-python-libraries">
 <h3>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -1338,7 +1336,6 @@ dtype: int64
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crime-survey-data">3.10.1. Crime Survey Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">Set up Python libraries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">Import the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-the-dataset">Variables in the dataset</a></li>

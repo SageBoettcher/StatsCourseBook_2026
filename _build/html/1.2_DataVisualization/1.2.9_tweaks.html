@@ -207,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.2.1_Intro.html">2. Data Visualization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -218,6 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.3_DataWrangling/1.3.1_Intro.html">3. Data Wrangling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -644,20 +646,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tweaking-plots">
 <h1><span class="section-number">2.8. </span>Tweaking plots<a class="headerlink" href="#tweaking-plots" title="Link to this heading">#</a></h1>
-<p>In this section we cover some points about adjusting the appearance of plots:</p>
+<p>In this section, we’ll look at how to adjust the appearance of plots to make them clearer, more informative, and easier to interpret.</p>
+<p>We’ll cover how to:</p>
 <ul class="simple">
-<li><p>setting axis labels</p></li>
-<li><p>setting plot titles</p></li>
-<li><p>adding and editing a legend</p></li>
-<li><p>arranging suplots to make a multi-panel figure</p></li>
-<li><p>adjusting the size and shape of figures within your Jupyter notebook</p></li>
+<li><p>set <strong>axis labels</strong></p></li>
+<li><p>set <strong>plot titles</strong></p></li>
+<li><p>create and edeit a <strong>legend</strong></p></li>
+<li><p>arrange <strong>suplots</strong> to make a <strong>multi-panel figure</strong></p></li>
+<li><p>adjust the <strong>size</strong> and <strong>shape</strong> of figures</p></li>
 </ul>
-<p>Whilst <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> does often get things right by default, all of the above ‘tweaks’ can be essential to produce a meaningful figure that is easy for the reader to interpret.</p>
+<p>While <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> usually makes good choices automatically, these kinds of plot <em>tweaks</em> are often essential for producing meaningful, reader-friendly figures.</p>
 <section id="matplotlib">
 <h2><span class="section-number">2.8.1. </span><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code><a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> is designed to produce nice looking plots without us having to manually set many options. <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> is built from components of an older plotting library called <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> (which is based on the plotting functions of MATLAB, another scientific programming environment). <code class="docutils literal notranslate"><span class="pre">Matplotlib</span> </code> contains a lot of lower level plotting functions (things that produce or edit bits of plots, rather than producing a whole nice figure in one step).</p>
-<p>If we want to manually set something like the axis labels or axis range, we may need to go back and call functions from <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> directly.</p>
-<p>In the olden days, people made plots just with <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> and had to write a lot more code to achieve a nice looking plot.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> is designed to produce nice looking plots with minimal effort. However, it is built on top of an older, lower-level plotting library called <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>, which provides the underlying functionality.<code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> (inspired by the plotting tools available in MATLAB - another scientific programming environment) contains functions for controlling almost every element of a plot — from axis limits and labels to subplot layouts and figure sizes. Usually if there is something you would like to edit in the plot, it is possible to do so using these functions.</p>
+<p>If we want to manually set something like the axis labels, axis range, or figure layout, we often call <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> functions directly. You may have noticed some of these calls which often start with <code class="docutils literal notranslate"><span class="pre">plt.</span></code> throughout this chapter:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> functions are preceded by <code class="docutils literal notranslate"><span class="pre">plt.</span></code> for example <code class="docutils literal notranslate"><span class="pre">plt.xlim()</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code></p></li>
 <li><p>In contrast, <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> functions aare preceded by <code class="docutils literal notranslate"><span class="pre">sns.</span></code> (Samuel Norman Seaborn!), e.g. <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code>.</p></li>
@@ -895,7 +897,7 @@ document.write(`
 <img alt="../_images/bff18fbf6681c4a1d7f49c1061749dda05df43961c1c591af68293dbf79c9c2c.png" src="../_images/bff18fbf6681c4a1d7f49c1061749dda05df43961c1c591af68293dbf79c9c2c.png" />
 </div>
 </div>
-<p>We can see that there were a lot of young adults on the Titanic - possibly emigrating to start a new life in America.</p>
+<p>We can see that there were a lot of young adults on the Titanic - possibly emigrating to start a new life in America. Let’s try tweaking this plot to improve its interpretability</p>
 </section>
 </section>
 <section id="axis-labels-title">
@@ -905,16 +907,15 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">plt.ylabel()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">plt.title()</span></code></p></li>
 </ul>
-<p>Your axis labels should always convey what is plotted. If you are using <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> with a <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> dataframe, the axis labels will often be the column labels from your dataframe, which are (usually) meaningful although sometimes they are odd codes that wouldn’t mean much to a naive reader (The titanic dataset is a culprit here - what is <tt>Pclass</tt>? <tt>SibSp</tt>? <tt>Parch</tt>?!).</p>
-<p>You can always edit the labels on the axes and unless their meaning is clear, <strong>you must do so</strong>.</p>
-<p>You may also wish to give your plot a title.</p>
-<p>Just for fun let’s label the x axis “bananas” and the y axis “fruitbats”, and the title “A load of nonsense”:</p>
+<p>Your axis labels should always convey what is being plotted. When using <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> with a <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> DataFrame, the axis labels <em>usually</em> are taken automatically from the <strong>column names</strong>. These are often meaningful, but sometimes they can be cryptic codes that wouldn’t make sense to a general reader — for example, in the Titanic dataset we are using what do you think <tt>Pclass</tt>, <tt>SibSp</tt>, or <tt>Parch</tt> mean?</p>
+<p>If the meaning isn’t immediately clear, you must edit the labels. <strong>Clear, descriptive labels</strong> are essential for an interpretable figure. You can also add a title to your plot to describe what the figure shows.</p>
+<p>Just for fun, let’s label the <span class="math notranslate nohighlight">\(x\)</span>-axis “bananas”, the <span class="math notranslate nohighlight">\(y\)</span>-axis “fruitbats”, and give our plot the title “A load of nonsense”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;bananas&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;fruitbats&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A load of nonsense&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span> <span class="c1"># note I maade the writing bigger!</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;bananas&#39;</span><span class="p">)</span> <span class="c1">#Change the x axis label from the default</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;fruitbats&#39;</span><span class="p">)</span> <span class="c1">#Change the y axis label from the default</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A load of nonsense&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span> <span class="c1"># note I made the font size bigger!</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -929,39 +930,28 @@ document.write(`
 <ul class="simple">
 <li><p>plt.legend()</p></li>
 </ul>
-<p>Say we plot the age of people in the different classes on the Titanic separately for each class. I’ve used a KDE plot here rather than a histogram, as the histogram is just a bit too cluttered with the three distributions (you can try changing it to a histogram to see what I mean).</p>
+<p>When your plot contains multiple groups or categories, it’s important to include a legend so that the reader can tell which colour or linetype corresponds to which group.</p>
+<p>For example, let’s plot the age distributions of passengers in the different classes on the Titanic. Here we’ll use a KDE plot here rather than a histogram, as the histogram is just a bit too cluttered with the three distributions (you can try changing it to a histogram to see what I mean).</p>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> adds a legend automatically when a hue variable is specified, but you can adjust it using Matplotlib’s <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code>. For example, Here we edit the category labels, the title, and reposition the legend on the plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;third&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">,</span><span class="s1">&#39;first&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/68d47feb153da8bb02cd3468f20a43914f583d78076b5ec972494ed0cec09ce3.png" src="../_images/68d47feb153da8bb02cd3468f20a43914f583d78076b5ec972494ed0cec09ce3.png" />
+<img alt="../_images/0b6fab9000feda165baff0029ca2e4ca0fda144cad7cd9ed3631eb15aa0bf095.png" src="../_images/0b6fab9000feda165baff0029ca2e4ca0fda144cad7cd9ed3631eb15aa0bf095.png" />
 </div>
 </div>
-<ul class="simple">
-<li><p><strong>Note</strong> a lot of those young adults were in 3rd class, and there were almost no children in first class</p></li>
-</ul>
-<p>In the plot above, we automatically get a legend labelling the three plots with the corresponding values of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. However, you may wish to control the title and labels in the figure legend, as follows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;third&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">,</span><span class="s1">&#39;first&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/624066844883071476e591d7a992eb83ded71153455fb0213d0804534b49e924.png" src="../_images/624066844883071476e591d7a992eb83ded71153455fb0213d0804534b49e924.png" />
-</div>
-</div>
+<p><em><strong>Note on the data:</strong> There were a lot of young adults in 3rd class, and almost no children in first class</em></p>
 </section>
 <section id="ordering">
 <h2><span class="section-number">2.8.4. </span>Ordering<a class="headerlink" href="#ordering" title="Link to this heading">#</a></h2>
-<p>When plotting categorical data in which the categories aare defined by strings, <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> tends to plot the data categories in the order in which they occur in the dataframe, when reading fromm top to bottom.</p>
-<p>Sometimes this is not the order we would prefer - consider the following example using the Oxford weather dataset:</p>
+<p>When plotting categorical data where the categories are defined by strings, <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> will usually plot them in the order they appear in the DataFrame — that is, from top to bottom in the dataset.</p>
+<p>However, this default order is not always ideal or meaningful. For example, consider the Oxford weather dataset: the months might appear in the order they happen to occur in the data (e.g. starting in September) rather than in calendar order.</p>
+<p>This can make your plot confusing or misleading.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/OxfordWeather2.csv&#39;</span><span class="p">)</span>
@@ -974,7 +964,6 @@ document.write(`
 <img alt="../_images/3a23d07e2f24ab653a03f34501febb27bbce3b1a062a53400b9121b28c3fdf13.png" src="../_images/3a23d07e2f24ab653a03f34501febb27bbce3b1a062a53400b9121b28c3fdf13.png" />
 </div>
 </div>
-<p>Well, the year doesn’t start in September, although the dataset does, so we might prefer to change the order.</p>
 <p>We can force the order in which the categories are presented useing the argument <code class="docutils literal notranslate"><span class="pre">order</span></code></p>
 <ul class="simple">
 <li><p><strong>Note</strong> this would become <code class="docutils literal notranslate"><span class="pre">hue_order</span></code> if we were using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> property to disaggregate categories of data in a KDE plot or histogram.</p></li>
@@ -993,10 +982,15 @@ document.write(`
 </section>
 <section id="subplots">
 <h2><span class="section-number">2.8.5. </span>Subplots<a class="headerlink" href="#subplots" title="Link to this heading">#</a></h2>
-<p>Often we wish to present a couple of different plots to make a point.</p>
-<p>Returning to the Titanic dataset, say we want to plot a histogram of age separately for men and women.</p>
-<p>We might like to show these plots next to each other as panels of a larger figure</p>
-<p>This is achieved using the function <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> which creates a figure with multiple panels or subplots.</p>
+<p>Often, we want to present multiple plots side by side to compare them directly or to illustrate a broader point.</p>
+<p>Returning to the Titanic dataset, suppose we want to plot histograms of passenger age, shown separately for men and women.
+We may wish to display these plots next to each other as panels within a single figure.</p>
+<p>This can be done using the function <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code>, which allows us to create a figure containing multiple panels (subplots). Each subplot is addressed by its position within a grid, defined by three numbers inside <code class="docutils literal notranslate"><span class="pre">plt.subplot(rows,</span> <span class="pre">columns,</span> <span class="pre">index)</span></code>:</p>
+<ul class="simple">
+<li><p><strong>rows</strong> — the total number of rows of subplots</p></li>
+<li><p><strong>columns</strong> — the total number of columns of subplots</p></li>
+<li><p><strong>index</strong> — the position of the current subplot (counted left to right, top to bottom)</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -1014,8 +1008,7 @@ document.write(`
 <img alt="../_images/822d1e2dd94dfd1c1fd912a60afa8be33cd7676f4f5cf47bba065596886054c2.png" src="../_images/822d1e2dd94dfd1c1fd912a60afa8be33cd7676f4f5cf47bba065596886054c2.png" />
 </div>
 </div>
-<p>The arguments of <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> are the number of rows and columns to be created in the figure, and then the location in which to place the next plot.</p>
-<p>In the example above we have one row and two columns; if we wanted two rows and one column, we would do this:</p>
+<p>In the example above we have <strong>one row and two columns</strong>; if we wanted <strong>two rows and one column</strong>, we would do this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -1033,25 +1026,24 @@ document.write(`
 <img alt="../_images/bb89ea17df95f336897345a896c538953b008e9bf6ca22280d4bfe107f0d59a2.png" src="../_images/bb89ea17df95f336897345a896c538953b008e9bf6ca22280d4bfe107f0d59a2.png" />
 </div>
 </div>
-<p>Ah, it’s actually a bit easier to compare the distributions when they are arranged vertically - for example we can see that the maximum age for women was higher, and the peak age for women was (slightly) lower. Good choice!</p>
+<p>You’ll notice that it is actually a bit easier to compare the distributions when they are arranged vertically. For example we can see that the maximum age for women was higher, and the peak age for women was (slightly) lower. Good choice!</p>
 <section id="plt-subplot-syntax">
 <h3>plt.subplot() syntax<a class="headerlink" href="#plt-subplot-syntax" title="Link to this heading">#</a></h3>
 <p>The function plt.subplot() has three arguments:</p>
 <ul class="simple">
-<li><p>plt.subplot(rows, columns, place)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.subplot(rows,</span> <span class="pre">columns,</span> <span class="pre">index)</span></code></p></li>
 </ul>
-<p>For example, if we want to create a figure with one row and two columns (plots side-by-side), we use <tt>plt.subplot(1,2,x)</tt>, where <tt>x</tt> is the location to put the next plot, reading from left to right and top to bottom. This is perhaps best explained by diagram.</p>
-<p>Here is how I make a subplot with 3 rows and 2 columns. The red numbers are the place indicators.</p>
+<p>For example, if we want to create a figure with one row and two columns (plots side-by-side), we use <code class="docutils literal notranslate"><span class="pre">plt.subplot(1,2,i)</span></code>, where <tt>i</tt> is the location to put the next plot, reading from left to right and top to bottom. This is perhaps best explained by diagram.</p>
+<p>Here is how I make a subplot with <strong>3 rows and 2 columns</strong>, then there are overall 6 possible places to put any one plot. The red number on each plot refers to the specific index for that location.</p>
 <a class="reference internal image-reference" href="../_images/MT_wk2_subplot32i.png"><img alt="../_images/MT_wk2_subplot32i.png" src="../_images/MT_wk2_subplot32i.png" style="width: 60%;" />
 </a>
-<p>Here is how I make a subplot with 2 rows and 4 columns. The red numbers are the place indicators.</p>
+<p>Here is how I make a subplot with <strong>2 rows and 4 columns</strong>. Again, the red number on each plot refers to the specific index for that location, now there are 8 total plots.</p>
 <a class="reference internal image-reference" href="../_images/MT_wk2_subplot24i.png"><img alt="../_images/MT_wk2_subplot24i.png" src="../_images/MT_wk2_subplot24i.png" style="width: 100%;" />
 </a>
 </section>
 <section id="plt-tight-layout">
 <h3>plt.tight_layout()<a class="headerlink" href="#plt-tight-layout" title="Link to this heading">#</a></h3>
-<p>Sometimes the axis label of one subplot impinges on the adjecent subplot.</p>
-<p>The command plt.tight_layout() usually fixes this.</p>
+<p>Sometimes the axis labels or titles of one subplot can overlap with the adjacent subplot, especially when you have multiple panels in a single figure. The command <code class="docutils literal notranslate"><span class="pre">plt.tight_layout()</span></code> automatically adjusts the spacing between subplots so that all elements fit neatly within the figure.</p>
 </section>
 </section>
 <section id="axis-range">
@@ -1060,10 +1052,13 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">plt.xlim()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">plt.ylim()</span></code></p></li>
 </ul>
-<p>It is often easier to compare across plots if the axis ranges are the same.</p>
-<p>Seaborn will automatically adjust the axes to fit the range of the data in each plot, which normally means the axis ranges don’t match across subplots.</p>
-<p>We can set the axis range using the functions <code class="docutils literal notranslate"><span class="pre">plt.ylim()</span></code> (to set the limits in <span class="math notranslate nohighlight">\(y\)</span>) and <code class="docutils literal notranslate"><span class="pre">plt.xlim()</span></code> (to set the limits in <span class="math notranslate nohighlight">\(x\)</span>)</p>
-<p>Let’s remake our two side-by-side subbplots of age of men and women, and this time set the y axis to have the same range</p>
+<p>It is often easier to compare across plots if the axis ranges are the same. <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> will automatically adjust the axes to fit the range of the data in each plot. This is convenient for individual plots, but it can make side-by-side comparisons misleading, e.g., it might not look like there is a difference until you notice one is scaled between 1 and 100 and the other from 1 to 1000!</p>
+<p>We can set the axis range using the functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.ylim()</span></code> (to set the limits in <span class="math notranslate nohighlight">\(y\)</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.xlim()</span></code> (to set the limits in <span class="math notranslate nohighlight">\(x\)</span>)</p></li>
+</ul>
+<p>Let’s recreate our two side-by-side histograms of passenger age for men and women, but this time we’ll set the <span class="math notranslate nohighlight">\(y\)</span>-axis range to be the same in both plots:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -1085,14 +1080,14 @@ document.write(`
 </div>
 <p>Ooh, suddenly we can see that there were a lot more men than women on the Titanic!</p>
 <ul class="simple">
-<li><p><strong>Note</strong> It is generally most relevant to match the <span class="math notranslate nohighlight">\(y\)</span>-axes when two subplots are side-by-side, and the <span class="math notranslate nohighlight">\(x\)</span>-axes when the subplots are arranged one above the other. However, it is often (but not always) best to match both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes.</p></li>
+<li><p><strong>Note</strong> It is generally most relevant to match the <span class="math notranslate nohighlight">\(y\)</span>-axes when two subplots are side-by-side, and the <span class="math notranslate nohighlight">\(x\)</span>-axes when the subplots are arranged one above the other. However, it is often (but not always) best to match both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes!</p></li>
 </ul>
 </section>
 <section id="figure-size">
 <h2><span class="section-number">2.8.7. </span>Figure size<a class="headerlink" href="#figure-size" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">plt.figure(figsize=(x,y))</span></code></p>
 <p>Maybe the figures in your Jupyter notebook are too big or too small for your liking, or have the wrong aspect ratio.</p>
-<p>You can change this be ‘pre-creating’ your figure at a certain size using <code class="docutils literal notranslate"><span class="pre">plt.figure(figsize=(x,y))</span></code>, before running the plotting command (eg <code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code>).</p>
+<p>You can change this by ‘pre-creating’ your figure at a certain size using <code class="docutils literal notranslate"><span class="pre">plt.figure(figsize=(x,y))</span></code>, <strong>before</strong> running the plotting command.</p>
 <p><tt>x</tt> and <tt>y</tt> are the desired size, nominally in inches, but this will depend on the size of your screen (!):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

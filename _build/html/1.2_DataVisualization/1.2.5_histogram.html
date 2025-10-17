@@ -207,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.2.1_Intro.html">2. Data Visualization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -218,6 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.3_DataWrangling/1.3.1_Intro.html">3. Data Wrangling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -616,12 +618,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.4.1. Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">2.4.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.4.2. Example</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">Set up Python libraries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-inspect-the-data">Load and inspect the data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">2.4.2. Histogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">2.4.3. Histogram</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-bin-boundaries-and-width">Choosing the bin boundaries and width</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-is-unstable-for-small-n">Histogram is unstable for small <span class="math notranslate nohighlight">\(n\)</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
@@ -630,11 +633,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bin-width">Bin width</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-plot">2.4.3. KDE plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-plot">2.4.4. KDE plot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-plot-without-histogram">2.4.4. KDE plot (without histogram)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-plot-without-histogram">2.4.5. KDE plot (without histogram)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density">Probability density</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bandwidth">Bandwidth</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
@@ -642,8 +645,8 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-when-comparing-distributions">2.4.5. Considerations when comparing distributions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-appearance-of-your-plots">2.4.6. Customizing the appearance of your plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-when-comparing-distributions">2.4.6. Considerations when comparing distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-appearance-of-your-plots">2.4.7. Customizing the appearance of your plots</a></li>
 </ul>
             </nav>
         </div>
@@ -657,17 +660,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visualizing-distributions">
 <h1><span class="section-number">2.4. </span>Visualizing Distributions<a class="headerlink" href="#visualizing-distributions" title="Link to this heading">#</a></h1>
+<p>Two useful functions from the Seaborn library for exploring data distributions are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code></p></li>
 </ul>
 <p>If we want to see the shape of a data distribution, the <strong>histogram</strong> can be a good choice. From a histogram we can easily see if a data distribution:</p>
+<p>If we want to understand the shape of a data distribution, the <strong>histogram</strong> is often a good place to start. A histogram shows how frequency values occur across the range of your data, helping us quickly see whether the distribution:</p>
 <ul class="simple">
-<li><p>is unimodal or multimodel</p></li>
-<li><p>has skew, or is symmetrical</p></li>
-<li><p>differs between two samples</p></li>
+<li><p>is unimodal (one peak) or multimodel (multiple peaks)</p></li>
+<li><p>has <em>skew</em>, or is <em>symmetrical</em></p></li>
+<li><p>differs between two or more samples</p></li>
 </ul>
-<p>In this section we will see how to plot a histogram using Python and what choices we can make to show the data distribution clearly and accurately</p>
+<p>In this section, we’ll learn how to create a histogram in Python using Seaborn, and how to make choices—such as the number of bins, color, and transparency—that help us show the data clearly and accurately.</p>
 <p><strong>Here is a video about the use of histograms</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -680,42 +685,48 @@ document.write(`
 <div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/duALLohtvms?si=-om7mGr3-2G9yOWu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div></div>
 </div>
-<p>We will also consider some of the limitations of the histogram for small datasets, and explore a related plot, the <strong>Kernel Density Estimate (KDE)</strong> plot, which can mitigate these limitations.</p>
-<p>To summarize the conceptual content of this page, when plotting a histogram we should consider:</p>
-<ul class="simple">
-<li><p>the width of the bins - narrow bins give more detail but may make it harder to perceive the overall pattern</p>
-<ul>
-<li><p>the KDE-plot equivalent is <strong>bandwidth</strong> which determines the smoothness of the KDE shape</p></li>
-</ul>
-</li>
-<li><p>the bin boundaries - do we want to place them at round numbers or some other meaningful point?</p></li>
-</ul>
-<p>When using histograms (and KDE plots) to compare distributions, we should consider:</p>
-<ul class="simple">
-<li><p>matching the scale on the axes to facilitate comparison</p></li>
-<li><p>whether to place the two plots next to each other (horizontally), above one another (vertically) or overlaid (on the same axis), to facilitate comparison</p></li>
-</ul>
+<p>We’ll also consider some of the limitations of histograms, especially when working with small datasets, and explore a related visualization: the <strong>Kernel Density Estimate (KDE)</strong> plot. A KDE plot shows a smoothed version of the distribution and can sometimes reveal patterns that are hidden by the choice of histogram bins.</p>
 <p><strong>Here is a video about KDE plots</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/dN-H6nDuvOg?si=Ai0DbJ--aTYHZ9E8&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;YouTube video player&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&quot;strict-origin-when-cross-origin&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: %%HTML is a cell magic, but the cell body is empty.
-</pre></div>
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/dN-H6nDuvOg?si=Ai0DbJ--aTYHZ9E8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></div>
 </div>
-</div>
-</div>
+<section id="overview">
+<h2><span class="section-number">2.4.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p><strong>Key things to consider when plotting distributions</strong></p>
+<p>When creating a histogram and KDE plots, think carefully about how your choices affect what the viewer perceives:</p>
+<ul class="simple">
+<li><p><strong>Bin width (histogram)</strong></p>
+<ul>
+<li><p>Narrow bins show more detail, but can make it harder to see the overall pattern.</p></li>
+<li><p>Wider bins smooth out random variation but may hide important structure.</p></li>
+</ul>
+</li>
+<li><p><strong>Bin boundaries (KDE)</strong></p>
+<ul>
+<li><p>controls how smooth the KDE curve appears</p></li>
+<li><p>where the bins start and end can change the apparent shape of the distribution.</p></li>
+</ul>
+</li>
+</ul>
+<p><em>You may want to align these choices with round numbers or other meaningful points in your data.</em></p>
+</section>
 <section id="example">
-<h2><span class="section-number">2.4.1. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.4.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
 <p>We will look at a small sample of height data (these are made-up data designed for the exercise).</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/tallVshort.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/tallVshort.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/tallVshort.jpg" style="width: 50%;" />
 </a>
 <section id="set-up-python-libraries">
 <h3>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h3>
-<p>As usual, run the code cell below to import the relevant Python libraries</p>
+<p>As usual, run the code cell below to import the relevant Python libraries.</p>
+<p><strong>NOTE:</strong> Here we are importing the library <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> using the alias <code class="docutils literal notranslate"><span class="pre">sns</span></code>, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> as <code class="docutils literal notranslate"><span class="pre">plt</span></code>. These will be the most relevant for plotting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
@@ -1178,19 +1189,28 @@ document.write(`
 </section>
 </section>
 <section id="histogram">
-<h2><span class="section-number">2.4.2. </span>Histogram<a class="headerlink" href="#histogram" title="Link to this heading">#</a></h2>
-<p>Let’s start by plotting a histogram of the data to see what the distribution of heights is.</p>
-<p>We use the <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> function <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code></p>
+<h2><span class="section-number">2.4.3. </span>Histogram<a class="headerlink" href="#histogram" title="Link to this heading">#</a></h2>
+<p>Let’s start by plotting a histogram of the data to gain an insight into the <strong>distribution of heights</strong>.</p>
+<p>We’ll use the <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> function <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code>, which makes it easy to create clear and flexible histograms with just a single line of code.</p>
+<p>Before we start let’s review some key parameters of this function. You will not need to use <em>all</em> of these parameters with every call to <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code> but this should give you some sense of different ways you can customise your histogram to represent your data:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: the name of the dataset (e.g. a Pandas DataFrame) that contains the variable you want to plot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: specifies which variable from your dataset should appear on the x-axis (i.e. the variable whose distribution you want to visualise).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hue</span></code>: adds a categorical variable by which to divide the data into subgroups, plotting each subgroup in a different color (note, this may be useful when you want to compare distributions between groups</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bins</span></code>: controls how many/which bins (bars) are used in the histogram</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">edgecolor</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>: controls the appearance of the bars(fill color, border colour, and transparency).</p></li>
+</ul>
+<p>Below you can get an initial sense of the data. What do you notice?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">)</span> <span class="c1"># set the x axis label</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># this command asks Python to output the plot created above </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span> <span class="c1"># this command asks Python to output the plot created above </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e8dffed200480b0d429205cfe529f1c1c474ce67b1aaf5523b46c48658f99312.png" src="../_images/e8dffed200480b0d429205cfe529f1c1c474ce67b1aaf5523b46c48658f99312.png" />
+<img alt="../_images/0114aa77304df7183c0c2c8d8d4efabf6bf1f62ec3979e4f61c95436335a3714.png" src="../_images/0114aa77304df7183c0c2c8d8d4efabf6bf1f62ec3979e4f61c95436335a3714.png" />
 </div>
 </div>
 <p>If we want to <em>disaggregate</em> (separate out) the data, for example by sex, this is super easy using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> property in <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> functions:</p>
@@ -1203,15 +1223,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/13a3a05edac04492fe86ae970e38a56b490df45e3fffc909054d3d595e6e5023.png" src="../_images/13a3a05edac04492fe86ae970e38a56b490df45e3fffc909054d3d595e6e5023.png" />
+<img alt="../_images/8c3949ea2b899fcac35e965b361600de7a503ec19b7fd85570a6029868b34fe4.png" src="../_images/8c3949ea2b899fcac35e965b361600de7a503ec19b7fd85570a6029868b34fe4.png" />
 </div>
 </div>
 <section id="choosing-the-bin-boundaries-and-width">
 <h3>Choosing the bin boundaries and width<a class="headerlink" href="#choosing-the-bin-boundaries-and-width" title="Link to this heading">#</a></h3>
-<p>In a histogram, we group data into <em>bins</em>, and count how many data values fall in each bin</p>
-<p>By default, <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> chooses a set of bins that its algorithm suggests should best display the shape of the data distribution.</p>
-<p>However, we may prefer to set the bin widths to values that are more easily interpretable.</p>
-<p>For example, below I used bins of 5cm to group the heights (in a range from 150 to 200 cm that includes all the data points in my sample). This means I can easily read off from the graph how many men in my sample have a height between, say, 170 and 175cm).</p>
+<p>In a histogram, we group data into <em>bins</em>, and count how many data values fall into each bin. By default, <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> chooses a set of bins that its algorithm thinks will best display the shape of the data distribution. However, we may prefer to set the bin widths to values that are more easily interpretable.</p>
+<p>For example, in the plot below, I’ve used 5 cm-wide bins to group heights across a range from 150 cm to 200 cm, covering all the data points in my sample. This way, it’s easy to read directly from the graph how many individuals fall within a specific range (for example, between 170 cm and 175 cm).</p>
 <ul class="simple">
 <li><p>Can you find where in the code this is specified?</p></li>
 </ul>
@@ -1223,15 +1241,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/40078916dce7c413a912c26840ecf4d274517630dd9ae6c89f3389e16b793cc6.png" src="../_images/40078916dce7c413a912c26840ecf4d274517630dd9ae6c89f3389e16b793cc6.png" />
+<img alt="../_images/8338e7e309bcfe0d146ebf1a8b9611175f08253221a534f6aac5cf8ecf166a68.png" src="../_images/8338e7e309bcfe0d146ebf1a8b9611175f08253221a534f6aac5cf8ecf166a68.png" />
 </div>
 </div>
 </section>
 <section id="histogram-is-unstable-for-small-n">
 <h3>Histogram is unstable for small <span class="math notranslate nohighlight">\(n\)</span><a class="headerlink" href="#histogram-is-unstable-for-small-n" title="Link to this heading">#</a></h3>
-<p>One problem with using a histogram when you have only a small number of data points is
-that the shape of the histogram can depend a lot on where the bin boundaries happen to fall.</p>
-<p>Look at the following plot of brothers’ heights, again grouped into 5cm bins but with different bin boundaries:</p>
+<p>One limitation of histograms is that when you have a small number of data points (a small <span class="math notranslate nohighlight">\(n\)</span>), the apparent shape of the distribution can depend heavily on where the bin boundaries fall. Even small shifts in the bin positions can make the distribution look quite different, which can be misleading if you try to draw conclusions about the data’s true shape.</p>
+<p>Below is an example showing the same set of height measurements, grouped into 5 cm bins, but with the bin boundaries shifted slightly. Notice how the overall appearance of the histogram changes, even though the underlying data are identical:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">152</span><span class="p">,</span><span class="mi">202</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -1240,12 +1257,13 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23d9fba50185f8ef138562522c685281b4195223c603ff4cac393ca66a6ee4f4.png" src="../_images/23d9fba50185f8ef138562522c685281b4195223c603ff4cac393ca66a6ee4f4.png" />
+<img alt="../_images/0ccfd35bc296054b1be4b87e83e34b977495ae804e25a332785499cf0d157f4f.png" src="../_images/0ccfd35bc296054b1be4b87e83e34b977495ae804e25a332785499cf0d157f4f.png" />
 </div>
 </div>
-<p>Compare the histogram to the one above with  bin boundaries at 150, 155 etc. The shape of the distribution looks quite different! In the top plot, we seem to have quite a broad distribution, whereas in the bottom one, there is a big spike of people with heights betweem 172 and 177 cm.</p>
-<p>Moving the bin boundaries changed how many observations fell in each bin and thus the shape of the histogram. This can happen easily just due to chance when you have a small number of observations in each bin (check the y-axis in the above histogram - you can see that most bins contain fewer than 10 people, which means that moving just one or two observations between bins makes a big difference to the apparent shape of the histogram).</p>
-<p>For this reason, a histogram may not be the best representation of the data for a small sample.</p>
+<p>Compare the histogram below to the one above, where the bin boundaries were set at 150, 155, 160, etc. The overall shape of the distribution looks quite different!</p>
+<p>In the first plot, we seem to have quite a broad distribution, whereas in the bottom one, there is a big spike of people with heights betweem 172 and 177 cm. However, it’s important to remember that this spike reflects only a small number of individuals. If you look closely at the y-axis, the apparent difference in shape corresponds to just a few people.</p>
+<p>Moving the bin boundaries changed how many observations fell in each bin and thus the shape of the histogram. This can happen easily just due to chance when you have a small number of observations in each bin. This means that moving just one or two observations between bins makes a big difference to the apparent shape of the histogram.</p>
+<p>For this reason, a histogram may not always be the best way to visualise the data when your sample size is small.</p>
 <section id="exercises">
 <h4>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h4>
 <ul class="simple">
@@ -1268,31 +1286,23 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 <ul class="simple">
 <li><p>create a histogram with bin widths of 1cm - can you guess how to do this?</p>
 <ul>
-<li><p>note how much spikier the histogram looks with 1cm bins - it is hard to see the overall shape of the distribution</p></li>
+<li><p><em>hint: to achieve this there is an option to use exactly the code you used above, with a few modifications, or you can use the parameter <code class="docutils literal notranslate"><span class="pre">binwidth</span></code></em></p></li>
 </ul>
 </li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here!</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>note</strong> the histogram looks much spikier with 1cm bins and it becomes hard to see the overall shape of the distribution</p>
 </section>
 </section>
 <section id="kde-plot">
-<h2><span class="section-number">2.4.3. </span>KDE plot<a class="headerlink" href="#kde-plot" title="Link to this heading">#</a></h2>
-<p>Whist a histogram shows the number of observations in each of a set of discrete bins, the KDE plot estimates a smooth distribution shape that fits the underlying observations.</p>
-<p>You can think of it as the average of all the histograms you would get if you tried all the possible sets of bin boundaries (for a fixed bin width).</p>
-<p>We can add a kde plot to the histogram by adding an extra <i>argument</i> to the function <tt>sns.histplot</tt>. Here we reproduce the two different histograms of brothers’ heights with different bin boundaries, with the KDE plot added.</p>
+<h2><span class="section-number">2.4.4. </span>KDE plot<a class="headerlink" href="#kde-plot" title="Link to this heading">#</a></h2>
+<p>While a histogram shows the number of observations within a set of discrete bins, a Kernel Density Estimate (KDE) plot provides a smooth, continuous estimate of the underlying data distribution. You can think of a KDE plot as the average of all the histograms you would get if you tried every possible set of bin boundaries (for a fixed bin width). This produces a <strong>smoother curve</strong> that highlights the overall shape of the distribution without depending on specific bin placements.</p>
+<p>We can easily add a KDE curve to a histogram by including an additional <i>argument</i> in the Seaborn function <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code>.</p>
+<p>Below, we reproduce the two histograms of heights (with different bin boundaries) — but this time we also add the KDE plot:</p>
 <ul class="simple">
-<li><p>although the histograms look rather different, the KDE plots look exactly the same as each other</p></li>
+<li><p>Although the histograms look quite different, the KDE plots are identical.</p></li>
+<li><p>This shows how the KDE helps reveal the true underlying pattern, independent of arbitrary bin boundaries.</p></li>
 </ul>
-<p><em>note-</em></p>
-<ul class="simple">
-<li><p>I used some additional commands from <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> to make sure the x and y axes cover the same range of values for both plots, to make them easier to compare</p></li>
-</ul>
+<p><strong>note:</strong> <em>I used some additional commands from <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> to make sure the x and y axes cover the same range of values for both plots, to make them easier to compare</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">kde</span><span class="o">=</span><span class="s2">&quot;True&quot;</span><span class="p">)</span>
@@ -1311,8 +1321,8 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/71f8e3432caca4f427ceb558c4ed6fe9ff4749e0d091bd90e38f3a798b8104a7.png" src="../_images/71f8e3432caca4f427ceb558c4ed6fe9ff4749e0d091bd90e38f3a798b8104a7.png" />
-<img alt="../_images/a0482b30d46890979a161ca57da81622c65b73450045a026d2981c263fbb0418.png" src="../_images/a0482b30d46890979a161ca57da81622c65b73450045a026d2981c263fbb0418.png" />
+<img alt="../_images/8f035afc9987fd5b2b7cc541ca1f47ce7bcc8b7b7cb23df765c30745cb93c001.png" src="../_images/8f035afc9987fd5b2b7cc541ca1f47ce7bcc8b7b7cb23df765c30745cb93c001.png" />
+<img alt="../_images/c1e88f7cddfb589e79a43d67978d8d84d1f5ef0e39d7187ca6657ba265aee6ab.png" src="../_images/c1e88f7cddfb589e79a43d67978d8d84d1f5ef0e39d7187ca6657ba265aee6ab.png" />
 </div>
 </div>
 <section id="id1">
@@ -1324,8 +1334,8 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 </section>
 </section>
 <section id="kde-plot-without-histogram">
-<h2><span class="section-number">2.4.4. </span>KDE plot (without histogram)<a class="headerlink" href="#kde-plot-without-histogram" title="Link to this heading">#</a></h2>
-<p>If you don’t want the histogram, you can plot the KDE plot independently (without a histogram), using the <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> function <code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code></p>
+<h2><span class="section-number">2.4.5. </span>KDE plot (without histogram)<a class="headerlink" href="#kde-plot-without-histogram" title="Link to this heading">#</a></h2>
+<p>If you don’t want the histogram, you can plot the KDE plot independently (without a histogram), using the <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> function <code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code>. You’ll find many of the basic parameters are the same as <code class="docutils literal notranslate"><span class="pre">sns.histplot</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># I think KDE plots look nice filled with shading, hence fill=True</span>
@@ -1335,17 +1345,25 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e831bf8be68fab26da47094cd139c7c325099bf624f3729ecac533c48e96e0ca.png" src="../_images/e831bf8be68fab26da47094cd139c7c325099bf624f3729ecac533c48e96e0ca.png" />
+<img alt="../_images/53563b70d9f705fd542b8840426995b60a8eddd936184acc1f4ddf79b32a658e.png" src="../_images/53563b70d9f705fd542b8840426995b60a8eddd936184acc1f4ddf79b32a658e.png" />
 </div>
 </div>
 <section id="probability-density">
 <h3>Probability density<a class="headerlink" href="#probability-density" title="Link to this heading">#</a></h3>
-<p>When we plot the KDE as a standalone (rather than over a histogram) the x-axis changes to ‘Density’ rather than ‘count’.</p>
-<p>The values of density are such that the area under the curve of the KDE plot is 1. Technically it is a <i>probability density</i>. It means that probabilities could be read off the graph - so the probability of a member of our sample (one of people in the dataframe) having a height between 160 and 170cm is the same as the area under the curve between 160 and 170cm.</p>
-<p>• this is calculated as 10cm (width of the shaded area) x 0.025 (average ‘density’ in this area) = 0.25 or 25%</p>
+<p>When we plot the KDE as a standalone (rather than over a histogram) the y-axis changes from <strong>‘Count’</strong> to <strong>‘Density’</strong></p>
+<p>The values on this axis are scaled so that the total area under the KDE curve equals 1. This makes the KDE a <em>probability density function</em> which means that probabilities can be interpreted as areas under the curve.</p>
+<p>For example, the probability that a randomly selected person from our sample has a height between 160 cm and 170 cm is equal to the area under the curve between those two points.</p>
+<p>In this example:</p>
+<ul class="simple">
+<li><p>The width of the interval is 10 cm</p></li>
+<li><p>The average density over that range is approximately 0.025</p></li>
+<li><p>So, <tt>10×0.025=0.25</tt> or 25% of the sample falls between 160 cm and 170 cm.</p></li>
+<li></li>
+</ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/densityFig.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/densityFig.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/densityFig.png" style="width: 50%;" />
 </a>
-<p>One consequence of this is that <strong>you cannot tell from the KDE plot how many data points were in the dataset</strong> (which we should care about, as laager datasets are more likely to reliably represent the population!). To counter this you can add a <strong>rugplot</strong>, which shows the individual datapoints - this gives you ‘the best of both worlds’</p>
+<p>One important consequence of this scaling is that, unlike a histogram, a KDE plot <strong>does not show the sample size</strong>. That means the curve looks the same whether it’s based on 20 observations or 2,000. This matters because larger samples tend to represent the population more reliably.</p>
+<p>To address this limitation, you can add a <code class="docutils literal notranslate"><span class="pre">rug</span> <span class="pre">plot</span></code>, which marks each individual data point along the x-axis. This combination gives you the <em>best of both worlds</em>: a smooth density curve and a visual indication of how many data points contributed to it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1356,15 +1374,19 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cadd4be3a9f6944e4b257ec5677508f9c69c45db8f39eaa725e07f7a7a9fa2d8.png" src="../_images/cadd4be3a9f6944e4b257ec5677508f9c69c45db8f39eaa725e07f7a7a9fa2d8.png" />
+<img alt="../_images/b13daaae700f3fb58f5199ab8397af1056d9a33da09908fad7109cd4b9bca3ae.png" src="../_images/b13daaae700f3fb58f5199ab8397af1056d9a33da09908fad7109cd4b9bca3ae.png" />
 </div>
 </div>
 </section>
 <section id="bandwidth">
 <h3>Bandwidth<a class="headerlink" href="#bandwidth" title="Link to this heading">#</a></h3>
-<p>I said you can think of the KDE plot as a kind of average of all the histograms you would get if you tried all the possible locations for bin boundaries (150,155,160, vs 151,156,161 etc)</p>
-<p>This is true but it only averages histograms for one possible bin <i>width</i>, which is chosen by the computer to give (generally) a good result.</p>
-<p>You saw above that changing the bin width from 5cm to 1cm changed the balance between showing to overall shape of the distribution (where is the main peak) vs the details (details more visible with a small bin boundary). Bandwidth does the equivalent adjustment in a KDE plot.</p>
+<p>Earlier, we described the KDE plot as being like an average of all possible histograms you would get if you tried every possible set of bin boundaries (for example, bins starting at 150, 155, 160 vs. 151, 156, 161, and so on).</p>
+<p>That’s true, but there’s a catch: this “averaging” is done for one specific <code class="docutils literal notranslate"><span class="pre">bin</span> <span class="pre">width</span></code>, which is automatically chosen by the computer to produce a (generally) good-looking result.</p>
+<p>Just as changing the <strong>bin width</strong> in a histogram affects the balance between showing the overall shape of the distribution (with wide bins) and revealing fine details (with narrow bins), the <em>bandwidth</em> in a KDE plot controls the same trade-off:</p>
+<ul class="simple">
+<li><p>A smaller bandwidth makes the KDE curve more sensitive to small variations in the data (more detailed but also noisier).</p></li>
+<li><p>A larger bandwidth produces a smoother, more general shape (less detailed but clearer overall).</p></li>
+</ul>
 <p>The code below shows the height KDE with three bandwidths. The argument <tt>bw_adjust</tt> is a scaling factor for the default bandwidth chosen by the computer:</p>
 <ul class="simple">
 <li><p>If <tt>bw_adjust = 1.0</tt> the default bandwidth is used (grey KDE)</p></li>
@@ -1382,7 +1404,7 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1cff3f62542ead71d1f0ba1d4f3d683435df17137fbf52c686e803a6279596ff.png" src="../_images/1cff3f62542ead71d1f0ba1d4f3d683435df17137fbf52c686e803a6279596ff.png" />
+<img alt="../_images/8c980660f39dedab43a5b43809bc08a9a31a5a4e9a515a5f5907cf7267691a54.png" src="../_images/8c980660f39dedab43a5b43809bc08a9a31a5a4e9a515a5f5907cf7267691a54.png" />
 </div>
 </div>
 <p><strong>Note</strong> With its high bandwidth, the blue KDE plot looks very smooth with just one peak.</p>
@@ -1394,34 +1416,34 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 </section>
 </section>
 <section id="considerations-when-comparing-distributions">
-<h2><span class="section-number">2.4.5. </span>Considerations when comparing distributions<a class="headerlink" href="#considerations-when-comparing-distributions" title="Link to this heading">#</a></h2>
-<p>Histograms and KDE plots are good for showing the shape of a data distribution, and hence they are also good for comparing the shape of multiple data distributions</p>
-<p>An easy way to compare two groups is to overlay the histograms or KDE plots, using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> property:</p>
+<h2><span class="section-number">2.4.6. </span>Considerations when comparing distributions<a class="headerlink" href="#considerations-when-comparing-distributions" title="Link to this heading">#</a></h2>
+<p>Both histograms and KDE plots are useful for visualising the shape of a data distribution. Because of this, they’re also excellent tools for comparing how two (or more) groups differ in shape, spread, and central tendency.</p>
+<p>One simple way to compare two groups within the same plot is to overlay their histograms or KDE curves using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameter in Seaborn, like we’ve seen earlier. The <code class="docutils literal notranslate"><span class="pre">hue</span></code> property automatically separates the data by group and assigns different colours to each category, allowing for a clear visual comparison of the distributions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/90062dfe4ad5067d3abe8891e86d1b25bbc2fb836d1d5b9a77e9f84824256f94.png" src="../_images/90062dfe4ad5067d3abe8891e86d1b25bbc2fb836d1d5b9a77e9f84824256f94.png" />
+<img alt="../_images/12e2599b3933aa4c0a6b105175bd270d47f90066fefce8bfdd314de5ccda2c39.png" src="../_images/12e2599b3933aa4c0a6b105175bd270d47f90066fefce8bfdd314de5ccda2c39.png" />
 </div>
 </div>
 <p>You might find that too crowded in which case you may want to separate out the plots onto two separate axes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sex==&quot;M&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sex==&quot;M&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sex==&quot;F&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sex==&quot;F&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2b91e1257d2c28633fc4cb8ca5de886e023ece607938ef9d16a8656cb5a1f1e2.png" src="../_images/2b91e1257d2c28633fc4cb8ca5de886e023ece607938ef9d16a8656cb5a1f1e2.png" />
-<img alt="../_images/11efab5088014b09bc77219edc7e29609dbbde94bbf5991d54565099624f2e4f.png" src="../_images/11efab5088014b09bc77219edc7e29609dbbde94bbf5991d54565099624f2e4f.png" />
+<img alt="../_images/c76f1442c097c2fc456a79dc82478f561811791d97d6faac690b83e8cc2ace6f.png" src="../_images/c76f1442c097c2fc456a79dc82478f561811791d97d6faac690b83e8cc2ace6f.png" />
+<img alt="../_images/33109ca5a38b657f9f57767b3f1d6dcb41c4114e4482c5b983655b8f3922cf44.png" src="../_images/33109ca5a38b657f9f57767b3f1d6dcb41c4114e4482c5b983655b8f3922cf44.png" />
 </div>
 </div>
 <p>However, when we try to compare the two plots on separate axes, the matter is confused by non-matching axis ranges</p>
@@ -1433,12 +1455,12 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 <p>To make the plots more directly comparable, we should fix the range of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes and the bin boundaries on both plots:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sex==&quot;M&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sex==&quot;M&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sex==&quot;F&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heightData</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sex==&quot;F&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1446,13 +1468,13 @@ that the shape of the histogram can depend a lot on where the bin boundaries hap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/99cc8ee30c0f325ac697d08bfb7b8c82023fa7f1184c2079fbcaf8b3546da3a8.png" src="../_images/99cc8ee30c0f325ac697d08bfb7b8c82023fa7f1184c2079fbcaf8b3546da3a8.png" />
-<img alt="../_images/8c9a1b4c8dc141a493f96956cdf952d67008f28e04d14ecbed3f8ac19e1ba36f.png" src="../_images/8c9a1b4c8dc141a493f96956cdf952d67008f28e04d14ecbed3f8ac19e1ba36f.png" />
+<img alt="../_images/6597586401f24f02cb087fd7b05796725798465dc44c09e0b2fb0e47240aa335.png" src="../_images/6597586401f24f02cb087fd7b05796725798465dc44c09e0b2fb0e47240aa335.png" />
+<img alt="../_images/b0ec56db9c1519cfebc5c1688d837d12625f506eebf980a741215b68047938e2.png" src="../_images/b0ec56db9c1519cfebc5c1688d837d12625f506eebf980a741215b68047938e2.png" />
 </div>
 </div>
 </section>
 <section id="customizing-the-appearance-of-your-plots">
-<h2><span class="section-number">2.4.6. </span>Customizing the appearance of your plots<a class="headerlink" href="#customizing-the-appearance-of-your-plots" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.4.7. </span>Customizing the appearance of your plots<a class="headerlink" href="#customizing-the-appearance-of-your-plots" title="Link to this heading">#</a></h2>
 <p>I told you that <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> produces publication quality figures, but some of the figures above look a bit ugly.</p>
 <p>We can easily change the appearance of our plots using some additional arguments to the functions <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code>.</p>
 <p>You can find many examples of how to change the appearance of histograms and KDE plots in the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> manual pages:
@@ -1524,12 +1546,13 @@ for <a href='https://seaborn.pydata.org/generated/seaborn.histplot.html'><tt>sns
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.4.1. Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">2.4.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.4.2. Example</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">Set up Python libraries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-inspect-the-data">Load and inspect the data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">2.4.2. Histogram</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">2.4.3. Histogram</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-bin-boundaries-and-width">Choosing the bin boundaries and width</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram-is-unstable-for-small-n">Histogram is unstable for small <span class="math notranslate nohighlight">\(n\)</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
@@ -1538,11 +1561,11 @@ for <a href='https://seaborn.pydata.org/generated/seaborn.histplot.html'><tt>sns
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bin-width">Bin width</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-plot">2.4.3. KDE plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-plot">2.4.4. KDE plot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercises</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-plot-without-histogram">2.4.4. KDE plot (without histogram)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-plot-without-histogram">2.4.5. KDE plot (without histogram)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density">Probability density</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bandwidth">Bandwidth</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
@@ -1550,8 +1573,8 @@ for <a href='https://seaborn.pydata.org/generated/seaborn.histplot.html'><tt>sns
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-when-comparing-distributions">2.4.5. Considerations when comparing distributions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-appearance-of-your-plots">2.4.6. Customizing the appearance of your plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-when-comparing-distributions">2.4.6. Considerations when comparing distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-the-appearance-of-your-plots">2.4.7. Customizing the appearance of your plots</a></li>
 </ul>
   </nav></div>
 

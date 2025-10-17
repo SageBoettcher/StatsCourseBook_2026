@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -205,6 +205,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice Notebook</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -696,7 +697,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 </div>
@@ -750,15 +751,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TAILS
-TAILS
-TAILS
-TAILS
+HEADS
 TAILS
 HEADS
 TAILS
-TAILS
 HEADS
-TAILS
+HEADS
+HEADS
+HEADS
+HEADS
 </pre></div>
 </div>
 </div>
@@ -788,8 +789,8 @@ TAILS
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>heads array: [1. 0. 0. 1. 1. 0. 1. 1. 0. 1.]
-sum = 6.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>heads array: [1. 0. 1. 1. 0. 1. 0. 1. 0. 0.]
+sum = 5.0
 </pre></div>
 </div>
 </div>
@@ -842,7 +843,7 @@ sum = 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23c580de82faa45f04db8eab61e5b84b2be3d1c4b8ea32e73629962bc35615ff.png" src="../_images/23c580de82faa45f04db8eab61e5b84b2be3d1c4b8ea32e73629962bc35615ff.png" />
+<img alt="../_images/f9536bae281d8514f69f89c98738d05f017fe4c07c7b8738190d464fbc725de0.png" src="../_images/f9536bae281d8514f69f89c98738d05f017fe4c07c7b8738190d464fbc725de0.png" />
 </div>
 </div>
 <p>Indeed, the expected outcomes of 4,5,6 are more likely than the extremes!</p>
@@ -953,7 +954,7 @@ sum = 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b3a660880a8987c75fa8cd7728a4561e93b58eb9be87bbe695907e239a0b15ec.png" src="../_images/b3a660880a8987c75fa8cd7728a4561e93b58eb9be87bbe695907e239a0b15ec.png" />
+<img alt="../_images/f26286e9bbb1aa0f85388667a3c9cb6679f6e95ecbae69410a5e5a8f919e95ce.png" src="../_images/f26286e9bbb1aa0f85388667a3c9cb6679f6e95ecbae69410a5e5a8f919e95ce.png" />
 </div>
 </div>
 <p>If you run the code block above a few times, you should see the simulated trajectory change each time</p>
@@ -1143,7 +1144,7 @@ sum = 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d64582f29e9a260e2e63bd4da7852c170427e5548766873d078fdb13af0edd12.png" src="../_images/d64582f29e9a260e2e63bd4da7852c170427e5548766873d078fdb13af0edd12.png" />
+<img alt="../_images/8fc3a8f667b69ae6d25d254a7d89470d15d19f38751be3aa84779863f5fe37e9.png" src="../_images/8fc3a8f667b69ae6d25d254a7d89470d15d19f38751be3aa84779863f5fe37e9.png" />
 </div>
 </div>
 <p>The darker lines on the plot show where multiple balls have passed through the same path — these represent the most common trajectories.</p>
@@ -1165,7 +1166,7 @@ sum = 6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/158a0f9b922c8264d31466b3aed5c6d9523460b58ab96973bc1ba744d92dc767.png" src="../_images/158a0f9b922c8264d31466b3aed5c6d9523460b58ab96973bc1ba744d92dc767.png" />
+<img alt="../_images/0ba25836e0f26108b5f670b2b42151ed639aaa83f2f93375c4842ba1973cefcc.png" src="../_images/0ba25836e0f26108b5f670b2b42151ed639aaa83f2f93375c4842ba1973cefcc.png" />
 </div>
 </div>
 </section>

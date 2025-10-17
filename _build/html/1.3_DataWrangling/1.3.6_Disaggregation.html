@@ -205,6 +205,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -216,6 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="1.3.1_Intro.html">3. Data Wrangling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -622,10 +624,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#age-vs-sex">Age vs Sex</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length-of-stay">Length of stay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length-of-stay-vs-mortality">Length of stay vs. Mortality</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mortality-by-sex">Mortality by sex</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mortality-vs-sex">Mortality vs Sex</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>
@@ -642,25 +644,28 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-disaggregation">
 <h1>Data Disaggregation<a class="headerlink" href="#data-disaggregation" title="Link to this heading">#</a></h1>
-<p><strong>Disaggregation</strong> means describing or plotting data separately for different categories of individuals.</p>
-<p>As we saw in the first lecture of the series, data in a single dataset can arise from different causal processes, for example:</p>
+<p>When we look at data, we often start with an overall summary — one average, one trend line, one distribution. But real-world data rarely come from a single, uniform process. Different groups or conditions can behave very differently, and lumping them together can hide important patterns.</p>
+<p><strong>Disaggregation</strong> means describing or plotting data separately for meaningful subgroups. For example, by gender, age, region, experimental condition, etc.</p>
+<p>As we saw in the first lecture of the series, data within a single dataset can arise from different underlying processes, for example:</p>
 <ul class="simple">
-<li><p>The distribution of age at death in 1840 includes a set of deaths caused by infant/child mortality, and a set caused by old age</p></li>
-<li><p>The distribution of reaction times in a psychological experiment may include a mixture of ‘true’ responses, false starts, and missed trials</p></li>
+<li><p>The distribution of <em>age at death</em> in 1840 includes several distinct causes, including: deaths caused by infant/child mortality and deaths due to old age</p></li>
+<li><p>The average exam score across years may be is 65 but that might hide the fact that one year averaged 75 and another averaged 55.</p></li>
+<li><p>The distribution of reaction times in a psychological experiment may include a mixture of <em>true</em> responses, <em>false starts</em>, and <em>missed trials</em></p></li>
 </ul>
-<p><em>Disaggregating</em> data so that we are reporting statistics separately for these different groups is an important part of describing and analyzing data. For example:</p>
+<hr style="border:0.5px solid #cccccc; margin: 10px 0;">
+<p>Disaggregating data so that we are reporting statistics separately for these different groups is an important part of describing and analyzing data. For example:</p>
 <ul class="simple">
-<li><p>We would like to report the mean reaction time for each condition of our psychological experiment based on ‘true’ responses, not including missed trials, which contribute a lot of noise to our estimate of the mean.</p></li>
+<li><p>if we would like to report the mean reaction time for each condition of our psychological experiment based only on ‘true’ responses, that is, exclusing missed trials.</p></li>
 </ul>
-<p>Disaggregation becomes even more important when we think about making predictions based on data. For example:</p>
+<p>Disaggregation becomes even more important when we move towards making predictions based on data. For example:</p>
 <ul class="simple">
-<li><p>If a patient presents with chest pain, is it more likely to be indigestion or a heart attack? The answer to this question partly depends on the age of the patient (heart attacks are much less likely in young patients), BUT that is different again for men and women.</p></li>
+<li><p>If a patient presents with chest pain, is it more likely to be indigestion or a heart attack? The answer to this question partly depends on the <code class="docutils literal notranslate"><span class="pre">AGE</span></code> of the patient (heart attacks are much less likely in young patients), BUT that is different again for men and women.</p></li>
 </ul>
 <section id="equality">
 <h2>Equality<a class="headerlink" href="#equality" title="Link to this heading">#</a></h2>
 <p>If a dataset includes a majority and minority group (for example, if the dataset consistes of more men than women, or more white people than black people), then failure to disaggregate data results in findings being biased towards the majority group</p>
 <ul class="simple">
-<li><p>For example, shockingly, <a href="https://www.theguardian.com/society/2021/nov/11/black-women-uk-maternal-mortality-rates">black women are four times more likely to die in childbirth</a> than white women in the UK, a statistic that was long un-remarked because data on maternal outcomes were not routinely disaggregated by race</p></li>
+<li><p>For example, shockingly, <a href="https://www.theguardian.com/society/2021/nov/11/black-women-uk-maternal-mortality-rates">black women are four times more likely to die in childbirth</a> than white women in the UK, a statistic that was long un-remarked because data on maternal outcomes were not routinely disaggregated by race.</p></li>
 </ul>
 </section>
 <section id="disaggregation-skills">
@@ -844,24 +849,15 @@ document.write(`
 <section id="clean-the-data">
 <h3>Clean the data<a class="headerlink" href="#clean-the-data" title="Link to this heading">#</a></h3>
 <p>We have reloaded the dataframe from the .csv file, so we need to re-implement the data cleaning steps we already decided were necessary:</p>
+<p><em>Note, since we found <code class="docutils literal notranslate"><span class="pre">9999</span></code> is a dummy value for multiple columns, you can use the <code class="docutils literal notranslate"><span class="pre">.replace()</span></code> function on the entire dataset, being sure to replace the exisiting dataset.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">774</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 <span class="n">hospital</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># check it worked</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_54746/1115780473.py:2: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  hospital.AGE.replace(774, np.nan, inplace=True )
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -960,43 +956,58 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
 </section>
 <section id="age-vs-sex">
 <h2>Age vs Sex<a class="headerlink" href="#age-vs-sex" title="Link to this heading">#</a></h2>
-<p>Is the age distribution of heart attack patients the same regardless of sex?</p>
-<p>Let’s find out by plotting the age distribution separately for men and women:</p>
+<p>Let’s start by looking at the age distribution of our dataset. By now we have removed the outliers so we should see a relatively normal looking distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">hospital</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span><span class="s1">&#39;AGE&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33c3630d69dbec9145373a1690e9b8240707631ae035943cac50f22187c69d51.png" src="../_images/33c3630d69dbec9145373a1690e9b8240707631ae035943cac50f22187c69d51.png" />
+<img alt="../_images/67b46e8eec420a92f8f4e1e178689b2e8d43406d3a59c10689d9dfd17073d984.png" src="../_images/67b46e8eec420a92f8f4e1e178689b2e8d43406d3a59c10689d9dfd17073d984.png" />
+</div>
+</div>
+<p>We might wonder whether the age distribution of heart attack patients the same regardless of sex? That is, do men and women tend to experience heart attacks at similar ages, or are there noticeable differences between the groups?</p>
+<p>Let’s find out by plotting the age distribution separately for men and women. To do this we will simply make use of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> argument in the seaborn plots:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">hospital</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span><span class="s1">&#39;AGE&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c33097dcbbbdd740aad3e491abd39deebe184205f3aecfa3f2cdcdf0b1077c45.png" src="../_images/c33097dcbbbdd740aad3e491abd39deebe184205f3aecfa3f2cdcdf0b1077c45.png" />
 </div>
 </div>
 <p><strong>Note-</strong></p>
 <ul class="simple">
-<li><p>More men had heart attacks than women</p></li>
+<li><p>Overall, more men had heart attacks than women</p></li>
 <li><p>The female patients tend to be older.</p></li>
 </ul>
 <p><strong>Think</strong></p>
 <p>A 40 year old patient presents with chest pain. It could be a heart attack or it could be indigestion. The doctor needs to decide the likely cause. Does it matter whether the patient is a man or a woman?</p>
-<section id="length-of-stay">
-<h3>Length of stay<a class="headerlink" href="#length-of-stay" title="Link to this heading">#</a></h3>
+<section id="length-of-stay-vs-mortality">
+<h3>Length of stay vs. Mortality<a class="headerlink" href="#length-of-stay-vs-mortality" title="Link to this heading">#</a></h3>
 <p>Let’s plot the distribution of Length of Stay in hospital:</p>
+<p><em>Note: here we are plotting using a histogram with an overlaid kde, where as above we used a kde plot in combination with a rug plot. All this to say, there’s more than one way to plot a distribution!</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;LOS&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;LOS&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">),</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d9aa9000cc00b7fc505859eaa06d358ba37591d94c28e064c93f4481a0ecb06e.png" src="../_images/d9aa9000cc00b7fc505859eaa06d358ba37591d94c28e064c93f4481a0ecb06e.png" />
+<img alt="../_images/0370d71b4b3cb26f6a92cf1b4a3d7754ff60daeb4f538685d0572fc920353c03.png" src="../_images/0370d71b4b3cb26f6a92cf1b4a3d7754ff60daeb4f538685d0572fc920353c03.png" />
 </div>
 </div>
-<p><strong>Note-</strong></p>
-<p>There is something unusual here - the dataset is bimodal, with a large number of people staying just one day in hospital.</p>
-<p>Often a bimodal distribution is a hint that data the data distribution is a mixture of data arising from two causes. In other words, we suspect the length of stay data could be meaningfully disaggregated.</p>
+<p>You may notice something slightly unusual in the distribution. The data seems <em>bimodal</em>, meaing there are two peaks in the distribution. In this case, we see a large number of people staying just one day in hospital, with another group staying a bit longer.</p>
+<p>A bimodal distribution often suggests that the data are actually a mixture of two underlying populations each with its own distinct distribution. In other words, we suspect the length of stay data could be meaningfully <em>disaggregated</em>.</p>
 <p>If we disaggregate these by the categorical variable <tt>DIED</tt>, we can get a clearer picture what happened:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1009,81 +1020,62 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
 <img alt="../_images/0d42e5cd7c7f4a35e5e3dc486b91ca6a94ebec6b9047250a02cd939151a04a52.png" src="../_images/0d42e5cd7c7f4a35e5e3dc486b91ca6a94ebec6b9047250a02cd939151a04a52.png" />
 </div>
 </div>
-<p><strong>Note-</strong></p>
-<p>People who sadly died from their heart attack tended to have short stays in hosiptal, with many dying on the same day they were brought to hospital.</p>
-<p>For those who eventually survived, it was more typical to stay in hospital for 7-10 days.</p>
+<p>What you see above is that people who died from their heart attack tended to have short stays in hosiptal, with many dying on the same day they were admitted. In contrast, those who survived, typically stayed in the hospital for 7-10 days.</p>
 </section>
 </section>
-<section id="mortality-by-sex">
-<h2>Mortality by sex<a class="headerlink" href="#mortality-by-sex" title="Link to this heading">#</a></h2>
-<p>At first glance, female patients are much more likely to die than males:</p>
+<section id="mortality-vs-sex">
+<h2>Mortality vs Sex<a class="headerlink" href="#mortality-vs-sex" title="Link to this heading">#</a></h2>
+<p>Let’s consider the mortality (<code class="docutils literal notranslate"><span class="pre">DIED</span></code>) as a dependent variable. Using <code class="docutils literal notranslate"><span class="pre">sns.barplot()</span></code> we can get initial look at how mortality rate differs by sex. At first glance, it appears female patients are much more likely to die than males:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;DIED&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SEX&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;DIED&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;SEX&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;proportion who died&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f4a2b7c1104e85b8e501b68c44231c6c137686a951312d54bba9200b97208731.png" src="../_images/f4a2b7c1104e85b8e501b68c44231c6c137686a951312d54bba9200b97208731.png" />
+<img alt="../_images/9d2038651701f94fe0cebc5c9eb613249b07f81b191b4c581a60b8adff4f03c0.png" src="../_images/9d2038651701f94fe0cebc5c9eb613249b07f81b191b4c581a60b8adff4f03c0.png" />
 </div>
 </div>
-<p>Is this due to difference in severity of heart attacks by sex, or perhaps differences int he effectiveness of treatment?</p>
-<p>Probably not. We noticed earlier that the female patients were older than the males, and it is reasonable to wonder whether younger patients are more likely to survive.</p>
-<p>It turns out this is true, younger patients are more likely to survive. We can see this clearly by plotting the proportion who died at each age</p>
-<ul class="simple">
-<li><p>This is a plot of mortality <strong>conditional</strong> upon age</p>
-<ul>
-<li><p>If you are interested you can have a look at the syntax to produce this graph, which is actually a form of KDE plot</p></li>
-<li><p>remember that is you google <code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code> you will find the manual page for KDE plot which explains this form</p></li>
-<li><p>you won’t be required to reproduce this type of plot</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proportion Died&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;DIED&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/b0012a19336304f47280bcadbd1aa1158def09f0295e1e40b5d1159e74c51fa3.png" src="../_images/b0012a19336304f47280bcadbd1aa1158def09f0295e1e40b5d1159e74c51fa3.png" />
-</div>
-</div>
-<p>If we plot mortality conditional upon age disaggregated by men and women, we can see that <em>across all ages</em> men are actually more likely to die than women; the higher overall mortality for women is explained by the presence of more older women in the sample (which in turn probably reflects the fact that women have longer life expectany than men).</p>
+<p>Is the apparent difference in mortality between the sexes due to differences in the severity of the heart attacks, or perhaps differences in the effectiveness of treatment?</p>
+<p>Probably not.</p>
+<p>We noticed earlier that the female patients tended to be <em>older</em> than the males, so it is reasonable to wonder whether <code class="docutils literal notranslate"><span class="pre">AGE</span></code> might play a role in survival.</p>
+<p>It turns out this is true, younger patients are more likely to survive. We can see this clearly by plotting the proportion who patients who died at each age.</p>
+<p><em>Note, the error bars (shading around the line) becomes larger at the very high and very low ages because we do not have many data points at the extremes</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Men&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">hospital</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;DIED&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proportion Died&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;SEX == &quot;M&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;DIED&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Women&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proportion Died&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">hospital</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;SEX == &quot;F&quot;&#39;</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;DIED&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8eea1a8e9c09f4a6b79c64333a2d45b0786c5201df2f9cb2b1876aaa0ca83112.png" src="../_images/8eea1a8e9c09f4a6b79c64333a2d45b0786c5201df2f9cb2b1876aaa0ca83112.png" />
+<img alt="../_images/f6194d5f49400d843b22e9cc21ad051aa775e76fa3d68587659946be3307f32e.png" src="../_images/f6194d5f49400d843b22e9cc21ad051aa775e76fa3d68587659946be3307f32e.png" />
+</div>
+</div>
+<p>Now let’s try disaggregating the sexes from age. By, plotting the data like this make it clear that <code class="docutils literal notranslate"><span class="pre">AGE</span></code> is a much stronger predictor of mortality compared to <code class="docutils literal notranslate"><span class="pre">SEX</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">hospital</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;DIED&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proportion Died&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/68c5e8d54bb33796fae1af78b9ceed12bd20e01581b9edf9ccff347ca3707cf2.png" src="../_images/68c5e8d54bb33796fae1af78b9ceed12bd20e01581b9edf9ccff347ca3707cf2.png" />
 </div>
 </div>
 <section id="conclusion">
 <h3>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
-<p>You can learn a lot by disaggregating data!</p>
-<p>The process of breaking data down to find evidence of different underlying distributions and relationships between variables is at the core of what a good data scientist, or indeed a research scientist, does.</p>
+<p>You can learn a lot by disaggregating data! Breaking data down into meaningful subgroups often reveals hidden patterns and distinct underlying processes that would otherwise be lost in the overall averages.</p>
+<p>This process of exploring, comparing, and interpreting differences between groups lies at the heart of what a good data scientist (or any research scientist) does. It’s how we move beyond describing data to truly understanding the relationships and mechanisms that generate it.</p>
 </section>
 </section>
 </section>
@@ -1142,10 +1134,10 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#age-vs-sex">Age vs Sex</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length-of-stay">Length of stay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length-of-stay-vs-mortality">Length of stay vs. Mortality</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mortality-by-sex">Mortality by sex</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mortality-vs-sex">Mortality vs Sex</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>

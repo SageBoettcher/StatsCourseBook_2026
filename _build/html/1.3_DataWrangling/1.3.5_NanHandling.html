@@ -207,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.8_PythonIndexing.html">1.8. Python: Descriptives and Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.9_tables.html">1.9. Tables of descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.10_TutorialExercises.html">1.10. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.1_DescribingData/1.1.11_ExtraPractice.html">1.11. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../1.2_DataVisualization/1.2.1_Intro.html">2. Data Visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -218,6 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.8_lineplot.html">2.7. Timeseries data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.9_tweaks.html">2.8. Tweaking plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.10_TutorialExercises.html">2.9. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.2_DataVisualization/1.2.11_ExtraPractice.html">2.10. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="1.3.1_Intro.html">3. Data Wrangling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -634,8 +636,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="handling-nans">
 <h1><span class="section-number">3.5. </span>Handling NaNs<a class="headerlink" href="#handling-nans" title="Link to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">NaN</span></code> (Not a Number) is a special value used to indicate missing data in many scientific programming languages.</p>
-<p>Using <code class="docutils literal notranslate"><span class="pre">NaN</span></code> instead of a numerical dummy value like 9999 or 0 is helpful because Python functions either ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s by default, or can be set to ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s using an optional function argument. So for example, if you get the mean of a column that includes 9999 as a dummmy value, those 9999s will be included in the calculation of the mean; but if the dummy value is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the will not.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NaN</span></code> (Not a Number) is a special value used to represent missing data in many scientific programming languages, including Python.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">NaN</span></code> instead of a numerical dummy value (like <code class="docutils literal notranslate"><span class="pre">9999</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>) is helpful because most Python functions either ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s by default, or can be set to ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s using an optional function argument. This is useful, for example, if you are trying to calculate the mean of a column. the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> function would include <code class="docutils literal notranslate"><span class="pre">9999</span></code> in its calculation but ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code></p>
 <p>In this section we will review:</p>
 <ul class="simple">
 <li><p>Why <code class="docutils literal notranslate"><span class="pre">NaN</span></code> is better than a numerical dummy value</p></li>
@@ -662,7 +664,7 @@ document.write(`
 <section id="import-a-dataset-to-work-with">
 <h2><span class="section-number">3.5.1. </span>Import a dataset to work with<a class="headerlink" href="#import-a-dataset-to-work-with" title="Link to this heading">#</a></h2>
 <p>We again work with the NYC heart attack dataset</p>
-<p>The data will be automatically loaded fromt he internet when you run this code block:</p>
+<p>The data will be automatically loaded fromt the internet when you run this code block:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/heartAttack.csv&#39;</span><span class="p">)</span>
@@ -821,12 +823,14 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Think</strong> is the value for standard deviation realistic?</p>
-<p>These values include the 9999s just as if there were really people 9999 years old in the sample.</p>
-<p>If we replace the 9999s with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> we get the correct mean and standard deviation for the ‘real’ values, excluding the missing data</p>
+<ul class="simple">
+<li><p><em><strong>Is the value for standard deviation realistic?</strong></em></p></li>
+</ul>
+<p>These values include the 9999s just as if there were really people 9999 years old in the sample. This is why we see that the standard deviation (a measure of variance within the data) is unusually large.</p>
+<p>If we replace the 9999s with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> we get the correct mean and standard deviation for the data set, excluding the missing data. The mean has changed slightly, and the standard deviation is now much more reasonable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
 </pre></div>
@@ -837,33 +841,23 @@ document.write(`
 13.654236726825275
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_54739/2452030449.py:1: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  hospital.AGE.replace(9999, np.nan, inplace=True)
-</pre></div>
 </div>
 </div>
-</div>
-<p>The mean has changed slightly, and the standard deviation is now much more reasonable.</p>
 </section>
 <section id="creating-nans">
 <h2><span class="section-number">3.5.3. </span>Creating <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s<a class="headerlink" href="#creating-nans" title="Link to this heading">#</a></h2>
-<p>If we want to set a value to <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, we can’t just type <tt>NaN</tt> or <tt>”NaN”</tt></p>
-<p>Instead, we ‘create’ the value <code class="docutils literal notranslate"><span class="pre">NaN</span></code> using the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>, for example:</p>
-<p><code class="docutils literal notranslate"><span class="pre">hospital.loc[1,</span> <span class="pre">'CHARGES']=np.nan</span> <span class="pre">#</span> <span class="pre">set</span> <span class="pre">the</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">CHARGES</span> <span class="pre">in</span> <span class="pre">row</span> <span class="pre">2</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">`NaN`</span></code></p>
+<p>If we want to set a value to <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, we can’t just type <tt>NaN</tt> or <tt>”NaN”</tt> as these would be interpreted as a potential variable name or text. Instead, we cav ‘create’ the value <code class="docutils literal notranslate"><span class="pre">NaN</span></code> using the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
+<p>For example, if you were to set the value of CHARGES in row 2 to be <code class="docutils literal notranslate"><span class="pre">NaN</span></code> you would use this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">hospital.loc[1,</span> <span class="pre">'CHARGES']=np.nan</span> </code></p>
 </section>
 <section id="check-for-nans">
 <h2><span class="section-number">3.5.4. </span>Check for <code class="docutils literal notranslate"><span class="pre">NaNs</span></code><a class="headerlink" href="#check-for-nans" title="Link to this heading">#</a></h2>
+<p>Although <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s are ignored by many Python functions, you sometimes  may want to know if a particular dataset contains <code class="docutils literal notranslate"><span class="pre">NaNs</span></code>. This can be useful to determine how much data loss you have and if the values you are calculating are to be trusted. To do this you can use the following code:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">df.isna()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">df.isna().sum()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.isna()</span></code> - checks if a particular value is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.isna().sum()</span></code> - returns the total number of <code class="docutils literal notranslate"><span class="pre">True</span></code>s from the <code class="docutils literal notranslate"><span class="pre">df.isna()</span></code> call</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">NaN</span></code>s are ignored by many Python functions, however you may still want to know if there were any (and how many) in any given set of data.</p>
-<p>To check for missing values, coded as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, we use the function <code class="docutils literal notranslate"><span class="pre">df.isna()</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">df.isna()</span></code> will return a column with <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> for each value of a specified data frame or column. For example here we will check which values in <code class="docutils literal notranslate"><span class="pre">AGE</span></code> are <code class="docutils literal notranslate"><span class="pre">NaN</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
@@ -888,7 +882,7 @@ Name: AGE, Length: 12844, dtype: bool
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">df.isna()</span></code> returned a column with <tt>True</tt> or <tt>False</tt> for each value of <tt>AGE</tt> - <tt>True</tt> for people where the age is coded as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <tt>False</tt> otherwise.</p>
-<p>This isn’t very readable, but if we want to know how many <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s were in the column, we can use a trick: Python treats <tt>True</tt> as <tt>1</tt> and <tt>False</tt> as <tt>0</tt>. So if we just take the sum of the column, we get the total nuber of <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s:</p>
+<p>This isn’t very readable particularly since the dataset contains more than 12000 rows. If we want to know how many <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s were in the column, we can use a trick: Python treats <tt>True</tt> as <tt>1</tt> and <tt>False</tt> as <tt>0</tt>. So if we just take the sum of the column, we get the total nuber of <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital</span><span class="o">.</span><span class="n">AGE</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -901,7 +895,7 @@ Name: AGE, Length: 12844, dtype: bool
 </div>
 </div>
 </div>
-<p>Three people’s age was coded as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<p>Four people’s age was coded as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
 </section>
 <section id="nan-handling-by-python-functions">
 <h2><span class="section-number">3.5.5. </span>NaN handling by Python functions<a class="headerlink" href="#nan-handling-by-python-functions" title="Link to this heading">#</a></h2>
@@ -919,7 +913,7 @@ Name: AGE, Length: 12844, dtype: bool
 <p>However, some functions do <em>not</em> automatically ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s, and instead will give an error message, or return the value <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, if the input data contains <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s.</p>
 <p>This includes a lot of functions from the library <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, which we will use later in the course. For example, say I want to use a <span class="math notranslate nohighlight">\(t\)</span>-test to ask if the male patients are older than the females</p>
 <ul class="simple">
-<li><p>don’t worry if you don’t yet know what a <span class="math notranslate nohighlight">\(t\)</span>-test is - this will make sense when you return to it for revision</p></li>
+<li><p>don’t worry if you don’t yet know what a <span class="math notranslate nohighlight">\(t\)</span>-test is - this will make sense when you return to it for revision – the important thing to note here are the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values in the output!</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -933,7 +927,7 @@ Name: AGE, Length: 12844, dtype: bool
 </div>
 </div>
 </div>
-<p>The function <code class="docutils literal notranslate"><span class="pre">stats.ttest_ind()</span></code> performs an independent samples <span class="math notranslate nohighlight">\(t\)</span>-test between the two samples we gave it (the ages of male and female patients) and should return a <span class="math notranslate nohighlight">\(t\)</span>-value (<tt>statistic</tt>) and a <span class="math notranslate nohighlight">\(p\)</span> value (<tt>pvalue</tt>)</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">stats.ttest_ind()</span></code> performs an independent samples <span class="math notranslate nohighlight">\(t\)</span>-test between the two samples we gave it (the ages of male and female patients) and should return a <span class="math notranslate nohighlight">\(t\)</span>-value (<tt>statistic</tt>) a <span class="math notranslate nohighlight">\(p\)</span> value (<tt>pvalue</tt>), and the degrees freedom (df)</p>
 <p>Right now both of these are <code class="docutils literal notranslate"><span class="pre">NaN</span></code> because the <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s in the input were not ignored.</p>
 <p>We can tell the function <code class="docutils literal notranslate"><span class="pre">stats.ttest_ind()</span></code> to ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s, using the argumment <code class="docutils literal notranslate"><span class="pre">nan_policy='omit'</span></code>:</p>
 <div class="cell docutils container">
