@@ -642,16 +642,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="binomial-pmf-and-cdf">
 <h1><span class="section-number">2.7. </span>Binomial PMF and CDF<a class="headerlink" href="#binomial-pmf-and-cdf" title="Link to this heading">#</a></h1>
-<p>In this chapter we explored how we would simulate a binomial variable (<span class="math notranslate nohighlight">\(k\)</span> hits) to work out how often we expect <span class="math notranslate nohighlight">\(k\)</span> hits on <span class="math notranslate nohighlight">\(n\)</span> trials. This is called a <strong>numerical solution</strong> or <strong>simulation</strong>.</p>
-<p>There is also an <strong>analytical solution</strong> to calculating the expected number of hits if <span class="math notranslate nohighlight">\(k \sim \mathcal{B}(n,p)\)</span>. This means, there is an equation we can use to work it out. This equation is called the <em>probability mass function (PMF)</em>. In this section we introduce the PMF and a related function, the <em>cumulative density function (CDF)</em>, for the binomial distribution.</p>
-<p>In practice, you don’t need to use the actual equations yourself, as there are built in functions in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> that do it for you. However it is desirable to understand conceptually where the equations ‘come from’ (how they are derived), as covered in the lecture.</p>
-<p>However you may wish to use the PMF (in Python) to get the probability of a certain value of <span class="math notranslate nohighlight">\(k\)</span>, rather than simulating it.</p>
+<p>In this chapter we explored how we would simulate a binomial variable (the number of <span class="math notranslate nohighlight">\(k\)</span> hits from <span class="math notranslate nohighlight">\(n\)</span> trials) to estimate how often different outcomes occur (e.g., how often you will get 8 heads when flipping the coin 10 times). This is called a <strong>numerical solution</strong> or <strong>simulation</strong>.</p>
+<p>There is also an <strong>analytical solution</strong> to calculating the expected number of hits if <span class="math notranslate nohighlight">\(k \sim \mathcal{B}(n,p)\)</span>. This means, there is an equation we can use to work out the exact probabilities. This equation is called the <em>probability mass function (PMF)</em>.</p>
+<p>In this section we introduce:</p>
+<ul class="simple">
+<li><p>the PMF, which gives the probability of observeing a specific value of <span class="math notranslate nohighlight">\(k\)</span></p></li>
+<li><p>The <em>cumulative density function (CDF)</em>, which gives the probability of observing a value less than or equal to <span class="math notranslate nohighlight">\(k\)</span></p></li>
+</ul>
+<p>In practice, you don’t need to compute these equations by hand as there are built in functions in the <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> library that does it for you. However it is useful to understand conceptually where the equations ‘come from’ (how they are derived), as covered in the lecture.</p>
 <section id="analytical-vs-numerical-solutions">
 <h2><span class="section-number">2.7.1. </span>Analytical vs numerical solutions<a class="headerlink" href="#analytical-vs-numerical-solutions" title="Link to this heading">#</a></h2>
 <p>In this section we see The PMF and CDF are worked out from an equation rather than by random sampling</p>
 <ul class="simple">
-<li><p>Therefore the probability values (eg <span class="math notranslate nohighlight">\(p(k&lt;=7)\)</span>) given by <code class="docutils literal notranslate"><span class="pre">stats.binom.pmf()</span></code> and <code class="docutils literal notranslate"><span class="pre">stats.binom.cdf()</span></code> never change (for given values of <span class="math notranslate nohighlight">\(n,p,k\)</span>)</p></li>
-<li><p>In contrast the values given by our simluations (how many random samples <span class="math notranslate nohighlight">\(k&lt;=7\)</span>) did vary slightly each time we ran our simulation</p></li>
+<li><p>Therefore the probability values (given by <code class="docutils literal notranslate"><span class="pre">stats.binom.pmf()</span></code> and <code class="docutils literal notranslate"><span class="pre">stats.binom.cdf()</span></code> will never change for given values of <span class="math notranslate nohighlight">\(n,p,k\)</span>)</p></li>
+<li><p>In contrast the values given by our simluations did vary slightly each time we ran our simulation</p></li>
 </ul>
 </section>
 <section id="set-up-python-libraries">
@@ -677,20 +681,22 @@ document.write(`
 </section>
 <section id="binomial-pmf">
 <h2><span class="section-number">2.7.3. </span>Binomial PMF<a class="headerlink" href="#binomial-pmf" title="Link to this heading">#</a></h2>
-<p>The probability mass function (PMF) tells us the probability of obtaining <span class="math notranslate nohighlight">\(k\)</span> hits out of <span class="math notranslate nohighlight">\(n\)</span> trials.</p>
+<p>The probability mass function (PMF) tells us the probability of obtaining exactly <span class="math notranslate nohighlight">\(k\)</span> hits out of <span class="math notranslate nohighlight">\(n\)</span> trials.</p>
 <p>The equation for the binomial PMF is as follows:</p>
 <div class="math notranslate nohighlight">
 \[ p(k=K) = C^{n}_{k} p^k q^{n-k} \]</div>
-<p>where <span class="math notranslate nohighlight">\(p(k=K)\)</span> is the probability of <span class="math notranslate nohighlight">\(K\)</span> hits out of <span class="math notranslate nohighlight">\(n\)</span> trials, <span class="math notranslate nohighlight">\(p\)</span> is the probability of a hit on any given trial, and <span class="math notranslate nohighlight">\(q=(1-p)\)</span>, and</p>
-<div class="math notranslate nohighlight">
-\[ C^{n}_{k} = \frac{n!}{k! (n-k)!}\]</div>
-<p>… is an expression that accounts for the fact that a even balance of hits and misses is more likely (as discussed in the lecture)</p>
+<p>where:</p>
 <ul class="simple">
-<li><p><em>Note</em> unsurprisingly, many people find the notation <span class="math notranslate nohighlight">\(p(k=K)\)</span> (which is standard in statistical theory) confusing. In this case <span class="math notranslate nohighlight">\(k\)</span> is a <em>variable</em> (the number of hits) and <span class="math notranslate nohighlight">\(K\)</span> is a specific value of it - so in a coin-tossing example, where we are interested in the chance of getting 8 heads out of 10 tosses, <span class="math notranslate nohighlight">\(k\)</span>=number of heads and <span class="math notranslate nohighlight">\(K\)</span>=8; we read <span class="math notranslate nohighlight">\(p(k=8)\)</span> as <em>“the probability the number of heads is 8”</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(p(k=K)\)</span> is the probability of <span class="math notranslate nohighlight">\(K\)</span> hits out of <span class="math notranslate nohighlight">\(n\)</span> trials,</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> is the probability of a hit on any given trial,</p></li>
+<li><p><span class="math notranslate nohighlight">\(q=(1-p)\)</span>, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(C^{n}_{k} = \frac{n!}{k! (n-k)!}\)</span> is the number of possible ways to get <span class="math notranslate nohighlight">\(k\)</span> hits in <span class="math notranslate nohighlight">\(n\)</span> tirals (sometimes called number of combinations). This reflects the fact that some pattern of hits and misses are more likely than others, for example, getting an even balance of hits and misses is more likely (as discussed in the lecture)</p></li>
 </ul>
+<p><em><strong>Note:</strong></em> unsurprisingly, many people find the notation <span class="math notranslate nohighlight">\(p(k=K)\)</span> (which is standard in statistical theory) confusing.</p>
+<p>In this case <span class="math notranslate nohighlight">\(k\)</span> is a <em>variable</em> (the number of hits) and <span class="math notranslate nohighlight">\(K\)</span> is a specific value of it - so in a coin-tossing example, where we are interested in the chance of getting 8 heads out of 10 tosses, <span class="math notranslate nohighlight">\(k\)</span>=number of heads and <span class="math notranslate nohighlight">\(K\)</span>=8; we read <span class="math notranslate nohighlight">\(p(k=8)\)</span> as <em>“the probability the number of heads is 8”</em></p>
 <section id="pmf-home-baked">
 <h3>PMF (home-baked)<a class="headerlink" href="#pmf-home-baked" title="Link to this heading">#</a></h3>
-<p>Let’s implement the equation for the PDF to get the exact probability that k==8, and compare to the results to the proportion of 10,000 reps in which k==8 (as on the previous worksheet)</p>
+<p>Let’s implement the equation for the PMF ourselves and compare teh results to the simulated probability from the previous exercise (the proportion of times we got <span class="math notranslate nohighlight">\(k\)</span>=8 in 10000 simulated experiments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we need the Python library &quot;math&quot; for this code block!</span>
@@ -700,8 +706,12 @@ document.write(`
 <span class="n">k</span><span class="o">=</span><span class="mi">8</span>
 <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span>
 
+<span class="c1">#Calculate the binomial coefficient n choose k (the number of wasy to get k hits in n trials)</span>
 <span class="n">n_choose_k</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span>
-<span class="n">prob_k</span> <span class="o">=</span> <span class="p">((</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span> <span class="o">*</span> <span class="n">n_choose_k</span> 
+
+<span class="c1">#Apply the binomial PMF formula - p(k) = C(n,k) * (p^k) * (1-p)^(n-k)</span>
+<span class="n">prob_k</span> <span class="o">=</span> <span class="n">n_choose_k</span>  <span class="o">*</span> <span class="p">((</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">prob_k</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -715,30 +725,34 @@ document.write(`
 <p>Hopefully this should be roughly the same as the proportion of our 10,000 coin tosses in which k=8 (it wont exactly match, as the simulation was subject to random noise) - let’s check!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">k</span><span class="o">==</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">10</span> <span class="c1"># values of n, p, k as in previous exercise</span>
+<span class="n">k</span><span class="o">=</span><span class="mi">8</span>
+<span class="n">p</span><span class="o">=</span><span class="mf">0.5</span>
+
+<span class="n">ks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ks</span><span class="o">==</span><span class="n">k</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0436)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0426
 </pre></div>
 </div>
 </div>
 </div>
-<p>yep, not a bad match!</p>
+<p>yep, not a bad match! - roughly 4% chance of getting exactly 8 heads - remember the exact value for our simulation will change every time we run it.</p>
 </section>
 <section id="pmf-built-in-function">
 <h3>PMF (built-in function)<a class="headerlink" href="#pmf-built-in-function" title="Link to this heading">#</a></h3>
-<p>We can also use a built-in function to give the PDF:</p>
+<p>We can also use a built-in function to give the PMF:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.043945312500000076)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.043945312500000076
 </pre></div>
 </div>
 </div>
@@ -768,8 +782,11 @@ document.write(`
 </section>
 <section id="binomial-cdf">
 <h2><span class="section-number">2.7.4. </span>Binomial CDF<a class="headerlink" href="#binomial-cdf" title="Link to this heading">#</a></h2>
-<p>The CDF or cumulative distribution function tells us the probability of obtaining <em>less than or equal to</em> <span class="math notranslate nohighlight">\(k\)</span> hits in <span class="math notranslate nohighlight">\(n\)</span> trials</p>
-<p>As we have seen, we often want to know this <em>cumulative</em> value - for example if we want to know if a coin is fair, and have observed 8 heads out of 10 coin tosses, we would ask how likely, with a fair coin, we would  get a value as extreme as <span class="math notranslate nohighlight">\(k=8\)</span> <em>or more so</em> (because we would still conclude the coin was unfair if we got 9 or 10 heads).</p>
+<p>The CDF or cumulative distribution function tells us the probability of obtaining <em>less than or equal to</em> <span class="math notranslate nohighlight">\(k\)</span> hits in <span class="math notranslate nohighlight">\(n\)</span> trials. In other words, it gives the cumulative probability of all outcomes up to and including <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>As we have seen, we often want to know this <em>cumulative</em> probaility rather than just the chance of one exact value. For example, suppose we toss a fair coin 10 times and observe 8 heads, to judge if this result is surprising, and therefore whether the coin might be biased, we would ask</p>
+<p><em>“If the coin were fair, how likely would it be to get 8 or more heads out of 10 tosses”</em></p>
+<p>This questions asks for the probability of an outcome as extreme as, or more extreme than <span class="math notranslate nohighlight">\(k=8\)</span>. This includes no only 8 heads, but also 9 and 10, since we would also find those outcomes suspicious if were testing the fairness of the coin.</p>
+<p>Below we will plot the pmf and cdf functions for every possible <span class="math notranslate nohighlight">\(k\)</span> (0-10) out of 10 coin tosses</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
@@ -797,30 +814,46 @@ document.write(`
 <img alt="../_images/e0924740fcdf5e4fe57a755ac806b2ce9043c4df709cee257ca4440b86d8e3d7.png" src="../_images/e0924740fcdf5e4fe57a755ac806b2ce9043c4df709cee257ca4440b86d8e3d7.png" />
 </div>
 </div>
-<p>So we have:</p>
+<p>So above we can easily see the difference between the two plots. The PMF (left) shows us the probability of obtaining <em>exactly</em> a given value of <span class="math notranslate nohighlight">\(k\)</span>, where as the CDF (right) shows the probability of obtaining <em>at least</em> that value of <span class="math notranslate nohighlight">\(k\)</span></p>
 <ul class="simple">
-<li><p>PMF(8) is the probability of obtaining exactly 7 heads ie <span class="math notranslate nohighlight">\(p(k==8)\)</span></p></li>
-<li><p>CDF(8) is the probability of obbtaining 8 or fewer heads, ie <span class="math notranslate nohighlight">\(p(k&lt;=8)\)</span></p></li>
+<li><p>PMF(8) is the probability of obtaining exactly 8 heads ie <span class="math notranslate nohighlight">\(p(k==8)\)</span>, as confirmed above and on the plot this is around .04</p></li>
+<li><p>CDF(8) is the probability of obbtaining 8 or fewer heads, ie <span class="math notranslate nohighlight">\(p(k&lt;=8)\)</span>, here we see that you have a very high chance of getting at least 8 heads.</p></li>
 </ul>
 <section id="area-under-the-pmf-sums-to-1">
 <h3>Area under the PMF sums to 1<a class="headerlink" href="#area-under-the-pmf-sums-to-1" title="Link to this heading">#</a></h3>
-<p>Noting that the probabilities of all the possible outcomes must sum to 1, we can also say:</p>
+<p>The probability of all possibe outcomes must sum to 1.</p>
+<p>This means:</p>
 <ul class="simple">
-<li><p>CDF(10) = 1 because we always get 10 or fewer heads in 10 coin tosses</p></li>
+<li><p>CDF(10) = 1, because it is certain we’ll get 10 or fewer heads in 10 tosses</p></li>
 </ul>
-<p>The function CDF always gives us the area under the curve to the <em>left</em> of a given value, for example CDF(7) gives us <span class="math notranslate nohighlight">\(p(k&lt;=7)\)</span>.</p>
-<p>If we want to know the probability of getting <em>more</em> than (say) 7 heads, we use the fact that the area under the curve sums to 1, so</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(p(k&gt;=8)\)</span> = <span class="math notranslate nohighlight">\(1-p(k&lt;8)\)</span> = <span class="math notranslate nohighlight">\(1-p(k&lt;=7)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(p(k&gt;=8)\)</span> = 1-<code class="docutils literal notranslate"><span class="pre">cdf(7)</span></code></p></li>
-</ul>
-<p>Careful here about <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> vs <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> etc. Since <span class="math notranslate nohighlight">\(k\)</span> only takes integer values:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(p(k&lt;8)\)</span> = <span class="math notranslate nohighlight">\(p(k&lt;=7)\)</span>
-and</p></li>
-<li><p><span class="math notranslate nohighlight">\(p(k&gt;=8)\)</span> = <span class="math notranslate nohighlight">\(p(k&gt;7)\)</span></p></li>
-</ul>
-<p>the function <code class="docutils literal notranslate"><span class="pre">stats.binom.cdf(x)</span></code> gives us the probability <span class="math notranslate nohighlight">\(p(k&lt;=x)\)</span></p>
+<p>The CDF always gives us the area under the PMF curve to the <em>left</em> of a given value, for example CDF(8) gives us <span class="math notranslate nohighlight">\(p(k&lt;=8)\)</span>.</p>
+<p>If we want to know the probability of getting <em>more</em> than (say) 7 heads (i.e., the probability of getting 8,9, or 10), then we use the fact that the area under the curve sums to 1:</p>
+<div class="math notranslate nohighlight">
+\[p(k&gt;=8) = 1 - p(k&lt;8) = 1-p(k&lt;=7)\]</div>
+<div class="math notranslate nohighlight">
+\[or\]</div>
+<div class="math notranslate nohighlight">
+\[p(k&gt;=8) = 1 - cdf(7)\]</div>
+<p>So to calculate the probability of getting more than 7 heads in python you can use the folowing code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0546875
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Be Careful with the inequalities!</strong></p>
+<p>Since <span class="math notranslate nohighlight">\(k\)</span> only takes integer values the following are equivalent:</p>
+<p><span class="math notranslate nohighlight">\(p(k&lt;8) = p(k&lt;=7)\)</span></p>
+<p><span class="math notranslate nohighlight">\(and\)</span></p>
+<p><span class="math notranslate nohighlight">\(p(k&gt;=8) = p(k&gt;7)\)</span></p>
+<p>So when using the function <code class="docutils literal notranslate"><span class="pre">stats.binom.cdf(x)</span></code>, remember this is always gives you:
+<span class="math notranslate nohighlight">\(p(k&lt;=x)\)</span></p>
 <p><strong>Comprehension questions</strong></p>
 <ul class="simple">
 <li><p>You will need to choose the correct function (<code class="docutils literal notranslate"><span class="pre">stats.binom.pmf()</span></code> or <code class="docutils literal notranslate"><span class="pre">stats.binom.cdf()</span></code> and the right values of n,p,k to match the numerical answer given in the comments of each cell</p></li>
@@ -850,6 +883,7 @@ and</p></li>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the probability of at least 7 heads out of 20 coin tosses, </span>
 <span class="c1"># when the probability of heads is 0.55</span>
 
+
 <span class="c1"># answer = 0.9785</span>
 </pre></div>
 </div>
@@ -860,6 +894,7 @@ and</p></li>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the probability of fewer than 10 heads out of 20 coin tosses, </span>
 <span class="c1"># when the probability of heads is 0.4</span>
 
+
 <span class="c1"># answer = 0.7553</span>
 </pre></div>
 </div>
@@ -869,6 +904,7 @@ and</p></li>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the probability of more than 10 tails out of 15 coin tosses, </span>
 <span class="c1"># when the probability of heads is 0.3</span>
+
 
 <span class="c1"># answer = 0.515</span>
 </pre></div>

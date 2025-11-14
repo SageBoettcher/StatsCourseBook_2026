@@ -641,8 +641,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="central-limit-theorem">
 <h1><span class="section-number">3.7. </span>Central Limit Theorem<a class="headerlink" href="#central-limit-theorem" title="Link to this heading">#</a></h1>
 <p>In the previous section, we constructed the sampling distribution of the mean by drawing many samples from the parent distribution</p>
-<p>You may have noticed that the sampling distribution of the mean had a familiar bell curve shape - it resembles a Normal distribution.</p>
-<p>Indeed, when <span class="math notranslate nohighlight">\(n\)</span> is large enough (above about 50) the sampling distribution of the mean is well approximated by a normal distribution, whose standard deviation is the standard error of the mean. This result, which is one of the most important in statistics, is called the <strong>Central Limit Theorem</strong>.</p>
+<p>You may have noticed that the sampling distribution of the mean had a familiar bell curve shape - it resembles a Normal distribution. Indeed, when the sample size <span class="math notranslate nohighlight">\(n\)</span> is large enough (above about 50) the sampling distribution of the mean is well approximated by a Normal distribution, regardless of the shape of the original (parent) distribution. This result, which is one of the most important in statistics, is called the <strong>Central Limit Theorem</strong>.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">3.7.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -706,7 +705,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8d3290a550b884c5204b14e7f390df66403014bcba658f7019aa21d6d7f2f470.png" src="../_images/8d3290a550b884c5204b14e7f390df66403014bcba658f7019aa21d6d7f2f470.png" />
+<img alt="../_images/d7d40e87676a14b3637d18fd18ac2f91653cdd3ca6ca99afec6753727b2e34f3.png" src="../_images/d7d40e87676a14b3637d18fd18ac2f91653cdd3ca6ca99afec6753727b2e34f3.png" />
 </div>
 </div>
 <p>Now we make our predicted normal sampling distribution of the mean.</p>
@@ -756,18 +755,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7e9f24024adc8840b67a5fbd648204809867016bca169f683143df5959e5e349.png" src="../_images/7e9f24024adc8840b67a5fbd648204809867016bca169f683143df5959e5e349.png" />
+<img alt="../_images/88b2dc5d2fba7cf7990a80a4b5a7195388fa78e84a71e121f8b458c609db4862.png" src="../_images/88b2dc5d2fba7cf7990a80a4b5a7195388fa78e84a71e121f8b458c609db4862.png" />
 </div>
 </div>
 <p>This is not a bad match!</p>
 </section>
 <section id="how-unusual-is-my-sample-mean">
 <h2><span class="section-number">3.7.4. </span>How unusual is my sample mean?<a class="headerlink" href="#how-unusual-is-my-sample-mean" title="Link to this heading">#</a></h2>
-<p>Say we give the Brexdex questionnaire to 100 statistics undergraduates in Oxford, and their mean score is 55.1, as opposed to the mean in the UK national sample, 49.9. Can we infer that the students have different political attitude to the UK population as a whole?</p>
-<p>The sampling distribution of the mean tells us the distribution of sample means we expect to get if we draw samples from the parent population (the UK national sample)</p>
-<section id="using-the-simulated-sampling-distribution-of-the-mean">
-<h3>Using the simulated sampling distribution of the mean<a class="headerlink" href="#using-the-simulated-sampling-distribution-of-the-mean" title="Link to this heading">#</a></h3>
-<p>What proportion of sample means in our simulated sampling distribution exceeded 55.1?</p>
+<p>Suppose we give the BrexDex questionnaire to 100 statistics undergraduates at Oxford, and their mean score is 55.1, compared to the UK national mean of 49.9.</p>
+<p><em>Can we infer that the students have different political attitude to the UK population as a whole?</em></p>
+<p>The sampling distribution of the mean tells us what distribution of sample means we would expect if we repeatedly drew samples of the same size from the parent population (the UK national dataset).</p>
+<p>If the Oxford students’ mean is far out in the tail of this distribution, it would be considered unusual and might suggest their attitudes genuinely differ from those of the broader population, rather than being the result of random sampling variation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># regenerate the sampling distribubtion</span>
@@ -779,13 +777,37 @@ document.write(`
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nSamples</span><span class="p">):</span>
     <span class="n">sample</span> <span class="o">=</span> <span class="n">UKBrexdex</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">samplesize</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">sample</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;proportion of sample means greater than 55.1 = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">m</span><span class="o">&gt;</span><span class="mf">55.1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">+</span>  <span class="s1">&#39; or &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">m</span><span class="o">&gt;</span><span class="mf">55.1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">UKBrexdex</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">UKBrexdex</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">()],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span> <span class="c1"># add a line for the population mean</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">UKBrexdex</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="mi">610</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="s2">&quot;Parent Mean&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">55.1</span><span class="p">,</span> <span class="mf">55.1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">],</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">55.1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">610</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="s2">&quot;Oxford Mean&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;sample mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.0184 or 1.8399999999999999%
+<img alt="../_images/0b9590c37dc0b0e6ce4a84d6a23d4fd21803ae5f0b1acf2a09cf143f7c895724.png" src="../_images/0b9590c37dc0b0e6ce4a84d6a23d4fd21803ae5f0b1acf2a09cf143f7c895724.png" />
+</div>
+</div>
+<section id="using-the-simulated-sampling-distribution-of-the-mean">
+<h3>Using the simulated sampling distribution of the mean<a class="headerlink" href="#using-the-simulated-sampling-distribution-of-the-mean" title="Link to this heading">#</a></h3>
+<p>We can now ask:</p>
+<p><em>What proportion of sample means in our simulated sampling distribution are greater than 55.1?</em></p>
+<p>If this proportion is very small, it indicates that a mean as high as 55.1 would be rare under random sampling — giving us evidence that the Oxford students’ scores are significantly higher than those of the UK population.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;proportion of sample means greater than 55.1 = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">m</span><span class="o">&gt;</span><span class="mf">55.1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">+</span>  <span class="s1">&#39; or &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">m</span><span class="o">&gt;</span><span class="mf">55.1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.0165 or 1.6500000000000001%
 </pre></div>
 </div>
 </div>

@@ -643,13 +643,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="confidence-intervals">
 <h1><span class="section-number">3.9. </span>Confidence intervals<a class="headerlink" href="#confidence-intervals" title="Link to this heading">#</a></h1>
-<p>A 95% confidence interval is an interval around a sample mean with a width such that</p>
+<p>A 95% confidence interval is a range around a sample mean that reflects the uncertainty of our estimate.</p>
+<p>Formally it is defined such that:</p>
 <ul class="simple">
 <li><p>if we drew many independent samples (all of size n) from the parent distribution</p></li>
-<li><p>… and we drew an interval of that width around each sample mean</p></li>
+<li><p>… and we calculated an interval of that width around each sample mean</p></li>
 <li><p>… then 95% of those intervals would contain the <span class="math notranslate nohighlight">\(\mu\)</span>, the true mean of the parent population</p></li>
 </ul>
-<p>Another way of thinking about this is that for a single 95% confidence interval computed on a single sample, we (the researcher) have 95% confidence that that interval contains <span class="math notranslate nohighlight">\(\mu\)</span>, the true mean of the parent population</p>
+<p>Another way of thinking about it is:</p>
+<p>For any one 95% confidence interval calculated from a single sample, we can be 95% confident that this interval contains <span class="math notranslate nohighlight">\(\mu\)</span>, the true population mean.</p>
+<p>So the confidence interval gives us a plausible range of values for the population mean, based on our sample data. As you will see our confidence interval will be subject to sample size and sample variability.</p>
 <p>In this section we look at how we can construct confidence intervals.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">3.9.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
@@ -689,12 +692,12 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">mathsIQ_60</span><span class="o">.</span><span class="n">IQ</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">m</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(104.6)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>104.6
 </pre></div>
 </div>
 </div>
@@ -705,12 +708,12 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">mathsIQ_60</span><span class="o">.</span><span class="n">IQ</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">s</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(11.366319559953567)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.366319559953567
 </pre></div>
 </div>
 </div>
@@ -718,49 +721,55 @@ document.write(`
 </section>
 <section id="likelihood-of-a-reference-value">
 <h2><span class="section-number">3.9.3. </span>Likelihood of a reference value<a class="headerlink" href="#likelihood-of-a-reference-value" title="Link to this heading">#</a></h2>
-<p>Are A-level maths students smarter than average?</p>
-<p>The mean IQ in the general population is 100. We can ask how probable the observed sample mean (<span class="math notranslate nohighlight">\(m=104.6\)</span>) would be if the sample of 60 maths students really came from a population with mean <span class="math notranslate nohighlight">\(\mu=100\)</span> (or lower) and standard deviation estimated as <span class="math notranslate nohighlight">\(s\)</span>. This, conversely, gives us the likelihood that the true population mean was 100 or lower.</p>
+<p>Are A-level maths students <em>smarter</em> than average?</p>
+<p>The mean IQ in the general population is 100.</p>
+<p>We can ask: how probable the observed sample mean (<span class="math notranslate nohighlight">\(m=104.6\)</span>) would be if the sample of 60 maths students really came from a population with mean <span class="math notranslate nohighlight">\(\mu=100\)</span> (or lower) and standard deviation estimated as <span class="math notranslate nohighlight">\(s\)</span>. Equivalently this tells us how likely it is that the true population mean for maths students is 100 or lower.</p>
 <p>In our calculations we use the likelihood distribution that we calculated for the population mean <span class="math notranslate nohighlight">\(\mu\)</span> based on our sample:</p>
-<div class="math notranslate nohighlight">
-\[\mu \sim \mathcal{N}(m, \frac{s}{\sqrt{n}}) \]</div>
+<p><span class="math notranslate nohighlight">\(\mu \sim \mathcal{N}(m, \frac{s}{\sqrt{n}}) \)</span></p>
 <p>in this case:</p>
-<div class="math notranslate nohighlight">
-\[\mu \sim \mathcal{N}(104.6, \frac{11.4}{\sqrt{60}}) \]</div>
-<p>Thinking about this visually we have the following…</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png" style="width: 80%;" />
+<p><span class="math notranslate nohighlight">\(\mu \sim \mathcal{N}(104.6, \frac{11.4}{\sqrt{60}}) \)</span></p>
+<p>We can visualise this as :</p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_pIQ100.png" style="width: 60%;" />
 </a>
-<p>Note that the likelihood that <span class="math notranslate nohighlight">\(\mu \leq 100\)</span> is worked out from the likelihood distribution based on the sample (red curve).</p>
-<p>I also show the true sampling distribution fo the mean for lots of samples from the parent population (grey histogram) for comparison - note that if we had used a different sample, with a different value of <span class="math notranslate nohighlight">\(m\)</span>&lt;, we would get a different estimate of the probability that <span class="math notranslate nohighlight">\(\mu \leq 100\)</span></p>
+<p>In the plot:</p>
+<ul class="simple">
+<li><p>the red curve shows the likelihood distribution for <span class="math notranslate nohighlight">\(\mu\)</span> based on our sample. Remember, this represents how plausible different population means are, given this observed data</p></li>
+<li><p>The grey histogram shows the true sampling distribution of the mean for many samples drawn from the prarent population (for comparison)</p></li>
+</ul>
+<p>Note, if we had used a different sample, with a different value of <span class="math notranslate nohighlight">\(m\)</span>&lt;, we would get a different estimate of the probability that <span class="math notranslate nohighlight">\(\mu \leq 100\)</span></p>
 <section id="calculation-with-stats-norm-cdf">
 <h3>Calculation with <code class="docutils literal notranslate"><span class="pre">stats.norm.cdf()</span></code><a class="headerlink" href="#calculation-with-stats-norm-cdf" title="Link to this heading">#</a></h3>
-<p>We can then work out the exact probability using <code class="docutils literal notranslate"><span class="pre">stats.norm.cdf()</span></code>:</p>
+<p>We can now calculate the exact probability that <span class="math notranslate nohighlight">\(\mu \leq 100\)</span> using <code class="docutils literal notranslate"><span class="pre">stats.norm.cdf()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">60</span>
 <span class="n">SEM</span> <span class="o">=</span> <span class="n">s</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="c1"># percentage of time sample mean is expected to be less than 100 = </span>
-<span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">SEM</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">SEM</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.08597770891100479)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08597770891100479
 </pre></div>
 </div>
 </div>
 </div>
 <p>Apparently, the likelihood that the population mean IQ for A-level maths students is 100, is quite low: 0.085%</p>
 <ul class="simple">
-<li><p><strong>Note</strong> that if we are asking whether maths students are smarter than average, we thinking about the probability of getting the sample mean we observed if maths students as a whole have an average IQ (100) <em>or below average IQ&lt;100</em></p>
+<li><p><strong>Note</strong>, When we ask whether maths students are smarter than average, we’re really thinking about the probability of obtaining our observed sample mean if the true population mean were equal to or below the general population average (<span class="math notranslate nohighlight">\(\mu \leq 100\)</span>)
+There is a useful analogy here with the Blindsight example in the previous session:</p>
 <ul>
-<li><p>There is an analogy here with the Blindsight example in the previous session - we would conclude our patient was guessing if his performance was equal to <em>or better than</em> some criterion value which was unlikely due to chance.</p></li>
+<li><p>In that case, we would conclude our patient was guessing if his performance was equal to <em>or better than</em> some criterion value which would rarely occur by chance.</p></li>
+<li><p>In the same way, we conclude that maths student probably due obtain higher IQ score if their sample mean IQ is so high that it would be very unlikely to occur by chance under that alternative assumption that their true mean is 100 (or lower)</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="check-simulating-from-the-population">
 <h3>Check: Simulating from the population<a class="headerlink" href="#check-simulating-from-the-population" title="Link to this heading">#</a></h3>
-<p>Just for fun, here is a much larger sample of all the students taking maths A-level (30,000 individuals)</p>
+<p>Just for fun, here is a much larger (made up) sample of all the students taking maths A-level (30,000 individuals)</p>
 <p>Can you run a simulation to draw samples of size 60 from this dataset, get the mean of each one, and work out what percentage of sample means are indeed below 100?</p>
 <p>Hopefully it should match fairly well the prediction from the Central Limit Theorem!</p>
 <div class="cell docutils container">
@@ -789,15 +798,21 @@ document.write(`
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nReps</span><span class="p">):</span>
     <span class="n">sample</span> <span class="o">=</span> <span class="n">mathsIQ_30k</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">samplesize</span><span class="p">,</span><span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">sample</span><span class="o">.</span><span class="n">IQ</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Proportion of sample means &lt; 100 : &#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">m</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)))</span>
 
-<span class="nb">sum</span><span class="p">(</span><span class="n">m</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;IQ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sample means from parent distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0058)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Proportion of sample means &lt; 100 :  0.0062
 </pre></div>
 </div>
+<img alt="../_images/725f9ee159bc141e6f625181469112a11cade4e1eb21da952df1a38c17ddd300.png" src="../_images/725f9ee159bc141e6f625181469112a11cade4e1eb21da952df1a38c17ddd300.png" />
 </div>
 </div>
 <p>Hopefully the proportion of simulated sample means that are lower than 100 matches the prediction from the Central Limit Theorem - does it?</p>
@@ -806,7 +821,7 @@ document.write(`
 <section id="id1">
 <h2><span class="section-number">3.9.4. </span>Confidence intervals<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>The 95% confidence interval is the interval of the likelihood distribution that contains 95% of the area under the curve:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png" style="width: 80%;" />
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95.png" style="width: 60%;" />
 </a>
 <p>Therefore, a 95% confidence interval is an interval around a sample mean with a width such that for a single 95% confidence interval computed on a single sample, we (the researcher) have 95% confidence that that interval contains <span class="math notranslate nohighlight">\(\mu\)</span>, the true mean of the parent population</p>
 <p>Another way of thinking about this is that:</p>
@@ -822,14 +837,14 @@ document.write(`
 <ul class="simple">
 <li><p>note that <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(s\)</span> are different in each of the 100 samples</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png" style="width: 80%;" />
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_2.png" style="width: 60%;" />
 </a>
 <p>You can see that the position and width of the 95% CIs varies from sample to sample</p>
 <p>However, if I put the samples in order (from lowest sample mean to highest) you can see that indeed, the 95% CI does contain the true population mean <span class="math notranslate nohighlight">\(\mu\)</span> in about 95/100 cases - actually 96/100 as this is ia random simulation</p>
 <ul class="simple">
 <li><p>just a reminder that the population mean <span class="math notranslate nohighlight">\(\mu\)</span> is the mean IQ <em>of A-level maths students</em>, <strong>not</strong> the general-population mean of 100)</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png" style="width: 80%;" />
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/sampling_CI95_3.png" style="width: 60%;" />
 </a>
 <section id="the-magical-z-1-96">
 <h3>The magical <span class="math notranslate nohighlight">\(Z=1.96\)</span><a class="headerlink" href="#the-magical-z-1-96" title="Link to this heading">#</a></h3>

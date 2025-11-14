@@ -640,10 +640,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="changing-n-and-p">
 <h1><span class="section-number">2.6. </span>Changing <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#changing-n-and-p" title="Link to this heading">#</a></h1>
-<p>The binomial has two parameters, <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>, which together determine the probability of obtaining <span class="math notranslate nohighlight">\(k\)</span> hits:</p>
+<p>The binomial distribution has two main parameters:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span>: the number of trials (e.g., how many times we tossed the coin)</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span>: the probability of a “hit”</p></li>
+</ul>
+<p>Together these determine which together determine the probability of obtaining <span class="math notranslate nohighlight">\(k\)</span> hits:</p>
 <div class="math notranslate nohighlight">
 \[ k \sim \mathcal{B}(n,p) \]</div>
-<p>What happens to the frequency of each value of k, if we change the probability of a hit <span class="math notranslate nohighlight">\(p\)</span>, or the number of trials <span class="math notranslate nohighlight">\(n\)</span>?</p>
+<p>What happens to the frequency of each value of k, if we change the probability of a hit (<span class="math notranslate nohighlight">\(p\)</span>), or the number of trials (<span class="math notranslate nohighlight">\(n\)</span>)? We’ll explore this by sumulating binomial outcomes for different combinations of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span> and the plotting their distributions to see how the shape changes.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">2.6.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -667,7 +672,7 @@ document.write(`
 </section>
 <section id="p-probability-of-a-hit">
 <h2><span class="section-number">2.6.2. </span><span class="math notranslate nohighlight">\(p\)</span>, probability of a hit<a class="headerlink" href="#p-probability-of-a-hit" title="Link to this heading">#</a></h2>
-<p>Think back to our home-baked code to generate a random number with a probability <span class="math notranslate nohighlight">\(p\)</span> of being a hit:</p>
+<p>Think back to our home-baked code using randomly generated number <span class="math notranslate nohighlight">\(x\)</span> between 0 and 1, with a probability <span class="math notranslate nohighlight">\(p\)</span> of being a hit:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check if it is less than p - this should happen on a proportion of trials equal to p</span>
@@ -683,21 +688,22 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5139259613001461
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7754607989586383
 is it a hit?:            1
 </pre></div>
 </div>
 </div>
 </div>
-<p>If we change the value of <span class="math notranslate nohighlight">\(p\)</span>, this changes the proportion of our random <span class="math notranslate nohighlight">\(x\)</span>’s for which <span class="math notranslate nohighlight">\(x&lt;p\)</span> is true. Thhe histograms below show the values of 10,000 outputs from <code class="docutils literal notranslate"><span class="pre">np.random.uniform()</span></code>, with those that match the criterion <code class="docutils literal notranslate"><span class="pre">x&lt;p</span></code> highlighted in red</p>
+<p>If we change the value of <span class="math notranslate nohighlight">\(p\)</span>, this changes the <em>proportion</em> of our random <span class="math notranslate nohighlight">\(x\)</span>’s for which <span class="math notranslate nohighlight">\(x&lt;p\)</span> is true. The histograms below show the values of 10,000 outputs from <code class="docutils literal notranslate"><span class="pre">np.random.uniform()</span></code>, with those that match the criterion <code class="docutils literal notranslate"><span class="pre">x&lt;p</span></code> highlighted in red</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp7_pvsx.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp7_pvsx.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp7_pvsx.png" style="width: 95%;" />
 </a>
 <ul class="simple">
 <li><p>can you see why we used <span class="math notranslate nohighlight">\(x&lt;p\)</span> as a ‘hit’, rather than <span class="math notranslate nohighlight">\(x&gt;p\)</span>?</p></li>
 </ul>
+<p>When we use <span class="math notranslate nohighlight">\(x&lt;p\)</span>, increasing <span class="math notranslate nohighlight">\(p\)</span> makes the red region (and the proportion of hits) larger, which is exactly what we expect when the probability of a hit increases. If we used <span class="math notranslate nohighlight">\(x&gt;p\)</span> increasing <span class="math notranslate nohighlight">\(p\)</span> would acutally correspond to increasing our probability of a <em>miss</em>. This is confusing, and unintuitive so we stick with <span class="math notranslate nohighlight">\(x&lt;p\)</span></p>
 <section id="distribution-of-k-depends-on-p">
 <h3>Distribution of <span class="math notranslate nohighlight">\(k\)</span> depends on <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#distribution-of-k-depends-on-p" title="Link to this heading">#</a></h3>
-<p>But how does changing <span class="math notranslate nohighlight">\(p\)</span> affect the values of <span class="math notranslate nohighlight">\(k\)</span> we see, when <span class="math notranslate nohighlight">\(k\)</span> is the <em>number of hits</em> out of <span class="math notranslate nohighlight">\(n\)</span> trials (<span class="math notranslate nohighlight">\(n\)</span> coin tosses etc)?</p>
+<p>So far we’ve seen how changing <span class="math notranslate nohighlight">\(p\)</span> affects the chance of a single hit. But how does it affect the distribution of <span class="math notranslate nohighlight">\(k\)</span>, where <span class="math notranslate nohighlight">\(k\)</span> is the <em>number of hits</em> out of <span class="math notranslate nohighlight">\(n\)</span> trials (<span class="math notranslate nohighlight">\(n\)</span> coin tosses etc)?</p>
 <p>Here is the code for the simulation again, now with <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span> coded as variables rather than <em>hard coded</em> as 10 and 0.5</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -713,7 +719,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7ac0a0d4f1ee93ed83cf8b0f6742a24767f7a4804721030883cd1e43c3d7952c.png" src="../_images/7ac0a0d4f1ee93ed83cf8b0f6742a24767f7a4804721030883cd1e43c3d7952c.png" />
+<img alt="../_images/231e4256d4be5046d3a730e48092bd9ffdb3b9f952227696050bf9ce2a1dd208.png" src="../_images/231e4256d4be5046d3a730e48092bd9ffdb3b9f952227696050bf9ce2a1dd208.png" />
 </div>
 </div>
 <p>What if we change <span class="math notranslate nohighlight">\(p\)</span> to be 0.7 instead?</p>
@@ -734,7 +740,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d87fe4ab250cfa7130da335f9d81061a230dd558ed1a323366243aa776f828ad.png" src="../_images/d87fe4ab250cfa7130da335f9d81061a230dd558ed1a323366243aa776f828ad.png" />
+<img alt="../_images/988bf6f13f05cf4ca741782d65bdc48266f192e9920379abb0c5bd82b28a835a.png" src="../_images/988bf6f13f05cf4ca741782d65bdc48266f192e9920379abb0c5bd82b28a835a.png" />
 </div>
 </div>
 <p>You should notice after modifying the simulation so that <span class="math notranslate nohighlight">\(p=0.7\)</span>:</p>
@@ -747,9 +753,10 @@ is it a hit?:            1
 </section>
 <section id="mean-of-k">
 <h2><span class="section-number">2.6.3. </span>Mean of <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#mean-of-k" title="Link to this heading">#</a></h2>
-<p>The <em>expected value</em> of <span class="math notranslate nohighlight">\(k\)</span>, ie the mean of <span class="math notranslate nohighlight">\(k\)</span> over many repetitions, is given by</p>
+<p>The <em>expected value</em> of <span class="math notranslate nohighlight">\(k\)</span>, that is, the mean of <span class="math notranslate nohighlight">\(k\)</span> over many repetitions, is represented as :</p>
 <div class="math notranslate nohighlight">
 \[ E(k) = np \]</div>
+<p>This tells us if we repeat the experiment many times, the average number of hits we get will be equal to the number of trials <span class="math notranslate nohighlight">\(n\)</span> multipled by the probability of a hit <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>In the following code block, we generate 10000 random samples from the binomial distribution <span class="math notranslate nohighlight">\(k \sim \mathcal{B}(n,p)\)</span> and find their mean; we compare it to the value of the mean from the equation, <span class="math notranslate nohighlight">\(np\)</span>.</p>
 <p>Hopefully it should match!</p>
 <div class="cell docutils container">
@@ -760,14 +767,14 @@ is it a hit?:            1
 
 <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">nReps</span><span class="p">)</span>
     
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean(k) = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;np = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean(k) = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n*p = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean(k) = 7.0007
-np = 7.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean(k) = 7.0024
+n*p = 7.0
 </pre></div>
 </div>
 </div>
@@ -789,24 +796,27 @@ np = 7.0
 <span class="c1"># the argument &#39;order&#39; is doing a similar job to &#39;bins&#39; in a histogram</span>
 <span class="c1"># here I am forcing sns to plot all the possible values of k from 0 to 100, </span>
 <span class="c1"># even though some of them didn&#39;t occur in the simulation</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a901609c7561bff1367bcf67628b6534f7f161556f7a8069a1535903e15f3b0e.png" src="../_images/a901609c7561bff1367bcf67628b6534f7f161556f7a8069a1535903e15f3b0e.png" />
+<img alt="../_images/25f0896274385d9eb7609c01a9f7845173b96637795d5a4bc4363f113b82c900.png" src="../_images/25f0896274385d9eb7609c01a9f7845173b96637795d5a4bc4363f113b82c900.png" />
 </div>
 </div>
-<p>We can see that the peak of the histogram is where we expect (the most common value of <span class="math notranslate nohighlight">\(k\)</span> is 50, <span class="math notranslate nohighlight">\(np\)</span>) but the spread of the histogram is narrower, compared to the range of possible values for <span class="math notranslate nohighlight">\(k\)</span> (0 to <span class="math notranslate nohighlight">\(n\)</span>) than when <span class="math notranslate nohighlight">\(n\)</span> was lower</p>
+<p>We can see that the peak of the histogram is where we expect (the most common value of <span class="math notranslate nohighlight">\(k\)</span> is around 50, which matches the theoretical mean <span class="math notranslate nohighlight">\(np\)</span>). However, notice that the spread of the histogram is now narrower relative to the possible range of <span class="math notranslate nohighlight">\(k\)</span> (i.e., from 0 to <span class="math notranslate nohighlight">\(n\)</span>) compared to when our value of $n was smaller.</p>
+<p>In other words, as the number of trials increases, the propotion of hits (i.e., <span class="math notranslate nohighlight">\(k\)</span>/<span class="math notranslate nohighlight">\(n\)</span>) tends to stay closer to the expected probability <span class="math notranslate nohighlight">\(p\)</span>. The distribution of <span class="math notranslate nohighlight">\(k\)</span> still grows in absolute wids (since the variance increases with <span class="math notranslate nohighlight">\(n\)</span>) but it becomes tighter in proportion to the total number of trials. This reflects the idea that the larger samples produce more stable averages.</p>
 </section>
 <section id="standard-deviation-of-k">
 <h2><span class="section-number">2.6.5. </span>Standard deviation of <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#standard-deviation-of-k" title="Link to this heading">#</a></h2>
-<p>The standard deviation of <span class="math notranslate nohighlight">\(k\)</span> (or its expected standard deviation over many repetitions of 10 coin tosses) is given by</p>
+<p>The standard deviation of <span class="math notranslate nohighlight">\(k\)</span>, that is, the typical amount of variation in the number of hits across many repetitions of our experiment is givent by:</p>
 <div class="math notranslate nohighlight">
 \[ std(k) = \sqrt{npq} \]</div>
 <p>… where <span class="math notranslate nohighlight">\(q = (1-p)\)</span></p>
-<p>In the following code block, we generate 10000 random samples from the binomial distribution <span class="math notranslate nohighlight">\(k \sim \mathcal{B}(n,p)\)</span> and find their standard deviation; we compare it to the expected value of the standard deviation, <span class="math notranslate nohighlight">\(\sqrt{npq}\)</span>.</p>
+<p>This formula tells us how much variability we should expect in the number of hits <span class="math notranslate nohighlight">\(k\)</span> over repeated sets of <span class="math notranslate nohighlight">\(n\)</span> trials. When <span class="math notranslate nohighlight">\(n\)</span> is larger, the absolute spread of <span class="math notranslate nohighlight">\(k\)</span> increases, but as a proportion of <span class="math notranslate nohighlight">\(n\)</span>, it becomes relatively smaller, meaning outcomes are more stable.</p>
+<p>In the following code block, we generate 10000 random samples from the binomial distribution <span class="math notranslate nohighlight">\(k \sim \mathcal{B}(n,p)\)</span> and find their standard deviation; we compare it to the expected value of the standard deviation from the equation above.</p>
 <p>Hopefully it should match!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,7 +832,7 @@ np = 7.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>std(k) = 4.965758462712419
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>std(k) = 5.007213547473285
 sqrt(npq) = 5.0
 </pre></div>
 </div>
@@ -831,15 +841,47 @@ sqrt(npq) = 5.0
 </section>
 <section id="standard-deviation-of-k-n">
 <h2><span class="section-number">2.6.6. </span>Standard deviation of <span class="math notranslate nohighlight">\(k/n\)</span><a class="headerlink" href="#standard-deviation-of-k-n" title="Link to this heading">#</a></h2>
-<p>We noted above that that spread of the distribution of <span class="math notranslate nohighlight">\(k\)</span>, as a proportion of the range of possible values <span class="math notranslate nohighlight">\((0:n)\)</span> decreased as <span class="math notranslate nohighlight">\(n\)</span> increased, in other words that the chance of getting a high or low proportion of hits due to chance decreases when <span class="math notranslate nohighlight">\(n\)</span> is high (this was discussed in the lecture)</p>
-<p>The proportion of hits is <span class="math notranslate nohighlight">\(k/n\)</span> and its standard deviation is given by</p>
+<p>We noted above that that spread of the distribution of <span class="math notranslate nohighlight">\(k\)</span>, as a proportion of the range of possible values <span class="math notranslate nohighlight">\((0-n)\)</span> decreased as <span class="math notranslate nohighlight">\(n\)</span> increased.</p>
+<p>In other words, when we have a larger number of trials the probability of observing unusually high or low proporition of hits purely by chance becomes smaller.</p>
+<p>The proportion of hits is <span class="math notranslate nohighlight">\(k/n\)</span> and its standard deviation (the expected variability in this proportion) is:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\sqrt{pq}}{\sqrt{n}} \]</div>
 <p>where <span class="math notranslate nohighlight">\( q = (1-p) \)</span></p>
 <p>This has the interesting consequence that <b>for a given value of p, the standard deviation of the proportion of hits is proprtional to <span class="math notranslate nohighlight">\(\frac{1}{\sqrt(n)}\)</span> </b></p>
-<p>In other words, as <span class="math notranslate nohighlight">\(n\)</span> increases, the proportion of hits I get in a single ‘repetition’ of the experiment (a single set of 10 coin tosses in our example) conforms more closely to the true value of <span class="math notranslate nohighlight">\(p\)</span>, the probability of a hit -</p>
-<p>in other words, my estimate of <span class="math notranslate nohighlight">\(p\)</span> gets better</p>
-<p>but only in proportion to <span class="math notranslate nohighlight">\(\sqrt{n}\)</span></p>
+<p>In other words, as <span class="math notranslate nohighlight">\(n\)</span> increases, the proportion of hits I observe in a single ‘repetition’ of the experiment (for example, one set of 10 coin tosses) conforms more closely to the true value of <span class="math notranslate nohighlight">\(p\)</span>, the probability of a hit -</p>
+<p>Put simply, our estimate of <span class="math notranslate nohighlight">\(p\)</span> gets more accurate as we increase the number of trials, but the improvement follows a square-root law: the precision increases only in proportion to <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> (i.e., not linearly with <span class="math notranslate nohighlight">\(n\)</span>).</p>
+<p>Below, we will plot the propotion of hits for different sample sizes to see how our estimate of <span class="math notranslate nohighlight">\(p\)</span> changes as a function of <span class="math notranslate nohighlight">\(n\)</span>. You will see that the spread becomes more narrow for larger values of<span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>    <span class="o">=</span> <span class="mf">0.5</span>           <span class="c1"># probability of a hit</span>
+<span class="n">ns</span>   <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]</span>  <span class="c1"># different sample sizes to compare</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span>      <span class="c1"># number of simulated experiments</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span>
+    <span class="c1"># simulate number of hits k for each experiment</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+    
+    <span class="c1"># calculate proportion of hits so that this remains on the same scale</span>
+    <span class="n">prop</span> <span class="o">=</span> <span class="n">k</span> <span class="o">/</span> <span class="n">n</span>
+    
+    <span class="c1"># plot histogram (as density) for each n</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True p&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Proportion of hits (k/n)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of observed proportion of hits for different n&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4ae0ef4d19a3a7d89d6150f0bbc327fb1e1a0e1ded272d26ef412fece2bf10d2.png" src="../_images/4ae0ef4d19a3a7d89d6150f0bbc327fb1e1a0e1ded272d26ef412fece2bf10d2.png" />
+</div>
+</div>
 </section>
 </section>
 
