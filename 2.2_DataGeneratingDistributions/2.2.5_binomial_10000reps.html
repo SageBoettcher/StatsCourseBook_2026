@@ -638,11 +638,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="repeat-the-simulation">
 <h1><span class="section-number">2.5. </span>Repeat the simulation<a class="headerlink" href="#repeat-the-simulation" title="Link to this heading">#</a></h1>
-<p>In the last section you simulated 10 coin tosses and you may or may not have obtained 5 heads (you may have obtained slightly more or fewer than 5).</p>
-<p>So far so good.</p>
-<p>What if we would like to quantify how often we get a particular number of heads from 10 coin tosses, ie <span class="math notranslate nohighlight">\(k=0,1,2....5.....9,10\)</span>?</p>
-<p>To answer this we need to run our ‘ experiment’ (get 10 coin tosses and count the heads) not once, but lots of times.</p>
-<p>The computer can easily do this in a few milliseconds, even though it would take us ages with a real coin.</p>
+<p>In the last section, you simulated 10 coin tosses and counted how many times you got heads.
+You might have obtained exactly 5 heads, or perhaps slightly more or fewer. This is normal as we were simulating a fair coin.</p>
+<p>So far, so good.</p>
+<p>But what if we want to quantify how often each possible outcome occurs?
+In other words, how often do we get <span class="math notranslate nohighlight">\(k = 0, 1, 2, \dots, 5, \dots, 9, 10\)</span> heads out of 10 tosses?</p>
+<p>To answer that, we need to run our <em>experiment</em> (tossing the coin 10 times and counting the number of heads) not just once, but lots of times.</p>
+<p>Fortunately, the computer can easily do this thousands of times in a few milliseconds.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">2.5.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -666,8 +668,10 @@ document.write(`
 </section>
 <section id="times-10-coin-tosses">
 <h2><span class="section-number">2.5.2. </span>10,000 times 10 coin tosses<a class="headerlink" href="#times-10-coin-tosses" title="Link to this heading">#</a></h2>
-<p>We are going to simulate tossing the coin 10 times and counting how many head we get, 10,000 times over. This will give us a sense of the frequency of each different outcome (0 heads, 1 head, 2 heads…. 10 heads)</p>
-<p>We could use a loop to repeat our 10-coin-toss ‘experiment’ 10,000 times and each time record the value of <span class="math notranslate nohighlight">\(k\)</span>, the number of heads</p>
+<p>We’re now going to simulate tossing the coin 10 times and counting how many heads we get, not just once, but 10,000 times in total. This will give us a clear picture of how frequently each possible outcome occurs:
+0 heads, 1 head, 2 heads … all the way up to 10 heads.</p>
+<p>In principle, we could write a loop to repeat our 10-coin-toss “experiment” 10,000 times, recording the value of <span class="math notranslate nohighlight">\(k\)</span> (the number of heads) each time.</p>
+<p>Below we use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to cycle through our 10000 trials where on each iteration we <code class="docutils literal notranslate"><span class="pre">flip</span></code> 10 coins using <code class="docutils literal notranslate"><span class="pre">np.random.binomial</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nReps</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -676,11 +680,18 @@ document.write(`
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)):</span> <span class="c1"># we are going to simlulte 10,000 repeats of 10 coin tosses</span>
     <span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/cbfbfb0152242a42cf93e9dbda2d750f11ce9aa2027d72e92f0100f1793d3bc5.png" src="../_images/cbfbfb0152242a42cf93e9dbda2d750f11ce9aa2027d72e92f0100f1793d3bc5.png" />
 </div>
-<p>In fact, we can use the <code class="docutils literal notranslate"><span class="pre">size</span></code> argument to generate 10,000 values of <span class="math notranslate nohighlight">\(k\)</span> for <span class="math notranslate nohighlight">\(n=10\)</span> and <span class="math notranslate nohighlight">\(p=0.5\)</span>, in a single step:</p>
+</div>
+<p>In fact, we can even further simplify this process by again using the <code class="docutils literal notranslate"><span class="pre">size</span></code> argument to generate 10,000 values of <span class="math notranslate nohighlight">\(k\)</span> for <span class="math notranslate nohighlight">\(n=10\)</span> and <span class="math notranslate nohighlight">\(p=0.5\)</span>, in a single step:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
@@ -688,14 +699,14 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The reason for showing how we would do this in a loop is that if you wanted to later generate data from some other distribution, you might not have a handy built-in function to help you so would need to use a loop.</p>
+<p>We demonstrate how this can be achieved using a loop because it is not always the case that you have a handy built-in function for generating the data from the distribution you want. In these cases you will need to rely on a loop.</p>
 <section id="frequency-of-each-value-of-k">
 <h3>Frequency of each value of <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#frequency-of-each-value-of-k" title="Link to this heading">#</a></h3>
 <p>OK, now we have an array with 10,000 entries showing how many heads we got out of 10 coin tosses, in each of 10,000 repeats.</p>
 <ul class="simple">
 <li><p><strong>Remember:</strong> one repeat or <em>rep</em> is one round of 10 coin tosses; the outcome for each <em>rep</em> is a value <em>k</em> (between 0 and 10), which is the number of ‘heads’.</p></li>
 </ul>
-<p>To summarize the outcomes of these 10,000 reps, we can use <code class="docutils literal notranslate"><span class="pre">sns.countplot()</span></code> to plot the frequencies of each value of <span class="math notranslate nohighlight">\(k\)</span></p>
+<p>To summarize the outcomes of these 10,000 reps, we can use <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code> like above or <code class="docutils literal notranslate"><span class="pre">sns.countplot()</span></code> like below to plot the frequencies of each value of <span class="math notranslate nohighlight">\(k\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">k</span><span class="p">)</span> 
@@ -704,7 +715,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/58351f7111bfeb7eeca498bff6626bf6f88b7bc408c0e915af69833e66d61be7.png" src="../_images/58351f7111bfeb7eeca498bff6626bf6f88b7bc408c0e915af69833e66d61be7.png" />
+<img alt="../_images/1d9e1d0aac11cef07ba424f21e54f6ea29f473afbd9d120a19a74f6572b26f0c.png" src="../_images/1d9e1d0aac11cef07ba424f21e54f6ea29f473afbd9d120a19a74f6572b26f0c.png" />
 </div>
 </div>
 <p>We can see that</p>
@@ -716,20 +727,17 @@ document.write(`
 </section>
 <section id="probability-of-exactly-8-heads">
 <h3>Probability of exactly 8 heads<a class="headerlink" href="#probability-of-exactly-8-heads" title="Link to this heading">#</a></h3>
-<p>All the values of <span class="math notranslate nohighlight">\(k\)</span> for the 10000 repeats of the experiemnt are stored in the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
-<p>We can work out the probability of obtaining exactly 8 heads, as follows:</p>
+<p>All the values of <span class="math notranslate nohighlight">\(k\)</span> for the 10000 repeats of the experiemnt are stored in the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array <code class="docutils literal notranslate"><span class="pre">k</span></code>. So that means any given index of k is a value between 0 and 10. you could print out the first five values using <code class="docutils literal notranslate"><span class="pre">print(k[:5])</span></code></p>
+<p>For every value in k we can check whether it is equal to 8 using the statement <code class="docutils literal notranslate"><span class="pre">k==8</span></code>. Remember this will return a list of Boolean values for every value in k. Specifically we will get <code class="docutils literal notranslate"><span class="pre">True</span></code> when that value equals 8 and <code class="docutils literal notranslate"><span class="pre">False</span></code> when it does not. If we take the mean of this Boolean array Python will treat <code class="docutils literal notranslate"><span class="pre">True</span></code> as 1 and <code class="docutils literal notranslate"><span class="pre">False</span></code> as 0 so the result is the proportion of all 10000 trials in which we obtained exactly 8 heads from the 10 tosses.</p>
+<p><em>Note: <code class="docutils literal notranslate"><span class="pre">np.mean(k==8)</span></code> would be equivalent to <code class="docutils literal notranslate"><span class="pre">sum(k==8)</span> <span class="pre">/</span> <span class="pre">len(k)</span></code></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">k</span><span class="o">==</span><span class="mi">8</span><span class="p">)</span>
-<span class="c1"># remember, k is a list of 10,000 values of k from our 10,000 reps</span>
-<span class="c1"># the code (k==8) turns this list into 1 (for reps where k==8) and 0 (elsewhere)</span>
-<span class="c1"># sum(k==8) would therefore count the number of times k==8</span>
-<span class="c1"># np.mean(k==8) is the same as sum(k==8)/len(k)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">k</span><span class="o">==</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0413)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0425
 </pre></div>
 </div>
 </div>
@@ -738,20 +746,22 @@ document.write(`
 </section>
 <section id="probability-of-at-least-8-heads">
 <h3>Probability of at least 8 heads<a class="headerlink" href="#probability-of-at-least-8-heads" title="Link to this heading">#</a></h3>
-<p>We might be interested in the probability of obtaining some value <em>or higher</em> of <span class="math notranslate nohighlight">\(k\)</span> - for example, what is the chance of getting 8 or more heads from a fair coin?</p>
+<p>You might not just be interested in one specific outcome, but instead in the probability of obtaining a value of k that is equal or greater tahn a certain threshold. For example, what is the cahnge of getting 8 <em>or more</em> heads out of the 10 tosses of a fair coin.</p>
+<p>For this we can use the same trick as above - transform our <span class="math notranslate nohighlight">\(k\)</span> array into a Boolean array, and calculate the mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">k</span><span class="o">&gt;=</span><span class="mi">8</span><span class="p">)</span><span class="o">/</span><span class="n">nReps</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">k</span><span class="o">&gt;=</span><span class="mi">8</span><span class="p">))</span>
+<span class="c1">#sum(k&gt;=8)/len(k)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0522)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0531
 </pre></div>
 </div>
 </div>
 </div>
-<p>… 5.5%</p>
+<p>… ~ 5.5%</p>
 </section>
 </section>
 </section>

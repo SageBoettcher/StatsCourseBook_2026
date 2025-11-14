@@ -634,10 +634,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sample-vs-population">
 <h1><span class="section-number">3.5. </span>Sample vs population<a class="headerlink" href="#sample-vs-population" title="Link to this heading">#</a></h1>
-<p>As researchers, we aim to find answers that are true <em>in general</em> or <em>for everybody</em>.</p>
-<p>For example, <em>Do taller people earn more? Do people taking a certain drug have fewer panic attacks? Do neurons fire faster in the presence of a certain neuromodulator?</em></p>
-<p>To answer these questions, we cannot measure the heights and earnings of all workers, monitor all patients or record all neurons in the brain. Instead we measure a <em>sample</em> of workers/ pateints/ neurons and try to generalize or <em>infer</em> something about the population from this sample.</p>
-<p>To understand this process it is important to understand the relationship between sample and population. Using the computer, we can explore this relationship by taking a large ‘parent’ dataset (similar to the population) and repeatedly drawing samples from it.</p>
+<p>As researchers, we aim to discover patterns or relationships that are true <em>in general</em>, that is, for a <em>wider population</em></p>
+<p>For example:</p>
+<ul class="simple">
+<li><p><em>Do taller people earn more?</em></p></li>
+<li><p><em>Do people taking a certain drug have fewer panic attacks?</em></p></li>
+<li><p><em>Do neurons fire faster in the presence of a certain neuromodulator?</em></p></li>
+</ul>
+<p>To answer questions like these, its rarely possible (or practical) to measure everyone in a population (e.g., we cannot measure the heights and earnings of all workers). Instead we measure a <em>sample</em> of workers/ pateints/ neurons and try to generalize or <em>infer</em> something about the population from this sample. A sample, is a smaller group drawn from the original population of interest.</p>
+<p>Understanding the relationship between a sample and the population it comes from is one of the most important ideas in statistics. To help us, we can explore this relationship by taking a large ‘parent’ dataset (similar to the population) and repeatedly drawing samples from it.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">3.5.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -661,10 +666,10 @@ document.write(`
 </section>
 <section id="load-and-plot-the-data">
 <h2><span class="section-number">3.5.2. </span>Load and plot the data<a class="headerlink" href="#load-and-plot-the-data" title="Link to this heading">#</a></h2>
-<p>We will work with a distinctly non-normal data distribution - scores on a fictional 100-item political questionairre called BrexDex, from UK residents who were adults at the time of Brexit in 2016.</p>
-<p>The questions are designed and scored so that a high score overall score on the questionairre indicates an attitude agains Brexit, and a low score indicates an attitude in favour of Brexit.</p>
-<p>Because the scores relate to a polarizing topic, the data distribution is bimodal.</p>
-<p>A datafile is provided containing 10,000 individuals scores on BrexDex. This dataset is the <em>parent</em> dataset - we are going to simulate sampling from the whole population (roughly, all UK adults) by sampling from these 10,000 datapoints.</p>
+<p>In this section, we’ll work with a dataset that has a distinctly non-normal distribution. Specifically, looking at scores from a fictional 100-item political questionnaire called BrexDex, completed by UK residents who were adults at the time of Brexit (2016).</p>
+<p>The questions are designed and scored so that a high score overall score on the questionnaire indicates an attitude against Brexit, and a low score indicates an attitude in favour of Brexit.</p>
+<p>Because the scores relate to a polarizing topic, the data distribution is bimodal. In otherwords, we will find two-peaks - one at the low end and one at the high end of the scale - rather then a bell-shaped curve. This pattern suggests most respondents hold strong opions either for or against Brexit, with relatively few people taking a more neutral position</p>
+<p>We’ll use a data file containing scores from 10,000 individuals on the BrexDex questionnaire. This dataset represents our parent population and we will practice simulating the process of sampling from that wider population by drawing repeated samples from these 10,000 data points.</p>
 <p>First load the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -772,13 +777,13 @@ document.write(`
 <img alt="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" src="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" />
 </div>
 </div>
-<p>The dataset (10,000 responses) is large enough that we can assume the distribution is quite representative of the populationa as a whole.</p>
-<p>What kind of distribution of responses would we expect to get in a sample of 100?</p>
+<p>The dataset (10,000 responses) is large enough that we can assume the distribution is fairly representative of the populationa as a whole.</p>
+<p>Now let’s think about what kind of distribution we might expect to see if we take a sample of 100 people from this population</p>
 </section>
 <section id="the-sample-distribution-resembles-the-parent-distribution">
 <h2><span class="section-number">3.5.3. </span>The sample distribution resembles the parent distribution<a class="headerlink" href="#the-sample-distribution-resembles-the-parent-distribution" title="Link to this heading">#</a></h2>
-<p>Let’s see what happens if we draw a random sample of 100 from our national dataset.</p>
-<p>We can do this using the tool <code class="docutils literal notranslate"><span class="pre">df.sample()</span></code> which makes a random selection of datapoints from a larger dataset:</p>
+<p>Let’s find out by drawing a random sample of <span class="math notranslate nohighlight">\(n=100\)</span> from our original dataset.</p>
+<p>We can do this using the tool <code class="docutils literal notranslate"><span class="pre">df.sample()</span></code> which makes a random selection of datapoints from a larger dataset. We can save this sample into a new dataframe called <code class="docutils literal notranslate"><span class="pre">sample</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">UKBrexdex</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -811,29 +816,29 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>5550</th>
-      <td>224630</td>
-      <td>74</td>
+      <th>9901</th>
+      <td>774360</td>
+      <td>39</td>
     </tr>
     <tr>
-      <th>6149</th>
-      <td>837590</td>
-      <td>75</td>
+      <th>5797</th>
+      <td>582690</td>
+      <td>28</td>
     </tr>
     <tr>
-      <th>9340</th>
-      <td>712600</td>
-      <td>33</td>
+      <th>7275</th>
+      <td>128180</td>
+      <td>85</td>
     </tr>
     <tr>
-      <th>3152</th>
-      <td>833410</td>
+      <th>5288</th>
+      <td>770800</td>
       <td>10</td>
     </tr>
     <tr>
-      <th>5134</th>
-      <td>870880</td>
-      <td>21</td>
+      <th>3900</th>
+      <td>587720</td>
+      <td>24</td>
     </tr>
     <tr>
       <th>...</th>
@@ -841,29 +846,29 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>5831</th>
-      <td>859930</td>
-      <td>41</td>
+      <th>5291</th>
+      <td>234610</td>
+      <td>37</td>
     </tr>
     <tr>
-      <th>2584</th>
-      <td>211890</td>
+      <th>8482</th>
+      <td>130600</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>4903</th>
+      <td>331700</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>9209</th>
+      <td>331900</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>5529</th>
+      <td>884390</td>
       <td>38</td>
-    </tr>
-    <tr>
-      <th>8360</th>
-      <td>184500</td>
-      <td>73</td>
-    </tr>
-    <tr>
-      <th>3179</th>
-      <td>979490</td>
-      <td>78</td>
-    </tr>
-    <tr>
-      <th>6708</th>
-      <td>346340</td>
-      <td>20</td>
     </tr>
   </tbody>
 </table>
@@ -871,7 +876,7 @@ document.write(`
 </div></div></div>
 </div>
 <p>Note that this new dataframe, <code class="docutils literal notranslate"><span class="pre">sample</span></code>, has 100 rows rather than 10,000.</p>
-<p>Let’s plot the data and compare to our national sample:</p>
+<p>Let’s plot the sample (below) and compare to our original data (above):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -889,14 +894,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/37dbd1f447c98f246b4a57016fda33867401afc874bb5ed538364033fc343827.png" src="../_images/37dbd1f447c98f246b4a57016fda33867401afc874bb5ed538364033fc343827.png" />
+<img alt="../_images/5a3b409ed981740e267859c751d64b4784c162c8a34edfd3d7da06af1c2ae2fd.png" src="../_images/5a3b409ed981740e267859c751d64b4784c162c8a34edfd3d7da06af1c2ae2fd.png" />
 </div>
 </div>
 <p>Hopefully we can see that the distribution within the sample resembles the shape of the distribution in the national sample, with two peaks, although somewhat noisier</p>
 <p>Let’s draw a few more random samples, each time of size 100, to check that this relationship is reliable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
     <span class="n">sample</span> <span class="o">=</span> <span class="n">UKBrexdex</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -908,7 +913,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7e5d466956a13efce91022208c3456de6f9f44c8bce720f692bb9d7725e538ec.png" src="../_images/7e5d466956a13efce91022208c3456de6f9f44c8bce720f692bb9d7725e538ec.png" />
+<img alt="../_images/aae2f35824caa97ea05c510d4389b4f8385e6231ad44e08fcc461bc31990f6b8.png" src="../_images/aae2f35824caa97ea05c510d4389b4f8385e6231ad44e08fcc461bc31990f6b8.png" />
 </div>
 </div>
 <p>Notice that we always manage to reproduce the bimodal shape, albeit with random variability.</p>
@@ -916,7 +921,7 @@ document.write(`
 <p>This is true even if the sample size gets small. Let’s try the same thing for samples of size <span class="math notranslate nohighlight">\(n=20\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
     <span class="n">sample</span> <span class="o">=</span> <span class="n">UKBrexdex</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -930,7 +935,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0d9bbae1516bab3022a8525ed2f919326393d03b335a5a1626b1d61c0d25a0ec.png" src="../_images/0d9bbae1516bab3022a8525ed2f919326393d03b335a5a1626b1d61c0d25a0ec.png" />
+<img alt="../_images/6f2032600cb6c69b96c7d74f5b0fc3e0e8e2fad48683a97fed980a511a7c99d1.png" src="../_images/6f2032600cb6c69b96c7d74f5b0fc3e0e8e2fad48683a97fed980a511a7c99d1.png" />
 </div>
 </div>
 <p>You can see two things:</p>
@@ -952,7 +957,7 @@ document.write(`
         <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># note I manually changed the smoothing of the KDE plot - this is a bit tangential to the point of the exercise though so don&#39;t get distracted by it</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">])</span>
-        <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">UKBrexdex</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>   
+        <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">UKBrexdex</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>   
         <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;n = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">samplesize</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -961,7 +966,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/426e922d17db2f736e8c865280414874de3538b3600a131ed9d7b9abdd8535c1.png" src="../_images/426e922d17db2f736e8c865280414874de3538b3600a131ed9d7b9abdd8535c1.png" />
+<img alt="../_images/3e61b3dd974602eea2e2c72c6adadd5a0181f004e46447ac07c7d20b893f01c5.png" src="../_images/3e61b3dd974602eea2e2c72c6adadd5a0181f004e46447ac07c7d20b893f01c5.png" />
 </div>
 </div>
 </section>

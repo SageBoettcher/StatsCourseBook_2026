@@ -643,9 +643,13 @@ document.write(`
 <h1><span class="section-number">3.4. </span>Sampling with and without replacement<a class="headerlink" href="#sampling-with-and-without-replacement" title="Link to this heading">#</a></h1>
 <p>This notebook introduces the idea of sampling and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function <code class="docutils literal notranslate"><span class="pre">df.sample()</span></code></p>
 <p>When we <em>sample</em> from a population or parent distribution, we can do so with or without replacement.</p>
-<p>Sampling <em>without</em> replacement is what we usually do when running an experiment or survey. A real world example of sampling without replacement would be if we give 100 students a wellbeing questionairre - each student in our sample is a member of the parent distribution (all students/ allstudents in the college we were sampling from etc). We will only want to survey each student once.</p>
-<p>Sampling <em>with</em> replacement is often a good way to model random events. A real world of example of sampling with replacement is rolling a dice. Each diceroll yeilds an outcome (1-6) that is a sample from an infinite selection of possible outcomes - if I roll a three on one turn, I don’t ‘use up’ the three - it is still possible to roll a three on the next turn.</p>
-<p>A direct comparison would be drawing cards from a deck. Without replacement, each card once drawn is set aside, so it is impossible to draw the same card twice. With replacement, each card is tucked back into the deck after being drawn, so it can be drawn again.</p>
+<p><strong>Sampling <em>without</em> replacement</strong> is what we usually do when running an experiment or survey. For example, imagine if we give 100 students a wellbeing questionnaire - each student in our sample is a member of the larger population or parent distribution (for example, all students or all students in the college we were sampling from etc). Because, we only want to survey each person once, we sample without replacement. That is, if one student is selected they cannot be selected again.</p>
+<p><strong>Sampling <em>with</em> replacement</strong> is often a good way to model random events. A classic example is rolling a dice. Each roll yeilds an outcome (1-6), but if you a roll a 3 on the first round, this does not remove the possibility of rolling another 3 the next time. Each roll is an independent sample, meaning the die is effectively “reset” before each roll.</p>
+<p>A direct comparison beween the sampling types would be drawing cards from a deck:</p>
+<ul class="simple">
+<li><p><strong>Without replacement</strong>, each card once drawn is set aside, so it is impossible to draw the same card twice.</p></li>
+<li><p><strong>With replacement</strong>, each card is tucked back into the deck after being drawn, so it can be drawn again.</p></li>
+</ul>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">3.4.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -669,34 +673,36 @@ document.write(`
 </section>
 <section id="toy-example">
 <h2><span class="section-number">3.4.2. </span>Toy example<a class="headerlink" href="#toy-example" title="Link to this heading">#</a></h2>
-<p>Let’s explore the idea of sampling with and without replacement using a very simple example (a simple example designed just to illustrate a point is sometimes called a <em>toy example</em>)</p>
-<p>Say I have a dataset listing four children’s pets:</p>
-<p>[cat, dog, cat, rabbit]</p>
-<p>If I sample from this dataset, I get a new list of pets. Say I draw a sample of size <span class="math notranslate nohighlight">\(𝑛=2\)</span>, my sample might be [cat, cat] (if I’m lucky- I love cats!)</p>
+<p>Let’s explore the idea of sampling <em>with</em> and <em>without</em> replacement using a very simple example.</p>
+<p><em>Note: a simple example designed just to illustrate a point is sometimes called a toy example</em>
+<br> </br>
+Say I have a dataset listing four pets belonging to four different children:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[cat,</span> <span class="pre">dog,</span> <span class="pre">cat,</span> <span class="pre">rabbit]</span></code></p>
+<p>Let’s call this our “population”. If I sample from this dataset, I get a new list of pets. For example, say I draw a sample of size <span class="math notranslate nohighlight">\(𝑛=2\)</span>, my sample might be [cat, cat].</p>
 <section id="without-replacement">
 <h3>Without replacement<a class="headerlink" href="#without-replacement" title="Link to this heading">#</a></h3>
-<p>If I sample without replacement, after I have ‘drawn’ my first sample pet fromt the original dataset, I cannot draw it again - my next sample pet will be drawn from the remaining three. The consequence of this is that all samples of size 𝑛=4 contain all of the original 4 pets, albeit in a different order</p>
-<p>[cat, cat, dog, rabbit]</p>
-<p>[rabbit, cat, dog, cat]</p>
-<p>[cat, dog, rabbit, cat]</p>
+<p>If I sample without replacement, after I have ‘drawn’ my first sample pet fromt the original dataset, I cannot draw it again - my next sample pet will be drawn from the remaining three. So if I originally sample <code class="docutils literal notranslate"><span class="pre">cat</span></code>, I will remove this from the original list before I sample again, leaving me with only <code class="docutils literal notranslate"><span class="pre">[dog,</span> <span class="pre">cat,</span> <span class="pre">rabbit]</span></code> to choose from.</p>
+<p>The consequence of this is that all samples of size 𝑛=4 contain all of the original 4 pets, albeit in a different order:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[cat,</span> <span class="pre">cat,</span> <span class="pre">dog,</span> <span class="pre">rabbit]</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">[rabbit,</span> <span class="pre">cat,</span> <span class="pre">dog,</span> <span class="pre">cat]</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">[cat,</span> <span class="pre">dog,</span> <span class="pre">rabbit,</span> <span class="pre">cat]</span></code></p>
 <p>etc</p>
 </section>
 <section id="with-replacement">
 <h3>With replacement<a class="headerlink" href="#with-replacement" title="Link to this heading">#</a></h3>
-<p>If I sample with replacement, each ‘draw’ can be any of the four animals (think of it like pulling a card from a deck, checking which animal is on it, and then replacing the card in the deck before the next sample is drawn).</p>
+<p>If I sample with replacement, each ‘draw’ can be <em>any</em> of the four animals. Remember, it’s like pulling a card from a deck, checking which animal is on it, and then replacing the card in the deck before the next sample is drawn.</p>
 <p>So I could get:</p>
-<p>[cat, cat, cat, cat]</p>
-<p>if I’m really lucky!</p>
+<p><code class="docutils literal notranslate"><span class="pre">[cat,</span> <span class="pre">cat,</span> <span class="pre">cat,</span> <span class="pre">cat]</span></code></p>
 <p>or more likely:</p>
-<p>[cat, dog, cat, cat]</p>
-<p>[rabbit, dog, cat, rabbit]</p>
+<p><code class="docutils literal notranslate"><span class="pre">[cat,</span> <span class="pre">dog,</span> <span class="pre">cat,</span> <span class="pre">cat]</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">[rabbit,</span> <span class="pre">dog,</span> <span class="pre">cat,</span> <span class="pre">rabbit]</span></code></p>
 <p>… etc</p>
 </section>
 </section>
 <section id="sampling-from-a-pandas-dataframe">
 <h2><span class="section-number">3.4.3. </span>Sampling from a <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> dataframe<a class="headerlink" href="#sampling-from-a-pandas-dataframe" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Pandas</span></code> has a handy built-in sampling function called <code class="docutils literal notranslate"><span class="pre">df.sample()</span></code></p>
-<p>Let’s see it at work:</p>
+<p>Let’s see it at work. First start by loading in the simple dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/pets.csv&#39;</span><span class="p">)</span>
@@ -772,6 +778,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.sample()</span></code> function will take two arguments: <span class="math notranslate nohighlight">\(𝑛\)</span> and <span class="math notranslate nohighlight">\(replace\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># draw a sample of size n=3 without replacement</span>
@@ -804,11 +811,6 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>Egbert</td>
-      <td>cat</td>
-    </tr>
-    <tr>
       <th>0</th>
       <td>Anna</td>
       <td>cat</td>
@@ -817,6 +819,11 @@ document.write(`
       <th>3</th>
       <td>David</td>
       <td>dog</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Freddie</td>
+      <td>rabbit</td>
     </tr>
   </tbody>
 </table>
@@ -854,54 +861,9 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>6</th>
-      <td>Georgia</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Georgia</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>David</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Charley</td>
+      <th>0</th>
+      <td>Anna</td>
       <td>cat</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Freddie</td>
-      <td>rabbit</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Charley</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Georgia</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>David</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Georgia</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>David</td>
-      <td>dog</td>
     </tr>
     <tr>
       <th>0</th>
@@ -909,33 +871,80 @@ document.write(`
       <td>cat</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>Freddie</td>
-      <td>rabbit</td>
+      <th>0</th>
+      <td>Anna</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Anna</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Betty</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charley</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Betty</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Betty</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charley</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Georgia</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>David</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Henrietta</td>
+      <td>cat</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<p>Try running each of the cells above several times to confirm that the sampling is indeed random.</p>
 <section id="summarizing-samples">
 <h3>Summarizing samples<a class="headerlink" href="#summarizing-samples" title="Link to this heading">#</a></h3>
 <p>Often we are not interested in the exact contents of the sample, but some summary value - for example, how many cats are there?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new sample and just get the column &#39;Pet&#39;</span>
-<span class="n">pets</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">Pet</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new sample and just get the column &#39;Pet&#39; save this into a new variable</span>
+<span class="n">pets_sample</span> <span class="o">=</span> <span class="n">pets</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">Pet</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pets_sample</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       cat
-2       cat
-3       dog
-5    rabbit
-5    rabbit
-7       cat
-3       dog
-3       dog
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    dog
+0    cat
+3    dog
+4    cat
+2    cat
+6    dog
+4    cat
+4    cat
 Name: Pet, dtype: object
 </pre></div>
 </div>
@@ -943,13 +952,13 @@ Name: Pet, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new sample count the cats!</span>
-<span class="nb">sum</span><span class="p">(</span><span class="n">pets</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">Pet</span><span class="o">==</span><span class="s1">&#39;cat&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count the cats from your previous sample</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">pets_sample</span><span class="o">==</span><span class="s1">&#39;cat&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>

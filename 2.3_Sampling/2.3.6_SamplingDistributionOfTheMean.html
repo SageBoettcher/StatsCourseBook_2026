@@ -637,17 +637,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sampling-distribution-of-the-mean">
 <h1><span class="section-number">3.6. </span>Sampling Distribution of the Mean<a class="headerlink" href="#sampling-distribution-of-the-mean" title="Link to this heading">#</a></h1>
-<p>Often we are interested not so much in the distribution of the sample, as a summary statistic such as the mean. For example, later on in the course, we will ask questions like:</p>
+<p>Often, we are not interested in the individual data points in a sample or the distribution, but rather in a summary statistic such as the mean. For example, later on in the course, we will ask questions like:</p>
 <ul class="simple">
 <li><p>Is the mean height of Oxford students greater than the national average?</p></li>
 <li><p>Is the mean wellbeing of cat owners higher than that of non-cat-owners?</p></li>
 </ul>
-<p>We will probably want to answer these questions by <em>estimating</em> the population mean (mean height of all Oxford students, mean wellbeing score of all cat owners) from a sample.</p>
-<p>However, if we draw multiple samples from the same population, the mean will vary from sample to sample. To know how much we can trust a small difference (eg, the mean of my sample of Oxford students’ heights is 1mm taller than the national average - is it just chance?), we will therefore need to answer the following:</p>
-<p><strong>How well does the sample mean reflects the underlying population mean?</strong></p>
-<p>We operationalize this as follows:</p>
-<p><strong>If I drew many different samples from the same population, how much would the sample mean vary from sample to sample</strong>?</p>
-<p>Using the computer, we can actually run this simulation - for example drawing 1000 samples from the same population - and plot the sample means. The distribution fo these sample means is called <strong>the sampling distribution of the mean</strong></p>
+<p>To answer these questions we will want to <em>estimate</em> the population mean (mean height of all Oxford students, mean wellbeing score of all cat owners) based on the data from a sample.</p>
+<p>Therefore, to understand how much we can trust small observed differences (for example, if the mean height in our Oxford sample is 1 mm taller than the national average — is that just chance?), we need to answer the following question:</p>
+<ul class="simple">
+<li><p><strong>How well does the sample mean reflects the underlying population mean?</strong></p></li>
+</ul>
+<p>We can operationalize this as :</p>
+<ul class="simple">
+<li><p><strong>If I drew many different samples from the same population, how much would the sample mean vary from sample to sample</strong>?</p></li>
+</ul>
+<p>We can actually simulate this process — for example, by drawing 1,000 samples from the same population and plotting their means. The resulting distribution of those sample means is called <strong>the sampling distribution of the mean</strong>.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">3.6.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -677,35 +681,50 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UKBrexdex</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/UKBrexdex.csv&#39;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">UKBrexdex</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">UKBrexdex</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">UKBrexdex</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;score on BrexDex&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;frequency&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the mean score of the parent distribution is : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">UKBrexdex</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" src="../_images/1fdd379209bf8dbcabfa4ec059c96f3ac7a2064236fca35855567c48e9c97168.png" />
+<img alt="../_images/32c3af52f564a5b288380d8d326bdd36b4521ff689cfc2cc7797c083852f7146.png" src="../_images/32c3af52f564a5b288380d8d326bdd36b4521ff689cfc2cc7797c083852f7146.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the mean score of the parent distribution is : 49.8748
+</pre></div>
+</div>
 </div>
 </div>
 </section>
 <section id="sample-means">
 <h2><span class="section-number">3.6.3. </span>10,000 sample means<a class="headerlink" href="#sample-means" title="Link to this heading">#</a></h2>
-<p>The mean Brexdex score can be obtained from the parent distribution as follows:</p>
+<p>The mean Brexdex score obtained from the parent distribution is 49.9%.</p>
+<p>We have seen on previous pages that the data distribution in small samples (say, <span class="math notranslate nohighlight">\(n=20\)</span> or <span class="math notranslate nohighlight">\(n=100\)</span>) resembles the parent distribution, so we might expect that the mean of each of these samples <em>approximates</em> the mean of the UK national sample.</p>
+<p>To test that we will start by visualising a few samples with the mean included.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UKBrexdex</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">UKBrexdex</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">m</span>      <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># use wider bins for the sample as there are fewer datapoints   A</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(49.8748)
-</pre></div>
+<img alt="../_images/8c34341a85cd7a140fd19bb902b7ea5e79bcc6031b37f0cbb81290e30e8fded1.png" src="../_images/8c34341a85cd7a140fd19bb902b7ea5e79bcc6031b37f0cbb81290e30e8fded1.png" />
 </div>
 </div>
-</div>
-<p>The mean score in the parent distribution is 49.9%.</p>
-<p>We have seen that the data distribution in small samples (say, <span class="math notranslate nohighlight">\(n=20\)</span> or <span class="math notranslate nohighlight">\(n=100\)</span>) resembles the parent distribution, so we might expect that the mean of each of these samples approximates the mean of the UK national sample.</p>
-<p>Let’s try drawing a large number of random samples with <span class="math notranslate nohighlight">\(n=100\)</span>, and getting the mean of each one:</p>
+<p>Okay, instead of doing this 12 times let’s try drawing a large number of random samples with <span class="math notranslate nohighlight">\(n=100\)</span>, and getting the mean of each one. Below we will draw 10,000 samples of 100 from the parent distribution. Each time we will calculate the mean of the sample and store that mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nSamples</span> <span class="o">=</span> <span class="mi">10000</span> <span class="c1"># we will draw 10,000 samples</span>
@@ -720,7 +739,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Let’s plot the resulting means:</p>
+<p>Finally, we can plot a histogram of the resulting means:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
@@ -731,7 +750,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1d438420ca6c3cea1acd3b246bc0a111d1bfbf99a20e0e98bd713ec2751ba073.png" src="../_images/1d438420ca6c3cea1acd3b246bc0a111d1bfbf99a20e0e98bd713ec2751ba073.png" />
+<img alt="../_images/21c186219a25e9a560443a2efc88e67d7f1f63c9eacdc7427d35d30abf175b88.png" src="../_images/21c186219a25e9a560443a2efc88e67d7f1f63c9eacdc7427d35d30abf175b88.png" />
 </div>
 </div>
 <p>This distribution is <strong>the sampling distribution of the mean</strong>.</p>
@@ -773,7 +792,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a230587c9e1161ee857aa2723d6f03126a474e09b9b7fceeb7aaecf25b85ba38.png" src="../_images/a230587c9e1161ee857aa2723d6f03126a474e09b9b7fceeb7aaecf25b85ba38.png" />
+<img alt="../_images/292337f99c3000dbd12157effa5767441b61eabf1b389d57f5017dbc75fd9f00.png" src="../_images/292337f99c3000dbd12157effa5767441b61eabf1b389d57f5017dbc75fd9f00.png" />
 </div>
 </div>
 <ul class="simple">
@@ -783,25 +802,25 @@ document.write(`
 </section>
 <section id="standard-error-of-the-mean">
 <h2><span class="section-number">3.6.5. </span>Standard Error of the mean<a class="headerlink" href="#standard-error-of-the-mean" title="Link to this heading">#</a></h2>
-<p>Although the sample means group around the mean of the parent distrbution, there is some random variation, as some samples (by chance) contain higher Brexdex scores than others.</p>
-<p>The variability of the sample means is quantified by the standard deviation of the sampling distribution of the mean (ie the standard deviation of the data in the histograms above). We can see that this standard deviation gets lower (histograms get narrower) as the sample size gets larger.</p>
-<p>The standard deviation of the sampling distribution of the mean has a special name, the <strong>standard error of the mean</strong> or SEM, and is given by the formula:</p>
+<p>Although the sample means tend to cluster around the mean of the parent distrbution, there is still some random variation, as some samples (by chance) contain higher Brexdex scores than others.</p>
+<p>The variability of the sample means is quantified by the standard deviation of the sampling distribution of the mean. That is, the standard deviation of the values shown in the histogram above. This is called <strong>the standard error of the mean (SEM)</strong>. As you can see above, the SEM becomes smaller as the sample size increases, that is, the histograms get narrower, whereas larger samples give more stable and precise estimates of the population mean.</p>
+<p>The standard error of the mean is represented by the formula:</p>
 <div class="math notranslate nohighlight">
 \[ SEM = \frac{\sigma}{\sqrt{n}} \]</div>
 <p>… where <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the parent distribution, which in this case where we (unusually) have access to the parent distribution of 10000 individuals, we can obtain as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UKBrexdex</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">UKBrexdex</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(24.79272056187634)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.79272056187634
 </pre></div>
 </div>
 </div>
 </div>
-<p>Shall we check if the formula for the SEM gives us a match to the standard deviation of the sampling distribution of the mean?</p>
+<p>We can confirm the formula for the SEM gives us a match to the standard deviation of the sampling distribution of the mean</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run simulation for samples of size 100</span>
@@ -822,7 +841,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd of sampling distribution (from simulation) = 2.448245929631866
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd of sampling distribution (from simulation) = 2.43936607131935
 SEM from the formula = 2.479272056187634
 </pre></div>
 </div>
@@ -835,7 +854,8 @@ SEM from the formula = 2.479272056187634
 <h2><span class="section-number">3.6.6. </span><span class="math notranslate nohighlight">\(SEM \propto \frac{1}{\sqrt{n}} \)</span><a class="headerlink" href="#sem-propto-frac-1-sqrt-n" title="Link to this heading">#</a></h2>
 <p>The standard error of the mean is inversely proportional to <span class="math notranslate nohighlight">\(\sqrt{n}\)</span></p>
 <p>In other words, the random variability in sample means decreases as sample size <span class="math notranslate nohighlight">\(n\)</span> increases - but in proportion to <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> not <span class="math notranslate nohighlight">\(n\)</span> itself</p>
-<p>This means that as we increase our sample size, our estimate of the population mean becomes less uncertain, but as we add more and more people to the sample, the benefit of adding more diminishes.</p>
+<p>This means that as we increase our sample size, our estimate of the population mean becomes less uncertain.
+However, the benefit of adding more participants gradually diminishes, e.g., doubling your sample size doesn’t halve your uncertainty; instead, it reduces it by a factor of <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> (~1.4).</p>
 </section>
 </section>
 

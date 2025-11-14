@@ -637,22 +637,23 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analytical-vs-numerical-approaches">
 <h1><span class="section-number">2.8. </span>Analytical vs numerical approaches<a class="headerlink" href="#analytical-vs-numerical-approaches" title="Link to this heading">#</a></h1>
-<p>We have now seen two different ways to answer questions like ‘if I toss a fair coin 10 times, what is the probability of getting 7 or fewer heads from a fair coin’</p>
+<p>We have now seen two different ways to answer questions like</p>
+<p><em>If I toss a fair coin 10 times, what is the probability of getting less than 8 heads</em></p>
 <ul class="simple">
 <li><p><strong>Numerical approach</strong> Use a simulation to generate many random samples from an equivalent process</p></li>
 <li><p><strong>Analytical approach</strong> Use an exact equation (the PMF and CDF)</p></li>
 </ul>
-<p>These approaches differ in important ways:</p>
+<p><strong>How they differ |</strong> These approaches differ in important ways:</p>
 <ul class="simple">
 <li><p>The PMF and CDF are worked out from an equation rather than by random sampling</p>
 <ul>
-<li><p>Therefore the probability values (eg <span class="math notranslate nohighlight">\(p(k&lt;=7)\)</span>) given by <code class="docutils literal notranslate"><span class="pre">stats.binom.pmf()</span></code> and <code class="docutils literal notranslate"><span class="pre">stats.binom.cdf()</span></code> never change (for given values of <span class="math notranslate nohighlight">\(n,p,k\)</span>)</p></li>
-<li><p>In contrast the values given by our simluations (how many random samples <span class="math notranslate nohighlight">\(k&lt;=7\)</span>) did vary slightly each time we ran our simulation</p></li>
+<li><p>Therefore the probability values (eg <span class="math notranslate nohighlight">\(p(k&lt;=7)\)</span>) given by <code class="docutils literal notranslate"><span class="pre">stats.binom.pmf()</span></code> and <code class="docutils literal notranslate"><span class="pre">stats.binom.cdf()</span></code> are exact and reproducible. That is, they never change for given values of <span class="math notranslate nohighlight">\(n,p,k\)</span></p></li>
+<li><p>In contrast the values given by our simluations (the proportion of simulated samples where <span class="math notranslate nohighlight">\(k&lt;=7\)</span>) did vary slightly each time we ran our simulation</p></li>
 </ul>
 </li>
 </ul>
-<p>Why would we ever run a simulation, when there is an equation (and a built in function in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>) that can tell us the exact answer?</p>
-<p>Well, we probably wouldn’t, <em>if</em> an easy analytical solution is available. But for many statistical problems, no such solution is available. Later in this course we will meet one important case: <strong>permutation testing</strong>. In permutation testing, to work out how often we would get a certain difference of means for a certain dataset due to chance, we need to actually run a lot of random shuffles (numerical solution). Although we sometimes <em>could</em> in theory solve this with an equation, it would have been a very messy equation and much more hassle than it is worth.</p>
+<p><strong>Why would we ever run a simulation</strong>, when there is an equation (and a built in function in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>) that can tell us the exact answer?</p>
+<p>Well, we probably wouldn’t, <em>if</em> an easy analytical solution is available. But for many real world statistical problems, no such solution is available. Later in this course we will meet one important case: <strong>permutation testing</strong>. In permutation testing, to work out how often we would get a certain difference of means for a certain dataset due to chance, we need to actually run a lot of random shuffles (numerical solution). Although we sometimes <em>could</em> in theory solve this with an equation, it would have been a very messy equation and much more hassle than it is worth.</p>
 <p>This page explores the relationship between analytical and numerical solutions, using the binomial distribution (where both are available) as an example - but the general ideas apply more broadly to any numerical solution to a statistical problem.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">2.8.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
@@ -726,7 +727,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/84ed2f2eb943cc74f4503baefeb9816528204c2db2672cb1bb81bf400e1398ad.png" src="../_images/84ed2f2eb943cc74f4503baefeb9816528204c2db2672cb1bb81bf400e1398ad.png" />
+<img alt="../_images/f1752cee0b70afc436cbfe66a2f1f7b1f45e5018c0dbef904d30cf9ae32985ac.png" src="../_images/f1752cee0b70afc436cbfe66a2f1f7b1f45e5018c0dbef904d30cf9ae32985ac.png" />
 </div>
 </div>
 <p>Eagle-eyed readers may notice that the <span class="math notranslate nohighlight">\(y\)</span>-axis for the simulations (with 10000 shuffles) is <strong>10,000 times larger</strong> than the <span class="math notranslate nohighlight">\(y\)</span> axis for the probability distributions.</p>
@@ -761,7 +762,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8f9003b5db87de895a35c073ce723ec0c9ba712f891ab35c8b3ac89b6174c450.png" src="../_images/8f9003b5db87de895a35c073ce723ec0c9ba712f891ab35c8b3ac89b6174c450.png" />
+<img alt="../_images/678991bab962dc52cd251304dc99670f4aad234b96cc4467dbbae82934e39aba.png" src="../_images/678991bab962dc52cd251304dc99670f4aad234b96cc4467dbbae82934e39aba.png" />
 </div>
 </div>
 </section>
@@ -800,12 +801,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/58b156092fb3c3bd9962af4876cd430dd07752b761c4dbf865aed0cf8da952c9.png" src="../_images/58b156092fb3c3bd9962af4876cd430dd07752b761c4dbf865aed0cf8da952c9.png" />
+<img alt="../_images/6878d3a3ad8c68a56b2d8bae033f76e802a96d5da33b2ee2d12e6d6b438194da.png" src="../_images/6878d3a3ad8c68a56b2d8bae033f76e802a96d5da33b2ee2d12e6d6b438194da.png" />
 </div>
 </div>
 <p><em>Note-</em></p>
 <ul class="simple">
-<li><p>The simulation now becomes a rather less good match to the exact probabilities as given by the PMF</p></li>
+<li><p>The simulation now becomes a poorer match to the exact probabilities as given by the PMF</p></li>
 <li><p>The CDF is a bit of a closer match as errors balance out - for example if the simulation overestimates <span class="math notranslate nohighlight">\(p(k=4)\)</span> and underestimates <span class="math notranslate nohighlight">\(p(k=5)\)</span>, then the cumulative <span class="math notranslate nohighlight">\(p(k&lt;=6)\)</span> is about right</p></li>
 </ul>
 <p>Importantly, if you were to re-run the simulation, you would get a different histogram of values of <span class="math notranslate nohighlight">\(k\)</span> - so the simulation with a small number of shuffles (small <code class="docutils literal notranslate"><span class="pre">nReps</span></code>) is not only less accurate, but <em>less stable</em> than a simulation with a large number of shuffles</p>
@@ -815,10 +816,10 @@ document.write(`
 </ul>
 <section id="how-many-reps-is-enough">
 <h3>How many reps is enough?<a class="headerlink" href="#how-many-reps-is-enough" title="Link to this heading">#</a></h3>
-<p>If we want a numerical answer to this question, we need to think of a way to pose the question numerically.</p>
-<p>How about this:</p>
+<p>So you may be wondering, how do I know if I have a enough reps to accurately simulate a process. If we want a numerical answer to this question, we need to think of a way to pose the question numerically.</p>
+<p>For example, you could instead ask:</p>
 <ul class="simple">
-<li><p>What number of reps (shuffles) is needed to estimate the probability of k to within 1% of the correct answer?</p></li>
+<li><p><em>What number of reps (shuffles) is needed to estimate the probability of k to within 1% of the correct answer?</em></p></li>
 </ul>
 </section>
 </section>
