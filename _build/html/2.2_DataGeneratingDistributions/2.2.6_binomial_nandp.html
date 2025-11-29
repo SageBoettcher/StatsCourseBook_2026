@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -688,8 +689,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7754607989586383
-is it a hit?:            1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06216563699167976
+is it a hit?:            0
 </pre></div>
 </div>
 </div>
@@ -719,7 +720,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/231e4256d4be5046d3a730e48092bd9ffdb3b9f952227696050bf9ce2a1dd208.png" src="../_images/231e4256d4be5046d3a730e48092bd9ffdb3b9f952227696050bf9ce2a1dd208.png" />
+<img alt="../_images/d6d4b1aa80638a041aad8d4abdbd3f4d9e6bcfb170c0cd518343f34bf7c47d23.png" src="../_images/d6d4b1aa80638a041aad8d4abdbd3f4d9e6bcfb170c0cd518343f34bf7c47d23.png" />
 </div>
 </div>
 <p>What if we change <span class="math notranslate nohighlight">\(p\)</span> to be 0.7 instead?</p>
@@ -740,7 +741,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/988bf6f13f05cf4ca741782d65bdc48266f192e9920379abb0c5bd82b28a835a.png" src="../_images/988bf6f13f05cf4ca741782d65bdc48266f192e9920379abb0c5bd82b28a835a.png" />
+<img alt="../_images/0b3488f4c2a5dfda7bd9a0aaa8f34d6821019d7ce43ffb86a1a9c33b76cbe6aa.png" src="../_images/0b3488f4c2a5dfda7bd9a0aaa8f34d6821019d7ce43ffb86a1a9c33b76cbe6aa.png" />
 </div>
 </div>
 <p>You should notice after modifying the simulation so that <span class="math notranslate nohighlight">\(p=0.7\)</span>:</p>
@@ -773,7 +774,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean(k) = 7.0024
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean(k) = 6.9906
 n*p = 7.0
 </pre></div>
 </div>
@@ -803,7 +804,7 @@ n*p = 7.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25f0896274385d9eb7609c01a9f7845173b96637795d5a4bc4363f113b82c900.png" src="../_images/25f0896274385d9eb7609c01a9f7845173b96637795d5a4bc4363f113b82c900.png" />
+<img alt="../_images/4f270548224a28e566640b8a04562fd4e598c7b868d8e090423c1a737f2d5e3b.png" src="../_images/4f270548224a28e566640b8a04562fd4e598c7b868d8e090423c1a737f2d5e3b.png" />
 </div>
 </div>
 <p>We can see that the peak of the histogram is where we expect (the most common value of <span class="math notranslate nohighlight">\(k\)</span> is around 50, which matches the theoretical mean <span class="math notranslate nohighlight">\(np\)</span>). However, notice that the spread of the histogram is now narrower relative to the possible range of <span class="math notranslate nohighlight">\(k\)</span> (i.e., from 0 to <span class="math notranslate nohighlight">\(n\)</span>) compared to when our value of $n was smaller.</p>
@@ -832,7 +833,7 @@ n*p = 7.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>std(k) = 5.007213547473285
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>std(k) = 5.007494479278035
 sqrt(npq) = 5.0
 </pre></div>
 </div>
@@ -879,7 +880,7 @@ sqrt(npq) = 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4ae0ef4d19a3a7d89d6150f0bbc327fb1e1a0e1ded272d26ef412fece2bf10d2.png" src="../_images/4ae0ef4d19a3a7d89d6150f0bbc327fb1e1a0e1ded272d26ef412fece2bf10d2.png" />
+<img alt="../_images/c0d309606f9ffd842752ec0acfdbd1510ab2f783ffbf4cb9b19ddac940f64280.png" src="../_images/c0d309606f9ffd842752ec0acfdbd1510ab2f783ffbf4cb9b19ddac940f64280.png" />
 </div>
 </div>
 </section>

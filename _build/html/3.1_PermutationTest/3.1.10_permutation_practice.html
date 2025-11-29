@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -999,8 +1000,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(1.0491803278688525), pvalue=np.float64(0.208979102089791), null_distribution=array([-1.14754098, -0.32786885, -0.2295082 , ...,  0.55737705,
-        0.32786885,  2.09836066], shape=(10000,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(1.0491803278688525), pvalue=np.float64(0.21137886211378862), null_distribution=array([ 0.16393443, -0.55737705,  0.78688525, ..., -0.95081967,
+       -3.27868852, -1.7704918 ], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1085,8 +1086,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(3.486388384755003), pvalue=np.float64(0.17638236176382363), null_distribution=array([ 0.08892922, -0.25952813,  2.17967332, ...,  3.48638838,
-        4.18330309,  1.39564428], shape=(10000,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(3.486388384755003), pvalue=np.float64(0.17378262173782622), null_distribution=array([ 1.22141561, -4.17967332,  1.91833031, ..., -1.04355717,
+        0.87295826, -0.34664247], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1110,7 +1111,7 @@ document.write(`
 </section>
 <section id="note">
 <h3>Note<a class="headerlink" href="#note" title="Link to this heading">#</a></h3>
-<p>If we plot the distribution of wellbeing in the two subjects, we can see taht there is a lot of overlap</p>
+<p>If we plot the distribution of wellbeing in the two subjects, we can see that there is a lot of overlap</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
@@ -1187,8 +1188,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.7401813753937694), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.10092089, -0.01135075,  0.03841043, ..., -0.04480133,
-       -0.12621616, -0.28614308], shape=(10000,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.7401813753937694), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.06138839, -0.06387645,  0.13323314, ...,  0.11747543,
+       -0.17155413,  0.14042086], shape=(10000,)))
 </pre></div>
 </div>
 </div>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -835,58 +836,58 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>634</th>
-      <td>817310</td>
-      <td>62</td>
+      <th>4494</th>
+      <td>292350</td>
+      <td>17</td>
     </tr>
     <tr>
-      <th>2566</th>
-      <td>888270</td>
+      <th>6708</th>
+      <td>346340</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>2494</th>
+      <td>437660</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>4986</th>
+      <td>922460</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>2048</th>
+      <td>206110</td>
       <td>73</td>
     </tr>
     <tr>
-      <th>2001</th>
-      <td>762590</td>
-      <td>42</td>
+      <th>4620</th>
+      <td>495790</td>
+      <td>12</td>
     </tr>
     <tr>
-      <th>4483</th>
-      <td>298620</td>
-      <td>59</td>
+      <th>9721</th>
+      <td>277900</td>
+      <td>23</td>
     </tr>
     <tr>
-      <th>6784</th>
-      <td>397170</td>
-      <td>79</td>
+      <th>1356</th>
+      <td>398130</td>
+      <td>10</td>
     </tr>
     <tr>
-      <th>2213</th>
-      <td>740960</td>
-      <td>49</td>
+      <th>5696</th>
+      <td>858010</td>
+      <td>74</td>
     </tr>
     <tr>
-      <th>5093</th>
-      <td>405580</td>
-      <td>38</td>
-    </tr>
-    <tr>
-      <th>5247</th>
-      <td>247760</td>
-      <td>83</td>
-    </tr>
-    <tr>
-      <th>3380</th>
-      <td>556670</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>3918</th>
-      <td>315980</td>
-      <td>34</td>
+      <th>4656</th>
+      <td>570140</td>
+      <td>33</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample mean = 54.9
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample mean = 43.2
 </pre></div>
 </div>
 </div>
@@ -905,7 +906,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(43.2)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(55.2)
 </pre></div>
 </div>
 </div>
@@ -922,11 +923,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([54.5, 65.2, 36.3, 54.2, 52.2, 52.1, 61.3, 41.9, 59.1, 49.3, 50.9,
-       51.9, 44.9, 46.4, 53. , 40.8, 49.2, 63.2, 53.7, 46.6, 50.3, 44.1,
-       62. , 44. , 44.8, 45.8, 60.2, 60.6, 51.9, 47.8, 58.8, 52.2, 33.1,
-       46. , 61.1, 51.6, 46.6, 57.6, 52.8, 43.3, 64. , 39.9, 41.7, 37.3,
-       40.7, 42.8, 49.4, 51.9, 46.6, 67.7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([51. , 43.7, 52.7, 64.1, 46.9, 50.6, 45.7, 43.1, 53.1, 60.1, 47.1,
+       52.8, 57.3, 51.3, 41. , 48.1, 59.7, 35.1, 48. , 55. , 58.4, 49.9,
+       41.8, 51. , 40.4, 52.2, 42.4, 44.5, 50.1, 51. , 46.2, 63.7, 39.4,
+       43.8, 49.9, 54.3, 44.9, 48.5, 57.9, 61.3, 42.5, 51. , 51.3, 54.8,
+       51.7, 38.4, 39.7, 54.6, 39.7, 62.4])
 </pre></div>
 </div>
 </div>
@@ -959,7 +960,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9dfabfe9aebe337c650381e658c40c7efe29e2136f06fc01ae58043dcda3c0fd.png" src="../_images/9dfabfe9aebe337c650381e658c40c7efe29e2136f06fc01ae58043dcda3c0fd.png" />
+<img alt="../_images/b7d6c0760497f4606193d1072b286f76f34104c169be308eaaccbcbc645eb819.png" src="../_images/b7d6c0760497f4606193d1072b286f76f34104c169be308eaaccbcbc645eb819.png" />
 </div>
 </div>
 </section>
@@ -974,7 +975,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3.5046427431417313)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3.5245958769197925)
 </pre></div>
 </div>
 </div>
@@ -1035,7 +1036,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/86981c0103368b5e1eda6ec103241526e485e4c8a2bfc8e09a266f55a7b39aec.png" src="../_images/86981c0103368b5e1eda6ec103241526e485e4c8a2bfc8e09a266f55a7b39aec.png" />
+<img alt="../_images/2fbf567c81f4e13bb1d8623ffb4c8dbfe9bf0468636389d1a030370221254648.png" src="../_images/2fbf567c81f4e13bb1d8623ffb4c8dbfe9bf0468636389d1a030370221254648.png" />
 </div>
 </div>
 <p>In fact when <span class="math notranslate nohighlight">\(n=1\)</span>, the sample mean is simply the value of the (one) person in the sample’s score, so the sampling distribution of the mean is exactly the sample data distribution</p>
@@ -1063,7 +1064,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d1e1bb719a099a6bf70b4ba7b011691729d1b8103502d9fc998797723f0da307.png" src="../_images/d1e1bb719a099a6bf70b4ba7b011691729d1b8103502d9fc998797723f0da307.png" />
+<img alt="../_images/3a02ff5b7b92a3a35dd0280334691936ae61c28e451cd11ae7f2e302fa943508.png" src="../_images/3a02ff5b7b92a3a35dd0280334691936ae61c28e451cd11ae7f2e302fa943508.png" />
 </div>
 </div>
 <p>Hopefully you have noticed a middle peak emerging.</p>

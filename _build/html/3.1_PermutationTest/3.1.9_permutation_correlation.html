@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -626,19 +627,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistic">Test statistic</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-this-result-statistically-significant">Is this result statistically significant?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation">Permutation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-random-shuffles-in-correlation">Visualizing random shuffles in correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-random-shuffles-in-correlation">Visualising random shuffles in correlation:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.9.3. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-many-shuffles">1.9.3. Run Many shuffles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.9.4. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-distribution">The Null Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-p-value">The <span class="math notranslate nohighlight">\(𝑝\)</span>-value¶</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.9.4. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.9.5. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.9.5. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.9.6. Recap</a></li>
 </ul>
             </nav>
         </div>
@@ -652,11 +654,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="permutation-test-for-correlation">
 <h1><span class="section-number">1.9. </span>Permutation test for correlation<a class="headerlink" href="#permutation-test-for-correlation" title="Link to this heading">#</a></h1>
-<p>In the previous examples we used permutation testing to assess the significance of a difference between groups (difference of means or mean difference).</p>
+<p>In the previous examples, we used permutation testing to assess the statistical significance of a difference between groups (either a difference of means or a mean difference, depending on whether we were looking at paired or unpaired data…)</p>
 <p>Permutation testing can also be used to assess the statistical significance of a <i>correlation</i>.</p>
-<p>As a reminder, a correlation can occur <i>only</i> in paired designs, as when two variables are correlated, it means that an individual’s score on one variable is related to their score on the other variable.</p>
+<p>As a reminder, a correlation can occur <em>only</em> in paired designs, because a correlation implies that each individual’s score on one variable is <em>meaningfully paired</em> with their score on another variable. For example, a person’s height might be paired with their arm span, or their maths score might be paired with their English score.</p>
 <p>Correlations can be interesting in themselves (do students who score highly on English tests also score highly on maths tests?; do people who eat more broccli have greater bone density?).</p>
-<p>They can also reflect the fact that experimental measures often depend on factors other than the one we are manipulating (sometimes called <i>confounding factors</i>), which are what we try to control for by using a paired design. For example if we are interested in whether men earn more than women, we might use a paired design comparing brothers and sisters to take into account the very important effects of parental occupation and education on earnings which mean that high-earning brothers often have high-earning sisters. The fact that brothers’ and sisters’ earnings are correlated actually reflects the confounds that we want to ‘cancel out’ by using a paired design to test gender differences.</p>
+<p>Correlations can also arise because experimental measures depend on factors other than the variable we are trying to study, factors known as <em>confounding variables</em>. Check out this <a class="reference external" href="https://www.tylervigen.com/spurious-correlations">website</a> for some strong yet meaningless correlations.</p>
+<p>Paired designs are often used to control for these confounds. For example, suppose we want to test whether men earn more than women. We might compare brothers and sisters, because their earnings are influenced by shared factors such as parental occupation, education, neighbourhood, and early-life opportunities.</p>
+<p>However, in many cases the correlation itself is of direct interest. In such situations, the strength and direction of the correlation is the main question and permutation testing allows us to assess whether the observed correlation is larger than would be expected by chance.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">1.9.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -678,12 +682,11 @@ document.write(`
 </section>
 <section id="toy-example">
 <h2><span class="section-number">1.9.2. </span>Toy example<a class="headerlink" href="#toy-example" title="Link to this heading">#</a></h2>
-<p>[A toy example is an example with a very small dataset, just to show how it works]</p>
-<p>We are interested in whether people who eat more broccoli have higher IQs.</p>
+<p><em>[A toy example is an example with a very small dataset, just to show how it works]</em></p>
 <section id="question-design">
 <h3>Question &amp; design<a class="headerlink" href="#question-design" title="Link to this heading">#</a></h3>
-<p>We hypothesise that those wo eat more broccoli ave higher IQs</p>
-<p>This is tecnically a <em>repeated measures design</em> as we have two measurements (broccoli consumption and IQ) for each individual.</p>
+<p>Suppose we suspect that people who eat more broccoli have high IQs.</p>
+<p>This gives us <strong>paired data</strong>, because we have two measurements (broccoli consumption and IQ) for each individual. Each person contributes a pair of values, and it is the relationship between these paired values that we want to examine.</p>
 </section>
 <section id="hypotheses">
 <h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
@@ -861,23 +864,25 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Let’s plot the data:</p>
+<p>Let’s plot the data. Because each person provides a pair of measurements (their weekly broccoli consumption and their IQ) a <em>scatterplot</em> (or <em>regplot</em>) is the most informative choice here.</p>
+<p>Each point on the plot represents one individual, with: their broccoli consumption on the x-axis, and their IQ on the y-axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">broccoli</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;broccoli_g&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;IQ&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">broccoli</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;broccoli_g&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;IQ&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f1990210f64baee1d7bfcb83cc2580d4160033b48510aea5e16e6ed24eb38b38.png" src="../_images/f1990210f64baee1d7bfcb83cc2580d4160033b48510aea5e16e6ed24eb38b38.png" />
+<img alt="../_images/dad0ed3eb9545c364f154ed7762ebfce3db9c4e3ca68d741fe4d70d99df92274.png" src="../_images/dad0ed3eb9545c364f154ed7762ebfce3db9c4e3ca68d741fe4d70d99df92274.png" />
 </div>
 </div>
-<p>We can see that there does seem to be a correlation.</p>
+<p>We can see that there does appear to be a correlation: individuals who eat more broccoli also tend, in general, to have higher IQ scores. The points show an upward trend, suggesting a positive relationship.</p>
+<p>Of course, a visual impression is not enough to determine whether this correlation is statistically significant. We will take the same approach as with our other permutation tests. Let’s start by finding our test statistic</p>
 </section>
 <section id="test-statistic">
 <h3>Test statistic<a class="headerlink" href="#test-statistic" title="Link to this heading">#</a></h3>
-<p>Here our test statistic is Pearson’s <span class="math notranslate nohighlight">\(r\)</span></p>
+<p>Here our test statistic is Pearson’s <span class="math notranslate nohighlight">\(r\)</span>. Pearson’s <span class="math notranslate nohighlight">\(r\)</span> measures the strength and direction of the linear relationship between two variables. A positive value indicates that higher broccoli consumption tends to be associated with higher IQ, and the magnitude (i.e., how close the value is to 1/-1) tells us how strong that relationship is.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">broccoli</span><span class="o">.</span><span class="n">broccoli_g</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">broccoli</span><span class="o">.</span><span class="n">IQ</span><span class="p">)</span>
@@ -894,40 +899,99 @@ document.write(`
 </section>
 <section id="is-this-result-statistically-significant">
 <h3>Is this result statistically significant?<a class="headerlink" href="#is-this-result-statistically-significant" title="Link to this heading">#</a></h3>
-<p>That is, would the result (a correlation of 0.80) be very unlikely to occur due to chance, if the null hypothesis were true?</p>
-<p>Even if there was no relationship between broccoli consumption and IQ, it would sometimes happen that for 25 random people the ones with the highest IQ tend to also be the biggest broccoli-eaters, resulting in a positive correlation. The question is how often a positive correlation as large as <span class="math notranslate nohighlight">\(r\)</span>=0.80 would occur just due to chance if broccoli consuption and IQ were paired randomly.</p>
+<p>We have observed a correlation of 0.80. Even if there were no real relationship between broccoli consumption and IQ, it is still possible that—in a small sample of 25 people—the individuals with the hdighest IQs just happen to be the ones who eat more broccoli. Purely by chance, random pairings can sometimes produce a strong positive correlation.</p>
+<p>So we ask</p>
+<p><em><strong>How often would a correlation as large as .8 occur just by chance if broccoli consumption and IQ were paired randomly?</strong></em></p>
 </section>
 <section id="permutation">
 <h3>Permutation<a class="headerlink" href="#permutation" title="Link to this heading">#</a></h3>
-<p>The sample tells us several interesting things about broccoli consumption and IQ, regardless of whether broccoli consummption and IQ are related:</p>
+<p>To work out how unusual our observed correlation in broccoli consumption and IQ is, we carry out a permutation test. Again, the idea is to shuffle the data points and see what kinds of correlations would occur just by chance (i.e. the null distribution).</p>
+<p>For each resample:</p>
+<ol class="arabic simple">
+<li><p><strong>Randomly reassign the pairings:</strong> Shuffle the data around to create a new sample in which, we we randomly decide which IQ is assigned to which broccoli consumption value.</p></li>
+<li><p><strong>Calculate the correlation:</strong> <tt>Pearson’s <span class="math notranslate nohighlight">\(r\)</span></tt>.</p></li>
+<li><p><strong>Repeat steps 1 &amp; 2 thousands of times</strong> this will create a distribution in which the correlation between broccoli consumption and IQ truly is zero. Now we can ask on what proportion of random resamples we get correlations at least as large as our observed correlation of 0.8.</p></li>
+</ol>
+<p>Our sample tells us some interesting things about the individual variables—information that is true regardless of whether IQ and broccoli are actually related.</p>
 <p><strong>Independent features of Broccoli distribution (to be retained):</strong></p>
 <ul class="simple">
 <li><p>Most people eat between 0 and 500g of broccoli a week</p></li>
 <li><p>Quite a few people eat 0g of broccoli (they never eat broccoli, basically)</p></li>
 </ul>
 <p>It also tells us about some potential effects to do with the relationship between IQ and broccoli:</p>
-<p>**Possible correlation effects (to be shuffled out)</p>
+<p><strong>Possible correlation effects (to be shuffled out)</strong></p>
 <ul class="simple">
 <li><p>the quantity of broccoli eaten seems to be higher for individuals with higher IQ</p></li>
 <li><p>none of the highest IQ people are the 0g of broccoli people</p></li>
 </ul>
 </section>
-<section id="visualizing-random-shuffles-in-correlation">
-<h3>Visualizing random shuffles in correlation<a class="headerlink" href="#visualizing-random-shuffles-in-correlation" title="Link to this heading">#</a></h3>
-<p>What we are going to do is shuffle the data around to create many new (re)samples preserving distribution within each variable (broccoli consumption and IQ - so for example there will always be 5 non-broccoli-eaters) but <strong>pairing the datapoints</strong> at random so one person’s IQ is matched with another person’s broccoli consumption.</p>
-<p>Using these simulated (shuffled) datasets we will work out how often we get a correlation of 0.80 or more. This is equivalent to determining how likely our correlation is to have occurred due to chance.</p>
+<section id="visualising-random-shuffles-in-correlation">
+<h3>Visualising random shuffles in correlation:<a class="headerlink" href="#visualising-random-shuffles-in-correlation" title="Link to this heading">#</a></h3>
 <p>Below you see jointplots for the original data and three random permutations (joint plots are scatter plots with histograms of the distributions of x and y at the sides, created using the function <code class="docutils literal notranslate"><span class="pre">sns.jointplot()</span></code>)</p>
 <p>Notice that in the shuffled data, when each person’s broccoli consupmtion is randomly paired with another person’s IQ, the correlation goes away. However, the distribution of each variable by itself (the histograms in the margins) remain unchanged.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_3PermutationsCorr.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_3PermutationsCorr.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_3PermutationsCorr.png" style="width: 99%;" />
 </a>
 <p>You can see that the relationship between broccoli consumption and IQ looks less tight in the shuffled datasets.</p>
+<p>Below is some code that will randomly shuffle our <code class="docutils literal notranslate"><span class="pre">IQ</span></code> column, but keep the <code class="docutils literal notranslate"><span class="pre">broccoli_g</span></code> column in tact. This will preserve the important aspects of the original dataset, while creating a random pairing between any individual’s IQ and their broccoli consumption</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/broccoli.csv&#39;</span><span class="p">)</span>
+
+<span class="c1">#Randomise the order of the IQ column</span>
+<span class="n">perm</span><span class="o">.</span><span class="n">IQ</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">IQ</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">perm</span><span class="p">),</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">perm</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;broccoli_g&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;IQ&#39;</span><span class="p">)</span>
+
+<span class="c1"># Compute the test statistic for THIS permutation</span>
+<span class="n">test_stat</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">broccoli_g</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">perm</span><span class="o">.</span><span class="n">IQ</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_stat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25206563520568404
+</pre></div>
+</div>
+<img alt="../_images/3695440e547ca7b613c023c71b0627d74c4092349dec3f41d194ed5b3d83d026.png" src="../_images/3695440e547ca7b613c023c71b0627d74c4092349dec3f41d194ed5b3d83d026.png" />
+</div>
+</div>
 </section>
+</section>
+<section id="run-many-shuffles">
+<h2><span class="section-number">1.9.3. </span>Run Many shuffles<a class="headerlink" href="#run-many-shuffles" title="Link to this heading">#</a></h2>
+<p>To get an estimate of how likely it is to get a test statistic of 0.8 due to chance, we need to run a <em>lot</em> of shuffles. Here we can loop through our desired number of permutations, repeating this shuffling process each time and recalculaing the test statistic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nReps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">perm_tests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">nReps</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nReps</span><span class="p">):</span>
+    <span class="c1"># Make a copy so we do not overwrite the original data</span>
+    <span class="n">perm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/broccoli.csv&#39;</span><span class="p">)</span>
+
+    <span class="c1">#Randomise the order of the IQ column</span>
+    <span class="n">perm</span><span class="o">.</span><span class="n">IQ</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">IQ</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">perm</span><span class="p">),</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+    <span class="n">perm_tests</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">broccoli_g</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">perm</span><span class="o">.</span><span class="n">IQ</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">perm_tests</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/316aa90b177f9510c3cbe47f37895bbe2ffc71158bbb24175f12f201d4e58fff.png" src="../_images/316aa90b177f9510c3cbe47f37895bbe2ffc71158bbb24175f12f201d4e58fff.png" />
+</div>
+</div>
+<p>With 100 permutations you can already see the null distribution taking shape. Maybe you can also notice, that the “random” correlations tend to be much lower than what we found in our original data set. Importantly, most of the permutations center around a correlation of 0, indicating now relationship between the variables. However how often do we see a person r at least as large as we observed in data set (i.e., 0.8)? To increase our confidence we probably want to run even more permutations!</p>
 </section>
 <section id="run-10-000-shuffles">
-<h2><span class="section-number">1.9.3. </span>Run 10,000 shuffles<a class="headerlink" href="#run-10-000-shuffles" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.4. </span>Run 10,000 shuffles<a class="headerlink" href="#run-10-000-shuffles" title="Link to this heading">#</a></h2>
 <p>To get a fine-grained estimate of how likely it is to get a test statistic of r=0.8 due to chance, we run a <em>lot</em> of shuffles - say 10,000.</p>
 <p>We can do this using a function from the library <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, called <code class="docutils literal notranslate"><span class="pre">scipy.stats.permutation_test()</span></code></p>
-<p>First of all we will run this (using the code block below) and learn about the output. Afterwards we will have a closer look at the Python syntax including defining a function.</p>
+<p>This will have a few advantages. First, the inbuilt function is much faster and therefore we can easily increase the number of permutattions without costing too much time. The function also provides some additional output which we will take a closer look at below. Start by running the code block below - don’t worry too much about the syntax we’ll dive into that later…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">correlate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -942,8 +1006,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8011532312132079), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.07707215, -0.17258703, -0.04236808, ..., -0.01551374,
-       -0.14195537, -0.35206843], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8011532312132079), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.0586184 , -0.24897926, -0.29300857, ...,  0.14388102,
+       -0.19900855,  0.16896474], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -957,20 +1021,21 @@ document.write(`
 <section id="the-null-distribution">
 <h3>The Null Distribution<a class="headerlink" href="#the-null-distribution" title="Link to this heading">#</a></h3>
 <p>The <strong>null distribution</strong> is the set of 10,000 values we get for the correlation, from our 10,000 shuffles (the equivalent of the red numbers on the 4-permutation example above)</p>
-<p>Let’s plot the null distribution in a histogram:</p>
+<p>Let’s plot the null distribution in a histogram we will mark the test statistic from our actual data with a red dotted line:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">results</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span><span class="n">results</span><span class="o">.</span><span class="n">statistic</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2aaa880f2396203b4b0d646dae0481853877a4f7d50f8b3e174fc446c5f4e378.png" src="../_images/2aaa880f2396203b4b0d646dae0481853877a4f7d50f8b3e174fc446c5f4e378.png" />
+<img alt="../_images/42e7cfb6b1346c9956009b61cc7fb0ffb4ff38fd4ffea0e721b1f8ca997dd1ff.png" src="../_images/42e7cfb6b1346c9956009b61cc7fb0ffb4ff38fd4ffea0e721b1f8ca997dd1ff.png" />
 </div>
 </div>
 <p>We can see that the null distribution is nice and symmetrical (the average correlation in shuffled data is zero, whilst positive and negative correlations are equally likely)</p>
-<p>Note that our observed correlation, 0.8, is so rare that it was <em>never</em> obtained in the 10,000 shuffles</p>
+<p>Note that our observed correlation, 0.8, is so rare that it was <em>never</em> obtained in the 10,000 shuffles!!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check which values is the null distribution are greater than 4.6 and code as 1/0</span>
@@ -994,7 +1059,7 @@ document.write(`
 </section>
 </section>
 <section id="syntax-of-stats-permutation-test">
-<h2><span class="section-number">1.9.4. </span>Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code><a class="headerlink" href="#syntax-of-stats-permutation-test" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.5. </span>Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code><a class="headerlink" href="#syntax-of-stats-permutation-test" title="Link to this heading">#</a></h2>
 <p>Let’s have a look at the Python code to run the permutation test.</p>
 <p>Firstly, we had to give the function <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code> our two samples. In this case, the data are in ‘wide form’, ie the two measurements for each individual (broccoli consumption and IW) are contained in two different columns <tt>(broccoli.broccoli_g, broccoli.IQ)</tt></p>
 <p>Secondly, to tell <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code> the test statistic we want to get the null distribution of, we had to pass it a <em>function</em> that calculates that test statistic. We created that function, <code class="docutils literal notranslate"><span class="pre">correlation()</span></code>, using a function definition, before running the permutation test</p>
@@ -1010,7 +1075,7 @@ document.write(`
 </section>
 </section>
 <section id="recap">
-<h2><span class="section-number">1.9.5. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.6. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
 <p>To run a permutation test on a correlation, we shuffled up all the pairings so each person’s IQ was paired with someone else’s broccoli consumption. We did not switch any datapoints from the broccoli column into the the IQ column (!).</p>
 <p>For each shuffle we calculated the correlation between broccoli consumption and IQ</p>
 <p>Permutation testing in this way gives us a null distribution for the correlation. Values of the correlation coefficient that occur rarely in the null distriubtion are considered statistically significant.</p>
@@ -1090,19 +1155,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistic">Test statistic</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-this-result-statistically-significant">Is this result statistically significant?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation">Permutation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-random-shuffles-in-correlation">Visualizing random shuffles in correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-random-shuffles-in-correlation">Visualising random shuffles in correlation:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.9.3. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-many-shuffles">1.9.3. Run Many shuffles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.9.4. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-distribution">The Null Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-p-value">The <span class="math notranslate nohighlight">\(𝑝\)</span>-value¶</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.9.4. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.9.5. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.9.5. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.9.6. Recap</a></li>
 </ul>
   </nav></div>
 

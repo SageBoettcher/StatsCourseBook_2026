@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -703,12 +704,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 3
-roll 2. Outcome = 2
-roll 3. Outcome = 3
-roll 4. Outcome = 4
-roll 5. Outcome = 6
-Total rolls needed to get a six: 5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 6
+Total rolls needed to get a six: 1
 </pre></div>
 </div>
 </div>
@@ -772,7 +769,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 8.,  2., 12.,  4., 10.,  6.,  5.,  3.,  7.,  1.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 7.,  6., 12.,  1.,  8.,  2., 18.,  8.,  3., 14.])
 </pre></div>
 </div>
 </div>
@@ -787,7 +784,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(6)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(7)
 </pre></div>
 </div>
 </div>
@@ -822,7 +819,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6141cebee0f8391ee0680a6771593a95e7868a8dd4b6fab6f9ffd58ce821dfbc.png" src="../_images/6141cebee0f8391ee0680a6771593a95e7868a8dd4b6fab6f9ffd58ce821dfbc.png" />
+<img alt="../_images/cbd817e52d124b0358d28eb165b8b4e5a5f3f2e6f385b43c04b039e269a2d648.png" src="../_images/cbd817e52d124b0358d28eb165b8b4e5a5f3f2e6f385b43c04b039e269a2d648.png" />
 </div>
 </div>
 <p>Did it surprise you that the most likely number of rolls needed (mode of the distribution) is 1?</p>
@@ -848,7 +845,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(5.994)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.0316)
 </pre></div>
 </div>
 </div>
@@ -867,7 +864,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.1138)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.1132)
 </pre></div>
 </div>
 </div>
@@ -904,7 +901,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/210a0be8c8cad1f2f1b05134c61e902aacd058e24427d43c9d16ab9819d18c94.png" src="../_images/210a0be8c8cad1f2f1b05134c61e902aacd058e24427d43c9d16ab9819d18c94.png" />
+<img alt="../_images/ffb1f0f62a24efa508abb10f29b69053d5b07f7aed731abb8041f478124fd0d6.png" src="../_images/ffb1f0f62a24efa508abb10f29b69053d5b07f7aed731abb8041f478124fd0d6.png" />
 </div>
 </div>
 <ul class="simple">
@@ -922,7 +919,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b8167321144294c5a9102fd698c5464eaca1a96b2644f5037c83b4ca0cb43f47.png" src="../_images/b8167321144294c5a9102fd698c5464eaca1a96b2644f5037c83b4ca0cb43f47.png" />
+<img alt="../_images/6bd262d5bde3d62c37b0a599e6358e5922e0933f55f9c52fb54f5280da112384.png" src="../_images/6bd262d5bde3d62c37b0a599e6358e5922e0933f55f9c52fb54f5280da112384.png" />
 </div>
 </div>
 </section>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -630,16 +631,17 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-randoms-shuffles-in-the-unpaired-data">Visualizing randoms shuffles in the unpaired data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.8.3. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-many-shuffles">1.8.3. Run Many shuffles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.8.4. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-distribution">The Null Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-p-value">The <span class="math notranslate nohighlight">\(𝑝\)</span>-value¶</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.8.4. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.8.5. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.8.5. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.8.6. Recap</a></li>
 </ul>
             </nav>
         </div>
@@ -653,8 +655,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="permutation-test-for-unpaired-or-independent-samples-data">
 <h1><span class="section-number">1.8. </span>Permutation test for unpaired or independent samples data<a class="headerlink" href="#permutation-test-for-unpaired-or-independent-samples-data" title="Link to this heading">#</a></h1>
-<p>We now look at the case of unpaired data - data in which we wish to compare two groups but there are no particular links between individuals in one group and individuals in another group</p>
-<p>Examples of experimental designs using independent samples would be (say) a comparison of science and humanities students, or first- and final-year students, where the individuals in each group are distinct.</p>
+<p>We will now look at the case of unpaired data. This is data in which we wish to compare two groups but there are no particular links between individuals in one group and individuals in another group.</p>
+<p>Examples of unpaired (or independent) data can include :</p>
+<ul class="simple">
+<li><p>a comparison of science and humanities students, or first- and final-year students, where the individuals in each group are distinct.</p></li>
+<li><p>Treatment and control groups drawn from different people</p></li>
+<li><p>Comparing average heights across two different countries</p></li>
+</ul>
+<p>Because the individuals in each group are distinct, we cannot swap labels <em>within pairs</em> (as we did for the paired test). Instead, the permutation procedure for independent samples randomly reassigns group labels <em>across all observations</em> while preserving the group sizes. This creates resamples consistent with the null hypothesis of no difference between groups, and lets us build the null distribution of the chosen test statistic (for example, the difference in group means).</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">1.8.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -676,11 +684,11 @@ document.write(`
 </section>
 <section id="toy-example">
 <h2><span class="section-number">1.8.2. </span>Toy example<a class="headerlink" href="#toy-example" title="Link to this heading">#</a></h2>
-<p>[A toy example is an example with a very small dataset, just to show how it works]</p>
+<p><em>[A toy example is an example with a very small dataset, just to show how it works]</em></p>
 <section id="question-design">
 <h3>Question &amp; design<a class="headerlink" href="#question-design" title="Link to this heading">#</a></h3>
-<p>We hypothesise that cat owners eat more yoghurt than dog owners</p>
-<p>We decide on an <strong>independent samples</strong> design in which a group of cat owners are compared to an unrelated group of dog owners.</p>
+<p>Suppose we suspect that cat owner eat more yoghurt than dog owners.</p>
+<p>We decide to use a  <strong>independent samples design</strong>, comparing yoghurt consumption between a group of cat owners and an unrelated group of dog owners.</p>
 </section>
 <section id="hypotheses">
 <h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
@@ -689,11 +697,11 @@ document.write(`
 <ul class="simple">
 <li><p>mean(cat owners’ yoghurt consumption) - mean(dog owners’ yoghurt consumption) = 0</p></li>
 </ul>
-<p><span class="math notranslate nohighlight">\(\mathcal{H_a}:\)</span> Cat owners eat more yoghurt</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{H_a}:\)</span> Cat owners eat more yoghurt compared to dog owners</p>
 <ul class="simple">
 <li><p>mean(cat owners’ yoghurt consumption) &gt; mean(dog owners’ yoghurt consumption) = 0</p></li>
 </ul>
-<p>This is a one-tailed (directional) alternative hypothesis</p>
+<p><em>Note: This is a one-tailed (directional) test because we predict a specific direction (cat owners &gt; dog owners). If you do not have a justified directional prediction, use a two-tailed test instead. Ideally you should choose one- vs two-tailed testing before you look at the data.</em></p>
 </section>
 <section id="data">
 <h3>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h3>
@@ -823,35 +831,53 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Let’s plot the data:</p>
+<p>Let’s plot the data. In this case a scatterplot isn’t appropriate, because there is no natural way to pair or connect individuals across the two groups (cat owners and dog owners).</p>
+<p>Instead, we can use a bar plot showing the mean for each group, and add individual data points (often called a “dot plot” or “strip plot”) on top. This allows us to see both the group averages and the spread of individual responses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">yog</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Pet&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Yoghurt&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.9</span><span class="p">],</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">yog</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Pet&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Yoghurt&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.9</span><span class="p">],</span> <span class="n">errorbar</span><span class="o">=</span><span class="s1">&#39;se&#39;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">yog</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Pet&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Yoghurt&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># this bit plots the dots</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1bf1564cfb6eae708a8a54e7d61eab8f5bd0470b6c3a6e55ad17ade99b88c41c.png" src="../_images/1bf1564cfb6eae708a8a54e7d61eab8f5bd0470b6c3a6e55ad17ade99b88c41c.png" />
+<img alt="../_images/04aa372de276e3a513276fc5fb2aaec817abec03678db37505c4473f59aca1aa.png" src="../_images/04aa372de276e3a513276fc5fb2aaec817abec03678db37505c4473f59aca1aa.png" />
 </div>
 </div>
-<p>We note that the mean number of yoghurts eaten is higher for cat owners, but this may be skewed by one cat-owning yogurt enthusiast.</p>
+<p>We can see that the mean number of yoghurts eaten is higher for cat owners (the bar for cats is higher than the bar for dog), but this difference might be influenced by one particularly enthusiastic yoghurt-eating cat owner.</p>
 </section>
 <section id="test-statistic">
 <h3>Test statistic<a class="headerlink" href="#test-statistic" title="Link to this heading">#</a></h3>
-<p>We need to summarize the difference in yoghurt consumption as a number.</p>
-<p>This mean difference, <tt>mean(Cat owners) - mean(Dog owners))</tt>, is calculated as follows:</p>
+<p>To analyse these data, we again need to summarise the difference in yoghurt consumption with a single number, a <strong>test statistic</strong>. Here, our test statistic is the difference in group means:</p>
+<p><tt>mean(Cat owners) - mean(Dog owners))</tt></p>
+<p>This value captures, on average, how many more yoghurts cat owners ate compared to dog owners, and to calculate this you can use the following code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet == &quot;cat&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">yog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet == &quot;dog&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_owners</span> <span class="o">=</span> <span class="n">yog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet==&quot;cat&quot;&#39;</span><span class="p">)</span>
+<span class="n">dog_owners</span> <span class="o">=</span> <span class="n">yog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet==&quot;dog&quot;&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cat_owners</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">dog_owners</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.5)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: here we need to use <code class="docutils literal notranslate"><span class="pre">.query</span></code> to seperately select the rows of cat and dog owners. Once we’ve done that we can select the column we are interested in (Yoghurt) and calculate the mean using <code class="docutils literal notranslate"><span class="pre">.mean()</span></code>. You can do this in two steps (as above) or one step (as below):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">yog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet == &quot;cat&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">yog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet == &quot;dog&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5
 </pre></div>
 </div>
 </div>
@@ -860,16 +886,24 @@ document.write(`
 </section>
 <section id="is-the-result-statistically-significant">
 <h3>Is the result statistically significant?<a class="headerlink" href="#is-the-result-statistically-significant" title="Link to this heading">#</a></h3>
-<p>Even if there were no true pet-based differences in yoghurt consumption, if we picked a sample of random cat- and dog-owners and measured their yoghurt consumption we wouldn’t expect the difference in average yoghurt consupmtion to be <em>exactly zero</em> - just by chance the cat owners would sometimes eat more yogurt, and vice versa.</p>
-<p>Is it plausible that the pet-based difference we observed (cat owners eat yoghurt 2.5 more times per week than dog owners) arose due to chance from a situation in which there is no true pet-based difference in yoghurt consumption (ie, the <em>null hypothesis is true</em>)?</p>
-<p>In that case, it would be just chance whether a person is labelled as a cat- or dog-owner.</p>
+<p>Even if there were no true difference in yoghurt consumption between pet types, we wouldn’t expect the difference in sample means to be <em>exactly zero</em>. Just by chance, a random sample of cat and dog owners will sometimes show higher yoghurt consumption for cat owners, and sometimes for dog owners.</p>
+<p>So we ask:</p>
+<p><em><strong>Is it plausible that the difference we observed (2.5 additional yoghurts per week for cat owners) arose purely by chance in a situation in which there is truly no pet-based difference in yoghurt consumption</strong></em></p>
+<p>In other words, could this happen if the null hypothesis were true?</p>
+<p>Under the null, it would simply be random which individuals end up labelled as “cat owners” and which as “dog owners.”</p>
 </section>
 <section id="permutation">
 <h3>Permutation<a class="headerlink" href="#permutation" title="Link to this heading">#</a></h3>
-<p>To work out how likely it would be to get a test statistic (difference in mean yogurt consumtion bbetwee the cat- and dog groups) as large as 2.5, we are going to do is shuffle the data around to create many new (re)samples in which, <strong>people are randomly moved between groups</strong></p>
+<p>To work out how unusual our observed difference in mean yoghurt consumption between cat and dog owners (2.5) is, we carry out a permutation test. Again, the idea is to shuffle the pet labels and see what kinds of mean differences would occur just by chance (i.e. the null distribution).</p>
+<p>For each resample:</p>
+<p>Which ones switch changes from resample to resample.</p>
+<p>Compute the test statistic:</p>
+<ol class="arabic simple">
+<li><p><strong>Randomly reassign people to group:</strong> Shuffle the data around to create a new sample in which, we we randomly decide who gets which label, <em>cat</em> or <em>dog</em> while keeping the group sizes the same (10 “cat owners” and 8 “dog owners”).</p></li>
+<li><p><strong>Calculate the difference of the means:</strong> <tt>mean(Cat owners)-mean(Dog owners)</tt>.</p></li>
+<li><p><strong>Repeat steps 1 &amp; 2 thousands of times</strong> this will create a distribution in which the difference between cat owners and dog owners truly was zero. Now we can ask on what proportion of random resamples we get a values of <tt>mean(Cat owners)-mean(Dog owners)</tt> at least as large as our observed difference, 2.5.</p></li>
+</ol>
 <p>Within each resample, some individuals will retain their true pet identity, and some will be relabelled; which individuals are which will differ between resamples.</p>
-<p>For each resample, we then calculate the mean difference in yogurt consumption, <tt>mean(Cat-Dog)</tt>.</p>
-<p>After repeating the process thousands of times, we can ask on what proportion of random resamples we get a values of <tt>mean(Cat-Dog)</tt> at least as large as our observed difference, 2.5.</p>
 <p>In this case as data are unpaired, we don’t need to preserve pared realationships - ie we can swap the pet-labels for any two people in the sample of 18. However, we do still want to preserve the non-pet-based features of the dataset, namely the sample sizes (10 cat owners and 8 dog owners).</p>
 <p>Shuffling within our sample of 18 will also preserve the overall features of the dataset:</p>
 <p><strong>Non pet-based effects (to be preserved):</strong></p>
@@ -901,17 +935,75 @@ document.write(`
 <h3>Visualizing randoms shuffles in the unpaired data<a class="headerlink" href="#visualizing-randoms-shuffles-in-the-unpaired-data" title="Link to this heading">#</a></h3>
 <p>Let’s see how the difference of means changes over a few random shuffles.</p>
 <p>Below I generate 4 random shuffles of our yoghurt data (in which individuals are randomly relabelled as cat- or dog-owners, maintaining the correct number of cat- and dog-owners), and plot the outcomes:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4PermutationsInd.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4PermutationsInd.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4PermutationsInd.png" style="width: 99%;" />
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4PermutationsInd.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4PermutationsInd.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4PermutationsInd.png" style="width: 80%;" />
 </a>
 <p>Note that <strong>each individual can move between the ‘cat’ and ‘dog’ group at random</strong>, but there are always 10 people in the ‘cat’ group and 8 people in the ‘dog’ group.</p>
 <p>You can see that the difference of means (difference in heights of the bars) depends on whether more of the high-yoghurt individuals are assigned as cat owners, and also depends quite a lot on which group the 13-yoghurt individual ends up in.</p>
+<p>Below is some code that will randomly shuffle our <code class="docutils literal notranslate"><span class="pre">Yoghurt</span></code> column, but keep the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> column in tact. What this is essentially doing is radomly shuffle the label (‘Cat’/’Dog’) for each person in the data set. Run the code below several times to see what happens to the plot and the test statistic:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/yoghurt.csv&#39;</span><span class="p">)</span>
+
+<span class="c1">#Randomise the order of the Yoghurt column</span>
+<span class="n">perm</span><span class="o">.</span><span class="n">Yoghurt</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">perm</span><span class="p">),</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+<span class="c1">#Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">perm</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Pet&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Yoghurt&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.9</span><span class="p">],</span> <span class="n">errorbar</span><span class="o">=</span><span class="s1">&#39;se&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">perm</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Pet&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Yoghurt&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># this bit plots the dots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Compute the test statistic for THIS permutation</span>
+<span class="n">test_stat</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet == &quot;cat&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">perm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet == &quot;dog&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_stat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5313455d491a7483017216ba96994d3d5af0027a27eddb5aab49ab477c7da889.png" src="../_images/5313455d491a7483017216ba96994d3d5af0027a27eddb5aab49ab477c7da889.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.3250000000000002
+</pre></div>
+</div>
+</div>
+</div>
 </section>
+</section>
+<section id="run-many-shuffles">
+<h2><span class="section-number">1.8.3. </span>Run Many shuffles<a class="headerlink" href="#run-many-shuffles" title="Link to this heading">#</a></h2>
+<p>To get an estimate of how likely it is to get a test statistic of 2.5 due to chance, we need to run a <em>lot</em> of shuffles. Here we can loop through our desired number of permutations, repeating this shuffling process each time and recalculaing the test statistic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nReps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">perm_tests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">nReps</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nReps</span><span class="p">):</span>
+    <span class="c1"># Make a copy so we do not overwrite the original data</span>
+    <span class="n">perm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/yoghurt.csv&#39;</span><span class="p">)</span>
+
+    <span class="c1">#Randomise the order of the Yoghurt column</span>
+    <span class="n">perm</span><span class="o">.</span><span class="n">Yoghurt</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">perm</span><span class="p">),</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+    <span class="n">perm_tests</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet == &quot;cat&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">perm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Pet == &quot;dog&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Yoghurt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">perm_tests</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/3940826297b782a02c482239ac45d0729578b2ef636073e5bd2d17978fbfe3db.png" src="../_images/3940826297b782a02c482239ac45d0729578b2ef636073e5bd2d17978fbfe3db.png" />
+</div>
+</div>
+<p>With 100 permutations you can already see the null distribution taking shape. Most of the permutations center around a small difference between the two group as expected, however how often do we see a difference at least as large as we observed in data set (i.e., 2.5)? To increase our confidence we probably want to run even more permutations!</p>
 </section>
 <section id="run-10-000-shuffles">
-<h2><span class="section-number">1.8.3. </span>Run 10,000 shuffles<a class="headerlink" href="#run-10-000-shuffles" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.4. </span>Run 10,000 shuffles<a class="headerlink" href="#run-10-000-shuffles" title="Link to this heading">#</a></h2>
 <p>To get a fine-grained estimate of how likely it is to get a test statistic of 2.5 due to chance, we run a <em>lot</em> of shuffles - say 10,000.</p>
 <p>We can do this using a function from the library <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, called <code class="docutils literal notranslate"><span class="pre">scipy.stats.permutation_test()</span></code></p>
-<p>First of all we will run this (using the code block below) and learn about the output. Afterwards we will have a closer look at the Python syntax including defining a function.</p>
+<p>This will have a few advantages. First, the inbuilt function is much faster and therefore we can easily increase the number of permutattions without costing too much time. The function also provides some additional output which we will take a closer look at below. Start by running the code block below - don’t worry too much about the syntax we’ll dive into that later…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dMeans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -924,7 +1016,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.5), pvalue=np.float64(0.0700929907009299), null_distribution=array([ 1.6  , -0.875, -1.1  , ...,  0.025, -1.325, -2.   ],
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.5), pvalue=np.float64(0.061193880611938804), null_distribution=array([-0.65 ,  1.15 , -1.775, ...,  2.95 , -0.65 ,  0.025],
       shape=(10000,)))
 </pre></div>
 </div>
@@ -939,20 +1031,22 @@ document.write(`
 <section id="the-null-distribution">
 <h3>The Null Distribution<a class="headerlink" href="#the-null-distribution" title="Link to this heading">#</a></h3>
 <p>The <strong>null distribution</strong> is the set of 10,000 values we get for the difference of mean yoghurt consumption for (cat owners - dog owners), from our 10,000 shuffles (the equivalent of the red numbers on the 4-permutation example above)</p>
-<p>Let’s plot the null distribution in a histogram:</p>
+<p>Let’s plot the null distribution in a histogram we will mark the test statistic from our actual data with a red dotted line:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">results</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span><span class="n">results</span><span class="o">.</span><span class="n">statistic</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9f3a69d62e93235987afe58604f650603935a3ed8781b18f8030e07926b44006.png" src="../_images/9f3a69d62e93235987afe58604f650603935a3ed8781b18f8030e07926b44006.png" />
+<img alt="../_images/b9ec063cad9c8a72b6c22d3a9edf0fc55fbe6091d3bf6d7b6b84b4a20fda809e.png" src="../_images/b9ec063cad9c8a72b6c22d3a9edf0fc55fbe6091d3bf6d7b6b84b4a20fda809e.png" />
 </div>
 </div>
-<p>The histogram looks a bit spikey because for this dataset (which is small and has several repeated values) there are a limited number of possible values for the means of a groups of 8 and a group of 10.</p>
-<p>In any case we can see that the observed difference between cat and dog owners’ mean consumption (+2.5) is quite rare but not completely extreme.</p>
+<p>The histogram looks a bit spikey because this dataset is very small and contains several repeated values.
+As a result, there are only a limited number of possible values that the mean yoghurt consumption of a group of 10 (cat owners) or a group of 8 (dog owners) can take.</p>
+<p>Even so, we can see that the observed difference between cat and dog owners’ mean yoghurt consumption (+2.5) is unusual, but not completely extreme, within this permutation distribution.</p>
 </section>
 <section id="the-p-value">
 <h3>The <span class="math notranslate nohighlight">\(𝑝\)</span>-value¶<a class="headerlink" href="#the-p-value" title="Link to this heading">#</a></h3>
@@ -961,25 +1055,25 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check which values is the null distribution are greater than 4.6 and code as 1/0</span>
 <span class="c1"># then use the numpy function np.mean() to get the avergae of those ones and zeros (ie he proportion of 1s)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span> <span class="o">&gt;=</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span> <span class="o">&gt;=</span> <span class="mf">2.5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.07)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0611
 </pre></div>
 </div>
 </div>
 </div>
-<p>This proportion is 0.064 or 6.4%.</p>
-<p>This tells us that if we simulate a situation in which pet ownership does not determine the number of times yoghurt is eaten (but preserving some other important features of the dataset like the high skew), there is still almost a 5% chance that we would get an apparent pet-based difference as large as the one we observed in our ‘real’ data.</p>
+<p>This proportion is ~0.06 or ~6% (Remember the exact value will differ slightly each time you run the permutation…)</p>
+<p>This tells us that if we simulate a situation in which pet ownership does not determine the number of times yoghurt is eaten (but preserving some other important features of the dataset like the high skew), there is still higher than a 5% chance that we would get an apparent pet-based difference as large as the one we observed in our ‘real’ data.</p>
 <p>The probability that the test statistic (in this case, the difference in mean times yoghurt is eaten) would be observed if the null hypothesis were true, is sometimes called the <span class="math notranslate nohighlight">\(𝑝\)</span>-value.</p>
-<p>Our permutation test shows that the <span class="math notranslate nohighlight">\(𝑝\)</span>-value associated with the observed difference of means is 0.047 or 4.7%.</p>
+<p>Our permutation test shows that the <span class="math notranslate nohighlight">\(𝑝\)</span>-value associated with the observed difference of means is 0.06 or 6%.</p>
 <p>The result is considered statistically significant if <span class="math notranslate nohighlight">\(𝑝\)</span> is smaller than some predetermined level, known as <span class="math notranslate nohighlight">\(\alpha\)</span>. Usually <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> or <span class="math notranslate nohighlight">\(\alpha=0.01\)</span> is used; this result is not quite significant if <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> but not significant if <span class="math notranslate nohighlight">\(\alpha=0.01\)</span>.</p>
 </section>
 </section>
 <section id="syntax-of-stats-permutation-test">
-<h2><span class="section-number">1.8.4. </span>Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code><a class="headerlink" href="#syntax-of-stats-permutation-test" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.5. </span>Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code><a class="headerlink" href="#syntax-of-stats-permutation-test" title="Link to this heading">#</a></h2>
 <p>Let’s have a look at the Python code to run the permutation test.</p>
 <p>Firstly, we had to give the function <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code> our two samples. In this case, the data are in ‘long form’, ie the pet category is defined in one column of the dataset, so cat owners and dog owners are in different rows. We therefore identify our categories useing <code class="docutils literal notranslate"><span class="pre">df.query()</span></code> with the column we want (<tt>Yoghurt</tt>) tacked on the end:</p>
 <p><code class="docutils literal notranslate"><span class="pre">(yog.query('Pet</span> <span class="pre">==</span> <span class="pre">&quot;cat&quot;').Yoghurt,</span> <span class="pre">yog.query('Pet</span> <span class="pre">==</span> <span class="pre">&quot;dog&quot;').Yoghurt)</span></code></p>
@@ -996,7 +1090,7 @@ document.write(`
 </section>
 </section>
 <section id="recap">
-<h2><span class="section-number">1.8.5. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.6. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
 <p>To run a permutation test on unpaired data, we mixed up all the individuals in the sample regardless of category (pet ownership), and randomly split them into two groups. We kept the original group sizes (10 and 8 in this case), as we want to retain the characteristics of the original dataset that one group is larger</p>
 <p>For each shuffle we calculated the mean yoghurt consuption for each ‘pet’ group.</p>
 <p>Permutation testing in this way gives us a null distribution for the difference of means. Values of difference of means that occur rarely in the null distribution are considered statistically significant.</p>
@@ -1080,16 +1174,17 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-randoms-shuffles-in-the-unpaired-data">Visualizing randoms shuffles in the unpaired data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.8.3. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-many-shuffles">1.8.3. Run Many shuffles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.8.4. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-distribution">The Null Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-p-value">The <span class="math notranslate nohighlight">\(𝑝\)</span>-value¶</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.8.4. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.8.5. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.8.5. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.8.6. Recap</a></li>
 </ul>
   </nav></div>
 

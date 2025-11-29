@@ -103,12 +103,14 @@ parts:
         - file: 3.1_PermutationTest/3.1.3_HypothesisTesting.md
         - file: 3.1_PermutationTest/3.1.4_OneTwoTail.md
         - file: 3.1_PermutationTest/3.1.5_PermutationTypes.md
-        - file: 3.1_PermutationTest/3.1.6_functions.md
-        - file: 3.1_PermutationTest/3.1.7_permutation_paired.md
-        - file: 3.1_PermutationTest/3.1.8_permutation_unpaired.md
-        - file: 3.1_PermutationTest/3.1.9_permutation_correlation.md
-        - file: 3.1_PermutationTest/3.1.10_permutation_practice.md
-        - file: 3.1_PermutationTest/3.1.11_permutation_TutorialExercises.md
+        - file: 3.1_PermutationTest/3.1.6_functions.ipynb
+        - file: 3.1_PermutationTest/3.1.7_permutation_paired.ipynb
+        - file: 3.1_PermutationTest/3.1.8_permutation_unpaired.ipynb
+        - file: 3.1_PermutationTest/3.1.9_permutation_correlation.ipynb
+        - file: 3.1_PermutationTest/3.1.10_permutation_practice.ipynb
+        - file: 3.1_PermutationTest/3.1.11_permutation_TutorialExercises.ipynb
+        - file: 3.1_PermutationTest/3.1.12_permutation_ExtraPractice.ipynb
+
       - file: 3.2_RankBasedTests/3.2.1_classictests_intro.md
         sections:
         - file: 3.2_RankBasedTests/3.2.2_outcomes.md
