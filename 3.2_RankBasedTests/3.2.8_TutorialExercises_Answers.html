@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -794,8 +795,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.22062500000000007), pvalue=np.float64(0.0462), null_distribution=array([-0.034875, -0.143125, -0.196875, ...,  0.279125, -0.030625,
-       -0.135875], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.22062500000000007), pvalue=np.float64(0.0485), null_distribution=array([ 0.251625, -0.045625,  0.220625, ...,  0.073375,  0.204625,
+       -0.237375], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -994,7 +995,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/465dda240d3d267030e8233053a5e4dd3cca3aec4c0802b79a053ddbced4cc56.png" src="../_images/465dda240d3d267030e8233053a5e4dd3cca3aec4c0802b79a053ddbced4cc56.png" />
+<img alt="../_images/53ce1b591c8623a8fd2adda0ba5d0196a090203c977cc596ef503c6720751bc8.png" src="../_images/53ce1b591c8623a8fd2adda0ba5d0196a090203c977cc596ef503c6720751bc8.png" />
 </div>
 </div>
 <p>e) Conduct a suitable rank-based non-parametric test of VitalVit’s claim</p>
@@ -1033,8 +1034,8 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(1.320590909090907), pvalue=np.float64(0.0023), null_distribution=array([ 0.03859091, -0.67168182,  0.38713636, ..., -0.70186364,
-        0.74777273, -0.89095455], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(1.320590909090907), pvalue=np.float64(0.0025), null_distribution=array([-0.06568182, -0.60677273,  0.01604545, ..., -0.17077273,
+       -0.2205    ,  0.48268182], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -1164,7 +1165,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c01500961230d4a8e66a68e864a4110afbcbdfa2a1d33e578f2e34ba32dd9b2c.png" src="../_images/c01500961230d4a8e66a68e864a4110afbcbdfa2a1d33e578f2e34ba32dd9b2c.png" />
+<img alt="../_images/c203bbecd89d1733561102b7ff40ddeb6f31365e5867be95ee2b7fb5a22e92a6.png" src="../_images/c203bbecd89d1733561102b7ff40ddeb6f31365e5867be95ee2b7fb5a22e92a6.png" />
 </div>
 </div>
 <p><strong>c. Carry out a suitable rank-based non-parametric test of the hypothesis that men own more socks than women</strong></p>
@@ -1188,8 +1189,8 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.0065), null_distribution=array([-3.57142857, -0.71428571, -0.85714286, ..., -3.14285714,
-        2.85714286, -2.42857143], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.0071), null_distribution=array([ 0.28571429,  4.        ,  0.42857143, ..., -1.14285714,
+        0.        ,  0.85714286], shape=(9999,)))
 </pre></div>
 </div>
 </div>

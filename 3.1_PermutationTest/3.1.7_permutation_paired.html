@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -620,17 +621,21 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.7.1. Set up Python libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toy-example">1.7.2. Toy example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-design">Question &amp; design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-design">Question &amp; Design</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistic">Test statistic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-plot-those-data">Let’s plot those data.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistic">Test statistic</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-result-statistically-significant">Is the result statistically significant?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation">Permutation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-simulation">Run the simulation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-random-shuffles-in-the-paired-data">Visualizing random shuffles in the paired data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.7.3. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-many-shuffles">1.7.3. Run Many shuffles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10000-shuffles">1.7.4. Run 10000 shuffles</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-distribution">The Null Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-p-value">The <span class="math notranslate nohighlight">\(p\)</span> value</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
@@ -638,11 +643,11 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.7.4. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.7.5. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.7.5. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.7.6. Recap</a></li>
 </ul>
             </nav>
         </div>
@@ -656,8 +661,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="permutation-test-for-paired-data">
 <h1><span class="section-number">1.7. </span>Permutation test for paired data<a class="headerlink" href="#permutation-test-for-paired-data" title="Link to this heading">#</a></h1>
-<p>Turning to the permutation test itself, we first look at the case of paired data - data in which we wish to compare two groups and each datapoint in one group has a counterpart in the other</p>
-<p>Experimental designs using paired data include matched pairs (eg brothers and sisters) and repeated measures (measurements of the same individual before- and after- an intervention, or on- and off-drug).</p>
+<p>Now let’s turn to the permutation test itself, starting with the case of paired data. These are situations where we want to compare two conditions or groups, and each datapoint in one group has a corresponding partner in the other.</p>
+<p>Paired data arise in several common experimental designs, including:</p>
+<ul class="simple">
+<li><p>Matched pairs, such as siblings, twins, or participant pairs matched on age, gender, or some other characteristic.</p></li>
+<li><p>Repeated measures, where the same individual is measured under two different conditions — for example:</p>
+<ul>
+<li><p>before and after an intervention</p></li>
+<li><p>on-drug and off-drug</p></li>
+<li><p>reaction times across different conditions measured within an individual</p></li>
+</ul>
+</li>
+</ul>
+<p>In these designs, each value in one group has a natural counterpart in the other, which allows us to look at the within-pair differences rather than comparing two independent groups.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">1.7.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -679,27 +695,27 @@ document.write(`
 </section>
 <section id="toy-example">
 <h2><span class="section-number">1.7.2. </span>Toy example<a class="headerlink" href="#toy-example" title="Link to this heading">#</a></h2>
-<p>[A toy example is an example with a very small dataset, just to show how it works]</p>
+<p><em>[A toy example is an example with a very small dataset, just to show how it works]</em></p>
 <section id="question-design">
-<h3>Question &amp; design<a class="headerlink" href="#question-design" title="Link to this heading">#</a></h3>
-<p>We suspect men own ore socks than women.</p>
-<p>We decide on a <strong>matched pairs design</strong> in which husbands are compared to their wives, as it is hypothesised that lifestyle factors such as the size of the home in which people live and the duration of holidays taken will affect the number of pairs that can be reasonably justified, and these lifestyle factors are generally shared by both members of a married couple.</p>
+<h3>Question &amp; Design<a class="headerlink" href="#question-design" title="Link to this heading">#</a></h3>
+<p>Suppose we suspect that men own more socks than women.</p>
+<p>We decide to use a  <strong>matched pairs design</strong>, comparing sock ownership between husbands and wives. This helps control for lifestyle factors, such as household size, wardrobe space, and holiday habits, which are typically shared within a couple and could influence how many pairs of socks a person owns. In other words, by matching these couples, we reduce these confounding influences and focus on the sex difference within each pair.</p>
 </section>
 <section id="hypotheses">
 <h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
 <p>We can state our hypotheses as follows:</p>
-<p><span class="math notranslate nohighlight">\(\mathcal{H_o}:\)</span> The mean sex difference quantity of socks owned is zero</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{H_o}:\)</span> The mean sex difference in socks owned is zero.</p>
 <ul class="simple">
-<li><p>on average a wife and her husband have the same number of pairs of socks</p></li>
+<li><p>on average husbands and wives own the same number of socks.</p></li>
 </ul>
-<p><span class="math notranslate nohighlight">\(\mathcal{H_a}:\)</span> The mean sex difference [husband-wife] quantity of socks owned greater than zero</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{H_a}:\)</span> The mean sex difference <em>(husband-wife)</em> is greater than zero</p>
 <ul class="simple">
-<li><p>on average a husband has more socks than his wife</p></li>
+<li><p>on average husbands own more socks than their wives</p></li>
 </ul>
 </section>
 <section id="data">
 <h3>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h3>
-<p>We obtain sock-counts for the following informal sample of 14 couples:</p>
+<p>We obtain sock counts from an informal sample of 14 couples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">socks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/socks.csv&#39;</span><span class="p">)</span>
@@ -805,14 +821,16 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Let’s plot those data.</p>
-<p>For paired data a scatter plot is often a good choice, but actually for this tiny dataset, I prefer showing the pairs using a plot like that shown on the right.</p>
+</section>
+<section id="let-s-plot-those-data">
+<h3>Let’s plot those data.<a class="headerlink" href="#let-s-plot-those-data" title="Link to this heading">#</a></h3>
+<p>When you are trying to interpret a potential statistical difference, it’s usually best to start by plotting the data. A clear visualisation often reveals patterns, or the lack of them, long before any formal statistical test is run.</p>
+<p>For paired data a <strong>scatter plot</strong> (perhaps with a <em>reference line</em>) is often a good choice (see the plot on the left). However, for a dataset this small, I prefer the style of plot shown on the right (<em>a bar plot with individual data lines for each couple</em>).</p>
 <ul class="simple">
-<li><p>You won’t be required to reproduce this type plot for the course, however you can find instructions on how to make it in section 2.5 of this website</p></li>
+<li><p><em>You won’t be required to produce this type of plot in the course, but if you’re curious, you can find instructions in Section 2.5 of this website.</em></p></li>
 </ul>
-<p>Why do I prefer the plot on the right?</p>
-<p>We are going to be interested in whether husbands have more socks than their wives or vice versa - I think this can be very clearly seen in the plot on the right (by inspecting whether the lines slope up or downwards)</p>
-<p><em>however</em> if there were 1000 couples in the sample rather than 10 this plot would be too crowded and hard to inspect</p>
+<p><strong>Why do I prefer the plot on the right?</strong></p>
+<p>In this analysis, we’re interested in whether husbands have more socks than their wives. The plot on the right makes this visually obvious, because you can simply check whether each connecting line slopes upward (husband has more) or downward (wife has more). However,  if we had hundreds or thousands of couples, this kind of paired-line plot would become too crowded to interpret. In larger datasets, a scatter plot or a histogram of paired differences is usually a better choice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting code - don&#39;t get sidetracked by this, it&#39;s not that important</span>
@@ -836,46 +854,167 @@ document.write(`
 <img alt="../_images/ccb1b5453b284eeb975c6368a9f12b6466428f0c8f09b3878b3854ef9f49bdb1.png" src="../_images/ccb1b5453b284eeb975c6368a9f12b6466428f0c8f09b3878b3854ef9f49bdb1.png" />
 </div>
 </div>
-<p><strong>Note-</strong></p>
+<p><strong>Things to note:</strong></p>
 <ul class="simple">
 <li><p>In most couples (11/14) the husband owns more socks that the wife</p></li>
 <li><p>There is one couple in which the husband has an extreme number of socks.</p></li>
 </ul>
-</section>
 <section id="test-statistic">
-<h3>Test statistic<a class="headerlink" href="#test-statistic" title="Link to this heading">#</a></h3>
-<p>We need to sumamrize the sex difference as a number.</p>
-<p>Here, we are interested in the within-pairs difference in sock ownership, so we need the mean difference in pairs of socks owned, for [husband - wife].</p>
-<p>This mean difference, <tt>mean(Husband-Wife)</tt>, is calculated as follows:</p>
+<h4>Test statistic<a class="headerlink" href="#test-statistic" title="Link to this heading">#</a></h4>
+<p>A test statistic is a single numerical value that summarizes the pattern in the data that is relevant to your hypothesis. Because we are here interested in the <strong>within-pair</strong> differences in sock ownership, our test statistic is the <strong>mean difference</strong> for [husband - wife]:</p>
+<p>To calculate the mean difference we can start by calculating the <code class="docutils literal notranslate"><span class="pre">difference</span></code> value for each couple. We can add this to our data frame as a new column as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">socks</span><span class="p">[</span><span class="s1">&#39;difference&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">socks</span><span class="o">.</span><span class="n">Husband</span><span class="o">-</span><span class="n">socks</span><span class="o">.</span><span class="n">Wife</span> <span class="c1"># create a new column for the within-couple difference</span>
-<span class="n">socks</span><span class="o">.</span><span class="n">difference</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">socks</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(4.571428571428571)
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Husband</th>
+      <th>Wife</th>
+      <th>difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>12</td>
+      <td>-2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>17</td>
+      <td>13</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>48</td>
+      <td>20</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>28</td>
+      <td>25</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>23</td>
+      <td>18</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>16</td>
+      <td>14</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>18</td>
+      <td>13</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>34</td>
+      <td>26</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>27</td>
+      <td>22</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>22</td>
+      <td>14</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>12</td>
+      <td>10</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>13</td>
+      <td>17</td>
+      <td>-4</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>22</td>
+      <td>21</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>15</td>
+      <td>16</td>
+      <td>-1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now you can calculate the mean of the new column <code class="docutils literal notranslate"><span class="pre">difference</span></code>. What you will see is that on average, the husbands own 4.6 more pairs of socks than their wives.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">socks</span><span class="o">.</span><span class="n">difference</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.571428571428571
 </pre></div>
 </div>
 </div>
 </div>
-<p>On average, the husbands own 4.6 more pairs of socks than their wives.</p>
+</section>
 </section>
 <section id="is-the-result-statistically-significant">
 <h3>Is the result statistically significant?<a class="headerlink" href="#is-the-result-statistically-significant" title="Link to this heading">#</a></h3>
 <p>In our particular sample, husbands have (on average) more socks than their wives - our test statistic (<tt>mean(Husband-Wife)</tt>) is 4.6.</p>
-<p>However, even if there were no true sex differences in sock ownership, if we picked 10 random couples we wouldn’t expect the average difference in number of socks owned to be <em>exactly zero</em> - just by chance the wives would sometimes have more socks than the husbands, or vice versa.</p>
-<p>Is it plausible that the sex difference we observed (husbands have 4.6 more pairs of socks than their wives) arose due to chance from a situation in which there is no true sex difference in sock ownership (ie, the <em>null hypothesis is true</em>?)</p>
-<p>In that case, it would be just chance whether the person with more socks in each couple was the man or the woman.</p>
+<p>However, even if there were no true sex difference in sock ownership, we would never expect the average difference in a small sample of 14 couples to be exactly zero. Just by chance, some wives would have more socks than their husbands, and some husbands would have more than their wives.</p>
+<p>So we ask:</p>
+<p><strong>Is it plausible that our observed mean difference of 4.6 arose purely by chance, under a situation where there is no true sex difference (i.e., <em>when the null hypothesis is true</em>)?</strong></p>
+<p>Under the null hypothesis, it would be random which member of a couple (husband or wife) happens to have more socks.</p>
 </section>
 <section id="permutation">
 <h3>Permutation<a class="headerlink" href="#permutation" title="Link to this heading">#</a></h3>
-<p>To work out how likely it would be to get a test statistic (mean difference in socks) as large as 4.6, we are going to do is shuffle the data around to create many new (re)samples in which, <strong>within each couple</strong>, we we randomly decide who gets which label, <em>husband</em> or <em>wife</em>.</p>
-<p>Within each resample, some couples will retain their true labels and some will be relabelled; which couples are which will differ between resamples.</p>
-<p>For each resample, we then calculate the mean difference, <tt>mean(Husband-Wife)</tt>.</p>
-<p>After repeating the process thousands of times, we can ask on what proportion of random resamples we get a values of <tt>mean(Husband-Wife)</tt> at least as large as our observed difference, 4.6.</p>
-<p>An important consideration in the shuffling process is that, whilst we want to shuffle the data as if sex was irrelevant (randomly allocate the labels ‘husband’ and ‘wife’), we want to <strong>preserving the non-sex-related features of the dataset</strong>:</p>
+<p>To find out how likely it is to obtain a mean difference as large as 4.6 by chance, we use a <em>permutation test</em>, whereby we create the null distribution and calculate the probability of obtaining a difference as large as we found in the original dataset.</p>
+<ol class="arabic simple">
+<li><p><strong>Shuffle the labels within a pair:</strong> Shuffle the data around to create a new sample in which, <strong>within each couple</strong>, we we randomly decide who gets which label, <em>husband</em> or <em>wife</em>. Some couples will retain their true labels while others will have their labels swapped.</p></li>
+<li><p><strong>Calculate the mean difference:</strong> <tt>mean(Husband-Wife)</tt>.</p></li>
+<li><p><strong>Repeat steps 1 &amp; 2 thousands of times</strong> this will create a distribution in which the difference between husbands and wives truly was zero. Now we can ask on what proportion of random resamples we get a values of <tt>mean(Husband-Wife)</tt> at least as large as our observed difference, 4.6.</p></li>
+</ol>
+<p>An important consideration in the shuffling process is that, whilst we want to shuffle the data as if sex was irrelevant (randomly allocate the labels ‘husband’ and ‘wife’), we want to <strong>preserve the non-sex-related features of the dataset</strong>:</p>
 <p><strong>Non-sex-related (to be retained in shuffled datasets):</strong></p>
 <ul class="simple">
 <li><p>For most couples there is a small difference in the number of pairs of socks owned</p></li>
@@ -893,25 +1032,29 @@ document.write(`
 <p><strong>Sex effects (will be ‘shuffled out’):</strong></p>
 <ul class="simple">
 <li><p>in most couples the husband has more socks</p></li>
-<li><p>the outlier individuals with loads of socks tend to be male</p></li>
+<li><p>the outlier individual with loads of socks was male</p></li>
 </ul>
-<p>To achieve shuffles that <strong>preserve the non-sex-related information</strong> whilst <strong>ignoring the sex of the sock owner</strong>, we only move people within pairs (exchange the labels ‘husband’ and ‘wife’). We <em>never</em> move people between pairs (swap someone from one couple into another).</p>
+<p>To achieve shuffles that <strong>preserve the non-sex-related information</strong> whilst <strong>ignoring the sex of the sock owner</strong>, we only move people within pairs (exchange the labels ‘husband’ and ‘wife’). We <em>never</em> move people between pairs (swapping someone from one couple into another).</p>
 </section>
 <section id="run-the-simulation">
 <h3>Run the simulation<a class="headerlink" href="#run-the-simulation" title="Link to this heading">#</a></h3>
-<p>To generate new simulated datasets, we will shuffle around the datapoints in our original dataset.</p>
-<p>Which ones can we shuffle?</p>
+<p>To generate new simulated datasets for our permutation test, we will shuffle the datapoints in our original dataset. But not all shuffling is allowed as we would like to preserve the structure of the paired design.</p>
+<p><strong>What can we shuffle?</strong></p>
 <ul class="simple">
-<li><p>We assume there are no sex differences, so we can swap men for women</p></li>
-<li><p>We assume that it <em>does</em> matters which couple you are in (high-sock men tend to have high-sock wives), therefore we cannot swap people between couples.</p></li>
+<li><p>We assume there are no sex differences, so we <em>can</em> swap men for women</p></li>
+<li><p>We assume that it <em>does</em> matters which couple you are in (high-sock men tend to have high-sock wives), therefore we <em>cannot</em> swap people between couples.</p></li>
 </ul>
-<p>Therefore, the only shuffling that we are allowed is to swap the labels ‘Husband’ and ‘Wife’ within couples.</p>
-<p>Conceptually, to generate a new simulated dataset (one <em>resample</em>), we go through each couple in turn and ‘flip a virtual coin’ to decide whether the labels ‘Husband’ and ‘Wife’ are flipped.</p>
+<p>Therefore, the only permissible shuffle is to exchange the labels ‘Husband’ and ‘Wife’ within each couple.</p>
+<p>Conceptually, to generate a new simulated dataset (one <em>resample</em>), we go through each couple in turn and randomly decide whether the labels ‘Husband’ and ‘Wife’ are flipped. You could conceptualise this as flipping a virtual coin:</p>
+<ul class="simple">
+<li><p>Heads -&gt; Keep the labels as is</p></li>
+<li><p>Tails -&gt; Flip the labels ‘Husband’ and ‘Wife’</p></li>
+</ul>
 </section>
 <section id="visualizing-random-shuffles-in-the-paired-data">
 <h3>Visualizing random shuffles in the paired data<a class="headerlink" href="#visualizing-random-shuffles-in-the-paired-data" title="Link to this heading">#</a></h3>
 <p>Here are the original data and four random permutations:</p>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4Permutations.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4Permutations.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4Permutations.png" style="width: 100%;" />
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4Permutations.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4Permutations.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk5_4Permutations.png" style="width: 80%;" />
 </a>
 <p>Look closely. Each coloured line represents one couple. Note that some of the lines are left-right flipped, but the lines never move up or down overall (because we are only flipping people within couples).</p>
 <p>The grey bars show the group means in each permutation. The values of the mean difference (Husband-Wife) for each permutation are shown in red text.</p>
@@ -923,26 +1066,109 @@ document.write(`
 </li>
 <li><p>The group with the higher mean does tend to be the group with the extreme 48-sock individual in it.</p></li>
 </ul>
+<p>Below is some code that will check each couple and ‘randomly’ decide if you should swap the label of Husband/Wife. Here you should not focus on being able to reproduce this code, but instead see if you can get an intuition of how the data values change each time you run the code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a copy so we do not overwrite the original data</span>
+<span class="n">perm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/socks.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Loop over couples</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">perm</span><span class="p">)):</span>
+    
+    <span class="c1"># Choose a random number between 0 - 1 and check if its less than .5 </span>
+    <span class="c1"># True = swap, False = keep the same</span>
+    <span class="n">flip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span>
+    
+    <span class="k">if</span> <span class="n">flip</span><span class="p">:</span>
+        <span class="c1"># Swap husband and wife values for this couple</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Husband&#39;</span><span class="p">]</span> <span class="c1">#Save the current value of husband socks</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Wife&#39;</span><span class="p">]</span>    <span class="c1">#Save the current value of wife socks </span>
+        <span class="n">perm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Husband&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="c1"># Swap the value with the other </span>
+        <span class="n">perm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Wife&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span>    <span class="c1"># Swap the value with the other</span>
+
+
+<span class="c1">#Plot the randomly sampled data</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">perm</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.9</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">perm</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span> <span class="c1"># ci=None switches off errorbars</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;pairs of socks owned&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Compute the test statistic for THIS permutation</span>
+<span class="n">test_stat</span> <span class="o">=</span> <span class="p">(</span><span class="n">perm</span><span class="p">[</span><span class="s1">&#39;Husband&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">perm</span><span class="p">[</span><span class="s1">&#39;Wife&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_stat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a2f7a82e5978ffa242dcda99d118de23e0b7e79388ea9327c99fa6ae566375d7.png" src="../_images/a2f7a82e5978ffa242dcda99d118de23e0b7e79388ea9327c99fa6ae566375d7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.5714285714285714
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="run-10-000-shuffles">
-<h2><span class="section-number">1.7.3. </span>Run 10,000 shuffles<a class="headerlink" href="#run-10-000-shuffles" title="Link to this heading">#</a></h2>
-<p>To get a fine-grained estimate of how likely it is to get a test statistic of 4.6 due to change, we run a <em>lot</em> of shuffles - say 10,000.</p>
-<p>We can do this using a function from the library <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, called <code class="docutils literal notranslate"><span class="pre">scipy.stats.permutation_test()</span></code></p>
-<p>First of all we will run this (using the code block below) and learn about the output. Afterwards we will have a closer look at the Python syntax including defining a function.</p>
+<section id="run-many-shuffles">
+<h2><span class="section-number">1.7.3. </span>Run Many shuffles<a class="headerlink" href="#run-many-shuffles" title="Link to this heading">#</a></h2>
+<p>To get a fine-grained estimate of how likely it is to get a test statistic of 4.6 due to chance, we need to run a <em>lot</em> of shuffles. We will use a double loop here where we loop through the number of repetitions, and then loop through the couples and randomly decide whether or not ro swap their labels. To start with let’s repeat this process 100 times. We will then plot the test statistic from each of those permutations in a histogram below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nReps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">perm_tests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">nReps</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nReps</span><span class="p">):</span>
+    <span class="c1"># Make a copy so we do not overwrite the original data</span>
+    <span class="n">perm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/socks.csv&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Loop over couples</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">perm</span><span class="p">)):</span>
+        
+        <span class="c1"># Choose a random number between 0 - 1 and check if its less than .5 </span>
+        <span class="c1"># True = swap, False = keep the same</span>
+        <span class="n">flip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span>
+        
+        <span class="k">if</span> <span class="n">flip</span><span class="p">:</span>
+            <span class="c1"># Swap husband and wife values for this couple</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Husband&#39;</span><span class="p">]</span> <span class="c1">#Save the current value of husband socks</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Wife&#39;</span><span class="p">]</span>    <span class="c1">#Save the current value of wife socks </span>
+            <span class="n">perm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Husband&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="c1"># Swap the value with the other </span>
+            <span class="n">perm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Wife&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span>    <span class="c1"># Swap the value with the other</span>
+    
+    <span class="n">perm_tests</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">perm</span><span class="p">[</span><span class="s1">&#39;Husband&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">perm</span><span class="p">[</span><span class="s1">&#39;Wife&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+
+
+<span class="c1">#Plot the randomly sampled data</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">perm_tests</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/e82e0407583b11471c001bfdeb2a05439d0fac9a4e1824fea85d11aa62ebab4e.png" src="../_images/e82e0407583b11471c001bfdeb2a05439d0fac9a4e1824fea85d11aa62ebab4e.png" />
+</div>
+</div>
+<p>With 100 permutations you can already begin to see that our test statistic of 4.6 occured quite infrequently in a case where there truly was no difference in the number of socks owned by husbands and wives. However, to increase our confidence we probably want to run even more permutations!</p>
+</section>
+<section id="run-10000-shuffles">
+<h2><span class="section-number">1.7.4. </span>Run 10000 shuffles<a class="headerlink" href="#run-10000-shuffles" title="Link to this heading">#</a></h2>
+<p>We can replace the “homebaked” version of our code above with an inbuilt function from the library <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, called <code class="docutils literal notranslate"><span class="pre">scipy.stats.permutation_test()</span></code>. This will have a few advantages. First, the inbuilt function is much faster and therefore we can easily increase the number of permutattions without costing too much time. The function also provides some additional output which we will take a closer look at below. Start by running the code block below - don’t worry too much about the syntax we’ll dive into that later…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mDiff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">permutation_test</span><span class="p">((</span><span class="n">socks</span><span class="o">.</span><span class="n">Husband</span><span class="p">,</span> <span class="n">socks</span><span class="o">.</span><span class="n">Wife</span><span class="p">),</span> <span class="n">mDiff</span><span class="p">,</span> <span class="n">permutation_type</span><span class="o">=</span><span class="s1">&#39;samples&#39;</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">,</span> <span class="n">n_resamples</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.005499450054994501), null_distribution=array([-2.28571429,  1.        , -1.14285714, ...,  2.42857143,
-        3.57142857, -0.85714286], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.006899310068993101), null_distribution=array([ 1.28571429, -0.14285714,  0.85714286, ...,  2.28571429,
+        1.85714286,  3.42857143], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -955,21 +1181,22 @@ document.write(`
 </ul>
 <section id="the-null-distribution">
 <h3>The Null Distribution<a class="headerlink" href="#the-null-distribution" title="Link to this heading">#</a></h3>
-<p>The <strong>null distribution</strong> is the set of 10,000 values we get for mean difference (Husband-Wife), from our 10,000 shuffles (the equivalent of the red numbers on the 4-permutation example above)</p>
-<p>Let’s plot the null distribution in a histogram:</p>
+<p>The <strong>null distribution</strong> is the set of 10,000 values we get for mean difference (Husband-Wife), from our 10,000 shuffles. This is equivalent to the histogram plot we made above only with 100 times as much data!</p>
+<p>Let’s plot the null distribution in a histogram we will mark the test statistic from our actual data with a red dotted line:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">results</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span><span class="n">results</span><span class="o">.</span><span class="n">statistic</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">700</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/da70a8a00887bece0e8ed3fa93f9f4ac0a22634f7a54fedf134378f14109b6f1.png" src="../_images/da70a8a00887bece0e8ed3fa93f9f4ac0a22634f7a54fedf134378f14109b6f1.png" />
+<img alt="../_images/97ece253820255fcbbd123677a88190308a41b86ca4848a8c356640dfd002623.png" src="../_images/97ece253820255fcbbd123677a88190308a41b86ca4848a8c356640dfd002623.png" />
 </div>
 </div>
 <p>We can see that indeed, only in a few cases did the mean difference exceed 4.6.</p>
-<p>The distribution of differences of means from shuffled data looks pretty odd (with two peaks). This probably reflects the fact that whether the difference (Husbands-Wives) is positive or negative is strongly influenced by whether the hich-sock person (with 48 pairs of socks) happens to be labelled as a husband or a wife; one peak in the null distribution will be shuffles where that person was labelled as male, and the other rpeak will be shuffles where they were labelled as female.</p>
+<p>The distribution of differences of means from shuffled data looks pretty odd (with two peaks). This probably reflects the fact that whether the difference (Husbands-Wives) is positive or negative is strongly influenced by whether the hich-sock person (with 48 pairs of socks) happens to be labelled as a husband or a wife; one of the peaks in the null distribution will be shuffles where that person was labelled as male, and the other peak will be shuffles where they were labelled as female. We could see a similar pattern in our double loop version again, however there the shape of the data was not as pronounced.</p>
 </section>
 <section id="the-p-value">
 <h3>The <span class="math notranslate nohighlight">\(p\)</span> value<a class="headerlink" href="#the-p-value" title="Link to this heading">#</a></h3>
@@ -978,52 +1205,40 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check which values is the null distribution are greater than 4.6 and code as 1/0</span>
 <span class="c1"># then use the numpy function np.mean() to get the avergae of those ones and zeros (ie he proportion of 1s)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span> <span class="o">&gt;=</span> <span class="mf">4.57</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span> <span class="o">&gt;=</span> <span class="mf">4.57</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0054)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0068
 </pre></div>
 </div>
 </div>
 </div>
-<p>The proportion of shuffles in which the mean difference is greater than 4.6 is 0.004, 0.4%, or 40 of the 10,000 shuffles; we can check the last one a different way (just as a sanity check!)</p>
+<p>The proportion of shuffles in which the mean difference is greater than 4.6 is small! The exact value will vary every time you run this (because it is based on random permutations) but it should be less then 1% ( &lt; .01). That means out of the 10000 shuffles we found a difference between husbands and wives of 4.57 or higher in fewer then 100 cases. You can confirm this with a final sanity check</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span> <span class="o">&gt;=</span> <span class="mf">4.57</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span> <span class="o">&gt;=</span> <span class="mf">4.57</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(54)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68
 </pre></div>
 </div>
 </div>
 </div>
 <section id="interpretation">
 <h4>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h4>
-<p>If we simulate a situation in which sex does not determine the number of socks owned (but preserving some other important features of the dataset like the high skew, and the correlation between husabnds and their wives), there is only a 0.4% chance that we would get an apparent sex difference as large as the one we observed in our ‘real’ data.</p>
+<p>If we simulate a situation in which sex does not determine the number of socks owned (but preserving some other important features of the dataset like the high skew, and the correlation between husabnds and their wives), there is less then 1% chance that we would get an apparent sex difference as large as the one we observed in our ‘real’ data.</p>
 <p>The probability that the test statistic (in this case, the mean difference in pairs of socks owned) would be observed if the null hypothesis were true, is sometimes called the <b><i><span class="math notranslate nohighlight">\(p\)</span>-value</i></b>.</p>
-<p>Our permutation test shows that the <span class="math notranslate nohighlight">\(p\)</span>-value associated with the observed difference of means is 0.4% or p=0.0004.</p>
+<p>Our permutation test shows that the <span class="math notranslate nohighlight">\(p\)</span>-value associated with the observed difference of means is 0.66% or p=0.0066. (Remember: The exact values here will change slightly!)</p>
 <p>The result is considered statistically significant if <span class="math notranslate nohighlight">\(p\)</span> is smaller than some predetermined level, known as <span class="math notranslate nohighlight">\(\alpha\)</span>. Usually <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> or <span class="math notranslate nohighlight">\(\alpha = 0.01\)</span> is used, so the result is significant if <span class="math notranslate nohighlight">\(p&lt;0.05\)</span> or <span class="math notranslate nohighlight">\(p&lt;0.01\)</span>. Our result is therefore statistically significant.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10000
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 </section>
 <section id="syntax-of-stats-permutation-test">
-<h2><span class="section-number">1.7.4. </span>Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code><a class="headerlink" href="#syntax-of-stats-permutation-test" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.7.5. </span>Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code><a class="headerlink" href="#syntax-of-stats-permutation-test" title="Link to this heading">#</a></h2>
 <p>Let’s have a look at the Python code to run the permutation test.</p>
 <p>Firstly, we had to give the function <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code> our two samples <tt>(socks.Husband, socks.Wife)</tt> as a pair of <b>series</b> (individual columns from the dataframe), rather than giving it the whole pandas dataframe as we do for many other stats functions.</p>
 <p>Secondly, to tell <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code> the test statistic we want to get the null distribution of, we had to pass it a <em>function</em> that calculates that test statistic. We created that function, <code class="docutils literal notranslate"><span class="pre">mDiff()</span></code>, using a function definition, before running the permutation test</p>
@@ -1031,7 +1246,7 @@ document.write(`
 <h3>Arguments<a class="headerlink" href="#arguments" title="Link to this heading">#</a></h3>
 <p>When running the permutation test, we have to specify some arguments</p>
 <ul class="simple">
-<li><p><strong>n_resamples</strong> the number of shuffles to do.</p></li>
+<li><p><strong>n_resamples</strong> the number of shuffles to do. (here 10000)</p></li>
 <li><p><strong>alternative</strong> - whether to do a one-tailed test (and in whcih direction: ‘greater’ counts how many shuffles result in test statistic values greater than the one obtained from unshuffled data) or a two tailed test</p></li>
 <li><p><strong>permutation_type</strong> - pairings, samples, or independent. These are for test of correlation, paired data and unpaired data respectively.</p></li>
 </ul>
@@ -1039,7 +1254,7 @@ document.write(`
 </section>
 </section>
 <section id="recap">
-<h2><span class="section-number">1.7.5. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.7.6. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
 <p>To run a permutation test on paired data, we randomly flipped some of the pairs so that the husband’s sock count was assigned to the wife and vice versa. We did NOT move people between couples, as we want to retain the characteristic of the original dataset that high-sock husbands tend to have high-sock wives</p>
 <p>For each shuffle we calculated the mean (pairwise) difference in the number of socks - husband-wife.</p>
 <p>Permutation testing in this way gives us a null distribution for the mean difference. Values of mean difference that occur rarely in the null distribution are considered statistically significant.</p>
@@ -1113,17 +1328,21 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.7.1. Set up Python libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toy-example">1.7.2. Toy example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-design">Question &amp; design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-design">Question &amp; Design</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistic">Test statistic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-plot-those-data">Let’s plot those data.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistic">Test statistic</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-result-statistically-significant">Is the result statistically significant?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation">Permutation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-simulation">Run the simulation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-random-shuffles-in-the-paired-data">Visualizing random shuffles in the paired data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10-000-shuffles">1.7.3. Run 10,000 shuffles</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-many-shuffles">1.7.3. Run Many shuffles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-10000-shuffles">1.7.4. Run 10000 shuffles</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-null-distribution">The Null Distribution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-p-value">The <span class="math notranslate nohighlight">\(p\)</span> value</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
@@ -1131,11 +1350,11 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.7.4. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-of-stats-permutation-test">1.7.5. Syntax of <code class="docutils literal notranslate"><span class="pre">stats.permutation_test()</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.7.5. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.7.6. Recap</a></li>
 </ul>
   </nav></div>
 

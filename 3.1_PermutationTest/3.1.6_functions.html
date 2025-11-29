@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -620,10 +621,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.6.1. Set up Python libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">1.6.2. Import the data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-function">1.6.3. What is a function?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-function">1.6.3. What is a function?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-of-means">1.6.4. Difference of means</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-difference">1.6.5. Mean difference</a></li>
 </ul>
@@ -639,9 +637,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python-functions">
 <h1><span class="section-number">1.6. </span>Python Functions<a class="headerlink" href="#python-functions" title="Link to this heading">#</a></h1>
-<p>This week, we will need to create our own Python functions as part of running a permutation test.</p>
-<p>Here we will review what function are and how we can create our own using Python code.</p>
-<p>This is a kind of Python tangent to our main stats objective for the week.</p>
+<p>This week we’ll need to write our own <strong>Python functions</strong> as part of running a permutation test. Before we do that, we will review what functions are and how to create them in Python.</p>
+<p>This is a quick Python tangent to our main statistics objective for the week and is meant to give you the minimal, practical knowledge you need to implement permutation tests cleanly.</p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">1.6.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -855,12 +852,13 @@ document.write(`
 </section>
 <section id="what-is-a-function">
 <h2><span class="section-number">1.6.3. </span>What is a function?<a class="headerlink" href="#what-is-a-function" title="Link to this heading">#</a></h2>
-<p>A function is a computer programme that takes in some information (an <em>input</em>), does something with it, and returns an <em>output</em>.</p>
+<p>A function is a named block of code that performs a single, well-defined task. Specifically, a function will take in some information (an <em>input</em>), do something to it, and then returns the final <em>output</em>. Once you write a function you can reuse it many times with different inputs. Ultimately this helps to keep your notebook tidy and makes your analysis easier to read and debug.</p>
 <ul class="simple">
 <li><p><em>Functions were introduced in DataCamp and you could review this if helpful after reading this section.</em></p></li>
 </ul>
-<p>We have been using Python functions for the last several weeks, mainy from the function libraries <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>. For example the function <code class="docutils literal notranslate"><span class="pre">df.mean()</span></code> gets the mean of each column in a dataframe.</p>
-<p>Let’s make our own simple function to get the mean for a single column of a dataframe:</p>
+<p>We’ve actually been using Python functions for several weeks already. Most of these have come from the libraries <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, or <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. As an example, the function <code class="docutils literal notranslate"><span class="pre">df.mean()</span></code> calculates the mean of each column in a dataframe.</p>
+<p>Functions in Python code can be easy to spot because the function name is followed by a pair of parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>. These parentheses might be empty, or they might contain one or more input parameters that the function needs in order to do its job.</p>
+<p>To understand how functions work, let’s create our own simple (potentially redundant) function. Here we will create a function that calculates the mean of a single column in a dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">myMean</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -870,13 +868,14 @@ document.write(`
 </div>
 </div>
 </div>
+<p>This simple function has three parts:</p>
 <ul class="simple">
-<li><p>The input is <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
-<li><p>The output is <code class="docutils literal notranslate"><span class="pre">m</span></code></p></li>
-<li><p>Inside the function, we calculate <code class="docutils literal notranslate"><span class="pre">m</span></code> from <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><strong>Function Definition:</strong> The keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> tells Python you are defining a function. The name of the function is <code class="docutils literal notranslate"><span class="pre">myMean</span></code>, and <code class="docutils literal notranslate"><span class="pre">x</span></code> is the input the function expects.</p></li>
+<li><p><strong>Function Body:</strong> This tells Python what to do with the input. Here, we calculate the mean by dividing the sum of all values in <code class="docutils literal notranslate"><span class="pre">x</span></code> by the number of values in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><strong>Return statement:</strong> The return keyword specifies what the function should output. When <code class="docutils literal notranslate"><span class="pre">myMean</span></code> is called, it will send back the value of <code class="docutils literal notranslate"><span class="pre">m</span></code> (which was calculated on the basis of <code class="docutils literal notranslate"><span class="pre">x</span></code>).</p></li>
 </ul>
-<p>You will notice if you ran the code block above that nothing seemed to happen. That’s because we just created the function (computer programme) but didn’t run it.</p>
-<p>Now, having created the function, we can run or <em>call</em> it as follows:</p>
+<p>You may have noticed that when you ran the code block above, nothing seemed to happen. That’s because we only defined the function, we told Python <em>how</em> to do something, but we didn’t actually ask it to do it yet.</p>
+<p>Once a function is created, we can run (or <em>call</em>) it by using its name followed by parentheses, and putting the input inside the parentheses. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myMean</span><span class="p">(</span><span class="n">weather</span><span class="o">.</span><span class="n">Rainfall_mm</span><span class="p">)</span>
@@ -889,35 +888,34 @@ document.write(`
 </div>
 </div>
 </div>
-<p>What happened?</p>
+<p><em><strong>What happened?</strong></em></p>
 <ul class="simple">
-<li><p>We <em>called</em> the function by saying <code class="docutils literal notranslate"><span class="pre">myMean()</span></code></p></li>
+<li><p>We <em>called</em> the function by writing <code class="docutils literal notranslate"><span class="pre">myMean(...)</span></code></p></li>
 <li><p>We gave it an input (inside the brackets, <code class="docutils literal notranslate"><span class="pre">weather.Rainfall_mm</span></code></p></li>
 <li><p>The function calculated the mean by adding up the values in th input column and dividing by the humber of values (length of the columns)</p></li>
-<li><p>The function gave us an output (shown below the code box), of 1.79mm, which is the mean rainfall</p></li>
+<li><p>The function returned an output (shown below the code box), of ~1.79mm, which is the mean rainfall</p></li>
 </ul>
-<p>Let’s just check using the built-in function that we are used to, <code class="docutils literal notranslate"><span class="pre">df.mean()</span></code></p>
+<p>Let’s double-check this using the built-in pandas function we’re familiar with, <code class="docutils literal notranslate"><span class="pre">df.mean()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span><span class="o">.</span><span class="n">Rainfall_mm</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">weather</span><span class="o">.</span><span class="n">Rainfall_mm</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.7869643833312312)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7869643833312312
 </pre></div>
 </div>
 </div>
 </div>
 <p>Yep, same answer.</p>
-<section id="note">
-<h3>Note<a class="headerlink" href="#note" title="Link to this heading">#</a></h3>
-<p>You have to run the code block defining the function before you can call it, otherwise it won’t have been created and won’t exist!</p>
-</section>
+<ul class="simple">
+<li><p><em><strong>Note:</strong> You have to run the code block defining the function before you can call it, otherwise it won’t have been created and won’t exist!</em></p></li>
+</ul>
 </section>
 <section id="difference-of-means">
 <h2><span class="section-number">1.6.4. </span>Difference of means<a class="headerlink" href="#difference-of-means" title="Link to this heading">#</a></h2>
-<p>As another example, let’s define a function that takes in two inputs and finds the difference of their means:</p>
+<p>As another example, let’s define a function that takes two inputs and returns the difference between their means. This is the kind of calculation we’ll use later when we compare two groups (for example, height of  men vs. women, etc.).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dMeans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
@@ -929,14 +927,15 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Note that this function now has two inputs: x and y</p>
-<p>The function does the following</p>
+<p><em><strong>Note</strong>: that this function now has two inputs: <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></em></p>
+<p>The function does the following:</p>
 <ul class="simple">
-<li><p>calculate the mean for x as <code class="docutils literal notranslate"><span class="pre">mx</span></code></p></li>
-<li><p>calculate the mean for y as <code class="docutils literal notranslate"><span class="pre">my</span></code></p></li>
-<li><p>get the difference <code class="docutils literal notranslate"><span class="pre">mx-my</span></code></p></li>
+<li><p>calculate the mean for <code class="docutils literal notranslate"><span class="pre">x</span></code> as <code class="docutils literal notranslate"><span class="pre">mx</span></code></p></li>
+<li><p>calculate the mean for <code class="docutils literal notranslate"><span class="pre">y</span></code> as <code class="docutils literal notranslate"><span class="pre">my</span></code></p></li>
+<li><p>calculate the difference between <code class="docutils literal notranslate"><span class="pre">mx</span></code> and <code class="docutils literal notranslate"><span class="pre">my</span></code></p></li>
+<li><p>return that difference (<code class="docutils literal notranslate"><span class="pre">diff</span></code>)</p></li>
 </ul>
-<p>Let’s use it to calculate the difference in mean rainfall between November and May</p>
+<p>Let’s use it to calculate the difference in mean rainfall between November and May. We will need to start by selecting the relevant rows and column from the dataframe and giving them clear names, and then feeding those into our function that we defined by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the relevant rows and column in the dataframe and give them a name</span>
@@ -946,9 +945,9 @@ document.write(`
 <span class="c1"># run the function dMeans</span>
 <span class="n">dMeans</span><span class="p">(</span><span class="n">nov</span><span class="p">,</span><span class="n">may</span><span class="p">)</span>
 
-<span class="c1"># note we could have done the same thing in a single line:</span>
+<span class="c1"># note we could have done the same thing in a single line (see below), however, I think the version above might be a bit easier to read...</span>
+
 <span class="c1"># dMeans(weather.query(&#39;Month == &quot;Oct&quot;&#39;).Rainfall_mm, weather.query(&#39;Month == &quot;May&quot;&#39;).Rainfall_mm)</span>
-<span class="c1"># the only reason I didn&#39;t do this was that I think the version above is a bit easier to follow as a student</span>
 </pre></div>
 </div>
 </div>
@@ -958,24 +957,31 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Apparently it rains more in November than May, which is unsuprising; the mean daily rainfall is 0.51 mm greater in November.</p>
-<p>Note that which input (nov or may) gets called x and y within the function is determined by the order that we write them within the function’s parentheses</p>
-<p>In the function call we have:</p>
+<p>Apparently it rains more in November than May, which is unsuprising; the mean daily rainfall is 0.37 mm greater in November.</p>
+<ul class="simple">
+<li><p><em><strong>Note:</strong> that which input (nov or may) gets treated as x or y inside the function is determined entirely by the order in which we pass them into the function call.</em></p></li>
+</ul>
+<p>In the function definition we have:</p>
 <p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">dMeans(x,y):</span></code></p>
 <p>meaning that when we call the function, whatever is first in the brackets becomes <code class="docutils literal notranslate"><span class="pre">x</span></code> and whatever is second becomes <code class="docutils literal notranslate"><span class="pre">y</span></code>. So when we call</p>
 <p><code class="docutils literal notranslate"><span class="pre">dMeans(nov,may)</span></code></p>
 <ul class="simple">
-<li><p>nov becomes x and</p></li>
-<li><p>may becomes y</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nov</span></code> becomes <code class="docutils literal notranslate"><span class="pre">x</span></code> and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">may</span></code> becomes <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
 </ul>
 <p>The function returns mean(x) - mean(y) so this is rainfall in November-May; if the output is a positive number this means that there was more rain in November than May.</p>
 <p>If we called <code class="docutils literal notranslate"><span class="pre">dMeans(may,nov)</span></code> we would get rainfall in May-November - presumably a negative number, as the rainfall in November is higher.</p>
 </section>
 <section id="mean-difference">
 <h2><span class="section-number">1.6.5. </span>Mean difference<a class="headerlink" href="#mean-difference" title="Link to this heading">#</a></h2>
-<p>Finally, let’s define a function that takes in two <em>matched pairs</em> inputs and finds the mean difference (within pairs).</p>
-<p>For example, say we want to know if the weather was warmer in 2001 than in 1901.</p>
-<p>Instead of comparing the average temperature for all 365 days in 1901 to the average for all 365 days in 2001, we could compare each date in 1901 to the same date in 2001 - so we find the difference in temperature between Jan 1st 1901 and Jan 1st 2001, then the same for Jan 2nd etc.</p>
+<p>Finally, let’s define a function that takes in two <em>matched pairs</em> inputs and finds the mean difference (within pairs, i.e., heights of brothers vs. sisters)</p>
+<p>In our weather dataset suppose we want to know whether the weather was warmer in 2001 than in 1901.</p>
+<p>Instead of simply comparing the overall average temperature for all 365 days in 1901 to the overall average for all 365 days in 2001, we can make a more precise comparison by matching each day with the same date in the other year. That is, we can compute the temperature difference for:</p>
+<ul class="simple">
+<li><p>Jan 1st 1901 vs. Jan 1st 2001</p></li>
+<li><p>Jan 2nd 1901 vs. Jan 2nd 2001</p></li>
+<li><p>…and so on, for all 365 days</p></li>
+</ul>
 <p>Naturally this will only work if the data are actually matched and hence the two samples have the same <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -987,7 +993,29 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Eagle-eyed readers may realise that these two functions, given the same data, give the same answer. However, we will see later in this chapter that once we start randomly shuffling data (as in a permutation test), the difference of means and mean difference behave quite differently.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Note here you need to make sure you are working with &quot;np.arrays&quot; or else you will get a value of nan. </span>
+<span class="c1">#This is because we otherwise would be trying to subtract two pandas Series with different indices</span>
+
+
+<span class="n">temp_1901</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 1901&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmean</span><span class="p">)</span>
+<span class="n">temp_2001</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">weather</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;YYYY == 2001&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Tmean</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mDiff</span><span class="p">(</span><span class="n">temp_1901</span><span class="p">,</span> <span class="n">temp_2001</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dMeans</span><span class="p">(</span><span class="n">temp_1901</span><span class="p">,</span> <span class="n">temp_2001</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.2043835616438354
+-1.2043835616438425
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eagle-eyed readers may notice that, when applied to the same data, these two functions produce the same numerical result. However, we will see later in this chapter that once we start randomly shuffling the data (as in a permutation test), the difference of means and the mean difference behave quite differently.</p>
+<p>The two approaches answer subtly different questions, and their behaviour under permutation becomes an important part of interpreting the test correctly.</p>
 </section>
 </section>
 
@@ -1057,10 +1085,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">1.6.1. Set up Python libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">1.6.2. Import the data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-function">1.6.3. What is a function?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-function">1.6.3. What is a function?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-of-means">1.6.4. Difference of means</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-difference">1.6.5. Mean difference</a></li>
 </ul>

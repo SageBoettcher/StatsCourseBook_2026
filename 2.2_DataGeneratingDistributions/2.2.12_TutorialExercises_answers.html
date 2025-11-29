@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -678,7 +679,14 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the probability of exactly 9 heads out of 12 coin tosses, </span>
 <span class="c1"># when the probability of heads is 0.75</span>
 
+<span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mf">.75</span><span class="p">)</span>
+
 <span class="c1"># answer = 0.2581</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.25810360908508295)
 </pre></div>
 </div>
 </div>
@@ -687,8 +695,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the probability of exactly 5 tails out of 6 coin tosses, </span>
 <span class="c1"># when the probability of heads is 0.6</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">.4</span><span class="p">)</span>
 
 <span class="c1"># answer = 0.0386</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.03686400000000002)
 </pre></div>
 </div>
 </div>
@@ -697,8 +711,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the probability of at least 7 heads out of 20 coin tosses, </span>
 <span class="c1"># when the probability of heads is 0.55</span>
+<span class="mi">1</span><span class="o">-</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mf">.55</span><span class="p">)</span>
 
 <span class="c1"># answer = 0.9785</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9785856443569791)
 </pre></div>
 </div>
 </div>
@@ -707,8 +727,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the probability of fewer than 10 heads out of 20 coin tosses, </span>
 <span class="c1"># when the probability of heads is 0.4</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mf">.4</span><span class="p">)</span>
 
 <span class="c1"># answer = 0.7553</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7553372033163932)
 </pre></div>
 </div>
 </div>
@@ -717,8 +743,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the probability of more than 10 tails out of 15 coin tosses, </span>
 <span class="c1"># when the probability of heads is 0.3</span>
+<span class="mi">1</span><span class="o">-</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mf">.7</span><span class="p">)</span>
 
 <span class="c1"># answer = 0.515</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.5154910592268429)
 </pre></div>
 </div>
 </div>
@@ -867,7 +899,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.00805742)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.00807078)
 </pre></div>
 </div>
 </div>

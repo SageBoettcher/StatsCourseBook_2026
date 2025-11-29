@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -811,19 +812,19 @@ Say I have a dataset listing four pets belonging to four different children:</p>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Anna</td>
+      <th>2</th>
+      <td>Charley</td>
       <td>cat</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>David</td>
-      <td>dog</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Freddie</td>
       <td>rabbit</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Georgia</td>
+      <td>dog</td>
     </tr>
   </tbody>
 </table>
@@ -861,44 +862,9 @@ Say I have a dataset listing four pets belonging to four different children:</p>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Anna</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>Anna</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>Anna</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>Anna</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Betty</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Charley</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Betty</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Betty</td>
-      <td>cat</td>
+      <th>3</th>
+      <td>David</td>
+      <td>dog</td>
     </tr>
     <tr>
       <th>2</th>
@@ -916,9 +882,44 @@ Say I have a dataset listing four pets belonging to four different children:</p>
       <td>dog</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>Henrietta</td>
+      <th>0</th>
+      <td>Anna</td>
       <td>cat</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Anna</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Betty</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Egbert</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Anna</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Anna</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Georgia</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Georgia</td>
+      <td>dog</td>
     </tr>
   </tbody>
 </table>
@@ -937,14 +938,14 @@ Say I have a dataset listing four pets belonging to four different children:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    dog
-0    cat
-3    dog
-4    cat
-2    cat
-6    dog
-4    cat
-4    cat
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5    rabbit
+6       dog
+4       cat
+6       dog
+6       dog
+6       dog
+1       cat
+3       dog
 Name: Pet, dtype: object
 </pre></div>
 </div>
@@ -958,7 +959,7 @@ Name: Pet, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>

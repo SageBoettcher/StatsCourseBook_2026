@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -296,6 +296,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.9_permutation_correlation.html">1.9. Permutation test for correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.10_permutation_practice.html">1.10. Permutation testing - more practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.11_permutation_TutorialExercises.html">1.11. Tutorial exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.1_PermutationTest/3.1.12_permutation_ExtraPractice.html">1.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.2_RankBasedTests/3.2.1_classictests_intro.html">2. Rank-Based Tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -779,7 +780,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bafc2eef1f62a272a5708adda90279dee3051f4307f2efb245109e7e07713109.png" src="../_images/bafc2eef1f62a272a5708adda90279dee3051f4307f2efb245109e7e07713109.png" />
+<img alt="../_images/32800c98f114ab5fabc0ceaea3e7a5a9dfa467139a12dc0ffc4ea12e45396257.png" src="../_images/32800c98f114ab5fabc0ceaea3e7a5a9dfa467139a12dc0ffc4ea12e45396257.png" />
 </div>
 </div>
 <p>The generated dataset has two columns and 25,000 rows.</p>
@@ -819,11 +820,11 @@ Here are some examples of datasets that actually have r=0.25:</p>
     <tr>
       <th>Maths</th>
       <td>1.000000</td>
-      <td>-0.012526</td>
+      <td>-0.003812</td>
     </tr>
     <tr>
       <th>French</th>
-      <td>-0.012526</td>
+      <td>-0.003812</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -849,7 +850,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0407)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0482)
 </pre></div>
 </div>
 </div>
@@ -889,7 +890,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b3094a352966dfbc6bc060441ce1c5fe281858b2bd7ddf914aaf6d38d82872fd.png" src="../_images/b3094a352966dfbc6bc060441ce1c5fe281858b2bd7ddf914aaf6d38d82872fd.png" />
+<img alt="../_images/d2ab563f56b6c5e8be374deaca60791f3d49d2f82629313aadf4d0182dd5c757.png" src="../_images/d2ab563f56b6c5e8be374deaca60791f3d49d2f82629313aadf4d0182dd5c757.png" />
 </div>
 </div>
 <p>We can check the correlation in the full population of 25000 samples, hopefully this should be close to 0.25.</p>
@@ -926,11 +927,11 @@ Here are some examples of datasets that actually have r=0.25:</p>
     <tr>
       <th>Maths</th>
       <td>1.000000</td>
-      <td>0.248905</td>
+      <td>0.244647</td>
     </tr>
     <tr>
       <th>French</th>
-      <td>0.248905</td>
+      <td>0.244647</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -960,7 +961,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.547)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.527)
 </pre></div>
 </div>
 </div>
@@ -988,7 +989,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.532)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.542)
 </pre></div>
 </div>
 </div>
@@ -1026,7 +1027,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a8ee0ff48677d9b5e7d5cbd22348dced2dabdca9215ad923b8b353ccd33853d6.png" src="../_images/a8ee0ff48677d9b5e7d5cbd22348dced2dabdca9215ad923b8b353ccd33853d6.png" />
+<img alt="../_images/508f4dc07e606860220d1142d88110543bf9a887988ff18ce1b8f209a4e1bef6.png" src="../_images/508f4dc07e606860220d1142d88110543bf9a887988ff18ce1b8f209a4e1bef6.png" />
 </div>
 </div>
 <p>The relationship between sample size and power is slightly bumpy as we checked only 1000 simulated samples at each sample size. If you increased nReps to 10,000 the curve would look smoother (but the simulation would take a long time to run).</p>
