@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -844,7 +848,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/04aa372de276e3a513276fc5fb2aaec817abec03678db37505c4473f59aca1aa.png" src="../_images/04aa372de276e3a513276fc5fb2aaec817abec03678db37505c4473f59aca1aa.png" />
+<img alt="../_images/ba14fbdde3e5b3d18b9cc042cef657622ee26043576f969e214d54eafb71facc.png" src="../_images/ba14fbdde3e5b3d18b9cc042cef657622ee26043576f969e214d54eafb71facc.png" />
 </div>
 </div>
 <p>We can see that the mean number of yoghurts eaten is higher for cat owners (the bar for cats is higher than the bar for dog), but this difference might be influenced by one particularly enthusiastic yoghurt-eating cat owner.</p>
@@ -961,8 +965,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5313455d491a7483017216ba96994d3d5af0027a27eddb5aab49ab477c7da889.png" src="../_images/5313455d491a7483017216ba96994d3d5af0027a27eddb5aab49ab477c7da889.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.3250000000000002
+<img alt="../_images/d044af091daa0b502e7b320398e3f67312d419ad0cf388b928d2ae3076237cf8.png" src="../_images/d044af091daa0b502e7b320398e3f67312d419ad0cf388b928d2ae3076237cf8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.875
 </pre></div>
 </div>
 </div>
@@ -994,7 +998,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/3940826297b782a02c482239ac45d0729578b2ef636073e5bd2d17978fbfe3db.png" src="../_images/3940826297b782a02c482239ac45d0729578b2ef636073e5bd2d17978fbfe3db.png" />
+<img alt="../_images/7458836ea46a9eaddc7999988ed70abba000502bbb59bf33da0a9c5519d740d9.png" src="../_images/7458836ea46a9eaddc7999988ed70abba000502bbb59bf33da0a9c5519d740d9.png" />
 </div>
 </div>
 <p>With 100 permutations you can already see the null distribution taking shape. Most of the permutations center around a small difference between the two group as expected, however how often do we see a difference at least as large as we observed in data set (i.e., 2.5)? To increase our confidence we probably want to run even more permutations!</p>
@@ -1016,7 +1020,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.5), pvalue=np.float64(0.061193880611938804), null_distribution=array([-0.65 ,  1.15 , -1.775, ...,  2.95 , -0.65 ,  0.025],
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.5), pvalue=np.float64(0.06159384061593841), null_distribution=array([ 0.925,  2.275,  2.05 , ..., -0.65 , -1.55 , -1.1  ],
       shape=(10000,)))
 </pre></div>
 </div>
@@ -1041,7 +1045,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b9ec063cad9c8a72b6c22d3a9edf0fc55fbe6091d3bf6d7b6b84b4a20fda809e.png" src="../_images/b9ec063cad9c8a72b6c22d3a9edf0fc55fbe6091d3bf6d7b6b84b4a20fda809e.png" />
+<img alt="../_images/d0b5e84957d36e1bd0b43d959415bbfa463bec2f47a5b3b5c37d84bd319ad11b.png" src="../_images/d0b5e84957d36e1bd0b43d959415bbfa463bec2f47a5b3b5c37d84bd319ad11b.png" />
 </div>
 </div>
 <p>The histogram looks a bit spikey because this dataset is very small and contains several repeated values.
@@ -1060,7 +1064,7 @@ As a result, there are only a limited number of possible values that the mean yo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0611
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0615
 </pre></div>
 </div>
 </div>

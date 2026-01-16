@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -301,10 +301,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -992,7 +996,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fbf02dba6916d83bf63cc8c612e6b7510c1da284b30e9a70997281796f80a58e.png" src="../_images/fbf02dba6916d83bf63cc8c612e6b7510c1da284b30e9a70997281796f80a58e.png" />
+<img alt="../_images/a13d5a59870a79192f0ff3a2beab1ba2a7c55dacea0e4beec25de808248b3053.png" src="../_images/a13d5a59870a79192f0ff3a2beab1ba2a7c55dacea0e4beec25de808248b3053.png" />
 </div>
 </div>
 <font color='red'>
@@ -1022,7 +1026,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d8914f48dd71a484b52fe50c1e42eca15560556ae36aa3489630493028105fc4.png" src="../_images/d8914f48dd71a484b52fe50c1e42eca15560556ae36aa3489630493028105fc4.png" />
+<img alt="../_images/b414a83ceb1097d92e5786ad0b867de3b39114c341b22cf9b4b916368094c388.png" src="../_images/b414a83ceb1097d92e5786ad0b867de3b39114c341b22cf9b4b916368094c388.png" />
 </div>
 </div>
 <font color='red'>
@@ -1052,7 +1056,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/83566692d9390ed7bbf595d57329bbaae68ac350b83fe7c12cb5212c732ed98f.png" src="../_images/83566692d9390ed7bbf595d57329bbaae68ac350b83fe7c12cb5212c732ed98f.png" />
+<img alt="../_images/f42cf827a61b0f4cbbc5442d9a440fcb917eb2d1d89c5c67e06465d2a59b6085.png" src="../_images/f42cf827a61b0f4cbbc5442d9a440fcb917eb2d1d89c5c67e06465d2a59b6085.png" />
 </div>
 </div>
 <font color='red'>
@@ -1234,7 +1238,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0604079b2bdc92eaf8f8d68562c8e8e13306278365282e0e062ab4a49bab2631.png" src="../_images/0604079b2bdc92eaf8f8d68562c8e8e13306278365282e0e062ab4a49bab2631.png" />
+<img alt="../_images/dcec856d7fc20d4856d9747dd63379d0044bed69e33ec0d150ac96e88845795d.png" src="../_images/dcec856d7fc20d4856d9747dd63379d0044bed69e33ec0d150ac96e88845795d.png" />
 <img alt="../_images/1cbab60dda1439dbc14769e0578ebced1679cf0abf5ddec5d5d62a85794bd817.png" src="../_images/1cbab60dda1439dbc14769e0578ebced1679cf0abf5ddec5d5d62a85794bd817.png" />
 </div>
 </div>
@@ -1465,7 +1469,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2afc0a0764926e7b8cd8a7e614fedbbba903a19ad7fb4c5778b76b3994f672cb.png" src="../_images/2afc0a0764926e7b8cd8a7e614fedbbba903a19ad7fb4c5778b76b3994f672cb.png" />
+<img alt="../_images/a50ee5b938e02a8e1e1b2d6b3389c3d71b1a36ddd00656fe011216dcf5f3dbb6.png" src="../_images/a50ee5b938e02a8e1e1b2d6b3389c3d71b1a36ddd00656fe011216dcf5f3dbb6.png" />
 </div>
 </div>
 <p>Time zero is the onset of the moving dots. We can see that firing rate initially dips, then rises over the course of several hundred milliseconds.</p>
@@ -1494,7 +1498,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9b9fd24390414258323caf8a7f837c8c2b666f75c526b13bf1b700a3ae1060b9.png" src="../_images/9b9fd24390414258323caf8a7f837c8c2b666f75c526b13bf1b700a3ae1060b9.png" />
+<img alt="../_images/55925245e0c02b7d67d185fa9bf47b09ac483739dec702dbaec4ab3bba85eb17.png" src="../_images/55925245e0c02b7d67d185fa9bf47b09ac483739dec702dbaec4ab3bba85eb17.png" />
 </div>
 </div>
 <p>What do you see? Describe the graph in words.</p>

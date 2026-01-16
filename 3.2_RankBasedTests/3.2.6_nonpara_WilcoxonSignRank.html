@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.6. The Wilcoxon Sign-Rank Test &#8212; Introduction to Statistics and Data Science</title>
+    <title>2.9. Dependent Samples: The Wilcoxon Sign-Rank Test &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.7. Spearman’s Rank Correlation" href="3.2.7_spearman.html" />
-    <link rel="prev" title="2.5. Rank Sum Test" href="3.2.5_nonpara_MannWhitneyU.html" />
+    <link rel="next" title="2.10. Correlation: Spearman’s Rank" href="3.2.7_spearman.html" />
+    <link rel="prev" title="2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)" href="3.2.5_nonpara_MannWhitneyU.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -609,7 +613,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>The Wilcoxon Sign-Rank Test</h1>
+    <h1>Dependent Samples: The Wilcoxon Sign-Rank Test</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -619,17 +623,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.6.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-sign-rank-test">2.6.2. Example: the Sign-Rank Test</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.9.1. Set up Python libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-birth-order-and-independence">2.9.2. Example: birth order and independence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-data-distribution">Check the data distribution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2.6.3. Descriptive statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">3. Descriptive statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">4. Carry out the test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-wilcoxon-sign-rank-test-works">How the Wilcoxon Sign-Rank test works</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-do-the-test-if-you-were-doing-it-with-pencil-and-paper">How to do the test (if you were doing it with pencil and paper)</a></li>
 </ul>
@@ -645,13 +646,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-wilcoxon-sign-rank-test">
-<h1><span class="section-number">2.6. </span>The Wilcoxon Sign-Rank Test<a class="headerlink" href="#the-wilcoxon-sign-rank-test" title="Link to this heading">#</a></h1>
-<p>The Wilcoxon Sign-Rank Test is a rank-based test for the median <strong>difference</strong> in paired samples. It tests whether the median difference between the members of each pair is greater than zero. As such it is often considered to be a non-parametric equivalent for the <strong>paired samples</strong> t-test (which we will meet next week).</p>
-<p>The Wilcoxon Sign-rank test is <strong>not</strong> the same as the Wilcoxon Rank Sum test (Mann Whitney U test) which is for independent samples</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="dependent-samples-the-wilcoxon-sign-rank-test">
+<h1><span class="section-number">2.9. </span>Dependent Samples: The Wilcoxon Sign-Rank Test<a class="headerlink" href="#dependent-samples-the-wilcoxon-sign-rank-test" title="Link to this heading">#</a></h1>
+<p>The <strong>Wilcoxon Sign-Rank Test</strong> is a rank-based test for the median <strong>difference</strong> in paired samples. It tests whether the median difference between the members of each pair is greater than zero. As such it is often considered to be a non-parametric equivalent for the <strong>paired samples</strong> t-test (which we will meet next week).</p>
+<p>Confusingly, The Wilcoxon Sign-rank test is <strong>not</strong> the same as the Wilcoxon Rank Sum test (Mann Whitney U test) which is for independent samples</p>
 <p>We will us a Python function called <code class="docutils literal notranslate"><span class="pre">stats.wilcoxon()</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> library to run the test</p>
 <section id="set-up-python-libraries">
-<h2><span class="section-number">2.6.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.9.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -671,15 +672,28 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="example-the-sign-rank-test">
-<h2><span class="section-number">2.6.2. </span>Example: the Sign-Rank Test<a class="headerlink" href="#example-the-sign-rank-test" title="Link to this heading">#</a></h2>
+<section id="example-birth-order-and-independence">
+<h2><span class="section-number">2.9.2. </span>Example: birth order and independence<a class="headerlink" href="#example-birth-order-and-independence" title="Link to this heading">#</a></h2>
 <p>It has been argued that birth order in families affects how independent individuals are as adults - either that first-born children tend to be more independent than later born children or vice versa.</p>
-<p>In a (fictional!) study, a researcher identified 20 sibling pairs, each comprising a first- and second- born child from a two-child family. The participants were young adults; each participant was interviewed at the age of 21.</p>
-<p>The researcher scored independence for each participant, using a 25 point scale where a higher score means the person is more independent, based on a structured interview.</p>
-<p>Carry out a statistical test for a difference in independence scores between the first- and second-born children.</p>
-<p>Note that this is a <b>paired samples</b> design - each member of one group (the first-borns) has a paired member of the other group (second-borns).</p>
+<p>In a (fictional) study, 20 sibling pairs are recruited, each consisting of a <strong>first-born</strong> and a <strong>second-born</strong> child. All participants are young adults and are interviewed at the age of 21. For each participant, the researcher records an <strong>independence score</strong> on a 25-point scale, where higher scores indicate greater independence. Scores are based on a structured interview.</p>
+<p><strong>Question:</strong> test whether there is a difference in independence scores between first-born and second-born children.</p>
+<p><em>Notes:</em></p>
+<ul class="simple">
+<li><p>This is a <strong>paired-samples</strong> design: each first-born participant is naturally paired with a second-born participant from the same family.</p></li>
+<li><p>The outcome variable (independence score) is bounded and may not be Normally distributed, so the Normality assumption for a paired-samples t-test may not hold (but you should inspect the data to assess this).</p></li>
+<li><p>A rank-based test such as the <strong>Wilcoxon signed-rank</strong> test is a suitable choice. It tests for a difference in the median of the paired differences and is robust to non-Normality and outliers.</p></li>
+<li><p>Decide whether you want a <strong>one-sided</strong> or <strong>two-sided</strong> test.</p></li>
+</ul>
+<p><em>Practical steps</em></p>
+<ol class="arabic simple">
+<li><p>Inspect the data (e.g. paired plots, histograms of differences) for skewness and outliers.</p></li>
+<li><p>State the formal hypotheses.</p></li>
+<li><p>Report the descriptive statistics (e.g. medians of each group and/or the median difference).</p></li>
+<li><p>Run the Wilcoxon signed-rank test.</p></li>
+<li><p>Draw conclusions.</p></li>
+</ol>
 <section id="inspect-the-data">
-<h3>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h3>
+<h3>1. Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h3>
 <p>The data are provided in a text (.csv) file.</p>
 <p>Let’s load the data as a Pandas dataframe, and plot them to get a sense for their distribution (is it normal?) and any outliers</p>
 <div class="cell docutils container">
@@ -818,9 +832,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="scatterplot">
-<h3>Scatterplot<a class="headerlink" href="#scatterplot" title="Link to this heading">#</a></h3>
+<p>Let’s plot the data to get an idea of the distribution and check for outliers.</p>
 <p>In the case of paired data, the most effective way to get a sense of the data is a scatterplot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -834,21 +846,22 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1522ad350&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x14388fc90&gt;]
 </pre></div>
 </div>
 <img alt="../_images/9de646ea5506c6303fb167ae24df740b83fd6edbabc75ec0198537ed77aee63d.png" src="../_images/9de646ea5506c6303fb167ae24df740b83fd6edbabc75ec0198537ed77aee63d.png" />
 </div>
 </div>
 <p>Comments:</p>
-<ul>
-<li>There is some correlation in independeence between first- and second-borns (independent first borns have independent second-born siblings)
-<li> There are slightly more sibling pairs where the first-born is the more independent (points lying below the line x=y)
-<li> It looks like in families with higher independence scores, the first-born is more indepenent than the second-born but for families with lower independednce scores, the opposite is true
-</ul></section>
+<ul class="simple">
+<li><p>There is some correlation in independence between first- and second-born siblings (families with more independent first-borns also tend to have more independent second-borns, maybe not surprising, but also not what we want to test now…).</p></li>
+<li><p>There are slightly more sibling pairs in which the first-born is more independent than the second-born (points lying below the line <span class="math notranslate nohighlight">\((x = y)\)</span>).</p></li>
+<li><p>It appears that in families with higher independence scores, the first-born tends to be more independent than the second-born, whereas in families with</p></li>
+</ul>
+</section>
 <section id="check-the-data-distribution">
 <h3>Check the data distribution<a class="headerlink" href="#check-the-data-distribution" title="Link to this heading">#</a></h3>
-<p>In the case of paired data, we are interested in the distribution of <em>differences</em> within pairs.</p>
+<p>In the case of paired data, we are interested in the distribution of <em>differences</em> within pairs. (not the distributions themselves)</p>
 <p>Let’s add a column to our dataframe to contain the differences</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1020,20 +1033,22 @@ document.write(`
 <img alt="../_images/95bed950895ed5a2740930c5d071e73aa6104e29c509c802a0edde8f09495b86.png" src="../_images/95bed950895ed5a2740930c5d071e73aa6104e29c509c802a0edde8f09495b86.png" />
 </div>
 </div>
-<p>The distribution hasa  hint of bimodaility, with a hint of bimodality (two peaks).</p>
+<p>The distribution has a slight hint of bimodaility (two-peaks) although it can be tough to tell with so few samples.</p>
 </section>
 <section id="hypotheses">
-<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
+<h3>2. Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: the median difference in independence between first- and second-born siblings is is zero</p>
 <p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>: the median difference in independence is not zero</p>
 <p>This is a two-tailed test as the researcher’s hypothesis (described above) is not directional.</p>
 <p>We will test at the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> significance level</p>
-</section>
+<ul class="simple">
+<li><p>note we are testing for a difference of medians here, not a difference of means!</p></li>
+</ul>
 </section>
 <section id="descriptive-statistics">
-<h2><span class="section-number">2.6.3. </span>Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h2>
-<p>We obtain some relevant descriptive statistics.</p>
-<p>Since we are testing for a difference of medians, we will want the median for each group; it would also be useful to have a measure of spread, and the sample size.</p>
+<h3>3. Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
+<p>Next we need to obtain some relevant descriptive statistics.</p>
+<p>Since we are testing for a difference of medians, we will want the median for each group; it would also be useful to have a measure of spread, and the sample size. <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> should do the trick!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birthOrder</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1117,34 +1132,38 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<ul class="simple">
+<li><p><strong>FirstBorn:</strong> median = 13.5, Q1 = 8, Q3 = 17, (n = 20)</p></li>
+<li><p><strong>SecondBorn:</strong> median = 10, Q1 = 8, Q3 = 12.25, (n = 20)</p></li>
+</ul>
+</section>
 <section id="carry-out-the-test">
-<h3>Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h3>
-<p>We carry out the test using the function <tt>wilcoxon</tt> from <tt>scipy.stats</tt>, here loaded as <tt>stats</tt></p>
+<h3>4. Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h3>
+<p>We carry out the test using the function <code class="docutils literal notranslate"><span class="pre">stats.wilcoxon()</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<p>The inputs to <code class="docutils literal notranslate"><span class="pre">stats.mannwhitneyu()</span></code> are:</p>
+<ul class="simple">
+<li><p>the two samples to be compared (the values of <tt>FirstBorn</tt> and <tt>SecondBorn</tt> from our Pandas data frame <tt>birthOrder</tt>)</p></li>
+<li><p>the argument <code class="docutils literal notranslate"><span class="pre">alternative='two-sided'</span></code>, which tells the computer to run a two tailed test  that median of the first input (FirstBorn) is greater than the second (SecondBorn).</p></li>
+</ul>
+<p>The outputs are a value of the test statistic (<span class="math notranslate nohighlight">\(T=46\)</span>) and <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.0266\)</span>) - if this is less than our <span class="math notranslate nohighlight">\(\alpha\)</span> value 0.5, there is a significant difference.</p>
+<p>More explanation of how T is calculated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">FirstBorn</span><span class="p">,</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">SecondBorn</span><span class="p">,</span><span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span><span class="p">)</span>
-<span class="c1">#help(stats.wilcoxon)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">FirstBorn</span><span class="p">,</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">SecondBorn</span><span class="p">,</span><span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=np.float64(46.0), pvalue=np.float64(0.027054512277951213))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=np.float64(164.0), pvalue=np.float64(0.013527256138975607))
 </pre></div>
 </div>
 </div>
 </div>
-<p>The inputs to <code class="docutils literal notranslate"><span class="pre">stats.wilcoxon()</span></code> are:</p>
-<ul class="simple">
-<li><p>the two samples to be compared (the values of <tt>FirstBorn</tt> and <tt>SecondBorn</tt> from our Pandas data frame <tt>birthOrder</tt>)</p></li>
-<li><p>the argument <code class="docutils literal notranslate"><span class="pre">alternative='greater'</span></code>, which tells the computer to run a one tailed test  that median of the first input (FirstBorn) is greater than the second (SecondBorn).</p></li>
-</ul>
-<p>The outputs are a value of the test statistic (<span class="math notranslate nohighlight">\(T=46\)</span>) and <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.0266\)</span>) - if this is less than our <span class="math notranslate nohighlight">\(\alpha\)</span> value 0.5, there is a significant difference.</p>
-<p>More explanation of how T is calculated below.</p>
 </section>
 <section id="draw-conclusions">
-<h3>Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
-<p>As the p value of 0.0266 is less than our alpha value of 0.05, the test is significant.</p>
-<p>We can conclude that the median difference in idenpendence is positive, ie the first borns are more independent</p>
+<h3>5. Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
+<p>Because the <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.02705\)</span>) is less than our chosen significance level (<span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>), the test is considered statistically significant.</p>
+<p>We therefore conclude that the median difference in independence is greater <strong>First Borns</strong> compared to the <strong>Second Borns</strong></p>
 </section>
 <section id="how-the-wilcoxon-sign-rank-test-works">
 <h3>How the Wilcoxon Sign-Rank test works<a class="headerlink" href="#how-the-wilcoxon-sign-rank-test-works" title="Link to this heading">#</a></h3>
@@ -1153,20 +1172,20 @@ document.write(`
 <section id="how-to-do-the-test-if-you-were-doing-it-with-pencil-and-paper">
 <h3>How to do the test (if you were doing it with pencil and paper)<a class="headerlink" href="#how-to-do-the-test-if-you-were-doing-it-with-pencil-and-paper" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>Obtain the difference (in independence score) for each pair</p></li>
-<li><p>Rank the differences regardless of sign (e.g. a difference of +4 is greater than a difference of -3, which is greater than a difference of +2). Remove pairs with zero difference</p></li>
-<li><p>Calculate the sum of ranks assigned to pairs with a positive difference (first-born more independent than second-born) - this is <span class="math notranslate nohighlight">\(R+\)</span></p></li>
-<li><p>Calculate the sum of ranks assigned to pairs with a negative difference (first-born more independent than second-born) - this is <span class="math notranslate nohighlight">\(R-\)</span></p></li>
-<li><p>The test statistic <span class="math notranslate nohighlight">\(T\)</span> is either:</p>
+<li><p>Compute the difference in independence score for each sibling pair.</p></li>
+<li><p>Remove any pairs with a difference of zero. Rank the differences <strong>by their absolute value</strong>, ignoring the sign (for example, a difference of +4 has a larger rank than −3, which has a larger rank than +2).</p></li>
+<li><p>Calculate the sum of ranks for pairs with a <strong>positive</strong> difference (first-born more independent than second-born). This is denoted <span class="math notranslate nohighlight">\(R^+\)</span>.</p></li>
+<li><p>Calculate the sum of ranks for pairs with a <strong>negative</strong> difference (second-born more independent than first-born). This is denoted <span class="math notranslate nohighlight">\(R^-\)</span>.</p></li>
+<li><p>Define the test statistic <span class="math notranslate nohighlight">\(T\)</span> as follows:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(R+\)</span> if we expect positive differences to have the larger ranks (in this case, that equates to expecting first-borns to have higher scores)</p></li>
-<li><p><span class="math notranslate nohighlight">\(R-\)</span>  if we expect negative differences to have the larger ranks (in this case, that equates to expecting second-borns to have higher scores)</p></li>
-<li><p>The smaller of <span class="math notranslate nohighlight">\(R+\)</span> and <span class="math notranslate nohighlight">\(R-\)</span> for a two tailed test (as in the example, we have no a-prior hypothesis about direction of effect)</p></li>
+<li><p><span class="math notranslate nohighlight">\(T = R^+\)</span> if we expect positive differences to receive the larger ranks (in this case, if we expect first-borns to have higher independence scores);</p></li>
+<li><p><span class="math notranslate nohighlight">\(T = R^-\)</span> if we expect negative differences to receive the larger ranks (i.e. if we expect second-borns to have higher independence scores);</p></li>
+<li><p>for a <strong>two-tailed</strong> test, <span class="math notranslate nohighlight">\(T\)</span> is the smaller of <span class="math notranslate nohighlight">\(R^+\)</span> and <span class="math notranslate nohighlight">\(R^-\)</span> (as in this example, where we have no <em>a priori</em> hypothesis about the direction of the effect).</p></li>
 </ul>
 </li>
-<li><p><span class="math notranslate nohighlight">\(T\)</span> is compared with a null distribution (the expected distribubtion of <span class="math notranslate nohighlight">\(T\)</span> obtained in samples drawn from a population in which there is no true difference between groups)</p></li>
+<li><p>Compare the observed value of <span class="math notranslate nohighlight">\(T\)</span> with its null distribution (the distribution of <span class="math notranslate nohighlight">\(T\)</span> expected for samples drawn from a population in which there is no true difference between the paired measurements).</p></li>
 </ol>
-<p>We will not build code to do this here, although if you are feeling brave you are welcome to have a try yourself, using the between groups rank sum test as a model.</p>
+<p>We will not build code to carry out these steps here. However, if you are feeling adventurous, you are welcome to try implementing the procedure yourself, using the between-groups rank-sum test as a model.</p>
 </section>
 </section>
 </section>
@@ -1207,7 +1226,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.5. </span>Rank Sum Test</p>
+        <p class="prev-next-title"><span class="section-number">2.5. </span>Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</p>
       </div>
     </a>
     <a class="right-next"
@@ -1215,7 +1234,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.7. </span>Spearman’s Rank Correlation</p>
+        <p class="prev-next-title"><span class="section-number">2.10. </span>Correlation: Spearman’s Rank</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1235,17 +1254,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.6.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-sign-rank-test">2.6.2. Example: the Sign-Rank Test</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.9.1. Set up Python libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-birth-order-and-independence">2.9.2. Example: birth order and independence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-data-distribution">Check the data distribution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2.6.3. Descriptive statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">3. Descriptive statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">4. Carry out the test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-wilcoxon-sign-rank-test-works">How the Wilcoxon Sign-Rank test works</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-do-the-test-if-you-were-doing-it-with-pencil-and-paper">How to do the test (if you were doing it with pencil and paper)</a></li>
 </ul>

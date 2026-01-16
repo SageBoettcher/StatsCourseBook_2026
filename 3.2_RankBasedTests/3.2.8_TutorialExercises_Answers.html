@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -795,8 +799,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.22062500000000007), pvalue=np.float64(0.0485), null_distribution=array([ 0.251625, -0.045625,  0.220625, ...,  0.073375,  0.204625,
-       -0.237375], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.22062500000000007), pvalue=np.float64(0.0513), null_distribution=array([-0.034375, -0.116375, -0.098375, ...,  0.110875, -0.207875,
+       -0.116375], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -995,7 +999,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/53ce1b591c8623a8fd2adda0ba5d0196a090203c977cc596ef503c6720751bc8.png" src="../_images/53ce1b591c8623a8fd2adda0ba5d0196a090203c977cc596ef503c6720751bc8.png" />
+<img alt="../_images/22ed0a718e3860caaa658c379198aee6e3beee35f3e6d9447cb58732350dd8fd.png" src="../_images/22ed0a718e3860caaa658c379198aee6e3beee35f3e6d9447cb58732350dd8fd.png" />
 </div>
 </div>
 <p>e) Conduct a suitable rank-based non-parametric test of VitalVit’s claim</p>
@@ -1034,8 +1038,8 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(1.320590909090907), pvalue=np.float64(0.0025), null_distribution=array([-0.06568182, -0.60677273,  0.01604545, ..., -0.17077273,
-       -0.2205    ,  0.48268182], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(1.320590909090907), pvalue=np.float64(0.0029), null_distribution=array([-0.55686364, -0.25577273, -0.70459091, ..., -0.14422727,
+       -0.17804545, -0.78068182], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -1165,7 +1169,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c203bbecd89d1733561102b7ff40ddeb6f31365e5867be95ee2b7fb5a22e92a6.png" src="../_images/c203bbecd89d1733561102b7ff40ddeb6f31365e5867be95ee2b7fb5a22e92a6.png" />
+<img alt="../_images/5039fb083b7f574e0c04c3e28570b40396e312ca85bf1fd6998ea2ae3484ac9a.png" src="../_images/5039fb083b7f574e0c04c3e28570b40396e312ca85bf1fd6998ea2ae3484ac9a.png" />
 </div>
 </div>
 <p><strong>c. Carry out a suitable rank-based non-parametric test of the hypothesis that men own more socks than women</strong></p>
@@ -1189,8 +1193,8 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.0071), null_distribution=array([ 0.28571429,  4.        ,  0.42857143, ..., -1.14285714,
-        0.        ,  0.85714286], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.006), null_distribution=array([ 3.85714286,  0.        , -3.57142857, ..., -3.71428571,
+       -2.85714286,  1.28571429], shape=(9999,)))
 </pre></div>
 </div>
 </div>

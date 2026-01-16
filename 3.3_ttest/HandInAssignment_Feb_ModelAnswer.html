@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1009,8 +1013,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(277.3961538461539), pvalue=np.float64(0.0241), null_distribution=array([-137.46538462, -200.19615385,  105.61923077, ...,   22.78846154,
-         55.01923077,   78.51153846], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(277.3961538461539), pvalue=np.float64(0.0229), null_distribution=array([-200.58846154,  164.35769231,   86.52692308, ...,   75.39615385,
+        288.48076923,  -34.90384615], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -1222,7 +1226,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7b6325caa08e9a3d17853fdcda60ed7ee1c81e9815ba2f01a8455cd622761c17.png" src="../_images/7b6325caa08e9a3d17853fdcda60ed7ee1c81e9815ba2f01a8455cd622761c17.png" />
+<img alt="../_images/c34eae9fe2ba41d3de8740f7f8646ec268414d24cb43c5997f389cf8559c5e2e.png" src="../_images/c34eae9fe2ba41d3de8740f7f8646ec268414d24cb43c5997f389cf8559c5e2e.png" />
 </div>
 </div>
 <p><font color='red'> Your comments here!</p>
@@ -1761,8 +1765,8 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-15.985702127659636), pvalue=np.float64(0.0932), null_distribution=array([ 10.23480851,  19.02519149, -15.00119149, ..., -19.49565957,
-       -14.45897872,   7.88425532], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-15.985702127659636), pvalue=np.float64(0.0996), null_distribution=array([-7.744     , -7.29438298,  9.4466383 , ..., -7.32059574,
+        7.82723404, -3.35506383], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -1778,8 +1782,8 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-29.423307496075324), pvalue=np.float64(0.0002), null_distribution=array([-8.72538296,  8.94939258,  7.39961557, ..., -1.38207921,
-       12.80776904, -2.08570882], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-29.423307496075324), pvalue=np.float64(0.0002), null_distribution=array([ 7.01178218,  0.62864273, 10.31715413, ..., -1.36853046,
+       -5.410162  , -5.78422968], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -2173,7 +2177,7 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9de7f90195052da0a65c7788a59bad919f733777ec69ea62554004e268c6f83f.png" src="../_images/9de7f90195052da0a65c7788a59bad919f733777ec69ea62554004e268c6f83f.png" />
+<img alt="../_images/0e62ce77dfc99b623e9f00c83cdeed212ab87a95d7b663afeba708784f7616c5.png" src="../_images/0e62ce77dfc99b623e9f00c83cdeed212ab87a95d7b663afeba708784f7616c5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2190,7 +2194,7 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7e0670436c95ded304c11dcd84e3c4ecc565d48bcbf8041d31b89f26c1bfee66.png" src="../_images/7e0670436c95ded304c11dcd84e3c4ecc565d48bcbf8041d31b89f26c1bfee66.png" />
+<img alt="../_images/215cdb726b584a5effffcc19f9b4e91814d9454de5ecc03f8b0fda2531880a57.png" src="../_images/215cdb726b584a5effffcc19f9b4e91814d9454de5ecc03f8b0fda2531880a57.png" />
 </div>
 </div>
 <p><strong>c. Get the mean height for brothers and sisters separately</strong></p>
@@ -2277,7 +2281,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.640000000000015), pvalue=np.float64(0.0786), null_distribution=array([ 3.84, -1.04, -1.6 , ...,  3.84,  1.12,  1.6 ], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.640000000000015), pvalue=np.float64(0.0746), null_distribution=array([ 3.12,  3.92,  1.28, ..., -3.76, -4.96,  0.32], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -2295,7 +2299,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.640000000000015), pvalue=np.float64(0.0002), null_distribution=array([ 0.16,  0.96, -0.88, ...,  2.64,  1.52,  2.48], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.640000000000015), pvalue=np.float64(0.0002), null_distribution=array([-1.12,  0.8 , -2.08, ...,  1.6 , -2.  ,  0.96], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -2331,7 +2335,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/863a6b7168a1c2442bf3dce2a4e98ce2ca7459f0f70d1e82f2e18cb1b691f8e1.png" src="../_images/863a6b7168a1c2442bf3dce2a4e98ce2ca7459f0f70d1e82f2e18cb1b691f8e1.png" />
+<img alt="../_images/0841bb93966c0094a9c04e6f1fbe949f40167d3f35831ecbb2666c0946516c04.png" src="../_images/0841bb93966c0094a9c04e6f1fbe949f40167d3f35831ecbb2666c0946516c04.png" />
 </div>
 </div>
 <p><font color='red'>Your answer here</p>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.8. Tutorial Exercises: non-parametric tests &#8212; Introduction to Statistics and Data Science</title>
+    <title>2.11. Tutorial Exercises: non-parametric tests &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3.2_RankBasedTests/3.2.8_TutorialExercises';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. t-Test" href="../3.3_ttest/3.3.1_ttest_intro.html" />
-    <link rel="prev" title="2.7. Spearman’s Rank Correlation" href="3.2.7_spearman.html" />
+    <link rel="next" title="2.12. Extra Practice" href="3.2.9_rankBasedTests_ExtraPractice.html" />
+    <link rel="prev" title="2.10. Correlation: Spearman’s Rank" href="3.2.7_spearman.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -619,10 +623,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.8.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whose-peaches-are-heavier">2.8.2. 1. Whose peaches are heavier?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iq-and-vitamins">2.8.3. 2. IQ and vitamins</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#socks">2.8.4. 3. Socks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whose-peaches-are-heavier">2.11.1. 1. Whose peaches are heavier?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iq-and-vitamins">2.11.2. 2. IQ and vitamins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#socks">2.11.3. 3. Socks</a></li>
 </ul>
             </nav>
         </div>
@@ -635,11 +638,25 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tutorial-exercises-non-parametric-tests">
-<h1><span class="section-number">2.8. </span>Tutorial Exercises: non-parametric tests<a class="headerlink" href="#tutorial-exercises-non-parametric-tests" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2.11. </span>Tutorial Exercises: non-parametric tests<a class="headerlink" href="#tutorial-exercises-non-parametric-tests" title="Link to this heading">#</a></h1>
 <p>Here are some exercises on comparing groups of data (medians or means) using rank-based non-parametric tests, or permutation tests</font></p>
-<section id="set-up-python-libraries">
-<h2><span class="section-number">2.8.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
-<p>As usual, run the code cell below to import the relevant Python libraries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Set up Python libraries</span>
+
+<span class="n">As</span> <span class="n">usual</span><span class="p">,</span> <span class="n">run</span> <span class="n">the</span> <span class="n">code</span> <span class="n">cell</span> <span class="n">below</span> <span class="n">to</span> <span class="kn">import</span><span class="w"> </span><span class="nn">the</span> <span class="n">relevant</span> <span class="n">Python</span> <span class="n">libraries</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+    <span class="n">As</span> <span class="n">usual</span><span class="p">,</span> <span class="n">run</span> <span class="n">the</span> <span class="n">code</span> <span class="n">cell</span> <span class="n">below</span> <span class="n">to</span> <span class="kn">import</span><span class="w"> </span><span class="nn">the</span> <span class="n">relevant</span> <span class="n">Python</span> <span class="n">libraries</span>
+       <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
@@ -657,9 +674,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
 <section id="whose-peaches-are-heavier">
-<h2><span class="section-number">2.8.2. </span>1. Whose peaches are heavier?<a class="headerlink" href="#whose-peaches-are-heavier" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.11.1. </span>1. Whose peaches are heavier?<a class="headerlink" href="#whose-peaches-are-heavier" title="Link to this heading">#</a></h2>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2025/main/images/peaches.png"><img alt="There should be a picture of some peaches here" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2025/main/images/peaches.png" style="width: 30%;" />
 </a>
 <p>Mr Robinson’s juice factory buys peaches from farmers by the tray. Each tray contains 50 peaches. Farmer MacDonald claims that this is unfair as his peaches are juicier and therefore weigh more than the peaches of his rival, Mr McGregor.</p>
@@ -780,7 +796,7 @@ document.write(`
 </div>
 </section>
 <section id="iq-and-vitamins">
-<h2><span class="section-number">2.8.3. </span>2. IQ and vitamins<a class="headerlink" href="#iq-and-vitamins" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.11.2. </span>2. IQ and vitamins<a class="headerlink" href="#iq-and-vitamins" title="Link to this heading">#</a></h2>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2025/main/images/vitamins.jpg"><img alt="There should be a picture of some vitamin pills here" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2025/main/images/vitamins.jpg" style="width: 50%;" />
 </a>
 <p>The VitalVit company claim that after taking their VitalVit supplement, IQ is increased.</p>
@@ -996,7 +1012,7 @@ document.write(`
 </div>
 </section>
 <section id="socks">
-<h2><span class="section-number">2.8.4. </span>3. Socks<a class="headerlink" href="#socks" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.11.3. </span>3. Socks<a class="headerlink" href="#socks" title="Link to this heading">#</a></h2>
 <p>In the section on permutation testing, we introduced a dataset on sock ownership (number of pairs of socks owned for 14 husband-wife couples. We noticed that when using a permutation test for difference of means, the null distribution of the difference of means was strongly affected by the presences of an outlier:</p>
 <ul class="simple">
 <li><p>in one couple the husband owned about 30 more pairs of socks than the wife</p></li>
@@ -1119,7 +1135,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7ae3852f646e39ba83958f8ff650c19f06648039553322b4c51c01190d77c5d0.png" src="../_images/7ae3852f646e39ba83958f8ff650c19f06648039553322b4c51c01190d77c5d0.png" />
+<img alt="../_images/931e057d828687726e6faed2ae5e8f9aa29e519ce844be086dd79f64677cffd6.png" src="../_images/931e057d828687726e6faed2ae5e8f9aa29e519ce844be086dd79f64677cffd6.png" />
 </div>
 </div>
 <p><strong>c. Carry out a suitable rank-based non-parametric test of the hypothesis that men own more socks than women</strong></p>
@@ -1186,15 +1202,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.7. </span>Spearman’s Rank Correlation</p>
+        <p class="prev-next-title"><span class="section-number">2.10. </span>Correlation: Spearman’s Rank</p>
       </div>
     </a>
     <a class="right-next"
-       href="../3.3_ttest/3.3.1_ttest_intro.html"
+       href="3.2.9_rankBasedTests_ExtraPractice.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>t-Test</p>
+        <p class="prev-next-title"><span class="section-number">2.12. </span>Extra Practice</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1214,10 +1230,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.8.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whose-peaches-are-heavier">2.8.2. 1. Whose peaches are heavier?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iq-and-vitamins">2.8.3. 2. IQ and vitamins</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#socks">2.8.4. 3. Socks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whose-peaches-are-heavier">2.11.1. 1. Whose peaches are heavier?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iq-and-vitamins">2.11.2. 2. IQ and vitamins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#socks">2.11.3. 3. Socks</a></li>
 </ul>
   </nav></div>
 

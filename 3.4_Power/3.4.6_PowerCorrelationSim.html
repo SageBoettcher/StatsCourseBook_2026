@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -780,7 +784,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/32800c98f114ab5fabc0ceaea3e7a5a9dfa467139a12dc0ffc4ea12e45396257.png" src="../_images/32800c98f114ab5fabc0ceaea3e7a5a9dfa467139a12dc0ffc4ea12e45396257.png" />
+<img alt="../_images/44c6d1360f8847f8f838ba9d54dec6919ce6d39d9cd7951f95770e8b08cab753.png" src="../_images/44c6d1360f8847f8f838ba9d54dec6919ce6d39d9cd7951f95770e8b08cab753.png" />
 </div>
 </div>
 <p>The generated dataset has two columns and 25,000 rows.</p>
@@ -820,11 +824,11 @@ Here are some examples of datasets that actually have r=0.25:</p>
     <tr>
       <th>Maths</th>
       <td>1.000000</td>
-      <td>-0.003812</td>
+      <td>-0.003728</td>
     </tr>
     <tr>
       <th>French</th>
-      <td>-0.003812</td>
+      <td>-0.003728</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -850,7 +854,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0482)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0469)
 </pre></div>
 </div>
 </div>
@@ -890,7 +894,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d2ab563f56b6c5e8be374deaca60791f3d49d2f82629313aadf4d0182dd5c757.png" src="../_images/d2ab563f56b6c5e8be374deaca60791f3d49d2f82629313aadf4d0182dd5c757.png" />
+<img alt="../_images/4e803afd94c26ef0656c134616b96c0521fce1add5a29301ce27237f4f0d3a2e.png" src="../_images/4e803afd94c26ef0656c134616b96c0521fce1add5a29301ce27237f4f0d3a2e.png" />
 </div>
 </div>
 <p>We can check the correlation in the full population of 25000 samples, hopefully this should be close to 0.25.</p>
@@ -926,13 +930,13 @@ Here are some examples of datasets that actually have r=0.25:</p>
   <tbody>
     <tr>
       <th>Maths</th>
-      <td>1.000000</td>
-      <td>0.244647</td>
+      <td>1.00000</td>
+      <td>0.24541</td>
     </tr>
     <tr>
       <th>French</th>
-      <td>0.244647</td>
-      <td>1.000000</td>
+      <td>0.24541</td>
+      <td>1.00000</td>
     </tr>
   </tbody>
 </table>
@@ -961,7 +965,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.527)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.522)
 </pre></div>
 </div>
 </div>
@@ -989,7 +993,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.542)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.531)
 </pre></div>
 </div>
 </div>
@@ -1027,7 +1031,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/508f4dc07e606860220d1142d88110543bf9a887988ff18ce1b8f209a4e1bef6.png" src="../_images/508f4dc07e606860220d1142d88110543bf9a887988ff18ce1b8f209a4e1bef6.png" />
+<img alt="../_images/3829b2580d0a511d0fa3562edfce3a25502c87b30e107e9e61b9978cbcc50b3c.png" src="../_images/3829b2580d0a511d0fa3562edfce3a25502c87b30e107e9e61b9978cbcc50b3c.png" />
 </div>
 </div>
 <p>The relationship between sample size and power is slightly bumpy as we checked only 1000 simulated samples at each sample size. If you increased nReps to 10,000 the curve would look smoother (but the simulation would take a long time to run).</p>

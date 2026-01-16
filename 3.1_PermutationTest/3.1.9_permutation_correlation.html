@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -949,10 +953,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25206563520568404
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3911400209702381
 </pre></div>
 </div>
-<img alt="../_images/3695440e547ca7b613c023c71b0627d74c4092349dec3f41d194ed5b3d83d026.png" src="../_images/3695440e547ca7b613c023c71b0627d74c4092349dec3f41d194ed5b3d83d026.png" />
+<img alt="../_images/5adf6531f7c64f3a83932391922e043664393ebf42554674066f358ab5493ef4.png" src="../_images/5adf6531f7c64f3a83932391922e043664393ebf42554674066f358ab5493ef4.png" />
 </div>
 </div>
 </section>
@@ -982,7 +986,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/316aa90b177f9510c3cbe47f37895bbe2ffc71158bbb24175f12f201d4e58fff.png" src="../_images/316aa90b177f9510c3cbe47f37895bbe2ffc71158bbb24175f12f201d4e58fff.png" />
+<img alt="../_images/2011583f5d0f41a203f9beb64f9a671a2b2b4c9b07c756f88185877ea139094a.png" src="../_images/2011583f5d0f41a203f9beb64f9a671a2b2b4c9b07c756f88185877ea139094a.png" />
 </div>
 </div>
 <p>With 100 permutations you can already see the null distribution taking shape. Maybe you can also notice, that the “random” correlations tend to be much lower than what we found in our original data set. Importantly, most of the permutations center around a correlation of 0, indicating now relationship between the variables. However how often do we see a person r at least as large as we observed in data set (i.e., 0.8)? To increase our confidence we probably want to run even more permutations!</p>
@@ -1006,8 +1010,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8011532312132079), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.0586184 , -0.24897926, -0.29300857, ...,  0.14388102,
-       -0.19900855,  0.16896474], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8011532312132079), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.06890764, -0.26505251,  0.18584461, ..., -0.07630488,
+       -0.27091522,  0.07199402], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1031,7 +1035,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/42e7cfb6b1346c9956009b61cc7fb0ffb4ff38fd4ffea0e721b1f8ca997dd1ff.png" src="../_images/42e7cfb6b1346c9956009b61cc7fb0ffb4ff38fd4ffea0e721b1f8ca997dd1ff.png" />
+<img alt="../_images/944fe799c04ab4bb53d876df8fc7bbeb83ba596bc45b3778ca17c58e99d4c741.png" src="../_images/944fe799c04ab4bb53d876df8fc7bbeb83ba596bc45b3778ca17c58e99d4c741.png" />
 </div>
 </div>
 <p>We can see that the null distribution is nice and symmetrical (the average correlation in shuffled data is zero, whilst positive and negative correlations are equally likely)</p>

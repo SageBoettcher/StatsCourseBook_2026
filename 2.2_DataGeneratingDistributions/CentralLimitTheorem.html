@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -804,11 +808,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[82 79 28 78 25 33 42 84 86 57 26 25 72 39 30 49 30 35 37 34 88 41 84 83
- 34 20 49 82 94 59 77 80 48 78 38 70 40 81 39 15 80 26 79 40 38 33 61 78
- 70 73 32 25 32 28 60 33 22 46 45 85 38 30 84 75 44 48 79 47 36 42 68 82
- 88 16 30 60 17 85 44 19 73 17 11 52 33 77 33 81 89 87 29 47 62 80 31 72
- 30 79 54 20]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[78 14 55 70 75 32 41 81 20 23 28 19 83 40 74 44 38 23 76 57 81 30 12 44
+ 13 31 20 75 73  9 48 39 55 14 34 40 28 22 67 78 53 25 83 82 38 72 84 34
+ 37 35 28 69 41 44 41 36 36 33 85 72 80 75 87 40 61 87 80 79 45 38 33 96
+ 82 23 31 77 86 60 46 85 88 16 82 92 75 75 21 79 82 37 30 35 68 55 20 38
+ 85 28 58 78]
 </pre></div>
 </div>
 </div>
@@ -826,7 +830,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9e3a88083b3c58bfda5c350bf5a48a134342a76617b6586deb36dbfe27fc60eb.png" src="../_images/9e3a88083b3c58bfda5c350bf5a48a134342a76617b6586deb36dbfe27fc60eb.png" />
+<img alt="../_images/f4ee41663246e91e52be572cecfc63cda9d4c4db998aaa832e48db2541f54327.png" src="../_images/f4ee41663246e91e52be572cecfc63cda9d4c4db998aaa832e48db2541f54327.png" />
 </div>
 </div>
 <p>Hopefully we can see that the distribution within the sample resembles the shape of the distribution in the national sample, with two peaks, although somewhat noisier</p>
@@ -846,7 +850,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a5b3b581b398f610d73f5ac268b856d77c894ab3eaacaf3a7030b0cfeb661c73.png" src="../_images/a5b3b581b398f610d73f5ac268b856d77c894ab3eaacaf3a7030b0cfeb661c73.png" />
+<img alt="../_images/4101c06a2a254c498ad1acdb8baf44133be995f85aa7040077e3f777162ab688.png" src="../_images/4101c06a2a254c498ad1acdb8baf44133be995f85aa7040077e3f777162ab688.png" />
 </div>
 </div>
 <p>Notice that we always manage to reproduce the bimodal shape, albeit with random variability.</p>
@@ -897,7 +901,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;sample mean&#39;)
 </pre></div>
 </div>
-<img alt="../_images/5621ad5c12a24aca746f4b0fc91335bf990f7ade15b1a478ed5b21741510bf6b.png" src="../_images/5621ad5c12a24aca746f4b0fc91335bf990f7ade15b1a478ed5b21741510bf6b.png" />
+<img alt="../_images/072e7875f85b071168498ecf6cab5de15f8b5e85909303748526b3e8fc1d53e1.png" src="../_images/072e7875f85b071168498ecf6cab5de15f8b5e85909303748526b3e8fc1d53e1.png" />
 </div>
 </div>
 <p>The distribution of sample means is approximately normal.</p>
@@ -911,7 +915,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(49.848371)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(49.886883999999995)
 </pre></div>
 </div>
 </div>
@@ -928,7 +932,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.492806710589291)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.4820648924925393)
 </pre></div>
 </div>
 </div>
@@ -960,7 +964,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd of sampling distribution (from simulation) = 2.492806710589291
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd of sampling distribution (from simulation) = 2.4820648924925393
 SEM from the formula = 2.479272056187634
 </pre></div>
 </div>
@@ -1001,7 +1005,7 @@ SEM from the formula = 2.479272056187634
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d17e7282df5fc9ae3b0847eee61fd5c562a94841b3ad2b2dec2a497074ba02a8.png" src="../_images/d17e7282df5fc9ae3b0847eee61fd5c562a94841b3ad2b2dec2a497074ba02a8.png" />
+<img alt="../_images/90bba8ee9ecbd2f47574a88c551238888a633ba871c3076d6db46dbac14a0167.png" src="../_images/90bba8ee9ecbd2f47574a88c551238888a633ba871c3076d6db46dbac14a0167.png" />
 </div>
 </div>
 </section>
@@ -1028,7 +1032,7 @@ SEM from the formula = 2.479272056187634
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/92e552f90c0088101551c94508d301be3221af68cefd6e5be11f25f254651643.png" src="../_images/92e552f90c0088101551c94508d301be3221af68cefd6e5be11f25f254651643.png" />
+<img alt="../_images/1b6c70be3b85af1d7e04643a70545b646bbf5b50054d5a7a57c06e04f4ba890a.png" src="../_images/1b6c70be3b85af1d7e04643a70545b646bbf5b50054d5a7a57c06e04f4ba890a.png" />
 </div>
 </div>
 <p>Now we make our predicted normal sampling distribution of the mean.</p>
@@ -1081,7 +1085,7 @@ SEM from the formula = 2.479272056187634
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
-<img alt="../_images/b89d8e92ca8b1b524aa238ede0636ec5f32ed36a783e3e1873f9323df575d3aa.png" src="../_images/b89d8e92ca8b1b524aa238ede0636ec5f32ed36a783e3e1873f9323df575d3aa.png" />
+<img alt="../_images/e202085e7b504d128b9c4c99f15afce5688a95b31de1c23ce83dce7c8caf1d1f.png" src="../_images/e202085e7b504d128b9c4c99f15afce5688a95b31de1c23ce83dce7c8caf1d1f.png" />
 </div>
 </div>
 <p>This is not a bad match!</p>
@@ -1110,7 +1114,7 @@ SEM from the formula = 2.479272056187634
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.0178 or 1.78%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.016 or 1.6%
 </pre></div>
 </div>
 </div>

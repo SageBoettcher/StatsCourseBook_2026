@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -301,10 +301,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -984,7 +988,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/26c5b8a485a063d75e787cf48146045ef273d3f2c081d2b722bff2b115b79b9f.png" src="../_images/26c5b8a485a063d75e787cf48146045ef273d3f2c081d2b722bff2b115b79b9f.png" />
-<img alt="../_images/36fa5d730c1a2c3b572627c01337c4f2223b2c7a3421494cf24745b8bbc05c49.png" src="../_images/36fa5d730c1a2c3b572627c01337c4f2223b2c7a3421494cf24745b8bbc05c49.png" />
+<img alt="../_images/cd11766b60c6ab168c0f7d7636a2e2dfbe3ebc0c42837c7c64bf4f21d7064a16.png" src="../_images/cd11766b60c6ab168c0f7d7636a2e2dfbe3ebc0c42837c7c64bf4f21d7064a16.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1010,7 +1014,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/b665d19245f23dd74215b06075e5034227a64ba549c92fb1985a9bbe1fbc6e54.png" src="../_images/b665d19245f23dd74215b06075e5034227a64ba549c92fb1985a9bbe1fbc6e54.png" />
-<img alt="../_images/c1785f0fe569f0509468e4c4eaeaeadb9feae17aadd5bf407dc8b0682cf4caf6.png" src="../_images/c1785f0fe569f0509468e4c4eaeaeadb9feae17aadd5bf407dc8b0682cf4caf6.png" />
+<img alt="../_images/fef0f887080527f35070e2c46a8932e7ebd5f20d63e1d8861580691123b33d77.png" src="../_images/fef0f887080527f35070e2c46a8932e7ebd5f20d63e1d8861580691123b33d77.png" />
 </div>
 </div>
 <p><strong>Discuss with students</strong></p>
@@ -1036,8 +1040,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/763e9368040394f0af87095b83d516c90cf515917408866d2c280c1a31a38216.png" src="../_images/763e9368040394f0af87095b83d516c90cf515917408866d2c280c1a31a38216.png" />
-<img alt="../_images/65421b68281a40467414bd7333569c473e07af8ba98e50a94bc60aef9b9e2959.png" src="../_images/65421b68281a40467414bd7333569c473e07af8ba98e50a94bc60aef9b9e2959.png" />
+<img alt="../_images/5d289f1f906c56b3df82d8b0957ac27e13f25b402956d5c3e07fa1e22f0687e5.png" src="../_images/5d289f1f906c56b3df82d8b0957ac27e13f25b402956d5c3e07fa1e22f0687e5.png" />
+<img alt="../_images/52539e64a2b1577119885fafc1331f564046b5a40801c4478f302601f4c3d5fe.png" src="../_images/52539e64a2b1577119885fafc1331f564046b5a40801c4478f302601f4c3d5fe.png" />
 </div>
 </div>
 <p><strong>Think:</strong></p>
@@ -1218,7 +1222,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25fbe711ba248911eef782128036077c375bc535dd6c1ad38601596f0d321ce7.png" src="../_images/25fbe711ba248911eef782128036077c375bc535dd6c1ad38601596f0d321ce7.png" />
+<img alt="../_images/b1429d3a4c2b1ed79ea4491e1fad95b2cd8f41336e12614b10092215b2b4fd6e.png" src="../_images/b1429d3a4c2b1ed79ea4491e1fad95b2cd8f41336e12614b10092215b2b4fd6e.png" />
 <img alt="../_images/5b90e62abc91b1c7b09e6b3433d606b49ebcbf6350170658fe4f76fe055b39b4.png" src="../_images/5b90e62abc91b1c7b09e6b3433d606b49ebcbf6350170658fe4f76fe055b39b4.png" />
 </div>
 </div>
@@ -1447,7 +1451,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e5502674962f5475450448c550317903dab1adb5b81530062b2207c40318f573.png" src="../_images/e5502674962f5475450448c550317903dab1adb5b81530062b2207c40318f573.png" />
+<img alt="../_images/3272df791963474ae888689cebe09ae8ac97c311ff06c8f371b2857137b6eefe.png" src="../_images/3272df791963474ae888689cebe09ae8ac97c311ff06c8f371b2857137b6eefe.png" />
 </div>
 </div>
 <p>Time zero is the onset of the moving dots. We can see that firing rate initially dips, then rises over the course of several hundred milliseconds.</p>
@@ -1476,7 +1480,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fc6dc00317535778fa85f6281d435dca7d4c719f9e0af83bd667013a19fd53df.png" src="../_images/fc6dc00317535778fa85f6281d435dca7d4c719f9e0af83bd667013a19fd53df.png" />
+<img alt="../_images/100c40b56d2300181efdbaeffa79709697c4fe39fed62cddf7e4039bfa9da83c.png" src="../_images/100c40b56d2300181efdbaeffa79709697c4fe39fed62cddf7e4039bfa9da83c.png" />
 </div>
 </div>
 <p>What do you see? Describe the graph in words.</p>
