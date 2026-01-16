@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3.2_RankBasedTests/3.2.4_MedianMean';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.5. Rank Sum Test" href="3.2.5_nonpara_MannWhitneyU.html" />
+    <link rel="next" title="2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)" href="3.2.5_nonpara_MannWhitneyU.html" />
     <link rel="prev" title="2.3. Rank-based tests" href="3.2.3_nonpara_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -602,18 +606,18 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="difference-of-medians-vs-difference-of-means">
 <h1><span class="section-number">2.4. </span>Difference of medians vs difference of means<a class="headerlink" href="#difference-of-medians-vs-difference-of-means" title="Link to this heading">#</a></h1>
-<p>When we state the null and alternative hypotheses for our rank-based tests, we refer to a difference in <strong>medians</strong> rather than a difference of <strong>means</strong>:</p>
+<p>An important point to consider for rank-based tests is that, when stating the null and alternative hypotheses, we refer to a difference in <strong>medians</strong> rather than a difference in <strong>means</strong>.</p>
 <p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: there is no difference in median salary between men and women
 <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>: the median salary of men is higher than that of women</p>
-<p>Why is this?</p>
+<p><strong>Why is this?</strong></p>
 <section id="after-ranking-the-data-we-don-t-know-what-the-mean-is-any-more">
 <h2><span class="section-number">2.4.1. </span>After ranking the data, we don’t know what the mean is any more!<a class="headerlink" href="#after-ranking-the-data-we-don-t-know-what-the-mean-is-any-more" title="Link to this heading">#</a></h2>
-<p>Consider the following two datasets, which have very different means, but after ranking are identical:</p>
+<p>This is because rank-based tests are sensitive to the relative ordering of values, not their exact numerical size. Consider the following two datasets, which have very different means, but after ranking are identical:</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_MeanMedian.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_MeanMedian.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_MeanMedian.png" style="width: 80%;" />
 </a>
-<p>Our rank-based statistical tests only use the ranks, not the original data. The difference between groups in the left- and right datasets would be equally significant based on a rank-sum test, even though the difference of means is much greater (and would be more statistically significant) in the dataset on the left.</p>
-<p>Therefore it would be incorrect to say that a rank-based test is testing for a difference in means - in fact it is not sensitive to a difference in means as long as the ranks remain unchanged (as in the two datasets above).</p>
-<p>On the other hand, the ranked data do directly relate to the median, which by definition is simply the middle-ranked value</p>
+<p>Rank-based statistical tests use only the ranks of the data, not the original numerical values. As a result, the difference between groups in the left- and right-hand datasets would be equally significant according to a rank-sum test, even though the difference in means is much larger (and would be more statistically significant) in the dataset on the left.</p>
+<p>It would therefore be incorrect to say that a rank-based test is testing for a difference in means. In fact, such tests are not sensitive to differences in means as long as the ranks remain unchanged, as is the case for the two datasets shown above.</p>
+<p>In contrast, ranked data relate directly to the median, which by definition is simply the middle-ranked value.</p>
 </section>
 </section>
 
@@ -661,7 +665,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.5. </span>Rank Sum Test</p>
+        <p class="prev-next-title"><span class="section-number">2.5. </span>Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

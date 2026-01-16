@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -984,7 +988,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;G3_G1_diff&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/54ff57ddcd05f2a9feaf1a15b4603f55ef8e9798000ab7b38a62435b6beb10ee.png" src="../_images/54ff57ddcd05f2a9feaf1a15b4603f55ef8e9798000ab7b38a62435b6beb10ee.png" />
+<img alt="../_images/532801a241616b1f06eb7daa797196b372e918b4d18acb88b7fa29f2b09795cc.png" src="../_images/532801a241616b1f06eb7daa797196b372e918b4d18acb88b7fa29f2b09795cc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1061,11 +1065,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-0.4936708860759494), pvalue=np.float64(0.0005999400059994001), null_distribution=array([ 0.03291139, -0.03797468,  0.03291139, ..., -0.15949367,
-       -0.23037975, -0.15443038], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-0.4936708860759494), pvalue=np.float64(0.00039996000399960006), null_distribution=array([ 0.10886076,  0.04303797,  0.12911392, ...,  0.13924051,
+        0.10886076, -0.01265823], shape=(10000,)))
 </pre></div>
 </div>
-<img alt="../_images/3ae043f5a74effdb287322bc5b8c31c184b9c851e2b62e1053caec06d698ffaa.png" src="../_images/3ae043f5a74effdb287322bc5b8c31c184b9c851e2b62e1053caec06d698ffaa.png" />
+<img alt="../_images/258ffbe8d534a89aa1c0b6708c94a5fff09e43ddba610efd1271acde7180b8b5.png" src="../_images/258ffbe8d534a89aa1c0b6708c94a5fff09e43ddba610efd1271acde7180b8b5.png" />
 </div>
 </div>
 <p><strong>Report conclusion</strong></p>
@@ -1379,7 +1383,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dfab9a1f9a41eee1455e57f6c1bd90fe737246591d25a810eeacbafb67c2c58b.png" src="../_images/dfab9a1f9a41eee1455e57f6c1bd90fe737246591d25a810eeacbafb67c2c58b.png" />
+<img alt="../_images/6d0b59b7001dcd87001716720244a78a6207a2b7edf9e991c9e06f185d66a1ed.png" src="../_images/6d0b59b7001dcd87001716720244a78a6207a2b7edf9e991c9e06f185d66a1ed.png" />
 </div>
 </div>
 <p>Maybe you already have a sense of wether or not there might be a difference in the scores.</p>
@@ -1468,11 +1472,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-0.4936708860759494), pvalue=np.float64(0.0005999400059994001), null_distribution=array([ 0.03291139, -0.03797468,  0.03291139, ..., -0.15949367,
-       -0.23037975, -0.15443038], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-0.4936708860759494), pvalue=np.float64(0.00039996000399960006), null_distribution=array([ 0.10886076,  0.04303797,  0.12911392, ...,  0.13924051,
+        0.10886076, -0.01265823], shape=(10000,)))
 </pre></div>
 </div>
-<img alt="../_images/3ae043f5a74effdb287322bc5b8c31c184b9c851e2b62e1053caec06d698ffaa.png" src="../_images/3ae043f5a74effdb287322bc5b8c31c184b9c851e2b62e1053caec06d698ffaa.png" />
+<img alt="../_images/258ffbe8d534a89aa1c0b6708c94a5fff09e43ddba610efd1271acde7180b8b5.png" src="../_images/258ffbe8d534a89aa1c0b6708c94a5fff09e43ddba610efd1271acde7180b8b5.png" />
 </div>
 </div>
 <p><strong>Report conclusion</strong></p>
@@ -1520,7 +1524,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;studytime&#39;, ylabel=&#39;avgPerf&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/1d528911f89d4a00c80ef44fb0bade76e8acbbc8c14f57c7915727b5dbfeb11a.png" src="../_images/1d528911f89d4a00c80ef44fb0bade76e8acbbc8c14f57c7915727b5dbfeb11a.png" />
+<img alt="../_images/c61f224e69765b9e0d6e430790cdfe6571d0ac62a902412594c4c65d83c0796f.png" src="../_images/c61f224e69765b9e0d6e430790cdfe6571d0ac62a902412594c4c65d83c0796f.png" />
 </div>
 </div>
 <p>Maybe you already have a sense of wether or not there might be a relationship in the scores.</p>
@@ -1558,11 +1562,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.13456471886640692), pvalue=np.float64(0.0047995200479952005), null_distribution=array([ 0.0530299 ,  0.06039258, -0.04023065, ..., -0.00832573,
-       -0.05113832, -0.0385945 ], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.13456471886640692), pvalue=np.float64(0.007399260073992601), null_distribution=array([-0.06395483,  0.00803578, -0.0091438 , ..., -0.10976703,
+        0.0762087 , -0.01323418], shape=(10000,)))
 </pre></div>
 </div>
-<img alt="../_images/78cb84d4d03b0cb5fc0c63cb9818859029fd347036a246fdd1da52658066ed33.png" src="../_images/78cb84d4d03b0cb5fc0c63cb9818859029fd347036a246fdd1da52658066ed33.png" />
+<img alt="../_images/db8ffd60e5d1ce9d3d6460ad7f6619e4907b57b795a958f9fff2b9fd46c802fd.png" src="../_images/db8ffd60e5d1ce9d3d6460ad7f6619e4907b57b795a958f9fff2b9fd46c802fd.png" />
 </div>
 </div>
 <p><strong>Report conclusion</strong></p>

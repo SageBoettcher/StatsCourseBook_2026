@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.7. Spearman’s Rank Correlation &#8212; Introduction to Statistics and Data Science</title>
+    <title>2.10. Correlation: Spearman’s Rank &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3.2_RankBasedTests/3.2.7_spearman';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.8. Tutorial Exercises: non-parametric tests" href="3.2.8_TutorialExercises.html" />
-    <link rel="prev" title="2.6. The Wilcoxon Sign-Rank Test" href="3.2.6_nonpara_WilcoxonSignRank.html" />
+    <link rel="next" title="2.11. Tutorial Exercises: non-parametric tests" href="3.2.8_TutorialExercises.html" />
+    <link rel="prev" title="2.9. Dependent Samples: The Wilcoxon Sign-Rank Test" href="3.2.6_nonpara_WilcoxonSignRank.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -609,7 +613,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Spearman’s Rank Correlation</h1>
+    <h1>Correlation: Spearman’s Rank</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -619,10 +623,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">2.7.1. Load the data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">2.7.2. Plot the data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-correlation">2.7.3. Calculating correlation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-hypotheses">Note on Hypotheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-wealth-and-carbon-emissions">2.10.1. Example: wealth and carbon emissions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-correlation">3. Calculating correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-the-p-value">4. Obtain the p-value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 </ul>
 </li>
 </ul>
@@ -636,12 +642,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="spearman-s-rank-correlation">
-<h1><span class="section-number">2.7. </span>Spearman’s Rank Correlation<a class="headerlink" href="#spearman-s-rank-correlation" title="Link to this heading">#</a></h1>
-<p>In Chapter 1: Describing Data we looked at Spearman’s Rank correlation coefficient, which is a robust correlation based on ranks.</p>
-<p><strong>If you are unsure about correlation coefficients, please revisit the page on correlation in Chapter 1: Describing Data</strong></p>
-<p>In this section on rank-based tests, we revisit Spearman’s <span class="math notranslate nohighlight">\(r\)</span> and see how to get a <span class="math notranslate nohighlight">\(p\)</span>-value for it using <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></p>
-<p>The reasons for using Spearman’srank correlation rather than Pearson’s correlation are recapped there.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="correlation-spearman-s-rank">
+<h1><span class="section-number">2.10. </span>Correlation: Spearman’s Rank<a class="headerlink" href="#correlation-spearman-s-rank" title="Link to this heading">#</a></h1>
+<p>In Chapter 1: Describing Data we introduced <strong>Spearman’s rank correlation coefficient</strong>, a correlation measure based on ranks that is robust to non-Normality and outliers.</p>
+<p><strong>If you are unsure about correlation coefficients, please revisit the page on correlation in Chapter 1: Describing Data.</strong></p>
+<p>As a quick summary, Pearson’s correlation coefficient relies on several assumptions:</p>
+<ul class="simple">
+<li><p>The relationship between the two variables is <strong>linear</strong> (i.e. it follows a straight line, not a curve).</p></li>
+<li><p>The variance of the data is roughly constant across the range of the variables (no <strong>heteroscedasticity</strong>).</p></li>
+<li><p>There are no extreme or influential outliers.</p></li>
+</ul>
+<p>If these assumptions are not met, it is generally preferable to use <strong>Spearman’s rank correlation coefficient</strong> instead.</p>
+<p>In this section we revisit Spearman’s <span class="math notranslate nohighlight">\((r)\)</span> and show how to obtain a <span class="math notranslate nohighlight">\(p-value\)</span> for it using <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set-up Python libraries - you need to run this but you don&#39;t need to change it</span>
@@ -659,9 +671,30 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="load-the-data">
-<h2><span class="section-number">2.7.1. </span>Load the data<a class="headerlink" href="#load-the-data" title="Link to this heading">#</a></h2>
-<p>Let’s use the CO2 data discussed in the section on correlation in Chapter 1: Describing Data. The dataset contains GDP (weath) and carbon emissions per person for 164 countries.</p>
+<section id="example-wealth-and-carbon-emissions">
+<h2><span class="section-number">2.10.1. </span>Example: wealth and carbon emissions<a class="headerlink" href="#example-wealth-and-carbon-emissions" title="Link to this heading">#</a></h2>
+<p>We will use the CO(_2) dataset discussed in the section on correlation in Chapter 1: Describing Data. This dataset contains measures of GDP (wealth) and carbon emissions per person for 164 countries.</p>
+<p>Here we are interested in knowing whether richer countries tend to emit more CO(_2) per person than poorer countries.</p>
+<p><strong>Question:</strong> test whether there is an association between GDP and carbon emissions per person.</p>
+<p><em>Notes:</em></p>
+<ul class="simple">
+<li><p>Both variables are continuous.</p></li>
+<li><p>Inspection of the scatter plot suggests that the relationship is approximately <strong>linear</strong>, but the spread of emissions increases with GDP (i.e. the data show <strong>heteroscedasticity</strong>).</p></li>
+<li><p>There are also several extreme values.</p></li>
+<li><p>Because the assumptions of Pearson’s correlation are not met, <strong>Spearman’s rank correlation</strong> is a more appropriate choice.</p></li>
+<li><p>Decide whether you want a <strong>two-sided</strong> test (any association) or a <strong>one-sided</strong> test (e.g. higher GDP is associated with higher emissions).</p></li>
+</ul>
+<p><em>Practical steps</em></p>
+<ol class="arabic simple">
+<li><p>Inspect the data.</p></li>
+<li><p>State the formal hypotheses.</p></li>
+<li><p>Compute Spearman’s rank correlation coefficient.</p></li>
+<li><p>Obtain the associated p-value using <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p></li>
+<li><p>Draw conclusions.</p></li>
+</ol>
+<section id="inspect-the-data">
+<h3>1. Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h3>
+<p>We will use the CO(_2) dataset discussed in the section on correlation in Chapter 1: Describing Data. This dataset contains measures of GDP (wealth) and carbon emissions per person for 164 countries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carbon</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/CO2vGDP.csv&#39;</span><span class="p">)</span>
@@ -777,10 +810,8 @@ document.write(`
 <p>164 rows × 4 columns</p>
 </div></div></div>
 </div>
-</section>
-<section id="plot-the-data">
-<h2><span class="section-number">2.7.2. </span>Plot the data<a class="headerlink" href="#plot-the-data" title="Link to this heading">#</a></h2>
-<p>From a scatter plot, we can see that the data are unsuitable for Pearson’s correlation (please check the notes for Correlation in the section <strong>Describing Data</strong> if unsure why)</p>
+<p>Let’s plot the data to get an idea of whether our assumptions are met.</p>
+<p>From the scatter plot, we can see that the data are not well suited to Pearson’s correlation (please revisit the notes on correlation in <strong>Chapter 1: Describing Data</strong> if you are unsure why).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">carbon</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;GDP&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;CO2&#39;</span><span class="p">)</span>
@@ -789,12 +820,38 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/79b2c3b9c45e494eadc8a77abd287e113f3ec16d63cc22a1bc5ac77b6cdd84f1.png" src="../_images/79b2c3b9c45e494eadc8a77abd287e113f3ec16d63cc22a1bc5ac77b6cdd84f1.png" />
+<img alt="../_images/91c5e59ebea53e22213b8cf4067b2f270d66ff35030bdc99c22163d532ae93cc.png" src="../_images/91c5e59ebea53e22213b8cf4067b2f270d66ff35030bdc99c22163d532ae93cc.png" />
 </div>
 </div>
+<p>Comments:</p>
+<ul class="simple">
+<li><p>There is a clear positive association between GDP and CO(_2) emissions per person: countries with higher GDP tend to emit more CO(_2) per person.</p></li>
+<li><p>The relationship appears approximately <strong>linear on average</strong>, as indicated by the fitted line.</p></li>
+<li><p>The spread of CO2 emissions increases with GDP, showing clear <strong>heteroscedasticity</strong> (greater variability among wealthier countries).</p></li>
+<li><p>There are several high-GDP, high-emissions countries that act as influential points and would have a strong effect on Pearson’s correlation.</p></li>
+<li><p>Despite these features, the overall <strong>monotonic</strong> relationship (higher GDP → higher emissions) is clear, making Spearman’s rank correlation an appropriate choice.</p></li>
+</ul>
+</section>
+<section id="hypotheses">
+<h3>2. Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
+<p><strong>IMPORTANT NOTE:</strong></p>
+<p>For <strong>Pearson’s correlation</strong> (the ‘standard’ correlation coefficient, calculated on actual data values rather than ranks) we might express our null and alternative hypotheses as follows:</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> There is no linear relationship between GDP and CO2 emissions per capita</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> There is a positive linear relationship between GDP and CO2 emissions per capita</p>
+<ul class="simple">
+<li><p>in plain English, CO2 emissions are proportional to GDP</p></li>
+</ul>
+<p><em>(remember from the section on correlation in <strong>Describing Data</strong> that Pearson’s correlation assumes that the relationship, if there is one, is a straight line)</em></p>
+<br>
+<p>For <strong>Spearman’s rank correlation</strong> coefficient, our null and alternative hypotheses are slightly different:</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> There is no relationship between GDP and CO2 emissions per capita</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> There is a positive relationship between CO2 and GDP rank</p>
+<ul class="simple">
+<li><p>in plain English, richer a country is, the higher its carbon emissions, note we’ve dropped the linear…</p></li>
+</ul>
 </section>
 <section id="calculating-correlation">
-<h2><span class="section-number">2.7.3. </span>Calculating correlation<a class="headerlink" href="#calculating-correlation" title="Link to this heading">#</a></h2>
+<h3>3. Calculating correlation<a class="headerlink" href="#calculating-correlation" title="Link to this heading">#</a></h3>
 <p>We have seen that we can get the correlation (<span class="math notranslate nohighlight">\(r\)</span>-value) between all pairs of columns using a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function <code class="docutils literal notranslate"><span class="pre">df.corr()</span></code> as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -862,7 +919,11 @@ document.write(`
 </div>
 </div>
 </div>
-<p>However, the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function <code class="docutils literal notranslate"><span class="pre">df.corr()</span></code> doesn’t calculate the significance of the correlation. We could calculate it using a permutation test (as last week) but we can also use a built in function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, called <code class="docutils literal notranslate"><span class="pre">stats.spearmanr</span></code></p>
+</section>
+<section id="obtain-the-p-value">
+<h3>4. Obtain the p-value<a class="headerlink" href="#obtain-the-p-value" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function <code class="docutils literal notranslate"><span class="pre">df.corr()</span></code> computes the value of the correlation coefficient, but it does not provide a test of statistical significance.</p>
+<p>As before, we could obtain a p-value using a permutation test, but we can also use a built-in function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> called <code class="docutils literal notranslate"><span class="pre">stats.spearmanr</span></code>, which returns both Spearman’s rank correlation coefficient and its associated p-value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">carbon</span><span class="o">.</span><span class="n">GDP</span><span class="p">,</span> <span class="n">carbon</span><span class="o">.</span><span class="n">CO2</span><span class="p">)</span>
@@ -875,22 +936,11 @@ document.write(`
 </div>
 </div>
 </div>
-<p>This gives us the correlation coefficient <span class="math notranslate nohighlight">\(r=0.91\)</span> (which is a very strong correlation) and the <span class="math notranslate nohighlight">\(p\)</span>-value <span class="math notranslate nohighlight">\(1.7 \times 10^{-65}\)</span> (it is highliy significant)</p>
-<section id="note-on-hypotheses">
-<h3>Note on Hypotheses<a class="headerlink" href="#note-on-hypotheses" title="Link to this heading">#</a></h3>
-<p>For Pearson’s correlation (the ‘standard’ correlation coefficient, calculated on actual data values rather than ranks) we might express our null and alternative hypotheses as follows:</p>
-<p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> There is no linear relationship between GDP and CO2 emissions per capita</p>
-<p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> There is a positive linear relationship between GDP and CO2 emissions per capita</p>
-<ul class="simple">
-<li><p>in plain English, CO2 emissions are proportional to GDP</p></li>
-</ul>
-<p>(remember from the section on correlation in <strong>Describing Data</strong> that Pearson’s correlation assumes that the relationship, if there is one, is a straight line)</p>
-<p>For Spearman’s rank correlation coefficient, our null and alternative hypotheses are slightly different:</p>
-<p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> There is no relationship between GDP and CO2 emissions per capita</p>
-<p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> There is a positive relationship between CO2 and GDP rank</p>
-<ul class="simple">
-<li><p>in plain English, richer a country is, the higher its carbon emissions</p></li>
-</ul>
+</section>
+<section id="draw-conclusions">
+<h3>5. Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
+<p>Spearman’s rank correlation indicates a statistically significant positive association between GDP and CO2 emissions per person becuase the <span class="math notranslate nohighlight">\(p\)</span>-value <span class="math notranslate nohighlight">\(1.7 \times 10^{-65}\)</span> is less than our chosen significance level (<span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>. In fact, its a lot less…</p>
+<p>The strength of the association is reflected in the value of Spearman’s (r = 0.91), which indicates a very strong positive relationship.</p>
 </section>
 </section>
 </section>
@@ -931,7 +981,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.6. </span>The Wilcoxon Sign-Rank Test</p>
+        <p class="prev-next-title"><span class="section-number">2.9. </span>Dependent Samples: The Wilcoxon Sign-Rank Test</p>
       </div>
     </a>
     <a class="right-next"
@@ -939,7 +989,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.8. </span>Tutorial Exercises: non-parametric tests</p>
+        <p class="prev-next-title"><span class="section-number">2.11. </span>Tutorial Exercises: non-parametric tests</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -959,10 +1009,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">2.7.1. Load the data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">2.7.2. Plot the data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-correlation">2.7.3. Calculating correlation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-hypotheses">Note on Hypotheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-wealth-and-carbon-emissions">2.10.1. Example: wealth and carbon emissions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-correlation">3. Calculating correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-the-p-value">4. Obtain the p-value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 </ul>
 </li>
 </ul>

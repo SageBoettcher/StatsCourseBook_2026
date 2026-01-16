@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -951,7 +955,7 @@ Name: eduyrs, Length: 10619, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;inc4&#39;, ylabel=&#39;skills&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/685c393275b957cbd4ccd053e2c4a7ee96362c109a3e58ff94cc36454bb92ea1.png" src="../_images/685c393275b957cbd4ccd053e2c4a7ee96362c109a3e58ff94cc36454bb92ea1.png" />
+<img alt="../_images/f66d8567f998778a53e528585c455b553511413a07649003d79394f83f60ab90.png" src="../_images/f66d8567f998778a53e528585c455b553511413a07649003d79394f83f60ab90.png" />
 </div>
 </div>
 <p><strong>Comments</strong> Digital skills increase as income increases</p>
@@ -986,10 +990,10 @@ Name: eduyrs, Length: 10619, dtype: float64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   1786.</td> 
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:56</td>     <th>  Log-Likelihood:    </th> <td> -26297.</td> 
+  <th>Time:</th>                 <td>18:12:17</td>     <th>  Log-Likelihood:    </th> <td> -26297.</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>      <td> 10485</td>      <th>  AIC:               </th> <td>5.261e+04</td>
@@ -1095,10 +1099,10 @@ following 𝑥 variables: age, eduyrs, inc4, and home</p>
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>  <td>     6</td> 
 </tr>
 <tr>
-  <th>Date:</th>            <td>Sat, 29 Nov 2025</td> <th>  Pseudo R-squ.:     </th>  <td>0.3395</td> 
+  <th>Date:</th>            <td>Fri, 16 Jan 2026</td> <th>  Pseudo R-squ.:     </th>  <td>0.3395</td> 
 </tr>
 <tr>
-  <th>Time:</th>                <td>12:48:56</td>     <th>  Log-Likelihood:    </th> <td> -4379.2</td>
+  <th>Time:</th>                <td>18:12:17</td>     <th>  Log-Likelihood:    </th> <td> -4379.2</td>
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -6630.4</td>
@@ -1211,7 +1215,7 @@ improvement compared to the null model.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;age&#39;, ylabel=&#39;skills&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/691bcd646665ac4a982872d2119bf26fd3df8cf264e28ba0f935081bf8c5cd0e.png" src="../_images/691bcd646665ac4a982872d2119bf26fd3df8cf264e28ba0f935081bf8c5cd0e.png" />
+<img alt="../_images/aff2660490e53c62897460a211f480b4db1d81d2d068ff7dc97ff70505761fff.png" src="../_images/aff2660490e53c62897460a211f480b4db1d81d2d068ff7dc97ff70505761fff.png" />
 </div>
 </div>
 </section>

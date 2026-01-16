@@ -120,6 +120,8 @@ parts:
         - file: 3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.ipynb
         - file: 3.2_RankBasedTests/3.2.7_spearman.ipynb
         - file: 3.2_RankBasedTests/3.2.8_TutorialExercises.ipynb
+        - file: 3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.ipynb
+        
       - file: 3.3_ttest/3.3.1_ttest_intro.md
         sections:
         - file: 3.3_ttest/3.3.2_ttest_outcomes.md

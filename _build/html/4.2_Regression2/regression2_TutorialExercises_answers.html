@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -937,10 +941,10 @@ document.write(`
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   65.77</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>1.82e-52</td>
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>1.82e-52</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:37</td>     <th>  Log-Likelihood:    </th> <td> -4804.3</td>
+  <th>Time:</th>                 <td>18:11:47</td>     <th>  Log-Likelihood:    </th> <td> -4804.3</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  2097</td>      <th>  AIC:               </th> <td>   9619.</td>
@@ -1029,10 +1033,10 @@ document.write(`
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   65.77</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>1.82e-52</td>
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>1.82e-52</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:37</td>     <th>  Log-Likelihood:    </th> <td> -4804.3</td>
+  <th>Time:</th>                 <td>18:11:47</td>     <th>  Log-Likelihood:    </th> <td> -4804.3</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  2097</td>      <th>  AIC:               </th> <td>   9619.</td>
@@ -1170,10 +1174,10 @@ document.write(`
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   20.77</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>1.71e-23</td>
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>1.71e-23</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:37</td>     <th>  Log-Likelihood:    </th> <td> -3444.4</td>
+  <th>Time:</th>                 <td>18:11:47</td>     <th>  Log-Likelihood:    </th> <td> -3444.4</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1511</td>      <th>  AIC:               </th> <td>   6903.</td>
@@ -1241,7 +1245,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/527fd062ef60dfd9a78e4b01050f8316aa497c8fedb0060d253d58008550bee7.png" src="../_images/527fd062ef60dfd9a78e4b01050f8316aa497c8fedb0060d253d58008550bee7.png" />
+<img alt="../_images/ae67ca48f30fdc49b7ff735e281e1284f18161fdb9f47f6be2763c2b008b4aab.png" src="../_images/ae67ca48f30fdc49b7ff735e281e1284f18161fdb9f47f6be2763c2b008b4aab.png" />
 </div>
 </div>
 <p>Interpret the results in your own words.</p>

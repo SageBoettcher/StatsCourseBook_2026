@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '3.2_RankBasedTests/3.2.3_nonpara_intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -303,10 +301,14 @@
 <li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -615,19 +617,19 @@ document.write(`
 <p>In general, if we draw a small sample of data from a larger population, the distribution of data within the sample resembles the distribution in the population.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_SampleVsPop.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_SampleVsPop.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_SampleVsPop.png" style="width: 80%;" />
 </a>
-<p>The figure above shows four random samples of 100 individuals from the bimodal distribution above. These are made-up data, but I like to this of them as something like scores out of 100 representing people’s opinions about a polarizing issue, such as how migrants should be treated or whether inheritance tax is fair; people tend to have either high scores or low scores, but not many people have a neutral opinion.</p>
+<p>The figure above shows four random samples of 100 individuals drawn from the bimodal distribution above. These are made-up data, but you can think of them as something like scores out of 100 representing people’s opinions on a polarizing issue, such as how migrants should be treated or whether inheritance tax is fair. In this kind of situation, people tend to have either high scores or low scores, with relatively few holding a neutral opinion.</p>
 <p>You will see that the data distribution within each sample resembles the original population (having two peaks).</p>
-<p>Permutation testing, which we met in the previous section, makes use of the fact that <strong>the distribution of data in a small sample can generally be seen as representative of the population as a whole</strong> - we shuffle up the sample (disregarding which group people belonged to because we are assuming the null hypothesis is true, and group doesn’t matter). This shuffling process gives us lots of ‘new’ random datasets, which allows us to estimate how much the sample mean will move around between samples, due to the chance factor of which particular datapoints are in a given sample.</p>
-<p>The exact distribution of the sample mean across the shuffled datasets (the <strong>null distribution</strong>) will naturally depend on the data distribution itself - in this case we are implicitly assuming that the distribution of the data we are shuffling (the sample) is representative of the population data distribution as a whole.</p>
+<p><strong>Permutation testing</strong>, which we introduced in the previous section, makes use of the idea that <strong>the distribution of data in a (small) sample can be treated as representative of the population as a whole.</strong> Under the null hypothesis, group membership is assumed not to matter, so we shuffle the data while ignoring which group each observation originally belonged to. This shuffling process generates many “new” random datasets, allowing us to estimate how much the sample mean would vary from sample to sample purely due to chance—that is, because different datapoints happen to be included in each sample.</p>
+<p>The exact distribution of the sample mean across the shuffled datasets (the <strong>null distribution</strong>) naturally depends on the data distribution itself. In this case, we are implicitly assuming that the distribution of the data we are shuffling (the sample) is representative of the population data distribution as a whole.</p>
 </section>
 <section id="but-small-samples-may-not-be-representative">
 <h2><span class="section-number">2.3.2. </span>But small samples may not be representative<a class="headerlink" href="#but-small-samples-may-not-be-representative" title="Link to this heading">#</a></h2>
-<p>When we are working with a sample of data, especially a small sample, there is always a chance our sample is unrepresentative of the wider population.</p>
+<p>When we are working with a sample of data, especially a small sample, there is always a risk that the sample is not representative of the wider population.</p>
 <p>For example, consider these salary data for men and women. There happens to be a huge outlier in the ‘men’ group - someone who earns £200k, whilst everyone else earns less than £50k.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_salaries.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_salaries.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_salaries.png" style="width: 80%;" />
 </a>
 <br>
-Because there are only 20 people in our sample, if we generalize from this sample to the population (which we implicitly do when running a permutation test), we are accepting that 1/20 people or 5% earn £200k (actually it's more like 1%).
+Because there are only 20 people in our sample, generalising from this sample to the population (which we implicitly do when running a permutation test) means accepting that 1 out of 20 people (5%) earn £200k, even though in reality the true proportion is much smaller (closer to 1%).
 </section>
 <section id="outliers-can-have-a-big-effect-on-our-statistical-tests">
 <h2><span class="section-number">2.3.3. </span>Outliers can have a big effect on our statistical tests<a class="headerlink" href="#outliers-can-have-a-big-effect-on-our-statistical-tests" title="Link to this heading">#</a></h2>
@@ -636,25 +638,26 @@ Because there are only 20 people in our sample, if we generalize from this sampl
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_permSalaries.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_permSalaries.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_permSalaries.png" style="width: 80%;" />
 </a>
 <br>
-<p>Note that such extreme outliers can arise by ‘luck’ (we happen to sample someone atypical), but can also arise from measurement error (for example a noisy measurement from a brain imaging machine) or user error (incorrect data input) as previously discussed (in ‘data wrangling’).</p>
+<p>Note, that such extreme outliers can arise by chance (for example, if we happen to sample someone who is atypical), but they can also result from measurement error (such as a noisy reading from a brain imaging machine) or from user error (for example, incorrect data entry), as discussed previously in the Data Wrangling section.</p>
 </section>
 <section id="replacing-data-with-their-ranks-reduces-the-effects-of-outliers">
 <h2><span class="section-number">2.3.4. </span>Replacing data with their ranks reduces the effects of outliers<a class="headerlink" href="#replacing-data-with-their-ranks-reduces-the-effects-of-outliers" title="Link to this heading">#</a></h2>
-<p>One way to make our analysis less sensitive to outliers is to work with the <em>ranks</em> of the data, rather than the data themselves. When we rank data, the smallest data value becomes rank 1, the next smallest rank 2, and so on. The largest data value naturally becomes rank <span class="math notranslate nohighlight">\(n\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the sample size.</p>
+<p>One way to make an analysis less sensitive to outliers is to work with the <em>ranks</em> of the data rather than the raw data values themselves. When we rank data, the smallest value is assigned rank 1, the next smallest rank 2, and so on. The largest value then receives rank ( n ), where ( n ) is the sample size.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_rankings.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_rankings.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_rankings.png" style="width: 80%;" />
 </a>
-<p>Because the largest value is always rank <span class="math notranslate nohighlight">\(n\)</span>, no matter its numerical value, ranking the data really reduces the effect of outliers:</p>
+<p>Because the largest value is always assigned rank ( n ), regardless of its numerical size, ranking the data substantially reduces the influence of outliers:</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_MeanMedian.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_MeanMedian.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_MeanMedian.png" style="width: 80%;" />
 </a>
-<p>Having converted our data into ranks, we can then ask something about whether the proportion of high ranks falling into one category (and the proportion of low ranks falling into the other category) is greater than we would expect due to chance. In terms of the salary example, the four highest ranked people in the dataset would be men (because the four people with the highest salaries are all men). Overall more of the higher ranks will fall into the ‘men’ group.</p>
-<p>We summarize how many of the high ranks ended up in the ‘men’ group by the <strong>Rank Sum</strong> (see worked example on the next page). The rank sum for our actual data is 131.</p>
+<p>Having converted the data into ranks, we can then ask whether the proportion of high ranks falling into one category (and, correspondingly, the proportion of low ranks falling into the other category) is greater than we would expect by chance.</p>
+<p>In the salary example, the four highest-ranked individuals in the dataset are men, because the four highest salaries all belong to men. More generally, a larger proportion of the higher ranks fall into the “men” group.</p>
+<p>We summarise how many of the high ranks ended up in the “men” group using the <strong>rank sum</strong> (see the worked example on the next page). For our observed data, the rank sum is 131.</p>
 </section>
 <section id="null-distribution-of-the-rank-sum">
 <h2><span class="section-number">2.3.5. </span>Null distribution of the Rank Sum<a class="headerlink" href="#null-distribution-of-the-rank-sum" title="Link to this heading">#</a></h2>
-<p>Under the null hypothesis, we would expect high- and low ranks to fall equally into the ‘men’ and ‘women’ categories.</p>
-<p>We can now generate the null distribution of the rank sum by effectively doing permutations of <em>ranks</em> rather than data</p>
+<p>Under the null hypothesis, we would expect high and low ranks to be equally likely to fall into the “men” and “women” categories.</p>
+<p>We can generate the null distribution of the rank sum by effectively permuting the <em>ranks</em> rather than the original data values.</p>
 <ul class="simple">
-<li><p>actually the null distribution for ranks can be worked out exactly with an equation which effectively checks all possible permutations of ranks - but we don’t need to delve into that.</p></li>
+<li><p>In fact, the null distribution of the rank sum can be derived exactly using a formula that considers all possible permutations of ranks, but we do not need to go into those details here.</p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_nullRanksum.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_nullRanksum.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_nullRanksum.png" style="width: 80%;" />
 </a>
@@ -664,15 +667,15 @@ Because there are only 20 people in our sample, if we generalize from this sampl
 <p>Compare the shape of the null distribution of the rank sum to that of the null distribution of the mean differece.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_comparedist.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_comparedist.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk6_comparedist.png" style="width: 80%;" />
 </a>
-<p>We can see that the effect of the extreme outlier is much reduced, because we no longer find two peaks in the null distribution, which as you will recall indicated that whether the difference of means favoured men or women depended strongly on whether the extreme outlier, £200k person, was labelled as a man or a woman.</p>
+<p>We can see that the influence of the extreme outlier is much reduced: the null distribution no longer shows two distinct peaks. As you may recall, those two peaks indicated that whether the difference in means favoured men or women depended strongly on whether the extreme outlier (the £200k individual) was labelled as a man or a woman.</p>
 </section>
 <section id="conclusions">
 <h2><span class="section-number">2.3.7. </span>Conclusions<a class="headerlink" href="#conclusions" title="Link to this heading">#</a></h2>
-<p>A test based on ranks is more robust to outliers that a permutation test.</p>
-<p>This is because they make different <strong>assumptions:</strong></p>
+<p>A test based on ranks is more robust to outliers than a permutation test.</p>
+<p>This is because the two approaches make different <strong>assumptions</strong>:</p>
 <ul class="simple">
-<li><p>The permutation test implicitly assumes that the sample (including any outliers) is typical of the population.</p></li>
-<li><p>The rank based test only assumes that the <em>rankings</em> are typical of the population, which is a weaker assumption.</p></li>
+<li><p>The permutation test implicitly assumes that the sample data (including any outliers) are typical of the population.</p></li>
+<li><p>The rank-based test assumes only that the <em>rankings</em> of the data are typical of the population, which is a weaker assumption.</p></li>
 </ul>
 </section>
 </section>

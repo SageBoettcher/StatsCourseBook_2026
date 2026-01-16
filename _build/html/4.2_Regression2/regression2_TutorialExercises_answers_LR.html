@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -913,10 +917,10 @@ dtype: int64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   54.53</td> 
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>2.18e-13</td> 
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>2.18e-13</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:40</td>     <th>  Log-Likelihood:    </th> <td> -5037.7</td> 
+  <th>Time:</th>                 <td>18:11:49</td>     <th>  Log-Likelihood:    </th> <td> -5037.7</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  2155</td>      <th>  AIC:               </th> <td>1.008e+04</td>
@@ -995,10 +999,10 @@ dtype: int64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   27.38</td> 
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>1.81e-12</td> 
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>1.81e-12</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:40</td>     <th>  Log-Likelihood:    </th> <td> -5037.6</td> 
+  <th>Time:</th>                 <td>18:11:49</td>     <th>  Log-Likelihood:    </th> <td> -5037.6</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  2155</td>      <th>  AIC:               </th> <td>1.008e+04</td>
@@ -1103,10 +1107,10 @@ dtype: int64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   65.77</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>1.82e-52</td>
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>1.82e-52</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:40</td>     <th>  Log-Likelihood:    </th> <td> -4804.3</td>
+  <th>Time:</th>                 <td>18:11:49</td>     <th>  Log-Likelihood:    </th> <td> -4804.3</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  2097</td>      <th>  AIC:               </th> <td>   9619.</td>
@@ -1194,10 +1198,10 @@ dtype: int64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   65.77</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>1.82e-52</td>
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>1.82e-52</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:40</td>     <th>  Log-Likelihood:    </th> <td> -4804.3</td>
+  <th>Time:</th>                 <td>18:11:49</td>     <th>  Log-Likelihood:    </th> <td> -4804.3</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  2097</td>      <th>  AIC:               </th> <td>   9619.</td>
@@ -1294,10 +1298,10 @@ Run the code. What does it show?</p>
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   65.72</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>6.87e-64</td>
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>6.87e-64</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:40</td>     <th>  Log-Likelihood:    </th> <td> -4775.5</td>
+  <th>Time:</th>                 <td>18:11:49</td>     <th>  Log-Likelihood:    </th> <td> -4775.5</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  2097</td>      <th>  AIC:               </th> <td>   9563.</td>
@@ -1414,10 +1418,10 @@ Run the code. What does it show?</p>
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   20.77</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>1.71e-23</td>
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>1.71e-23</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:40</td>     <th>  Log-Likelihood:    </th> <td> -3444.4</td>
+  <th>Time:</th>                 <td>18:11:49</td>     <th>  Log-Likelihood:    </th> <td> -3444.4</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1511</td>      <th>  AIC:               </th> <td>   6903.</td>
@@ -1485,7 +1489,7 @@ Run the code. What does it show?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/63fd9215b1179d8c2387da6e409db6a44ca6051151cf85d3aef5852111a7a59a.png" src="../_images/63fd9215b1179d8c2387da6e409db6a44ca6051151cf85d3aef5852111a7a59a.png" />
+<img alt="../_images/0abdec5fec37f4d80a4bba167b92184ff4c82c77a2ec3b0b48cf1cb10dfa5abd.png" src="../_images/0abdec5fec37f4d80a4bba167b92184ff4c82c77a2ec3b0b48cf1cb10dfa5abd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1496,7 +1500,7 @@ Run the code. What does it show?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4f02ca722b2bd5ccee3187dd8942db321bc2cc0b4815eb20eba47d454c59aac5.png" src="../_images/4f02ca722b2bd5ccee3187dd8942db321bc2cc0b4815eb20eba47d454c59aac5.png" />
+<img alt="../_images/f43a1ae3754b5d8c71f854bbc7bc28d479d3ce36eccede56a20a333aa6137af1.png" src="../_images/f43a1ae3754b5d8c71f854bbc7bc28d479d3ce36eccede56a20a333aa6137af1.png" />
 </div>
 </div>
 <p>Interpret the results in your own words.</p>
@@ -1566,10 +1570,10 @@ Run the code. What does it show?</p>
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   52.93</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 29 Nov 2025</td> <th>  Prob (F-statistic):</th> <td>7.49e-52</td>
+  <th>Date:</th>             <td>Fri, 16 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>7.49e-52</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:48:40</td>     <th>  Log-Likelihood:    </th> <td> -4803.5</td>
+  <th>Time:</th>                 <td>18:11:50</td>     <th>  Log-Likelihood:    </th> <td> -4803.5</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  2097</td>      <th>  AIC:               </th> <td>   9619.</td>

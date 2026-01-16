@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -873,10 +877,10 @@ document.write(`
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>  <td>     2</td>  
 </tr>
 <tr>
-  <th>Date:</th>            <td>Sat, 29 Nov 2025</td> <th>  Pseudo R-squ.:     </th>  <td>0.04030</td> 
+  <th>Date:</th>            <td>Fri, 16 Jan 2026</td> <th>  Pseudo R-squ.:     </th>  <td>0.04030</td> 
 </tr>
 <tr>
-  <th>Time:</th>                <td>12:48:50</td>     <th>  Log-Likelihood:    </th> <td> -2287.8</td> 
+  <th>Time:</th>                <td>18:12:09</td>     <th>  Log-Likelihood:    </th> <td> -2287.8</td> 
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -2383.8</td> 
@@ -968,10 +972,10 @@ dtype: float64
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>  <td>     7</td>  
 </tr>
 <tr>
-  <th>Date:</th>            <td>Sat, 29 Nov 2025</td> <th>  Pseudo R-squ.:     </th>  <td>0.05903</td> 
+  <th>Date:</th>            <td>Fri, 16 Jan 2026</td> <th>  Pseudo R-squ.:     </th>  <td>0.05903</td> 
 </tr>
 <tr>
-  <th>Time:</th>                <td>12:48:50</td>     <th>  Log-Likelihood:    </th> <td> -1977.5</td> 
+  <th>Time:</th>                <td>18:12:09</td>     <th>  Log-Likelihood:    </th> <td> -1977.5</td> 
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -2101.6</td> 
@@ -1069,7 +1073,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_70876/3884839243.py:8: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;nan&#39; has dtype incompatible with bool, please explicitly cast to a compatible dtype first.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_5729/3884839243.py:8: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;nan&#39; has dtype incompatible with bool, please explicitly cast to a compatible dtype first.
   fear.loc[np.isnan(fear.yhat),&#39;prediction&#39;]=np.nan
 </pre></div>
 </div>
@@ -1141,7 +1145,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7525a42f902a404955b47885fb39c00fc5d451dd7356cdbee8091f3c0efe3e33.png" src="../_images/7525a42f902a404955b47885fb39c00fc5d451dd7356cdbee8091f3c0efe3e33.png" />
+<img alt="../_images/0f529288d17d09e573ea9c9e5616c34c60a493e58aca3b3ee86fd17ea8fda770.png" src="../_images/0f529288d17d09e573ea9c9e5616c34c60a493e58aca3b3ee86fd17ea8fda770.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1163,7 +1167,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b811f6fc62545a0f5ac702f86f13930a310f00bf4b640eb7138b79f178f66111.png" src="../_images/b811f6fc62545a0f5ac702f86f13930a310f00bf4b640eb7138b79f178f66111.png" />
+<img alt="../_images/d964b0a23dab83e8260dbe3376c1f59164be02c55d481745d42ba3fc734d009a.png" src="../_images/d964b0a23dab83e8260dbe3376c1f59164be02c55d481745d42ba3fc734d009a.png" />
 </div>
 </div>
 <div class="cell docutils container">

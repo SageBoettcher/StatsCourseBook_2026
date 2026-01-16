@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU.html">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.2_RankBasedTests/3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -817,29 +821,29 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>3158</th>
-      <td>318060</td>
-      <td>18</td>
+      <th>6100</th>
+      <td>265920</td>
+      <td>77</td>
     </tr>
     <tr>
-      <th>9986</th>
-      <td>529990</td>
-      <td>70</td>
-    </tr>
-    <tr>
-      <th>4890</th>
-      <td>790980</td>
-      <td>84</td>
-    </tr>
-    <tr>
-      <th>3396</th>
-      <td>208960</td>
+      <th>5766</th>
+      <td>327030</td>
       <td>17</td>
     </tr>
     <tr>
-      <th>5774</th>
-      <td>971140</td>
-      <td>35</td>
+      <th>1554</th>
+      <td>597340</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>5104</th>
+      <td>350800</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>5017</th>
+      <td>739910</td>
+      <td>73</td>
     </tr>
     <tr>
       <th>...</th>
@@ -847,29 +851,29 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>4390</th>
-      <td>962350</td>
-      <td>38</td>
+      <th>4670</th>
+      <td>167480</td>
+      <td>87</td>
     </tr>
     <tr>
-      <th>4413</th>
-      <td>358500</td>
-      <td>29</td>
+      <th>6092</th>
+      <td>998620</td>
+      <td>25</td>
     </tr>
     <tr>
-      <th>6326</th>
-      <td>433780</td>
-      <td>76</td>
+      <th>3496</th>
+      <td>892620</td>
+      <td>36</td>
     </tr>
     <tr>
-      <th>2287</th>
-      <td>837510</td>
-      <td>79</td>
+      <th>7759</th>
+      <td>584470</td>
+      <td>78</td>
     </tr>
     <tr>
-      <th>9606</th>
-      <td>639760</td>
-      <td>26</td>
+      <th>9451</th>
+      <td>251020</td>
+      <td>45</td>
     </tr>
   </tbody>
 </table>
@@ -895,7 +899,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9ea3e9456864e46c8f0911ef49a7010e2c3bd50b379899caa055c5c073561dc2.png" src="../_images/9ea3e9456864e46c8f0911ef49a7010e2c3bd50b379899caa055c5c073561dc2.png" />
+<img alt="../_images/783f30e8d1fdf198dcc61b9a06c91cf3ebcf70ee3ba681ea98215e0175a07dba.png" src="../_images/783f30e8d1fdf198dcc61b9a06c91cf3ebcf70ee3ba681ea98215e0175a07dba.png" />
 </div>
 </div>
 <p>Hopefully we can see that the distribution within the sample resembles the shape of the distribution in the national sample, with two peaks, although somewhat noisier</p>
@@ -914,7 +918,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/95bac595c4d802c363ff465bae878fe34a6c209c548af1ce435804d0f4b19710.png" src="../_images/95bac595c4d802c363ff465bae878fe34a6c209c548af1ce435804d0f4b19710.png" />
+<img alt="../_images/4b9c52c5a492e1f2751b2ab5b9af49e5e5d391606e60e2ab54263625c5eefa31.png" src="../_images/4b9c52c5a492e1f2751b2ab5b9af49e5e5d391606e60e2ab54263625c5eefa31.png" />
 </div>
 </div>
 <p>Notice that we always manage to reproduce the bimodal shape, albeit with random variability.</p>
@@ -936,7 +940,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8f6b016cfd3f95f4546b1932ac5631fe22acb8443a2089269dc1e88723d8ef81.png" src="../_images/8f6b016cfd3f95f4546b1932ac5631fe22acb8443a2089269dc1e88723d8ef81.png" />
+<img alt="../_images/5499681dacae19a37da7f5737300c700076b60cad1e418ca683a0dbad1507453.png" src="../_images/5499681dacae19a37da7f5737300c700076b60cad1e418ca683a0dbad1507453.png" />
 </div>
 </div>
 <p>You can see two things:</p>
@@ -967,7 +971,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8bf92119e664846787d5ec2ebdeb38df73d07e561106087ea38a2e721ed014bf.png" src="../_images/8bf92119e664846787d5ec2ebdeb38df73d07e561106087ea38a2e721ed014bf.png" />
+<img alt="../_images/6bd5fbadce90c32a86c7a5b67bd4af40010dd787e685046d51b9b2a0d10a1165.png" src="../_images/6bd5fbadce90c32a86c7a5b67bd4af40010dd787e685046d51b9b2a0d10a1165.png" />
 </div>
 </div>
 </section>

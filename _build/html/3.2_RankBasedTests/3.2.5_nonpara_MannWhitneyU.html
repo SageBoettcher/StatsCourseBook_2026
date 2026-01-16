@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.5. Rank Sum Test &#8212; Introduction to Statistics and Data Science</title>
+    <title>2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum) &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3.2_RankBasedTests/3.2.5_nonpara_MannWhitneyU';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.6. The Wilcoxon Sign-Rank Test" href="3.2.6_nonpara_WilcoxonSignRank.html" />
+    <link rel="next" title="2.9. Dependent Samples: The Wilcoxon Sign-Rank Test" href="3.2.6_nonpara_WilcoxonSignRank.html" />
     <link rel="prev" title="2.4. Difference of medians vs difference of means" href="3.2.4_MedianMean.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -303,10 +303,14 @@
 <li class="toctree-l2"><a class="reference internal" href="3.2.2_outcomes.html">2.2. Learning Objectives: Rank-Based Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.3_nonpara_intro.html">2.3. Rank-based tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.2.4_MedianMean.html">2.4. Difference of medians vs difference of means</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.5. Rank Sum Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.6. The Wilcoxon Sign-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.7. Spearman’s Rank Correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.8. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="3.2.6_nonpara_WilcoxonSignRank.html">2.9. Dependent Samples: The Wilcoxon Sign-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.7_spearman.html">2.10. Correlation: Spearman’s Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.8_TutorialExercises.html">2.11. Tutorial Exercises: non-parametric tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.2.9_rankBasedTests_ExtraPractice.html">2.12. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.3_ttest/3.3.1_ttest_intro.html">3. t-Test</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -609,7 +613,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Rank Sum Test</h1>
+    <h1>Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -619,23 +623,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-samples">2.5.1. Independent samples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.5.2. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-motor-learning-and-visualization">2.5.3. Example: motor learning and visualization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.6. Set up Python libraries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-motor-learning-and-visualization">2.7. Example: motor learning and visualization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">2.7.1. 1. Inspect the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2.7.2. 2. Hypotheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2.7.3. 3. Descriptive statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">2.7.4. 4. Carry out the test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">2.7.5. 5. Draw conclusions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works">2.5.4. How the Mann Whiney U or Wilcoxon Rank Sum test works</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-convert-the-data-to-ranks">Step 1: Convert the data to ranks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-test-statistic">Calculate the test statistic</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-the-null-distriubtion">Establish the null distriubtion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-mannwhitney-u-test-work">2.8. How does the Mann–Whitney U test work?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-convert-the-data-to-ranks">2.8.1. Step 1: Convert the data to ranks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-test-statistic">2.8.2. Calculate the test statistic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-the-null-distriubtion">2.8.3. Establish the null distriubtion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-the-null-distribution">2.8.4. Establish the null distribution</a></li>
 </ul>
 </li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -646,19 +652,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="rank-sum-test">
-<h1><span class="section-number">2.5. </span>Rank Sum Test<a class="headerlink" href="#rank-sum-test" title="Link to this heading">#</a></h1>
-<p>The t-test is valid only when the data within each group (for independent samples t-test) or the pairwise differences (for paired samples t-test) are Normally distributed</p>
-<p>As we have seen in the lecture, many real life data distributions are normal, but many others are not.</p>
-<p>For non-Normal data we can use non-parametric tests, which do not assume that the data are drawn from a Normal distribution.</p>
-<section id="independent-samples">
-<h2><span class="section-number">2.5.1. </span>Independent samples<a class="headerlink" href="#independent-samples" title="Link to this heading">#</a></h2>
-<p>The Mann Whitney U, or Wilcoxon Rank Sum Test is a test for a difference in median between two independent samples. As such it is often considered to be a non-parametric equivalent for the independent samples t-test.</p>
-<p>The terms Mann Whitney U and Wilcoxon Rank Sum are used interchangeably in a lot of literature and statistical packages, although technically the Mann Whitney version, which came slightly later, is correct in a greater range of cases.</p>
-<p>The Python function we will use is called Mann-Whitney but you will see the same test elsewhere called Rank Sum or Wilcoxon Rank Sum.</p>
+  <section id="independent-samples-the-mannwhitney-u-wilcoxon-rank-sum">
+<h1><span class="section-number">2.5. </span>Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)<a class="headerlink" href="#independent-samples-the-mannwhitney-u-wilcoxon-rank-sum" title="Link to this heading">#</a></h1>
+<p>The t-test is valid only when the data within each group (for an independent-samples t-test), or the pairwise differences (for a paired-samples t-test), are Normally distributed. As we have seen in the lectures, many real-life data distributions are approximately Normal, but many others are not.</p>
+<p><em>When the Normality assumption is not met, we can use <em>non-parametric</em> tests, which do not assume that the data are drawn from a Normal distribution.</em></p>
+<p><strong>The Mann–Whitney U</strong> test (also known as the <strong>Wilcoxon Rank Sum</strong> test) is used to test for a difference in median between two <strong>independent samples</strong>. As such, it is often considered a non-parametric alternative to the independent-samples t-test.</p>
+<p>The terms <em>Mann–Whitney U</em> and <em>Wilcoxon Rank Sum</em> are used interchangeably in much of the literature and in many statistical packages, although technically the Mann–Whitney formulation (which was introduced slightly later) is valid in a wider range of cases.</p>
+<p>In Python, the function we will use is called <code class="docutils literal notranslate"><span class="pre">mannwhitneyu</span></code>, but you may encounter the same test elsewhere referred to as the Rank Sum test or the Wilcoxon Rank Sum test.</p>
 </section>
 <section id="set-up-python-libraries">
-<h2><span class="section-number">2.5.2. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
+<h1><span class="section-number">2.6. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h1>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -679,13 +682,28 @@ document.write(`
 </div>
 </section>
 <section id="example-motor-learning-and-visualization">
-<h2><span class="section-number">2.5.3. </span>Example: motor learning and visualization<a class="headerlink" href="#example-motor-learning-and-visualization" title="Link to this heading">#</a></h2>
-<p>A researcher hypothesises that when a person learns a new motor skill, imaginary practice (visualising performing the skill between sessions of actual practice) can enhance learning.</p>
-<p>She decides to test the hypothesis by training people to juggle. The participants complete 1-hour juggling practice sessions each day until they can juggle for 2 minutes without dropping a ball. Participants are randomly assigned to one of two groups: The Visualisation Group spend time between sessions visualising juggling, whilst the Standard Group do not.</p>
-<p>The researcher records the number of sessions taken to reach criterion (2 min juggling without dropping the ball) for each participant.</p>
-<p>Test the hypothesis that visualisation reduces the number of sessions required to reach criterion.</p>
+<h1><span class="section-number">2.7. </span>Example: motor learning and visualization<a class="headerlink" href="#example-motor-learning-and-visualization" title="Link to this heading">#</a></h1>
+<p>A researcher hypothesises that, when a person learns a new motor skill, imaginary practice (visualising performing the skill between sessions of actual practice) can enhance learning.</p>
+<p>She tests this by training people to juggle. Participants complete 1 hour practice sessions each day until they can juggle for 2 minutes without dropping a ball. Participants are randomly assigned to one of two groups: the <strong>Visualisation</strong> group (who spend time between sessions visualising juggling) and the <strong>Standard</strong> group (who do not).</p>
+<p>For each participant the researcher records the <strong>number of sessions</strong> required to reach the criterion (2 minutes without dropping a ball).</p>
+<p><strong>Question:</strong> test the hypothesis that visualisation reduces the number of sessions required to reach criterion.</p>
+<p><em>Notes:</em></p>
+<ul class="simple">
+<li><p>Because participants are randomly assigned, the two groups are independent.</p></li>
+<li><p>The outcome (number of sessions) is a positive integer and is commonly skewed, so the Normality assumption for a t-test may not hold (but you should look at the data to confirm this).</p></li>
+<li><p>A rank-based test such as the <strong>Mann–Whitney U</strong> (Wilcoxon rank-sum) test is a suitable choice. It compares the distributions (and, in practice, medians) between the two independent groups and is robust to skew and outliers.</p></li>
+<li><p>Decide whether you want a <strong>one-sided</strong> or <strong>two-sided</strong> test. The directional hypothesis (“visualisation <strong>reduces</strong> sessions”) justifies a <strong>one-sided</strong> test in favour of the Visualisation group having smaller values.</p></li>
+</ul>
+<p><em>Practical steps</em></p>
+<ol class="arabic simple">
+<li><p>Inspect the data (histograms / boxplots) for skewness and outliers.</p></li>
+<li><p>State the formal hypothesis</p></li>
+<li><p>Report the Descriptive Statistics</p></li>
+<li><p>Run the Mann–Whitney U test.</p></li>
+<li><p>Draw Conclusions</p></li>
+</ol>
 <section id="inspect-the-data">
-<h3>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">2.7.1. </span>1. Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h2>
 <p>The data are provided in a text (.csv) file.</p>
 <p>Let’s load the data as a Pandas dataframe, and plot them to get a sense for their distribution (is it normal?) and any outliers</p>
 <div class="cell docutils container">
@@ -844,13 +862,13 @@ document.write(`
 <img alt="../_images/1bf17a66ad7308b2bb34c979dae335eb24e63da7e459f4100345149f7e9c5206.png" src="../_images/1bf17a66ad7308b2bb34c979dae335eb24e63da7e459f4100345149f7e9c5206.png" />
 </div>
 </div>
-<p>Some people (especially in the standard group) took much longer to reach criterion (the distribution has positive skew), perhaps because is possible for an individual to take many many more than the median number of sessions to reach criterion, but impossible to take many many fewer sessions (as we cannot take fewer than zero sessions; data values are <i>bounded below</i>).</p>
-<p>We therefore turn to the Rank Sum non-parametric test.</p>
+<p>Some participants (particularly in the Standard group) took much longer to reach criterion, resulting in a positively skewed distribution. This may be because it is possible for an individual to take many more than the median number of sessions to reach criterion, but impossible to take many fewer, since the number of sessions cannot be less than zero (the data are <em>bounded below</em>).</p>
+<p>We therefore turn to the non-parametric <strong>Rank Sum</strong> test.</p>
 </section>
 <section id="hypotheses">
-<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
-<p>Ho: the <b>median</b> number of sessions needed is the same for participants in the Visualisation and Standard Groups</p>
-<p>Ha: the <b>median</b> number of sessions is lower for participants in the Visualisation Group</p>
+<h2><span class="section-number">2.7.2. </span>2. Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: the <b>median</b> number of sessions needed is the same for participants in the Visualisation and Standard Groups</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>:the <b>median</b> number of sessions is lower for participants in the Visualisation Group</p>
 <p>This is a one tailed test as the hypothesis is directional (we expect visualisation to help not hinder)</p>
 <p>We will test at the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> significance level</p>
 <ul class="simple">
@@ -858,9 +876,9 @@ document.write(`
 </ul>
 </section>
 <section id="descriptive-statistics">
-<h3>Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
-<p>We obtain some relevant descriptive statistics.</p>
-<p>Since we are testing for a difference of medians, we will want the median for each group; it would also be useful to have a measure of spread, and the sample size.</p>
+<h2><span class="section-number">2.7.3. </span>3. Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h2>
+<p>Next we need to obtain some relevant descriptive statistics.</p>
+<p>Because we are testing for a difference in medians, we focus on the median for each group. It is also useful to report a measure of spread and the sample size for each group. We can achieve this using <code class="docutils literal notranslate"><span class="pre">groupby</span></code> and <code class="docutils literal notranslate"><span class="pre">.describe()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">juggling</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Group&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -942,16 +960,37 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>The median number of sessions to criterion is lower in the Visualisation Group (median=6, q1=5, q3=9, n=9) than the Standaard Group (median=15, q1=14, q3=18.5, n=11)</p>
+<p>The median number of sessions to reach criterion is lower in the <strong>Visualisation</strong> group than in the <strong>Standard</strong> group:</p>
+<ul class="simple">
+<li><p><strong>Visualisation group:</strong> median = 6, Q1 = 5, Q3 = 9, (n = 9)</p></li>
+<li><p><strong>Standard group:</strong> median = 15, Q1 = 14, Q3 = 18.5, (n = 11)</p></li>
+</ul>
 </section>
 <section id="carry-out-the-test">
-<h3>Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h3>
-<p>We carry out the test using the function <code class="docutils literal notranslate"><span class="pre">stats.mannwhitneyu()</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></p>
+<h2><span class="section-number">2.7.4. </span>4. Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h2>
+<p>We carry out the test using the function <code class="docutils literal notranslate"><span class="pre">stats.mannwhitneyu()</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<p>The inputs to <code class="docutils literal notranslate"><span class="pre">stats.mannwhitneyu()</span></code> are:</p>
+<ul class="simple">
+<li><p>the two samples to be compared (the values of <code class="docutils literal notranslate"><span class="pre">SessionsToCriterion</span></code> from our Pandas DataFrame <code class="docutils literal notranslate"><span class="pre">juggling</span></code>, grouped according to the <code class="docutils literal notranslate"><span class="pre">Group</span></code> column);</p></li>
+<li><p>the argument <code class="docutils literal notranslate"><span class="pre">alternative='greater'</span></code>, which specifies a one-tailed test in which the median of the first input (the <strong>Standard</strong> group) is expected to be greater than that of the second input (the <strong>Visualisation</strong> group).</p></li>
+</ul>
+<p>The outputs are the value of the test statistic (<span class="math notranslate nohighlight">\(U=91\)</span>)  and the associated <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.00089\)</span>). Because this p-value is less than our chosen significance level <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> , we conclude that there is a statistically significant difference between the groups.</p>
+<p>More explanation of how the <span class="math notranslate nohighlight">\(U\)</span> statistic is calculated is given below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">juggling</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Group==&quot;Standard&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SessionsToCriterion</span><span class="p">,</span> 
                    <span class="n">juggling</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Group==&quot;Visualisation&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">SessionsToCriterion</span><span class="p">,</span>
                    <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
+
+
+
+<span class="c1">#Note you may find it easier to read the code if you first save the two groups as separate variables:</span>
+<span class="c1">#standard = juggling.query(&#39;Group==&quot;Standard&quot;&#39;).SessionsToCriterion</span>
+<span class="c1">#visualisation = juggling.query(&#39;Group==&quot;Visualisation&quot;&#39;).SessionsToCriterion</span>
+
+<span class="c1">#stats.mannwhitneyu(standard, visualisation, alternative=&#39;greater&#39;)</span>
+
+<span class="c1">#This code wil give you the same result</span>
 </pre></div>
 </div>
 </div>
@@ -961,31 +1000,24 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The inputs to <code class="docutils literal notranslate"><span class="pre">stats.mannwhitneyu()</span></code> are:</p>
-<ul class="simple">
-<li><p>the two samples to be compared (the values of <tt>SessionsToCriterion</tt> from our Pandas data frame <tt>juggling</tt>), grouped by the value in the column <tt>Group</tt>)</p></li>
-<li><p>the argument <code class="docutils literal notranslate"><span class="pre">alternative='greater'</span></code>, which tells the computer to run a one tailed test that median of the first input (Standard Group) is greater than the second (Visualisation Group).</p></li>
-</ul>
-<p>The outputs are a value of the test statistic (<span class="math notranslate nohighlight">\(U=91\)</span>) and <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.00089\)</span>) - if this is less than our <span class="math notranslate nohighlight">\(\alpha\)</span> value 0.5, there is a significant difference.</p>
-<p>More explanation of how U is calculated below.</p>
 </section>
 <section id="draw-conclusions">
-<h3>Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
-<p>As the p value of 0.00089 is less than our alpha value of 0.05, the test is significant.</p>
-<p>We can conclude that the median number of sessions to criterion is indeed greater in the Standard training group</p>
+<h2><span class="section-number">2.7.5. </span>5. Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h2>
+<p>Because the <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.00089\)</span>) is less than our chosen significance level (<span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>), the test is considered statistically significant.</p>
+<p>We therefore conclude that the median number of sessions required to reach criterion is greater in the <strong>Standard</strong> training group than in the <strong>Visualisation</strong> group.</p>
 </section>
 </section>
-<section id="how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works">
-<h2><span class="section-number">2.5.4. </span>How the Mann Whiney U or Wilcoxon Rank Sum test works<a class="headerlink" href="#how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works" title="Link to this heading">#</a></h2>
-<p>You have seen how to carry out the Mann Whitney test using <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> but you may be none the wiser about how the computer arrived at the test statistic and p value.</p>
-<p>In this section we will build our own version of the test step by step to understand how it worked.</p>
+<section id="how-does-the-mannwhitney-u-test-work">
+<h1><span class="section-number">2.8. </span>How does the Mann–Whitney U test work?<a class="headerlink" href="#how-does-the-mannwhitney-u-test-work" title="Link to this heading">#</a></h1>
+<p>You have seen how to run the Mann–Whitney test using <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, but that may not make it any clearer how the computer actually arrived at the test statistic and p-value.</p>
+<p>In this section we will build our own, step-by-step version of the test so you can see exactly what is being computed and why.</p>
 <section id="step-1-convert-the-data-to-ranks">
-<h3>Step 1: Convert the data to ranks<a class="headerlink" href="#step-1-convert-the-data-to-ranks" title="Link to this heading">#</a></h3>
-<p>As seen in the lecture, the key step in the Mann Whitney test is to replace the data with their ranks.</p>
-<p>We will then obtain a summary statistics U (closely related to R in the rank sum test) which roughly tells us what proportion of the high ranks fall into one experimental group.</p>
-<p>The null distribution of U (or R) is the same for any samples of given size (in this case our samples are <span class="math notranslate nohighlight">\(n_1=11\)</span> and <span class="math notranslate nohighlight">\(n_2=9\)</span> - the null distribubtion of U would be the same for <i>any data</i> with these sample sizes</p>
-<p>Note also that data ranks are less affected by outliers than the data values themselves: whether the lowest data value is a million units lower than the second-lowest data value, or only one unit lower, they will still take ranks 1 and 2.</p>
-<p>We can rank the data using the <code class="docutils literal notranslate"><span class="pre">rank()</span></code> method in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, ad add them as an extra column to our dataframe</p>
+<h2><span class="section-number">2.8.1. </span>Step 1: Convert the data to ranks<a class="headerlink" href="#step-1-convert-the-data-to-ranks" title="Link to this heading">#</a></h2>
+<p>As seen in the lecture, the key step in the Mann–Whitney test is to replace the original data values with their ranks.</p>
+<p>From these ranks we then compute a summary statistic, <span class="math notranslate nohighlight">\(U\)</span> (closely related to the rank-sum statistic <span class="math notranslate nohighlight">\(R\)</span>), which roughly indicates what proportion of the higher ranks fall into one of the experimental groups.</p>
+<p>The null distribution of <span class="math notranslate nohighlight">\(U\)</span> (or <span class="math notranslate nohighlight">\(R\)</span>) depends only on the sample sizes, not on the data themselves. In this case our samples have sizes <span class="math notranslate nohighlight">\(n_1 = 11\)</span> and <span class="math notranslate nohighlight">\(n_2 = 9\)</span>, and the null distribution of <span class="math notranslate nohighlight">\(U\)</span> would be the same for <em>any</em> data with these sample sizes.</p>
+<p>Note also that ranks are much less affected by outliers than the raw data values. For example, whether the lowest data value is one unit lower than the second-lowest value or a million units lower, they will still receive ranks 1 and 2.</p>
+<p>We can rank the data using the <code class="docutils literal notranslate"><span class="pre">rank()</span></code> method in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and add the resulting ranks as an extra column in our DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">juggling</span><span class="p">[</span><span class="s1">&#39;Rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">juggling</span><span class="o">.</span><span class="n">SessionsToCriterion</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
@@ -1298,38 +1330,58 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Note the following:</p>
+<p><strong>Note the following:</strong></p>
 <ul class="simple">
-<li><p>The lowest value has rank 1</p></li>
-<li><p>The highest value has rank <span class="math notranslate nohighlight">\(n_1 + n_2\)</span>, ie the total number of data points across both groups together</p></li>
-<li><p>Tied values are given the average of the ranks they would have got (ranks 1 and 2 are tied so both get 1.5)</p></li>
-<li><p>Many of the higher ranked values are in the Standard group, hinting that most of the slowest participants to reach criterion were in the Standard Group</p></li>
-<li><p>Many of the lower ranked values are in the Visualisation group, hinting that most of the fastest participants to reach criterion were in the Visualisation Group</p></li>
+<li><p>The lowest value has rank 1 (or close to it)</p></li>
+<li><p>The highest value is assigned rank <span class="math notranslate nohighlight">\(n_1 + n_2\)</span>, that is, the total number of observations across both groups.</p></li>
+<li><p>Tied values are given the average of the ranks they would have got (e.g., ranks 1 and 2 are tied so both get 1.5)</p></li>
+<li><p>Many of the higher-ranked values belong to the <strong>Standard</strong> group, suggesting that many of the slowest participants to reach criterion were in this group.</p></li>
+<li><p>Many of the lower-ranked values belong to the <strong>Visualisation</strong> group, suggesting that many of the fastest participants to reach criterion were in this group.</p></li>
 </ul>
 </section>
 <section id="calculate-the-test-statistic">
-<h3>Calculate the test statistic<a class="headerlink" href="#calculate-the-test-statistic" title="Link to this heading">#</a></h3>
-<p>The test statistic is the larger of <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span>, given by</p>
-<div class="math notranslate nohighlight">
-\[ U_1 = R_1 - \frac{n_1(n_1+1)}{2}\]</div>
-<p>Where <span class="math notranslate nohighlight">\(R_1\)</span> is the sum of all the ranks in group 1, and <span class="math notranslate nohighlight">\(n_1\)</span> is the size of group 1</p>
-<p>and</p>
-<div class="math notranslate nohighlight">
-\[ U_2 = R_2 - \frac{n_2(n_2+1)}{2}\]</div>
-<p>We can define a function to work it out in Python:</p>
+<h2><span class="section-number">2.8.2. </span>Calculate the test statistic<a class="headerlink" href="#calculate-the-test-statistic" title="Link to this heading">#</a></h2>
+<p>The test statistic is defined in terms of two quantities, <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span>. The value reported for the test is the larger of <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span>.</p>
+<p>These are given by:</p>
+<p><span class="math notranslate nohighlight">\(U_1 = R_1 - \frac{n_1 (n_1 + 1)}{2}\)</span></p>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R_1\)</span> is the sum of the ranks in group 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(n_1\)</span> is the sample size of group 1.</p></li>
+</ul>
+<p>Similarly,</p>
+<p><span class="math notranslate nohighlight">\(U_2 = R_2 - \frac{n_2 (n_2 + 1)}{2}\)</span></p>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R_2\)</span> is the sum of the ranks in group 2</p></li>
+<li><p><span class="math notranslate nohighlight">\(n_2\)</span> is the sample size of group 2.</p></li>
+</ul>
+<p>We can now define a function in Python to compute this statistic:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function takes in two sets of ranks (for conditions x and y) and returns U</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">mwU</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This function computes the Mann–Whitney U statistic</span>
+<span class="c1"># It takes two inputs:</span>
+<span class="c1">#   x: a list or array of ranks for group x</span>
+<span class="c1">#   y: a list or array of ranks for group y</span>
+<span class="c1"># and returns the larger of Ux and Uy</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mwU</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="c1"># Sum of ranks and sample size for group x</span>
     <span class="n">Rx</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">Ux</span> <span class="o">=</span> <span class="n">Rx</span> <span class="o">-</span> <span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="p">(</span><span class="n">nx</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
     
+    <span class="c1"># Compute U for group x</span>
+    <span class="n">Ux</span> <span class="o">=</span> <span class="n">Rx</span> <span class="o">-</span> <span class="p">(</span><span class="n">nx</span> <span class="o">*</span> <span class="p">(</span><span class="n">nx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+    
+    <span class="c1"># Sum of ranks and sample size for group y</span>
     <span class="n">Ry</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     <span class="n">ny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="n">Uy</span> <span class="o">=</span> <span class="n">Ry</span> <span class="o">-</span> <span class="p">(</span><span class="n">ny</span><span class="o">*</span><span class="p">(</span><span class="n">ny</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+    
+    <span class="c1"># Compute U for group y</span>
+    <span class="n">Uy</span> <span class="o">=</span> <span class="n">Ry</span> <span class="o">-</span> <span class="p">(</span><span class="n">ny</span> <span class="o">*</span> <span class="p">(</span><span class="n">ny</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
 
-    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">Ux</span><span class="p">,</span><span class="n">Uy</span><span class="p">)</span>
+    <span class="c1"># Return the larger of the two U values</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">Ux</span><span class="p">,</span> <span class="n">Uy</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1350,16 +1402,24 @@ document.write(`
 </div>
 <p>Yay, it matches the output of <code class="docutils literal notranslate"><span class="pre">stats.mannwhitneyu()</span></code>!</p>
 <ul class="simple">
-<li><p>Are you confused what happened there? Look back to last week at how we defined functions to get the difference of means or mean difference before running a permutation test.</p></li>
+<li><p>Are you confused what happened there? Look back to how we defined functions to get the difference of means or mean difference before running a permutation test.</p></li>
 </ul>
 </section>
 <section id="establish-the-null-distriubtion">
-<h3>Establish the null distriubtion<a class="headerlink" href="#establish-the-null-distriubtion" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">2.8.3. </span>Establish the null distriubtion<a class="headerlink" href="#establish-the-null-distriubtion" title="Link to this heading">#</a></h2>
 <p>As in the permutation test on data (rather than ranks), we can work out the null approximately by doing a lot of random ‘deals’ of the ranks to the Standard and Visualisation groups, calculating <span class="math notranslate nohighlight">\(U\)</span> for each case, and work out in what proportion of cases this <em>simulated</em> <span class="math notranslate nohighlight">\(U\)</span> was as large as, or larger than, the value of <span class="math notranslate nohighlight">\(U\)</span> from our experiment.</p>
 <ul class="simple">
 <li><p>note that it is also possible to work out the distribution precisely, but this approach is pretty good and makes a clear analogy to permutation testing on data rather than ranks</p></li>
 </ul>
 <p>We run the permutation test exactly as we did on the actual data data in the previous chapter</p>
+</section>
+<section id="establish-the-null-distribution">
+<h2><span class="section-number">2.8.4. </span>Establish the null distribution<a class="headerlink" href="#establish-the-null-distribution" title="Link to this heading">#</a></h2>
+<p>As with permutation tests applied to the raw data (rather than ranks), we can approximate the null distribution by repeatedly making random “deals” of the ranks between the Standard and Visualisation groups. For each random allocation, we calculate the value of <span class="math notranslate nohighlight">\(U\)</span> and then determine the proportion of cases in which this <em>simulated</em> <span class="math notranslate nohighlight">\(U\)</span> is as large as, or larger than, the value of <span class="math notranslate nohighlight">\(U\)</span> observed in our experiment.</p>
+<ul class="simple">
+<li><p>Note that it is also possible to compute the null distribution exactly, but this simulation-based approach works well and makes a clear analogy with permutation testing on the raw data rather than on ranks.</p></li>
+</ul>
+<p>We run this permutation procedure in exactly the same way as we did for the data-based permutation test in the previous chapter, only here we are providing the ranks and the function for calculating U as defined above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">permutation_test</span><span class="p">((</span><span class="n">juggling</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Group==&quot;Standard&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Rank</span><span class="p">,</span> 
@@ -1373,7 +1433,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(91.0), pvalue=np.float64(0.0007999200079992001), null_distribution=array([61.5, 63. , 59. , ..., 51.5, 56. , 81. ], shape=(10000,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(91.0), pvalue=np.float64(0.0004999500049995), null_distribution=array([51.5, 50. , 62.5, ..., 56.5, 56.5, 62. ], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1383,16 +1443,18 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">results</span><span class="o">.</span><span class="n">statistic</span><span class="p">,</span><span class="n">results</span><span class="o">.</span><span class="n">statistic</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">700</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/453a1920f4e1d906f60323c1b94ba1d04040295deeb94192263cb2172b45eb1c.png" src="../_images/453a1920f4e1d906f60323c1b94ba1d04040295deeb94192263cb2172b45eb1c.png" />
+<img alt="../_images/2397e43ff9d2f98aab66bc0e677732451d0c2db54d7736d2ac6f1f726749afb7.png" src="../_images/2397e43ff9d2f98aab66bc0e677732451d0c2db54d7736d2ac6f1f726749afb7.png" />
 </div>
 </div>
-<p>The distribution is cut off at a minimum of 49.5, because <span class="math notranslate nohighlight">\(u\)</span> is always the <em>larger</em> of the two rank sums (for the two groups). The minimum possible value of the larger ranksum (which would happen if the high and low ranks were evenly shared between groups) is 49.5</p>
-<p>We can also verify that out <span class="math notranslate nohighlight">\(p\)</span>-value is the proportion of shuffles in which <span class="math notranslate nohighlight">\(U&gt;=91\)</span></p>
+<p>The null distribution is cut off at a minimum value of 49.5 because <span class="math notranslate nohighlight">\(U\)</span> is defined as the <em>larger</em> of the two rank-sum–based statistics for the two groups. The smallest possible value of this larger statistic occurs when high and low ranks are shared as evenly as possible between the groups, which in this case gives a minimum of 49.5.</p>
+<p>We can also verify that our p-value is simply the proportion of shuffled datasets for which <span class="math notranslate nohighlight">\(U \ge 91\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">null_distribution</span><span class="o">&gt;=</span><span class="mi">91</span><span class="p">)</span>
@@ -1400,13 +1462,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0007)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0004)
 </pre></div>
 </div>
 </div>
 </div>
 <p>Ta-daa!</p>
-</section>
 </section>
 </section>
 
@@ -1454,7 +1515,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.6. </span>The Wilcoxon Sign-Rank Test</p>
+        <p class="prev-next-title"><span class="section-number">2.9. </span>Dependent Samples: The Wilcoxon Sign-Rank Test</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1474,23 +1535,25 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-samples">2.5.1. Independent samples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.5.2. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-motor-learning-and-visualization">2.5.3. Example: motor learning and visualization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.5. Independent samples (The Mann–Whitney U/Wilcoxon Rank Sum)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">2.6. Set up Python libraries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-motor-learning-and-visualization">2.7. Example: motor learning and visualization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">2.7.1. 1. Inspect the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2.7.2. 2. Hypotheses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2.7.3. 3. Descriptive statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">2.7.4. 4. Carry out the test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">2.7.5. 5. Draw conclusions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-mann-whiney-u-or-wilcoxon-rank-sum-test-works">2.5.4. How the Mann Whiney U or Wilcoxon Rank Sum test works</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-convert-the-data-to-ranks">Step 1: Convert the data to ranks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-test-statistic">Calculate the test statistic</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-the-null-distriubtion">Establish the null distriubtion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-mannwhitney-u-test-work">2.8. How does the Mann–Whitney U test work?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-convert-the-data-to-ranks">2.8.1. Step 1: Convert the data to ranks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-test-statistic">2.8.2. Calculate the test statistic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-the-null-distriubtion">2.8.3. Establish the null distriubtion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establish-the-null-distribution">2.8.4. Establish the null distribution</a></li>
 </ul>
 </li>
 </ul>
+
   </nav></div>
 
 </div></div>
