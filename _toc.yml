@@ -132,6 +132,7 @@ parts:
         - file: 3.3_ttest/3.3.7_ttest_pairedSamples.ipynb
         - file: 3.3_ttest/3.3.8_ttest_independentSamples.ipynb
         - file: 3.3_ttest/3.3.9_TutorialExercises.ipynb
+        - file: 3.3_ttest/3.3.10_ttest_ExtraPractice.ipynb
       - file: 3.4_Power/3.4.1_power_intro.md
         sections:
         - file: 3.4_Power/3.4.2_outcomes.md

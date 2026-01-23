@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -624,14 +625,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.7.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.7.2. Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-apple-trees-and-fertiliser">3.7.2. Example: Apple Trees and Fertiliser</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">3. Descriptive statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">4. Carry out the test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">5. Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-up">3.7.3. Write-up</a></li>
@@ -649,6 +649,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="independent-samples-t-test">
 <h1><span class="section-number">3.7. </span>Independent samples t-test<a class="headerlink" href="#independent-samples-t-test" title="Link to this heading">#</a></h1>
+<p><em>An independent-samples <span class="math notranslate nohighlight">\(t\)</span>-test tests whether the means of two independent (or unpaired) groups are different.</em></p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">3.7.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -668,17 +669,31 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="example">
-<h2><span class="section-number">3.7.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<section id="example-apple-trees-and-fertiliser">
+<h2><span class="section-number">3.7.2. </span>Example: Apple Trees and Fertiliser<a class="headerlink" href="#example-apple-trees-and-fertiliser" title="Link to this heading">#</a></h2>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/appletree.jpg"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/appletree.jpg" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/appletree.jpg" style="width: 30%;" />
 </a>
-<p>Below we have data on the average weight, in grams, of apples from each of 20 apple trees.</p>
-<p>10 of the trees received MiracleGro fertilizer and the other 10 received Brand X.</p>
-<p>Test the hypothesis that the trees given MiracleGro produced heavier apples.</p>
+<p>A researcher is interested in whether fertiliser affects the weight of apples produced by apple trees.</p>
+<p>Data are collected on the average apple weight (in grams) from each of 20 apple trees. Ten of the trees received <strong>MiracleGro</strong> fertiliser, and the other ten received <strong>Brand X</strong> fertiliser.</p>
+<p><strong>Question:</strong> test the hypothesis that trees given MiracleGro produce heavier apples than trees given Brand X.</p>
+<p><em>Notes:</em></p>
+<ul class="simple">
+<li><p>This is an <strong>independent-samples</strong> design: different trees are assigned to each fertiliser, and there is nothing that inherently links the trees.</p></li>
+<li><p>If the data are approximately Normally distributed with similar variability in each group, an <strong>independent-samples <span class="math notranslate nohighlight">\(t\)</span>-test</strong> is appropriate.</p></li>
+<li><p>The hypothesis is <strong>directional</strong>, which justifies a <strong>one-sided</strong> test.</p></li>
+</ul>
+<p><em>Practical steps</em></p>
+<ol class="arabic simple">
+<li><p>Inspect the data to check for extreme outliers and approximate Normality</p></li>
+<li><p>State the formal hypotheses.</p></li>
+<li><p>Report the descriptive statistics (mean, standard deviation, and sample size for each group).</p></li>
+<li><p>Run the independent-samples <span class="math notranslate nohighlight">\(t\)</span>-test.</p></li>
+<li><p>Draw conclusions.</p></li>
+</ol>
 <section id="inspect-the-data">
-<h3>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h3>
+<h3>1. Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h3>
 <p>The data are provided in a text (.csv) file.</p>
-<p>Let’s load the data as a Pandas dataframe, and plot them to get a sense for their distribution (is it normal?) and any outliers</p>
+<p>Let’s load the data as a Pandas dataframe, and plot them to get a sense for their distribution (is it normal?, are there any outliers?)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the data and have a look</span>
@@ -825,6 +840,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<p><strong>Plot the data</strong></p>
 <p>Let’s plot the data and see if they look Normally distributed.</p>
 <p>As we saw in the session on plotting, a good choice here will be a KDE plot (to get an estimate of the shape of the distribution) and a rug plot (individual data values as the KDE plot is based on only a small sample)</p>
 <div class="cell docutils container">
@@ -852,7 +868,7 @@ There is a video explaining why here.</p>
 <p>So we can go ahead and use a t-test.</p>
 </section>
 <section id="hypotheses">
-<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
+<h3>2. Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: the mean weight of apples is the same for trees fertilized with MiracleGro and Brand X</p>
 <p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>: the mean weight of apples is greater for trees fertilized with MiracleGro</p>
 <p>This is a one tailed test as the manufacturers of MiracleGro are only looking for an effect in one direction
@@ -860,10 +876,9 @@ There is a video explaining why here.</p>
 <p>We will test at the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> significance level</p>
 </section>
 <section id="descriptive-statistics">
-<h3>Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
+<h3>3. Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
 <p>First, we obtain the relevant desriptive statistics. By relevant, I mean the ones that go into the equation for the t-test:</p>
-<div class="math notranslate nohighlight">
-\[ t = \frac{\bar{x_1} - \bar{x_2}}{s \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}} \]</div>
+<p><span class="math notranslate nohighlight">\( t = \frac{\bar{x_1} - \bar{x_2}}{s \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}} \)</span></p>
 <p>This would be the sample means <span class="math notranslate nohighlight">\(\bar{x_1}\)</span> and <span class="math notranslate nohighlight">\(\bar{x_2}\)</span>, and the standard deviations for both samples (these feed into the pooled standard deviation <span class="math notranslate nohighlight">\(s\)</span>) and the sample size <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>Remember, <tt>apples</tt> is our original Pandas dataframe:</p>
 <div class="cell docutils container">
@@ -1010,74 +1025,7 @@ There is a video explaining why here.</p>
 </table>
 </div></div></div>
 </div>
-<p>We obtain some commonly used descriptive statistics using the <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> method in <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apples</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>meanAppleWeight</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>22.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>179.136364</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>12.123552</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>157.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>170.500000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>178.500000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>188.500000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>200.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>We need the descriptive statistics separately for each fertilizer type.</p>
-<p>We could use the separate dataframes that we created for plotting, but <code class="docutils literal notranslate"><span class="pre">pandas</span></code> has a handy method called <code class="docutils literal notranslate"><span class="pre">df.groupby()</span></code> that will do the job:</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> method in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> together with <code class="docutils literal notranslate"><span class="pre">df.groupby()</span></code> in order to obtain the descriptive statistics separately for each fertilizer type.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apples</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Fertilizer&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1159,11 +1107,18 @@ There is a video explaining why here.</p>
 </table>
 </div></div></div>
 </div>
+<p>The mean apple weight for trees treated with <strong>Brand X</strong> was 173.1 g (SD = 10.9 g, n = 10), whereas the mean apple weight for trees treated with <strong>MiracleGro</strong> was 184.2 g (SD = 11.1 g, n = 12).</p>
 <p>It does look like the mean weight of apples from the MiracleGro trees is higher, but is the difference statistically significant?</p>
 </section>
 <section id="carry-out-the-test">
-<h3>Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h3>
-<p>We carry out an independent samples t-test using the function <tt>ttest_ind</tt> from <tt>scipy.stats</tt>, here loaded as <tt>stats</tt></p>
+<h3>4. Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h3>
+<p>We carry out the test using the function <code class="docutils literal notranslate"><span class="pre">stats.ttest_ind()</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<p>The inputs to <code class="docutils literal notranslate"><span class="pre">stats.ttest_ind()</span></code> are:</p>
+<ul class="simple">
+<li><p>the two independent samples to be compared (the values in the <code class="docutils literal notranslate"><span class="pre">meanAppleWeight</span></code> column from the Pandas DataFrames <code class="docutils literal notranslate"><span class="pre">apples_MiracleGro</span></code> and <code class="docutils literal notranslate"><span class="pre">apples_BrandX</span></code>);</p></li>
+<li><p>the argument <code class="docutils literal notranslate"><span class="pre">alternative='greater'</span></code>, which specifies a one-tailed test in which the mean apple weight for trees treated with <strong>MiracleGro</strong> is expected to be greater than that for trees treated with <strong>Brand X</strong>.</p></li>
+</ul>
+<p>The outputs are the value of the test statistic (<span class="math notranslate nohighlight">\(t = 2.35\)</span>) and the associated p-value (<span class="math notranslate nohighlight">\(p = 0.0146\)</span>). Because this p-value is less than our chosen significance level (<span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>), we conclude that there is a statistically significant difference between the groups.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">apples</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Fertilizer==&quot;MiracleGro&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">meanAppleWeight</span><span class="p">,</span> 
@@ -1178,19 +1133,13 @@ There is a video explaining why here.</p>
 </div>
 </div>
 </div>
-<p>The inputs to stats.ttest are the two samples to be compared (the values in the <tt>meanAppleWeight</tt> column from our separated Pandas data frames <tt>apples_BrandX</tt> and <tt>apples_MiracleGro</tt>)
-and the argument <tt>alternative=’greater’</tt>, which tells the computer to run a one tailed test
-that mean of the first input <tt>apples.MiracleGro</tt> is greater than the second <tt>apples.BrandX</tt>.</p>
-<p>The outputs are <tt>statistic</tt> (<span class="math notranslate nohighlight">\(t=2.35\)</span>) and <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.0146\)</span>) - if this is less than our <span class="math notranslate nohighlight">\(\alpha\)</span> value 0.5, there is a significant difference.</p>
-</section>
-<section id="degrees-of-freedom">
-<h3>Degrees of freedom<a class="headerlink" href="#degrees-of-freedom" title="Link to this heading">#</a></h3>
+<p><strong>Degrees of freedom</strong></p>
 <p>In a scientific write-up we also need to report the degrees of freedom of the test. This tells us how many observations (data-points) the test was based on, corrected for the number of means we had to estimate from the data in order to do the test.</p>
 <p>In the case of the independent samples t-test <span class="math notranslate nohighlight">\(df = n_1 + n_2 - 2\)</span> so in this case, df=(10+12-2)=20 and we can report out test results as:</p>
 <p><span class="math notranslate nohighlight">\(t(20) = 2.35, p=0.0146\)</span> (one-tailed)</p>
 </section>
 <section id="interpretation">
-<h3>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<h3>5. Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
 <p>Our t value of 2.35 means that the difference in mean apple weights between MiracleGro and BrandX trees is 2.35 times the standard error (where <span class="math notranslate nohighlight">\( SE = s \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\)</span>).</p>
 <p>Such a large difference (in the expected direction) would occur 0.0146 (1.46%) of the time due to chance if the null hypothesis were true (if MiracleGro was really no better than Brand X), hence the p value of 0.0146.</p>
 <p>This diagram shows the expected distribution of t-values if the null were true, with our obtained t-value marked:</p>
@@ -1198,7 +1147,7 @@ that mean of the first input <tt>apples.MiracleGro</tt> is greater than the seco
 </a>
 </section>
 <section id="draw-conclusions">
-<h3>Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
+<h3>5. Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
 <p>As p&lt;0.05 we conclude that the mean weight of apples on trees fertilized with MiracleGro is indeed greater than the mean weight of apples on trees fertilized with Brand X</p>
 </section>
 </section>
@@ -1412,14 +1361,13 @@ that mean of the first input <tt>apples.MiracleGro</tt> is greater than the seco
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.7.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.7.2. Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-apple-trees-and-fertiliser">3.7.2. Example: Apple Trees and Fertiliser</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">3. Descriptive statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">4. Carry out the test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">5. Interpretation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-up">3.7.3. Write-up</a></li>

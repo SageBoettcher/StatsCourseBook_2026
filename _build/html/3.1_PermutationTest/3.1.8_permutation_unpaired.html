@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -848,7 +849,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ba14fbdde3e5b3d18b9cc042cef657622ee26043576f969e214d54eafb71facc.png" src="../_images/ba14fbdde3e5b3d18b9cc042cef657622ee26043576f969e214d54eafb71facc.png" />
+<img alt="../_images/ef4441b9a607e139aa7997e4acbb4ae54c93105babee47c439fd03f7e8000e6e.png" src="../_images/ef4441b9a607e139aa7997e4acbb4ae54c93105babee47c439fd03f7e8000e6e.png" />
 </div>
 </div>
 <p>We can see that the mean number of yoghurts eaten is higher for cat owners (the bar for cats is higher than the bar for dog), but this difference might be influenced by one particularly enthusiastic yoghurt-eating cat owner.</p>
@@ -965,8 +966,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d044af091daa0b502e7b320398e3f67312d419ad0cf388b928d2ae3076237cf8.png" src="../_images/d044af091daa0b502e7b320398e3f67312d419ad0cf388b928d2ae3076237cf8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.875
+<img alt="../_images/076aea3fce8f2f658c6c87899b5fbd7ed472f59dc674c73d2864ae2a39e81b35.png" src="../_images/076aea3fce8f2f658c6c87899b5fbd7ed472f59dc674c73d2864ae2a39e81b35.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47499999999999964
 </pre></div>
 </div>
 </div>
@@ -998,7 +999,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/7458836ea46a9eaddc7999988ed70abba000502bbb59bf33da0a9c5519d740d9.png" src="../_images/7458836ea46a9eaddc7999988ed70abba000502bbb59bf33da0a9c5519d740d9.png" />
+<img alt="../_images/129d56008b36f21c781d775788e87c4bd22117327be19623222ee91fc820e795.png" src="../_images/129d56008b36f21c781d775788e87c4bd22117327be19623222ee91fc820e795.png" />
 </div>
 </div>
 <p>With 100 permutations you can already see the null distribution taking shape. Most of the permutations center around a small difference between the two group as expected, however how often do we see a difference at least as large as we observed in data set (i.e., 2.5)? To increase our confidence we probably want to run even more permutations!</p>
@@ -1020,7 +1021,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.5), pvalue=np.float64(0.06159384061593841), null_distribution=array([ 0.925,  2.275,  2.05 , ..., -0.65 , -1.55 , -1.1  ],
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.5), pvalue=np.float64(0.06419358064193581), null_distribution=array([ 1.375, -2.   ,  1.825, ...,  2.95 ,  0.25 ,  0.25 ],
       shape=(10000,)))
 </pre></div>
 </div>
@@ -1045,7 +1046,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d0b5e84957d36e1bd0b43d959415bbfa463bec2f47a5b3b5c37d84bd319ad11b.png" src="../_images/d0b5e84957d36e1bd0b43d959415bbfa463bec2f47a5b3b5c37d84bd319ad11b.png" />
+<img alt="../_images/0bbf431afb4ce18ce1f1870ec40325b9c752de568951de35a0c55feab1a23838.png" src="../_images/0bbf431afb4ce18ce1f1870ec40325b9c752de568951de35a0c55feab1a23838.png" />
 </div>
 </div>
 <p>The histogram looks a bit spikey because this dataset is very small and contains several repeated values.
@@ -1064,7 +1065,7 @@ As a result, there are only a limited number of possible values that the mean yo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0615
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0641
 </pre></div>
 </div>
 </div>

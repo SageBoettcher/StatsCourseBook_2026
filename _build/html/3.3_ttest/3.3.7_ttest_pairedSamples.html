@@ -321,6 +321,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -624,15 +625,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.6.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.6.2. Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-assumption-of-normality">Check assumption of normality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-horror-movies-and-heart-rate">3.6.2. Example: Horror Movies and Heart Rate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">3. Descriptive statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">4. Carry out the test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-up">3.6.3. Write-up</a></li>
@@ -650,6 +648,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="paired-samples-t-test">
 <h1><span class="section-number">3.6. </span>Paired Samples t-test<a class="headerlink" href="#paired-samples-t-test" title="Link to this heading">#</a></h1>
+<p><em>A paired-samples <span class="math notranslate nohighlight">\(t\)</span>-test tests whether the mean difference between two paired measurements is different from zero.</em></p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">3.6.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -669,17 +668,40 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="example">
-<h2><span class="section-number">3.6.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<section id="example-horror-movies-and-heart-rate">
+<h2><span class="section-number">3.6.2. </span>Example: Horror Movies and Heart Rate<a class="headerlink" href="#example-horror-movies-and-heart-rate" title="Link to this heading">#</a></h2>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/horror.jpg"><img alt="There should be a picture from a horror movie here" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/horror.jpg" style="width: 30%;" />
 </a>
-<p>A scientist hypothesises that watching horror movies raises the heart rate in human subjects.
-She measures the heart rate of 20 volunteers watching a horror movie,
-and the same volunteers watching a cookery show.</p>
-<p>This is a <b>repeated measures</b> design, which is a form of paired design</p>
+<p>A scientist hypothesises that watching horror movies raises our heart rate .</p>
+<p>She tests this by measuring the heart rate of 20 volunteers under two conditions:</p>
+<ul class="simple">
+<li><p>while watching a <strong>horror movie</strong>;</p></li>
+<li><p>while watching a <strong>cookery show</strong>.</p></li>
+</ul>
+<p>Each volunteer takes part in both conditions. For each participant, the researcher records <strong>heart rate (beats per minute)</strong> in both conditions.</p>
+<p><strong>Question:</strong> test whether heart rate is higher when watching a horror movie than when watching a cookery show.</p>
+<p><em>Notes:</em></p>
+<ul class="simple">
+<li><p>This is a <strong>repeated-measures (paired)</strong> design: the same participants are measured in both conditions.</p></li>
+<li><p>Because measurements are paired, the analysis should be based on the <strong>within-participant differences</strong> in heart rate.</p></li>
+<li><p>If the <strong>differences</strong> are approximately Normally distributed, a <strong>paired-samples <span class="math notranslate nohighlight">\(t\)</span>-test</strong> is appropriate.</p></li>
+<li><p>The hypothesis is directional (horror movies increase heart rate), which justifies a <strong>one-sided test</strong>.</p></li>
+</ul>
+<p><em>Practical steps</em></p>
+<ol class="arabic simple">
+<li><p>Inspect the data to check for extreme outliers and approximate Normality.</p></li>
+<li><p>State the formal hypotheses.</p></li>
+<li><p>Report the descriptive statistics (mean or median difference, and sample size).</p></li>
+<li><p>Run the paired test.</p></li>
+<li><p>Draw conclusions.</p></li>
+</ol>
 <section id="inspect-the-data">
-<h3>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h3>
-<p>Let’s load the data.</p>
+<h3>1. Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h3>
+<p>Let’s load the data into a Pandas DataFrame and plot them. In this case, it is helpful to visualise the data in more than one way.</p>
+<ol class="arabic simple">
+<li><p>Plot a <strong>Scatter Plot</strong> of heart rate in the two conditions to visualise the effect of interest and the pairing between observations.</p></li>
+<li><p>Plot a <strong>KDE and/or rug plot of the paired differences</strong> (horror − cookery) to assess whether the differences are approximately Normally distributed.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the data and have a look</span>
@@ -816,10 +838,9 @@ and the same volunteers watching a cookery show.</p>
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="scatterplot">
-<h3>Scatterplot<a class="headerlink" href="#scatterplot" title="Link to this heading">#</a></h3>
-<p>In the case of paired data, the most effective way to get a sense of the data is a scatterplot:</p>
+<p><strong>Scatterplot</strong></p>
+<p>For paired data, one of the most effective ways to get a sense of the data is with a scatter plot. Plotting each participant’s heart rate in one condition against their heart rate in the other condition makes the pairing explicit.</p>
+<p>A reference line (e.g. the line <span class="math notranslate nohighlight">\(y = x\)</span>) can be added to help visualise the effect (points above the line indicate higher heart rates in the horror movie condition)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heartRates</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;cookery&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;horror&quot;</span><span class="p">)</span>
@@ -833,21 +854,17 @@ and the same volunteers watching a cookery show.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ed7d52909f79abc898e4c2c370cd9350d6fd9bee083bba781798980aaac2b912.png" src="../_images/ed7d52909f79abc898e4c2c370cd9350d6fd9bee083bba781798980aaac2b912.png" />
+<img alt="../_images/1d0b0288621c1d93a2290cd8da3e4f8c8838b538b50980bfe7c7cf95cc7cb6a4.png" src="../_images/1d0b0288621c1d93a2290cd8da3e4f8c8838b538b50980bfe7c7cf95cc7cb6a4.png" />
 </div>
 </div>
-<p>It looks like</p>
-<ul>
-    <li> For most individuals heart rate is higher during the horror show (most data points lie above the line x=y)
-    <li> There is a strong effect of individual - people with low heart rates during the cookery show also have low heart rates during the horror show (hence data points are stretched out along the line x=y)   
+<p>It looks like:</p>
+<ul class="simple">
+<li><p>For most individuals, heart rate is higher during the horror movie, as most data points lie above the line <span class="math notranslate nohighlight">\(x = y\)</span>. (But we will need to do a statistical test to confirm!)</p></li>
+<li><p>There is a strong effect of individual differences: people with low heart rates during the cookery show also tend to have low heart rates during the horror movie, which is why the data points are stretched out along the line <span class="math notranslate nohighlight">\(x = y\)</span>.</p></li>
 </ul>
-<p>It looks like individual differences in heart rate rather dwarf the effect of the type of TV show being watched.
-Therefore it is a good thing that we used a paired design, in which these individual differences are controlled for (as we only look at the change in heart rate between conditions for each individual).</p>
-</section>
-<section id="check-assumption-of-normality">
-<h3>Check assumption of normality<a class="headerlink" href="#check-assumption-of-normality" title="Link to this heading">#</a></h3>
-<p>In the case of paired data, the assumption of the t-test is that
-the differences between conditions (for each participant) are normally distributed - let’s add a column to our <tt>pandas</tt> data frame to contain the differences</p>
+<p>Overall, individual differences in heart rate appear to dwarf the effect of the type of TV show being watched. This highlights the value of using a <strong>paired design</strong>, in which these individual differences are controlled for by focusing on the <em>within-individual change</em> in heart rate between conditions.</p>
+<p><strong>KDE / rug plot: assumption of Normality</strong></p>
+<p>In the case of paired data, the key assumption of the <span class="math notranslate nohighlight">\(t\)</span>-test is that the <strong>differences between conditions</strong> (for each participant) are Normally distributed. To check this, we first add a column to our DataFrame containing the paired differences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heartRates</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heartRates</span><span class="o">.</span><span class="n">horror</span> <span class="o">-</span> <span class="n">heartRates</span><span class="o">.</span><span class="n">cookery</span>
@@ -1020,7 +1037,7 @@ the differences between conditions (for each participant) are normally distribut
 <p>The distribution looks fairly normal - for the sake of this example we can safely go ahead and use the t-test (although in real life I think it is always tricky to know if the data are really normally distributed, especially if the sample is small)</p>
 </section>
 <section id="hypotheses">
-<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
+<h3>2. Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: the mean difference in heart rate for an individual watching cookery or horror shows is zero</p>
 <p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>: the mean difference in heart rate is positive (higher heart rate for horror)</p>
 <p>This is a one tailed test as the researcher’s hypothesis (described above) is directional -
@@ -1028,11 +1045,10 @@ she thinks horror movies increase heart rate</p>
 <p>We will test at the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> significance level</p>
 </section>
 <section id="descriptive-statistics">
-<h3>Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
+<h3>3. Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
 <p>First, we obtain the relevant desriptive statistics.
 By relevant, I mean the ones that go into the equation for the t-test:</p>
-<div class="math notranslate nohighlight">
-\[ t = \frac{\bar{d}}{\frac{s_d}{\sqrt{n}}} \]</div>
+<p><span class="math notranslate nohighlight">\( t = \frac{\bar{d}}{\frac{s_d}{\sqrt{n}}} \)</span></p>
 <p>This would be the means difference in heart rate for horror-cookery <span class="math notranslate nohighlight">\(\bar{d}\)</span>,
 the standard deviations of the differences <span class="math notranslate nohighlight">\(s_d\)</span> and the number of participants <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>We obtain the descriptive statistics for each column in our dataframe using the <tt>describe()</tt> method as before:</p>
@@ -1119,13 +1135,20 @@ the standard deviations of the differences <span class="math notranslate nohighl
 </table>
 </div></div></div>
 </div>
-<p>So the mean difference is 4.94 beats per minute (higher in the horror condition). This is quite large compared to the mean heart rate in each condition (72.6 bpm in the cookery condition and 77.5 in the horror condition) - more than 5% difference. So on average the horror movie is producing quite a noticeable increase in heart rate. <strong>Because the difference in mean heart rate is better understoon in the cotext of knowing the mean in each condition, I think it is good practice to report the condition means</strong> (mean for cookery and horror) <strong>even though thhey don’t get used in the t-test.</strong></p>
-<p>The standard deviation of differences is 9.04 bpm. This is lower than the standard deviation within each condition (14.6 and 16.7 for cookery and horror), which reflects the correlation between heart rates in the two conditions, as seen in the scatter plot above.</p>
-<p>The number of participants is 20.</p>
+<p>The mean difference in heart rate is 4.94 beats per minute, with heart rate being higher in the horror condition. This is quite a large effect relative to the mean heart rate in each condition (72.6 bpm in the cookery condition and 77.5 bpm in the horror condition), representing an increase of more than 5%. On average, watching the horror movie therefore produces a noticeable increase in heart rate.</p>
+<p><strong>Because the mean difference is easier to interpret when we also know the mean heart rate in each condition, it is good practice to report the condition means</strong> (cookery and horror), <strong>even though these means are not directly used in the paired <span class="math notranslate nohighlight">\(t\)</span>-test.</strong></p>
+<p>The standard deviation of the paired differences is 9.04 bpm. This is smaller than the standard deviation within each condition (14.6 bpm for cookery and 16.7 bpm for horror), which reflects the correlation between heart rates in the two conditions, as seen in the scatter plot above.</p>
+<p>The sample size is <span class="math notranslate nohighlight">\(n = 20\)</span> participants.</p>
 </section>
 <section id="carry-out-the-test">
-<h3>Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h3>
-<p>We carry out a paired samples t-test using the function <code class="docutils literal notranslate"><span class="pre">stats.ttest_rel</span></code> (that’s <tt>rel</tt> for related samples) from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<h3>4. Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h3>
+<p>We carry out the test using the function <code class="docutils literal notranslate"><span class="pre">stats.ttest_rel()</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<p>The inputs to <code class="docutils literal notranslate"><span class="pre">stats.ttest_rel()</span></code> are:</p>
+<ul class="simple">
+<li><p>the two paired samples to be compared (the <code class="docutils literal notranslate"><span class="pre">heartRate.horror</span></code> and <code class="docutils literal notranslate"><span class="pre">heartRate.cookery</span></code> columns from our Pandas DataFrame <code class="docutils literal notranslate"><span class="pre">heartRates</span></code>);</p></li>
+<li><p>the argument <code class="docutils literal notranslate"><span class="pre">alternative='greater'</span></code>, which specifies a one-tailed test in which the mean heart rate in the horror condition is expected to be greater than the mean heart rate in the cookery condition.</p></li>
+</ul>
+<p>The outputs are the value of the test statistic (<span class="math notranslate nohighlight">\(t = 2.44\)</span>) and the associated p-value (<span class="math notranslate nohighlight">\(p = 0.0122\)</span>). Because this p-value is less than our chosen significance level (<span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>), we conclude that there is a statistically significant difference between the conditions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">heartRates</span><span class="o">.</span><span class="n">horror</span><span class="p">,</span> <span class="n">heartRates</span><span class="o">.</span><span class="n">cookery</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
@@ -1138,19 +1161,12 @@ the standard deviations of the differences <span class="math notranslate nohighl
 </div>
 </div>
 </div>
-<p>The inputs to stats.ttest are the two samples to be compared (columns from our Pandas data frame <tt>heartRates</tt>)
-and the argument <tt>alternative=’greater’</tt>, which tells the computer to run a one tailed test
-that mean of the first input <tt>heartRate.horror</tt> is greater than the second <tt>heartRate.cookery</tt>.</p>
-<p>The outputs are <tt>statistic</tt> (<span class="math notranslate nohighlight">\(t=2.44\)</span>) and <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.0122\)</span>) - if this is less than our <span class="math notranslate nohighlight">\(\alpha\)</span> value 0.5, there is a significant difference</p>
-</section>
-<section id="degrees-of-freedom">
-<h3>Degrees of freedom<a class="headerlink" href="#degrees-of-freedom" title="Link to this heading">#</a></h3>
+<p><strong>Degrees of freedom</strong></p>
 <p>In a scientific write-up we also need to report the degrees of freedom of the test. This tells us how many observations (data-points) the test was based on, corrected for the number of means we had to estimate from the data in order to do the test.</p>
-<p>In the case of the paired samples t-test <span class="math notranslate nohighlight">\(df = n-1\)</span> where <span class="math notranslate nohighlight">\(n\)</span> is the number of pairs, so in this case, df=19 and we can report out test results as:</p>
-<p><span class="math notranslate nohighlight">\(t(19) = 2.44, p=0.0122\)</span> (one-tailed)</p>
+<p>In the case of the paired samples t-test <span class="math notranslate nohighlight">\(df = n-1\)</span> where <span class="math notranslate nohighlight">\(n\)</span> is the number of pairs, so in this case, df=19 and we can report out test results as: <span class="math notranslate nohighlight">\(t(19) = 2.44, p=0.0122\)</span> (one-tailed)</p>
 </section>
-<section id="interpretation">
-<h3>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<section id="draw-conclusions">
+<h3>5. Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
 <p>Our t value of 2.27 means that the mean increase in heart rate from the cookery to horror conditions is 2.27 times the standard error (where <span class="math notranslate nohighlight">\( SE = \frac{s}{\sqrt{n}}\)</span>).</p>
 <p>Such a large difference (in the expected direction) would occur 0.0123 (1.23%) of the time due to chance if the null hypothesis were true (if the TV show made no difference to the heart rate), hence the p value of 0.0123.</p>
 <p>This diagram shows the expected distribution of t-values if the null hypothesis was true, with our obtained t-value marked:</p>
@@ -1187,7 +1203,7 @@ that mean of the first input <tt>heartRate.horror</tt> is greater than the secon
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dae8eff696f1e78d220f37460266ec3fb7162717ce2c913351d49b912dbc89da.png" src="../_images/dae8eff696f1e78d220f37460266ec3fb7162717ce2c913351d49b912dbc89da.png" />
+<img alt="../_images/44c569cdbb196a213939bf787bd728fd78a9559f61d535b212fd4ecfb9973589.png" src="../_images/44c569cdbb196a213939bf787bd728fd78a9559f61d535b212fd4ecfb9973589.png" />
 </div>
 </div>
 <p><strong>Note</strong> - <em>the red dashed line is the line of equality <span class="math notranslate nohighlight">\((x=y)\)</span>; heart rate is generally higher for each individual in the horror condition (most points lie above teh line <span class="math notranslate nohighlight">\((x=y)\)</span>. There is a strong correlation between the two measures of heart rate for each individual, indicating an individual differences in heart rate regardless of condition, which should be controlled by the use of a repeated measures design.</em></p>
@@ -1384,15 +1400,12 @@ that mean of the first input <tt>heartRate.horror</tt> is greater than the secon
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.6.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.6.2. Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-assumption-of-normality">Check assumption of normality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-horror-movies-and-heart-rate">3.6.2. Example: Horror Movies and Heart Rate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">3. Descriptive statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">4. Carry out the test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-up">3.6.3. Write-up</a></li>

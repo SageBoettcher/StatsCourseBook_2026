@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -816,18 +817,18 @@ Say I have a dataset listing four pets belonging to four different children:</p>
   </thead>
   <tbody>
     <tr>
+      <th>0</th>
+      <td>Anna</td>
+      <td>cat</td>
+    </tr>
+    <tr>
       <th>5</th>
       <td>Freddie</td>
       <td>rabbit</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>Henrietta</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Charley</td>
+      <th>4</th>
+      <td>Egbert</td>
       <td>cat</td>
     </tr>
   </tbody>
@@ -866,6 +867,31 @@ Say I have a dataset listing four pets belonging to four different children:</p>
   </thead>
   <tbody>
     <tr>
+      <th>1</th>
+      <td>Betty</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Egbert</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charley</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Henrietta</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charley</td>
+      <td>cat</td>
+    </tr>
+    <tr>
       <th>0</th>
       <td>Anna</td>
       <td>cat</td>
@@ -876,28 +902,13 @@ Say I have a dataset listing four pets belonging to four different children:</p>
       <td>rabbit</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Charley</td>
-      <td>cat</td>
-    </tr>
-    <tr>
       <th>6</th>
       <td>Georgia</td>
       <td>dog</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>Georgia</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Georgia</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Betty</td>
+      <th>7</th>
+      <td>Henrietta</td>
       <td>cat</td>
     </tr>
     <tr>
@@ -911,18 +922,8 @@ Say I have a dataset listing four pets belonging to four different children:</p>
       <td>cat</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Betty</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Georgia</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Betty</td>
+      <th>7</th>
+      <td>Henrietta</td>
       <td>cat</td>
     </tr>
   </tbody>
@@ -942,14 +943,14 @@ Say I have a dataset listing four pets belonging to four different children:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2       cat
-6       dog
-5    rabbit
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       cat
+1       cat
+4       cat
+4       cat
+2       cat
+7       cat
 0       cat
 5    rabbit
-1       cat
-5    rabbit
-7       cat
 Name: Pet, dtype: object
 </pre></div>
 </div>
@@ -963,7 +964,7 @@ Name: Pet, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>

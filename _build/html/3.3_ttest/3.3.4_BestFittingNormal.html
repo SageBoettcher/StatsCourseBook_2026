@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -608,41 +609,41 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="best-fitting-normal">
 <h1><span class="section-number">3.3. </span>Best fitting Normal<a class="headerlink" href="#best-fitting-normal" title="Link to this heading">#</a></h1>
-<p>If we have some data <span class="math notranslate nohighlight">\(x\)</span>, and we believe they come from a normal distribution, we can describe the normal distribution thhey most likely came from as <span class="math notranslate nohighlight">\(x \sim \mathcal{N}(m, s)\)</span> where <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(s\)</span> are the mean and standard deviation we calculated from the data.</p>
+<p>If we have some data <span class="math notranslate nohighlight">\(x\)</span>, and we believe they come from a Normal distribution, we can describe the normal distribution they most likely came from as <span class="math notranslate nohighlight">\(x \sim \mathcal{N}(m, s)\)</span> where <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(s\)</span> are the mean and standard deviation we calculated from the data.</p>
 <p>For example, given the heights of 10 fictional ballerinas, we can calculate the sample mean (157.3cm) and sd (6.3cm).</p>
-<p>From these two numbers, we can reconstruct an estimate of the height distribution for all the ballerinas in the world (!) as the normal distribution with the matching mean and standard deviation, AKA the <strong>best fitting normal</strong></p>
+<p>Using these two values, we can construct an estimate of the height distribution for all the ballerinas in the world (!) by assuming a Normal distribution with the same mean and standard deviation. This distribution is often referred to as the <strong>best fitting normal</strong></p>
 <div class="math notranslate nohighlight">
 \[ height \sim \mathcal{N}(157.3, 6.3^2) \]</div>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_BestFit.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_BestFit.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_BestFit.png" style="width: 80%;" />
 </a>
 <section id="by-fitting-the-normal-we-gain-some-information">
 <h2><span class="section-number">3.3.1. </span>By fitting the Normal we gain some information<a class="headerlink" href="#by-fitting-the-normal-we-gain-some-information" title="Link to this heading">#</a></h2>
-<p>If it is correct that heights are normally distributed, we should have a quite precise model of the heights of ballerinas worldwide by fitting the best-fitting normal to our data. Importantly this should be more ‘correct’ than assuming that heights in the population have the same distribution as in the sample (which is not perfectly normal)</p>
+<p>If it is reasonable to assume that heights are Normally distributed, then fitting the best-fitting Normal to our data gives us a fairly precise model of the heights of ballerinas worldwide. Importantly, this model should be more accurate than simply assuming that the population has exactly the same distribution as our sample, which may deviate from Normality due to sampling variability.</p>
 <p>Compare the best fitting normals to the data KDE for ballerinas:</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_NormalVsKDE.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_NormalVsKDE.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_NormalVsKDE.png" style="width: 80%;" />
 </a>
-<p>If it is true that heights in the population of ballerinas are normally distributed, the best fitting normal should be a more accurate estimate of the population height distribution; the double mode in the KDE is a quirk of the small sample (10 ballerinas) that we measured.</p>
+<p>If heights in the population of ballerinas are indeed Normally distributed, then the best-fitting Normal provides a better estimate of the population height distribution. In this case, the apparent double peak in the KDE is best interpreted as a quirk of the small sample size (only 10 ballerinas), rather than a real feature of the population.</p>
 </section>
 <section id="incorrect-assumption-of-normality">
 <h2><span class="section-number">3.3.2. </span>Incorrect assumption of normality<a class="headerlink" href="#incorrect-assumption-of-normality" title="Link to this heading">#</a></h2>
-<p>If the data are not really drawn from a normal distribution, the best fitting normal will be a poor estimate of the population data distribution.</p>
-<p>Often non-normal data distributions have outliers that would be really implausible under the normal distribution, and if we try to fit a normal to such data it ends up needing to be very wide to accommodate the outliers.</p>
+<p>If the data are not actually drawn from a Normal distribution, then the best-fitting Normal will be a poor estimate of the population data distribution.</p>
+<p>In practice, non-Normal data distributions often contain outliers that would be extremely unlikely under a Normal model. When we try to fit a Normal distribution to such data, the fitted distribution is forced to be very wide in order to accommodate these outliers, resulting in a model that does not accurately represent the bulk of the data.</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_wideNormal.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_wideNormal.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_wideNormal.png" style="width: 80%;" />
 </a>
-<p>in the salary example shown above, the best fitting normal suggests that the most common salary is about £80k and that many people earn negative amounts of money - clearly not a good match to the sample data, or a plausible estimate of the salaries in the population as a whole!</p>
+<p>In the salary example shown above, the best-fitting Normal suggests that the most common salary is around £80k and that many people earn negative amounts of money. In this case, the population data is much more likely to be skewed - with a long positive tail - because of the natural boundary at zero. Here the best-fitting Normal is clearly neither a good match to the sample data nor a plausible estimate of salaries in the population as a whole.</p>
 </section>
 <section id="the-best-fitting-normmal-is-just-an-estimate">
 <h2><span class="section-number">3.3.3. </span>The best fitting normmal is just an <em>estimate</em><a class="headerlink" href="#the-best-fitting-normmal-is-just-an-estimate" title="Link to this heading">#</a></h2>
-<p>The best fitting normal is a normal distribution whose mean and standard deviation <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(s\)</span> are calcaulted from the data.</p>
-<p>Of course, even if the data are drawn from a normal population, it is likely that the data mean and standard deviation in a small sample are not exactly the same as the mean and standard deviation of the population as a whole (because samples are random and we may happen to sample, for example, more tall or short ballerinas than we ‘should’).</p>
-<p>Below I drew 10,000 samples of size <span class="math notranslate nohighlight">\(n=10\)</span> from a large population of normally distributed values, and calcluated the mean and standard deviation of each sample</p>
+<p>The best-fitting Normal is a Normal distribution whose mean and standard deviation, (m) and (s), are calculated from the data.</p>
+<p>Of course, even if the data are drawn from a truly Normal population, the sample mean and standard deviation from a small sample will not usually be exactly equal to the population mean and standard deviation. This is because samples are random: for example, we might happen to sample more particularly tall or particularly short ballerinas than we would expect on average.</p>
+<p>Below, I drew 10,000 samples of size (<span class="math notranslate nohighlight">\(n = 10\)</span>) from a large population of Normally distributed values, and calculated the mean and standard deviation for each sample:</p>
 <ul class="simple">
-<li><p>sample means are normally distributed and centred on the true population mean</p></li>
-<li><p>sample standard deviations have a skewed distribution and tend to underestimate the population standard deviation</p></li>
+<li><p>Sample means are Normally distributed and centred on the true population mean.</p></li>
+<li><p>Sample standard deviations have a skewed distribution and tend to underestimate the true population standard deviation.</p></li>
 </ul>
 <p>Most importantly:</p>
 <ul class="simple">
-<li><p><strong>the sample mean and standard deviation are just estimates of the population mean and standard deviation and vary randomly from sample to sample</strong></p></li>
+<li><p><strong>The sample mean and standard deviation are only estimates of the population mean and standard deviation, and they vary randomly from sample to sample.</strong></p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_samplingdists.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_samplingdists.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_samplingdists.png" style="width: 80%;" />
 </a>
