@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1433,7 +1434,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(91.0), pvalue=np.float64(0.0004999500049995), null_distribution=array([51.5, 50. , 62.5, ..., 56.5, 56.5, 62. ], shape=(10000,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(91.0), pvalue=np.float64(0.0006999300069993001), null_distribution=array([52.5, 56. , 51.5, ..., 58.5, 53. , 59.5], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1450,7 +1451,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2397e43ff9d2f98aab66bc0e677732451d0c2db54d7736d2ac6f1f726749afb7.png" src="../_images/2397e43ff9d2f98aab66bc0e677732451d0c2db54d7736d2ac6f1f726749afb7.png" />
+<img alt="../_images/99fc03efc2b0303545d958c70b147250a7250e29d9186d552a6c3bff4bca3ba4.png" src="../_images/99fc03efc2b0303545d958c70b147250a7250e29d9186d552a6c3bff4bca3ba4.png" />
 </div>
 </div>
 <p>The null distribution is cut off at a minimum value of 49.5 because <span class="math notranslate nohighlight">\(U\)</span> is defined as the <em>larger</em> of the two rank-sum–based statistics for the two groups. The smallest possible value of this larger statistic occurs when high and low ranks are shared as evenly as possible between the groups, which in this case gives a minimum of 49.5.</p>
@@ -1462,7 +1463,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0004)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0006)
 </pre></div>
 </div>
 </div>

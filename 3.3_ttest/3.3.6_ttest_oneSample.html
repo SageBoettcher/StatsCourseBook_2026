@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -624,14 +625,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.5.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.5.2. Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">Plot the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rowers-height">3.5.2. Example: Rowers’ Height</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">3. Descriptive Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">4. Carry out the test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-up">3.5.3. Write-up</a></li>
@@ -648,6 +647,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="one-sample-t-test">
 <h1><span class="section-number">3.5. </span>One sample t-test<a class="headerlink" href="#one-sample-t-test" title="Link to this heading">#</a></h1>
+<p><em>A one-sample <span class="math notranslate nohighlight">\(t\)</span>-test tests whether the mean of a single sample differs from a specified population mean.</em></p>
 <section id="set-up-python-libraries">
 <h2><span class="section-number">3.5.1. </span>Set up Python libraries<a class="headerlink" href="#set-up-python-libraries" title="Link to this heading">#</a></h2>
 <p>As usual, run the code cell below to import the relevant Python libraries</p>
@@ -669,11 +669,32 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="example">
-<h2><span class="section-number">3.5.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<section id="example-rowers-height">
+<h2><span class="section-number">3.5.2. </span>Example: Rowers’ Height<a class="headerlink" href="#example-rowers-height" title="Link to this heading">#</a></h2>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/rowingTeam.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/rowingTeam.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/rowingTeam.png" style="width: 50%;" />
 </a>
-<p>Here are the heights in cm of eight men on a rowing team</p>
+<p>An observer notes that the men on a particular rowing team appear quite tall, and hypothesises that rowers are generally taller than average, perhaps because taller people can row faster.</p>
+<p>The heights (in cm) of eight men on a rowing team are recorded.</p>
+<p><strong>Question:</strong> use a one-sample <span class="math notranslate nohighlight">\(t\)</span>-test to determine whether the mean height of the rowing team is significantly greater than the average height of men in the UK (175 cm).</p>
+<p><em>Notes:</em></p>
+<ul class="simple">
+<li><p>This is a <strong>one-sample</strong> design: the sample mean is compared to a known population value.</p></li>
+<li><p>Height is a continuous variable that is often approximately Normally distributed in the population.</p></li>
+<li><p>The sample size is small (<span class="math notranslate nohighlight">\((n = 8)\)</span>), the population standard deviation is unknown and must be estimated from the sample.</p></li>
+<li><p>Under these conditions, a <strong>one-sample <span class="math notranslate nohighlight">\(t\)</span>-test</strong> is an appropriate choice.</p></li>
+<li><p>The hypothesis is <strong>directional</strong> (rowers are taller than average), which justifies a <strong>one-sided</strong> test.</p></li>
+</ul>
+<p><em>Practical steps</em></p>
+<ol class="arabic simple">
+<li><p>Inspect the data to check for extreme outliers and approximate Normality.</p></li>
+<li><p>State the formal hypotheses.</p></li>
+<li><p>Report the descriptive statistics (sample mean, standard deviation, and sample size).</p></li>
+<li><p>Run the one-sample <span class="math notranslate nohighlight">\(t\)</span>-test.</p></li>
+<li><p>Draw conclusions.</p></li>
+</ol>
+<section id="inspect-the-data">
+<h3>1. Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h3>
+<p>Let’s load the data as a Pandas dataframe, and plot them to get a sense for their distribution (is it normal?) and any outliers</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/rowersHeights.csv&#39;</span><span class="p">)</span>
@@ -740,14 +761,8 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>An observer notes that the men seem quite tall, and hypothesises that rowers are generally tall as tall people can row faster.</p>
-<p>Use a one-sample t-test to determine whether the mean height of the rowing team is
-significantly greater than the average height of men in the UK (175 cm).</p>
-<section id="plot-the-data">
-<h3>Plot the data<a class="headerlink" href="#plot-the-data" title="Link to this heading">#</a></h3>
-<p>First we plot the data to check if they are roughly normally distributed and check for outliers.
-As before, a KDE plot is useful to show the shape of the distribution, and a rug plot to show individual values,
-as the sample size is so small</p>
+<p><strong>Plot the data</strong></p>
+<p>As before, a KDE plot is useful to show the shape of the distribution, and a rug plot to show individual values, as the sample size is so small.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heights</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -762,24 +777,20 @@ as the sample size is so small</p>
 <img alt="../_images/c30cd21237f798f94ed3793f6ef5747c465a84d314e22f1161e9bb33d041ece7.png" src="../_images/c30cd21237f798f94ed3793f6ef5747c465a84d314e22f1161e9bb33d041ece7.png" />
 </div>
 </div>
-<p>As usual, it’s difficult to say if the data are normally distributed from a plot of a small sample -
-they don’t look too bad although there is one very tall outlier.</p>
-<p>However, height is generally normally distributed so let’s go ahead and use the t-test.</p>
+<p>As usual, it’s difficult to say if the data are normally distributed from a plot of a small sample - they don’t look too bad although there is one very tall outlier. However, height is generally normally distributed so let’s go ahead and use the t-test.</p>
 </section>
 <section id="hypotheses">
-<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
+<h3>2. Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: the mean height of rowers is greater than the population average of 175cm</p>
 <p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>: the mean higher of rowers is not different from the population average of 175cm</p>
-<p>This is a one-tailed test as the observer’s hypothesis (described above) is directional -
-she thinks taller people are more likely to be good rowers</p>
+<p>This is a one-tailed test as the observer’s hypothesis (described above) is directional - she thinks taller people are more likely to be good rowers</p>
 <p>We will test at the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> significance level</p>
 </section>
 <section id="descriptive-statistics">
-<h3>Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
+<h3>3. Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
 <p>First, we obtain the relevant desriptive statistics. By relevant, I mean the ones that go into the equation for the t-test:</p>
-<div class="math notranslate nohighlight">
-\[ t = \frac{\bar{x}}{\frac{s}{\sqrt{n}}} \]</div>
-<p>This would be the sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span>, the standard deviation <span class="math notranslate nohighlight">\(s\)</span>, and the sample size <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p><span class="math notranslate nohighlight">\( t = \frac{\bar{x}}{\frac{s}{\sqrt{n}}} \)</span></p>
+<p>This would be the sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span>, the standard deviation <span class="math notranslate nohighlight">\(s\)</span>, and the sample size <span class="math notranslate nohighlight">\(n\)</span>. These can all be read out from the <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -845,15 +856,20 @@ she thinks taller people are more likely to be good rowers</p>
 </table>
 </div></div></div>
 </div>
-<p>It looks like the mean height of rowers (180.4cm) is above the population mean of 175cm.</p>
-<p>Is this a big difference? It is less than one standard deviation above the mean: s=8.4 and (180.4-175)=5.4.
-It turns out (from the normal distribution) that if the average rower was an actual person, they would be taller than about 75% of others, so tall, but not remarkably so.</p>
-<p>However, another key element is the variability in the dataset - if the rowers are consistently quite tall (that is most of them are tall), they may as a group be significantly taller than average.</p>
+<p>It appears that the mean height of the rowers (180.4 cm) is above the population mean of 175 cm.</p>
+<p>Is this a large difference? The sample mean is less than one standard deviation above the population mean: the sample standard deviation is (s = 8.4) cm, and the difference in means is (180.4 - 175 = 5.4) cm. According to the Normal distribution, a person with this height would be taller than about 75% of the population—clearly tall, but not exceptionally so.</p>
+<p>However, another key consideration is the variability in the dataset. If the rowers are consistently tall (that is, if most of them are taller than average), then as a group they may be significantly taller than the population mean. To determine whether this difference is larger than we would expect by chance, we need to formally carry out the statistical test.</p>
 </section>
 <section id="carry-out-the-test">
-<h3>Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h3>
-<p>To do the t-test itself we use a one-sample t-test using the function <tt>ttest_1samp</tt> (that’s <code class="docutils literal notranslate"><span class="pre">stats.1samp()</span></code> for one sample) from
-<code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></p>
+<h3>4. Carry out the test<a class="headerlink" href="#carry-out-the-test" title="Link to this heading">#</a></h3>
+<p>We carry out the test using the function <code class="docutils literal notranslate"><span class="pre">stats.ttest_1samp()</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<p>The inputs to <code class="docutils literal notranslate"><span class="pre">stats.ttest_1samp()</span></code> are:</p>
+<ul class="simple">
+<li><p>the sample to be tested (the values in the <code class="docutils literal notranslate"><span class="pre">heights</span></code> column of our Pandas DataFrame);</p></li>
+<li><p>the reference value to compare against (the average height of men in the UK, 175 cm);</p></li>
+<li><p>the argument <code class="docutils literal notranslate"><span class="pre">alternative='greater'</span></code>, which specifies a one-tailed test in which the mean of the sample (<code class="docutils literal notranslate"><span class="pre">heights</span></code>) is expected to be greater than the reference value (175 cm).</p></li>
+</ul>
+<p>The outputs are the value of the test statistic (<span class="math notranslate nohighlight">\(t = 1.70\)</span>) and the associated p-value (<span class="math notranslate nohighlight">\(p = 0.067\)</span>). Because this p-value is greater than our chosen significance level (<span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>), we do not find a statistically significant difference.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
@@ -866,28 +882,19 @@ It turns out (from the normal distribution) that if the average rower was an act
 </div>
 </div>
 </div>
-<p>The inputs to stats.ttest_1samp are the sample (from our Pandas data frame <tt>heights</tt>) and the value to which they are to be compared (the average height of british men, 175cm),
-and the argument <tt>alternative=’greater’</tt>, which tells the computer to run a one tailed test
-that mean of the first input <tt>heights</tt> is greater than the reference value <tt>175</tt>.</p>
-<p>The outputs are <tt>statistic</tt> (<span class="math notranslate nohighlight">\(t=1.70\)</span>) and <tt>pvalue</tt> (<span class="math notranslate nohighlight">\(p=0.067\)</span>) - if this is less than our <span class="math notranslate nohighlight">\(\alpha\)</span> value 0.5, there is a significant difference.</p>
-</section>
-<section id="degrees-of-freedom">
-<h3>Degrees of freedom<a class="headerlink" href="#degrees-of-freedom" title="Link to this heading">#</a></h3>
+<p><strong>Degrees of freedom</strong></p>
 <p>In a scientific write-up we also need to report the degrees of freedom of the test. This tells us how many observations (data-points) the test was based on, corrected for the number of means we had to estimate from the data in order to do the test.</p>
 <p>In the case of the one sample t-test <span class="math notranslate nohighlight">\(df = n-1\)</span> so in this case, df=7 and we can report out test results as:</p>
 <p><span class="math notranslate nohighlight">\(t(7) = 1.70, p=0.067\)</span> (one-tailed)</p>
 </section>
-<section id="interpretation">
-<h3>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h3>
+<section id="draw-conclusions">
+<h3>5. Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
 <p>Our t value of 1.67 means that the difference between the mean height of the rowers and the standard value (175cm, the mean height of British men) is 1.67 times the standard error (where <span class="math notranslate nohighlight">\( SE = \frac{s}{\sqrt{n}}\)</span>).</p>
 <p>Such a large difference (in the expected direction) would occur 0.067 (6.7%) of the time due to chance if the null hypothesis were true (rowers were no taller than other men), hence the p value of 0.067. This is higher than our alpha value (0.05) so the test is not significant.</p>
 <p>This diagram shows the expected distribution of t-values if the null were true, with our obtained t-value marked:</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestRowing.png"><img alt="There should be a picture of the t-distribution here" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/ttestRowing.png" style="width: 50%;" />
 </a>
-</section>
-<section id="draw-conclusions">
-<h3>Draw conclusions<a class="headerlink" href="#draw-conclusions" title="Link to this heading">#</a></h3>
-<p>As p&gt;0.05 the test is not significant and we fail to reject the null hypothesis. There is not sufficient evidence to support the hypothesis that rowers are taller than average.</p>
+<p><em><strong>As p&gt;0.05 the test is not significant and we fail to reject the null hypothesis. There is not sufficient evidence to support the hypothesis that rowers are taller than average.</strong></em></p>
 </section>
 </section>
 <section id="write-up">
@@ -922,22 +929,69 @@ that mean of the first input <tt>heights</tt> is greater than the reference valu
 <p>The mean height of the rowers was XXX.X cm and the standard deviation was X.XX cm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/rowersHeights.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/data/rowersHeights.csv&#39;</span><span class="p">)</span>
 <span class="n">heights</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">heights</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/rowersHeights.csv&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">heights</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;pandas&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>8.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>180.412500</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>9.013868</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>166.500000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>176.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>180.050000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>182.250000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>198.100000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We used a one-sample t-test (alpha = X, XX tailed). The use of the t-test (assumption of normality) was justified theoretically on the grounds that heights are typically normally distributed.</p>
 <div class="cell docutils container">
@@ -947,7 +1001,7 @@ that mean of the first input <tt>heights</tt> is greater than the reference valu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_1sampResult(statistic=array([1.6983676]), pvalue=array([0.06662235]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=array([1.6983676]), pvalue=array([0.06662235]), df=array([7]))
 </pre></div>
 </div>
 </div>
@@ -1021,14 +1075,12 @@ that mean of the first input <tt>heights</tt> is greater than the reference valu
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-python-libraries">3.5.1. Set up Python libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">3.5.2. Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-data">Plot the data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">Carry out the test</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">Draw conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rowers-height">3.5.2. Example: Rowers’ Height</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">1. Inspect the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">2. Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">3. Descriptive Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carry-out-the-test">4. Carry out the test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-conclusions">5. Draw conclusions</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write-up">3.5.3. Write-up</a></li>

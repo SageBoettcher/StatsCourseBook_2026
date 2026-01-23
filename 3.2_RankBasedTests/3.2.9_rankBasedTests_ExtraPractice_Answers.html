@@ -319,6 +319,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1105,7 +1106,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12b0ef890&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12c9449d0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/28792437544a9b40b3ce349bc14587fa147e997491b35ffe1239307bbda87bea.png" src="../_images/28792437544a9b40b3ce349bc14587fa147e997491b35ffe1239307bbda87bea.png" />
@@ -1262,8 +1263,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-3.6875146133206305), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([ 0.01140939, -0.77793993,  1.38959121, ..., -0.92677242,
-        0.83612175,  0.67612175], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-3.6875146133206305), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.53793993,  0.40313606,  0.80339448, ...,  1.9093328 ,
+        0.02884902, -0.0506672 ], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1277,7 +1278,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a28d4c52ffc3f209d4fd4b1e0aa5d6ba12c865e3f0fed0eb25a950b026c1bd4f.png" src="../_images/a28d4c52ffc3f209d4fd4b1e0aa5d6ba12c865e3f0fed0eb25a950b026c1bd4f.png" />
+<img alt="../_images/03a87cc724160b41eb5149650a3bd8351c84c8da825fb82f4f0858d366b6c8a1.png" src="../_images/03a87cc724160b41eb5149650a3bd8351c84c8da825fb82f4f0858d366b6c8a1.png" />
 </div>
 </div>
 </section>
@@ -1296,7 +1297,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;BeforeLunchScore&#39;, ylabel=&#39;AfterLunchScore&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2e3a60faa9d874c6166e46c285bf2b591fc7bbaede58b9c4bfad0e3e8a4bd08b.png" src="../_images/2e3a60faa9d874c6166e46c285bf2b591fc7bbaede58b9c4bfad0e3e8a4bd08b.png" />
+<img alt="../_images/5377e107eb52f5a197d6f2c4212bc4ad0fcfaf384f3a39934db58a3488ae40aa.png" src="../_images/5377e107eb52f5a197d6f2c4212bc4ad0fcfaf384f3a39934db58a3488ae40aa.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1326,8 +1327,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8007124172606844), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([ 0.0445474 , -0.02762292, -0.16980013, ...,  0.01142445,
-        0.15812014,  0.05295906], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8007124172606844), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.19121053, -0.11476485,  0.07000239, ..., -0.02259182,
+        0.02665563,  0.15739915], shape=(10000,)))
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1341,7 +1345,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/aa0badd54b227bce8dc74b59faeca5b554dc063553addbf331510f4d05fd3afb.png" src="../_images/aa0badd54b227bce8dc74b59faeca5b554dc063553addbf331510f4d05fd3afb.png" />
+<img alt="../_images/02ab5ea3184b0cab42a826e281e5d804d30085ed66b39bbb3dfbbb6b1a8cf9e2.png" src="../_images/02ab5ea3184b0cab42a826e281e5d804d30085ed66b39bbb3dfbbb6b1a8cf9e2.png" />
 </div>
 </div>
 <section id="does-meat-vs-veg-lunch-matter">
@@ -1475,8 +1479,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-1.0115407800943004), pvalue=np.float64(0.6941305869413059), null_distribution=array([ 3.90557879,  1.77582335, -0.65284513, ..., -2.69292665,
-       -0.54769451,  4.84768593], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-1.0115407800943004), pvalue=np.float64(0.7097290270972902), null_distribution=array([-1.61836491,  2.05132375, -1.04143208, ..., -4.60002252,
+        3.98030705, -3.05856407], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1490,7 +1494,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/278ffdf9b485414b54da19deb94b14ba72f475fb86240326b237f5da9f53720f.png" src="../_images/278ffdf9b485414b54da19deb94b14ba72f475fb86240326b237f5da9f53720f.png" />
+<img alt="../_images/f7501d18cf7a73134604921eae1662437cc283074b2a8aeac59b3a69dc4efb3a.png" src="../_images/f7501d18cf7a73134604921eae1662437cc283074b2a8aeac59b3a69dc4efb3a.png" />
 </div>
 </div>
 </section>

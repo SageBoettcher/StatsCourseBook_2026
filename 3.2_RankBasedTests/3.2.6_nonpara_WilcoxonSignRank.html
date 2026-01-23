@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -846,7 +847,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x14388fc90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x14340f7d0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/9de646ea5506c6303fb167ae24df740b83fd6edbabc75ec0198537ed77aee63d.png" src="../_images/9de646ea5506c6303fb167ae24df740b83fd6edbabc75ec0198537ed77aee63d.png" />
@@ -1149,12 +1150,12 @@ document.write(`
 <p>More explanation of how T is calculated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">FirstBorn</span><span class="p">,</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">SecondBorn</span><span class="p">,</span><span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">FirstBorn</span><span class="p">,</span><span class="n">birthOrder</span><span class="o">.</span><span class="n">SecondBorn</span><span class="p">,</span><span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=np.float64(164.0), pvalue=np.float64(0.013527256138975607))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WilcoxonResult(statistic=np.float64(46.0), pvalue=np.float64(0.027054512277951213))
 </pre></div>
 </div>
 </div>

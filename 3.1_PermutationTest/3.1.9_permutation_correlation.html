@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -953,10 +954,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3911400209702381
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3011510365685923
 </pre></div>
 </div>
-<img alt="../_images/5adf6531f7c64f3a83932391922e043664393ebf42554674066f358ab5493ef4.png" src="../_images/5adf6531f7c64f3a83932391922e043664393ebf42554674066f358ab5493ef4.png" />
+<img alt="../_images/fb993f02b1fea963589d9ecc202a2bba8fabf3db616c90af283c126b13007ecb.png" src="../_images/fb993f02b1fea963589d9ecc202a2bba8fabf3db616c90af283c126b13007ecb.png" />
 </div>
 </div>
 </section>
@@ -986,7 +987,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2011583f5d0f41a203f9beb64f9a671a2b2b4c9b07c756f88185877ea139094a.png" src="../_images/2011583f5d0f41a203f9beb64f9a671a2b2b4c9b07c756f88185877ea139094a.png" />
+<img alt="../_images/bd5b2d2f952bd000a11c4a66399cdf64053714a1c688512722c7b1f038c974f9.png" src="../_images/bd5b2d2f952bd000a11c4a66399cdf64053714a1c688512722c7b1f038c974f9.png" />
 </div>
 </div>
 <p>With 100 permutations you can already see the null distribution taking shape. Maybe you can also notice, that the “random” correlations tend to be much lower than what we found in our original data set. Importantly, most of the permutations center around a correlation of 0, indicating now relationship between the variables. However how often do we see a person r at least as large as we observed in data set (i.e., 0.8)? To increase our confidence we probably want to run even more permutations!</p>
@@ -1010,8 +1011,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8011532312132079), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.06890764, -0.26505251,  0.18584461, ..., -0.07630488,
-       -0.27091522,  0.07199402], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8011532312132079), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([ 0.31868013, -0.56739498,  0.04777593, ...,  0.26804052,
+        0.41584759, -0.03473476], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1035,7 +1036,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/944fe799c04ab4bb53d876df8fc7bbeb83ba596bc45b3778ca17c58e99d4c741.png" src="../_images/944fe799c04ab4bb53d876df8fc7bbeb83ba596bc45b3778ca17c58e99d4c741.png" />
+<img alt="../_images/e05553cf70c4d32eaebbf79c41933d2a06472955d3d32e8fb17ac55cc19e2365.png" src="../_images/e05553cf70c4d32eaebbf79c41933d2a06472955d3d32e8fb17ac55cc19e2365.png" />
 </div>
 </div>
 <p>We can see that the null distribution is nice and symmetrical (the average correlation in shuffled data is zero, whilst positive and negative correlations are equally likely)</p>

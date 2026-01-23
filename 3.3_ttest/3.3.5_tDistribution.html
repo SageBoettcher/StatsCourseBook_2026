@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -618,19 +619,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-t-distribution">
 <h1><span class="section-number">3.4. </span>The t distribution<a class="headerlink" href="#the-t-distribution" title="Link to this heading">#</a></h1>
-<p>The <span class="math notranslate nohighlight">\(t\)</span> distribution describes the shape of the best-estimate <strong>sampling distribution of the mean</strong> when data are drawn from a normal distribution and the best-fitting normal distribution (ie, it mean and standard deviation) have been estimated from a small sample.</p>
+<p>The <span class="math notranslate nohighlight">\(t\)</span> distribution describes the shape of the best-estimate <strong>sampling distribution of the mean</strong> when data are drawn from a normal distribution and the best-fitting normal distribution (ie, its mean and standard deviation) have been estimated from a small sample.</p>
 <section id="sampling-distribution-of-the-mean">
 <h2><span class="section-number">3.4.1. </span>Sampling distribution of the mean<a class="headerlink" href="#sampling-distribution-of-the-mean" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The <strong>sampling distribution of the mean</strong> is the distribution you would get if you took many different samples of size <span class="math notranslate nohighlight">\(n\)</span> from the population and calculated each of their means</p></li>
-<li><p>The <strong>null distribution</strong> is the sampling distribution of the mean (or another test statistic) that we would expect to get if the null hypothesis were true</p></li>
+<li><p>The <strong>sampling distribution of the mean</strong> is the distribution you wuld obtain if you repeatedly took many different samples of size <span class="math notranslate nohighlight">\(n\)</span> from the population and calculated the mean for each sample</p></li>
+<li><p>The <strong>null distribution</strong> is the sampling distribution of the mean (or different test statistic) that we would expect to observe if the null hypothesis were true</p></li>
 </ul>
 </section>
 <section id="scaling-by-sample-size">
 <h2><span class="section-number">3.4.2. </span>Scaling by sample size<a class="headerlink" href="#scaling-by-sample-size" title="Link to this heading">#</a></h2>
 <p>Recall from the previous lecture that the spread of the sampling distribution of the mean depends on the sample size. More precisely:</p>
 <ul class="simple">
-<li><p>The standard deviation of the sampling distribution of the mean is the standard error, <span class="math notranslate nohighlight">\(s/\sqrt{n}\)</span> where <span class="math notranslate nohighlight">\(s\)</span> is the sample standard deviation and <span class="math notranslate nohighlight">\(n\)</span> is the sample size</p></li>
+<li><p>The standard deviation of the sampling distribution of the mean is the <strong>standard error</strong>, <span class="math notranslate nohighlight">\(s/\sqrt{n}\)</span> where <span class="math notranslate nohighlight">\(s\)</span> is the sample standard deviation and <span class="math notranslate nohighlight">\(n\)</span> is the sample size</p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_tvsn.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_tvsn.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_tvsn.png" style="width: 80%;" />
 </a>
@@ -638,14 +639,15 @@ document.write(`
 <section id="pointy-top-heavy-tails">
 <h2><span class="section-number">3.4.3. </span>Pointy top, heavy tails<a class="headerlink" href="#pointy-top-heavy-tails" title="Link to this heading">#</a></h2>
 <p>The <span class="math notranslate nohighlight">\(t\)</span> distribution looks a lot like the normal distribution, but it has a pointy top and heavy tails.</p>
-<p>The <span class="math notranslate nohighlight">\(t\)</span> distribution actually changes shape depending on the sample size used to fit the best-fitting normal:</p>
+<p>Importantly, the shape of the <span class="math notranslate nohighlight">\(t\)</span> distribution depends on the sample size used to estimate the best-fitting Normal distribution:</p>
 <ul class="simple">
 <li><p>when the sample is tiny (<span class="math notranslate nohighlight">\(n=2\)</span>) we get an extreme pointy top and heavy tails</p></li>
 <li><p>as the sample size gets large (about 30) the t distribution is almost identical to the normal distribution</p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_tDist.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_tDist.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp6_tDist.png" style="width: 80%;" />
 </a>
-<p>This distinction may appear subtle but remember that when a value is statistically significant, it lies in the tails of the null distribution. So if the <span class="math notranslate nohighlight">\(t\)</span>-distribution is the sampling distribution of the mean under the null hypothesis, <strong>we will be looking closely at its tails</strong> to determine the probability that our result (difference of means) could have arisen due to chance.</p>
+<p>This distinction may seem subtle, but remember that a statistically significant result lies in the <strong>tails</strong> of the null distribution. If the <span class="math notranslate nohighlight">\(t\)</span> distribution represents the sampling distribution of the mean under the null hypothesis, then <strong>it is the behaviour of its tails that matters most</strong>.</p>
+<p>In practice, we examine these tails to determine how likely it is that our observed result (such as a difference in means) could have arisen purely by chance.</p>
 <section id="why-heavy-tails">
 <h3>Why heavy tails?<a class="headerlink" href="#why-heavy-tails" title="Link to this heading">#</a></h3>
 <p><em>You can skip this bit if you don’t fancy it; it is sufficient to understand that the <span class="math notranslate nohighlight">\(t\)</span>-distribution has heavy tails because of ‘something to do with estimating the standard deviation’!</em></p>
@@ -655,16 +657,17 @@ document.write(`
 </section>
 <section id="analogy-t-and-z">
 <h2><span class="section-number">3.4.4. </span>Analogy: <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(Z\)</span><a class="headerlink" href="#analogy-t-and-z" title="Link to this heading">#</a></h2>
-<p>We saw that if data are normally distributed, that when we <em>standardize</em> data by converting the data to Z-scores, we create a distribution (of Z) with a fixed mean (zero) and standard deviation (1). If the data mean is <span class="math notranslate nohighlight">\(\bar{x}\)</span> and standard deviation <span class="math notranslate nohighlight">\(s\)</span>:</p>
+<p>We saw earlier that, if data are Normally distributed, then <em>standardising</em> the data by converting values to <strong>Z-scores</strong> produces a distribution with a fixed mean (0) and standard deviation (1).</p>
+<p>If the data have sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span> and sample standard deviation <span class="math notranslate nohighlight">\(s\)</span>, then each observation can be converted to a Z-score by:</p>
 <div class="math notranslate nohighlight">
 \[ Z - \frac{x-\bar{x}}{\frac{s}{\sqrt{n}}} \]</div>
-<p>From this standardied distribution, we can directly read off the probability of a given data value (eg the probability ot a Z-score greater than 1 is 15%)</p>
-<p>Similarly for sample means, if we standardize by converting to <span class="math notranslate nohighlight">\(t\)</span>-scores:</p>
+<p>From this standardised distribution, we can directly read off the probability of observing a given data value. For example, the probability of obtaining a Z-score greater than 1 is about 15%.</p>
+<p>Similarly, for sample means, we can <em>standardise</em> them by converting them to <strong><span class="math notranslate nohighlight">\(t\)</span>-scores</strong>:</p>
 <div class="math notranslate nohighlight">
 \[ t = \frac{\bar{x}}{\frac{s}{sqrt{n}}} \]</div>
-<p>This standardized distribution tells us the probability of a sample mean as large as our observed one <span class="math notranslate nohighlight">\(\bar{x}\)</span> (or larger) if the population mean was really zero</p>
+<p>This standardised distribution tells us the probability of obtaining a sample mean as large as our observed value <span class="math notranslate nohighlight">\(\bar{x}\)</span> (or larger) if the population mean were truly zero</p>
 <ul class="simple">
-<li><p>This is the probability of the sample mean arising due to chance under the null hypothesis, if the null hypothesis is that the population mean is zero.</p></li>
+<li><p>This probability represents the chance of observing such a sample mean purely due to random sampling variation under the null hypothesis, when the null hypothesis states that the population mean is zero.</p></li>
 </ul>
 </section>
 <section id="link-to-t-test">

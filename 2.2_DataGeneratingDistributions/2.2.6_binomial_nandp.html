@@ -321,6 +321,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.7_ttest_pairedSamples.html">3.6. Paired Samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.8_ttest_independentSamples.html">3.7. Independent samples t-test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.9_TutorialExercises.html">3.8. Tutorial Exercises: <span class="math notranslate nohighlight">\(t\)</span>-test and non-parametric equivalents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.3_ttest/3.3.10_ttest_ExtraPractice.html">3.9. Extra Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -693,7 +694,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.993863548496582
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7797244815659917
 is it a hit?:            1
 </pre></div>
 </div>
@@ -724,7 +725,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ff8aa0b8acc02f22ffd840994034716348788bcf97498feea14029d529370581.png" src="../_images/ff8aa0b8acc02f22ffd840994034716348788bcf97498feea14029d529370581.png" />
+<img alt="../_images/99ae284db96cb7bfd26cde97835008d027ded989f8dc7086e2a3dbcf85952585.png" src="../_images/99ae284db96cb7bfd26cde97835008d027ded989f8dc7086e2a3dbcf85952585.png" />
 </div>
 </div>
 <p>What if we change <span class="math notranslate nohighlight">\(p\)</span> to be 0.7 instead?</p>
@@ -745,7 +746,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3e5d8e229c59d530c6c1ee1693e355a10323b5a675f5481f93297df552e1cc3f.png" src="../_images/3e5d8e229c59d530c6c1ee1693e355a10323b5a675f5481f93297df552e1cc3f.png" />
+<img alt="../_images/662a463361e405369116f4f8c36978ace33e4388e4bdbce571981a9ec131b458.png" src="../_images/662a463361e405369116f4f8c36978ace33e4388e4bdbce571981a9ec131b458.png" />
 </div>
 </div>
 <p>You should notice after modifying the simulation so that <span class="math notranslate nohighlight">\(p=0.7\)</span>:</p>
@@ -778,7 +779,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean(k) = 7.0145
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean(k) = 7.002
 n*p = 7.0
 </pre></div>
 </div>
@@ -808,7 +809,7 @@ n*p = 7.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b6acfeecc233c714154c6fe6d184ce51818d7681708c93d0043a551d3ca0396e.png" src="../_images/b6acfeecc233c714154c6fe6d184ce51818d7681708c93d0043a551d3ca0396e.png" />
+<img alt="../_images/baa405ffdcc5b27e9b703ae15f122ec71f7f8e8521f3d1f90d38fb59fde8024b.png" src="../_images/baa405ffdcc5b27e9b703ae15f122ec71f7f8e8521f3d1f90d38fb59fde8024b.png" />
 </div>
 </div>
 <p>We can see that the peak of the histogram is where we expect (the most common value of <span class="math notranslate nohighlight">\(k\)</span> is around 50, which matches the theoretical mean <span class="math notranslate nohighlight">\(np\)</span>). However, notice that the spread of the histogram is now narrower relative to the possible range of <span class="math notranslate nohighlight">\(k\)</span> (i.e., from 0 to <span class="math notranslate nohighlight">\(n\)</span>) compared to when our value of $n was smaller.</p>
@@ -837,7 +838,7 @@ n*p = 7.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>std(k) = 5.064819518995717
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>std(k) = 4.956509255514408
 sqrt(npq) = 5.0
 </pre></div>
 </div>
@@ -884,7 +885,7 @@ sqrt(npq) = 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2a3ecf10a7e1ad9c0b6b03278ca51338711ee91d402a392ba337751946b80ede.png" src="../_images/2a3ecf10a7e1ad9c0b6b03278ca51338711ee91d402a392ba337751946b80ede.png" />
+<img alt="../_images/7ff9715ec1026e6504efe78d33780ef475d3404e85348aa446e396b204c77bf7.png" src="../_images/7ff9715ec1026e6504efe78d33780ef475d3404e85348aa446e396b204c77bf7.png" />
 </div>
 </div>
 </section>
