@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -919,8 +920,8 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.7812255461336072), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([0.39175883, 0.38382975, 0.03416542, ..., 0.152552  , 0.08542963,
-       0.01328291], shape=(10000,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.7812255461336072), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.1482033 , -0.02149511,  0.26764133, ..., -0.20150866,
+        0.29967166, -0.12363102], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1020,7 +1021,7 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/849b0d83dd423dac189da1dd3bd10eb7fe00d27333348be60b3ec06d684532fe.png" src="../_images/849b0d83dd423dac189da1dd3bd10eb7fe00d27333348be60b3ec06d684532fe.png" />
+<img alt="../_images/628cb364d8c0adc1969d03fb1ee32d9e1cd86d4b1e12fd9a6c5595dec6682af8.png" src="../_images/628cb364d8c0adc1969d03fb1ee32d9e1cd86d4b1e12fd9a6c5595dec6682af8.png" />
 </div>
 </div>
 <p><strong>c) Carry out the test</strong></p>
@@ -1039,8 +1040,8 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(3.9630672926447517), pvalue=np.float64(0.1065893410658934), null_distribution=array([-2.28169014,  1.45790297,  0.51392801, ..., -4.75054773,
-       -1.80970266, -1.66447574], shape=(10000,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(3.9630672926447517), pvalue=np.float64(0.10418958104189581), null_distribution=array([-0.93834116,  0.94960876,  3.23693271, ..., -0.2485133 ,
+        2.22034429,  4.61658842], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1127,7 +1128,7 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e9b578e7c0035d5a5a3fba173059245cedd6f5d210bfca3d00a1e3523e88c9f2.png" src="../_images/e9b578e7c0035d5a5a3fba173059245cedd6f5d210bfca3d00a1e3523e88c9f2.png" />
+<img alt="../_images/ea68ee5cd851a3e7068b7ca8548971296241e80b6e245f38975172b6fcaeffb1.png" src="../_images/ea68ee5cd851a3e7068b7ca8548971296241e80b6e245f38975172b6fcaeffb1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1162,8 +1163,8 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.584717607973417), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([ 1.12292359, -0.65116279, -0.09966777, ..., -0.23255814,
-       -0.19933555, -0.55813953], shape=(10000,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.584717607973417), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.46511628, -0.38538206, -0.12624585, ...,  0.85049834,
+        0.59136213,  0.33887043], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1294,7 +1295,7 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a1b4ba9bd549a4a09b0a6c525049cdd0c10a2d1e2201d0208a4a31c4e47f8a4b.png" src="../_images/a1b4ba9bd549a4a09b0a6c525049cdd0c10a2d1e2201d0208a4a31c4e47f8a4b.png" />
+<img alt="../_images/0710fb41ef3bcaf020c484ee52d806adaaa6e81e48e0d4f3a6c7ab9efbaa2891.png" src="../_images/0710fb41ef3bcaf020c484ee52d806adaaa6e81e48e0d4f3a6c7ab9efbaa2891.png" />
 </div>
 </div>
 <p><strong>c. Carry out the test</strong></p>
@@ -1312,8 +1313,8 @@ n post = 61
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8040571480904846), pvalue=np.float64(0.24097590240975902), null_distribution=array([-0.31239124,  0.47325762, -2.88987087, ..., -0.61562414,
-        1.81023903, -1.44262295], shape=(10000,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8040571480904846), pvalue=np.float64(0.23677632236776322), null_distribution=array([ 0.8591904 , -1.15317337, -0.43644107, ...,  0.9556736 ,
+       -0.35374119,  1.63105596], shape=(10000,)))
 </pre></div>
 </div>
 </div>

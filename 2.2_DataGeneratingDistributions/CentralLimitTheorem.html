@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -809,11 +810,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[59 23 26 39 20 29 60 43 13 31 44 42 20 59 80 51 26 13 43 33 71 22 75 77
- 83 24 46 39 53 42 80 88 85 90 78 30 27 75 30 46 24 69 84 70 75 18 87 29
- 85 89 86 11 67 30 22 35 41 30 76 66 26 26 70 81 71 86  9 27 75 21 13 21
- 31 36 31 51 85 51 17 36 81 21 82 72 20 36 30 83 53 77 29 31 79 50 57 76
- 27 17 19 20]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[77 80 77 52 76 39 36 83 25 25 33 38 30 26 28 73 38 51 78 76 83 82 17 52
+ 33 18 83 81 43 76 84 21 16 50 24 14 32 76 29 82 28 29 85 19 18 17 14 84
+ 48 52 80 79 47 43 84 45 71 59 24 36 23 48 39 37 27 24 88 52 82 34 39 78
+ 24 22 30 76 26 81 38 17 43 56 26 28 40 51 80 52 29 84 40 21 54 75 73 43
+ 34 58 31 35]
 </pre></div>
 </div>
 </div>
@@ -831,7 +832,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ef99786652548357f03395d217bd631eb2c230398346e5fc8d8a59b235322619.png" src="../_images/ef99786652548357f03395d217bd631eb2c230398346e5fc8d8a59b235322619.png" />
+<img alt="../_images/3312e52d7e4cd20bdec7b96aff77e21bf73f05b519ab61e3e7228f29acee9553.png" src="../_images/3312e52d7e4cd20bdec7b96aff77e21bf73f05b519ab61e3e7228f29acee9553.png" />
 </div>
 </div>
 <p>Hopefully we can see that the distribution within the sample resembles the shape of the distribution in the national sample, with two peaks, although somewhat noisier</p>
@@ -851,7 +852,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9da5a7993dd0c3b39c230a2e8c98ff471a0c5db33b0e934d4ea5626e016ec4b9.png" src="../_images/9da5a7993dd0c3b39c230a2e8c98ff471a0c5db33b0e934d4ea5626e016ec4b9.png" />
+<img alt="../_images/03223b19854f4a70a8f742c2ab88ad5b9193a118abffff6f4726423f12f1cbcc.png" src="../_images/03223b19854f4a70a8f742c2ab88ad5b9193a118abffff6f4726423f12f1cbcc.png" />
 </div>
 </div>
 <p>Notice that we always manage to reproduce the bimodal shape, albeit with random variability.</p>
@@ -902,7 +903,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;sample mean&#39;)
 </pre></div>
 </div>
-<img alt="../_images/acbc2ad45bbc7dd2cec871094708035511d235a808c996b8442aa05f2261427e.png" src="../_images/acbc2ad45bbc7dd2cec871094708035511d235a808c996b8442aa05f2261427e.png" />
+<img alt="../_images/94e0adc68b6542586cf6aba43d19738cf453ae42bc5be1c84edbb7772f972294.png" src="../_images/94e0adc68b6542586cf6aba43d19738cf453ae42bc5be1c84edbb7772f972294.png" />
 </div>
 </div>
 <p>The distribution of sample means is approximately normal.</p>
@@ -916,7 +917,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(49.876418)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(49.873919)
 </pre></div>
 </div>
 </div>
@@ -933,7 +934,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.4757118631367425)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.4621888009328203)
 </pre></div>
 </div>
 </div>
@@ -965,7 +966,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd of sampling distribution (from simulation) = 2.4757118631367425
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd of sampling distribution (from simulation) = 2.4621888009328203
 SEM from the formula = 2.479272056187634
 </pre></div>
 </div>
@@ -1006,7 +1007,7 @@ SEM from the formula = 2.479272056187634
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7489699c8cb1cb36c9da1dcddb5e74b553f33e3d4f7d50b56262a041fc632af7.png" src="../_images/7489699c8cb1cb36c9da1dcddb5e74b553f33e3d4f7d50b56262a041fc632af7.png" />
+<img alt="../_images/6e8b21cfb61281fe7f059e817901abb2873f12321be8cd48426b3e3452528e90.png" src="../_images/6e8b21cfb61281fe7f059e817901abb2873f12321be8cd48426b3e3452528e90.png" />
 </div>
 </div>
 </section>
@@ -1033,7 +1034,7 @@ SEM from the formula = 2.479272056187634
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1c5654c3367895339847d211cdecc2105e1cc6a6b428c16052f879b1b79d10e2.png" src="../_images/1c5654c3367895339847d211cdecc2105e1cc6a6b428c16052f879b1b79d10e2.png" />
+<img alt="../_images/853564219832e532e2e20e546e8eca10660c327f8fc9ebc80b8d094865b83062.png" src="../_images/853564219832e532e2e20e546e8eca10660c327f8fc9ebc80b8d094865b83062.png" />
 </div>
 </div>
 <p>Now we make our predicted normal sampling distribution of the mean.</p>
@@ -1086,7 +1087,7 @@ SEM from the formula = 2.479272056187634
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
-<img alt="../_images/012f2a1977859e19477eadf09cbe715a436457f5c981105fe805d70bacd39e6c.png" src="../_images/012f2a1977859e19477eadf09cbe715a436457f5c981105fe805d70bacd39e6c.png" />
+<img alt="../_images/19e4350091036d216293509992a3e470d22eed337c8ad0b5148eb7d24c0e8c14.png" src="../_images/19e4350091036d216293509992a3e470d22eed337c8ad0b5148eb7d24c0e8c14.png" />
 </div>
 </div>
 <p>This is not a bad match!</p>
@@ -1115,7 +1116,7 @@ SEM from the formula = 2.479272056187634
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.0158 or 1.58%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of sample means greater than 55.1 = 0.0199 or 1.9900000000000002%
 </pre></div>
 </div>
 </div>

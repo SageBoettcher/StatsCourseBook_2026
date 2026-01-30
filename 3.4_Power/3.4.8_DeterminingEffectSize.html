@@ -327,8 +327,8 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="3.4.1_power_intro.html">4. Power analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -444,6 +445,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/SageBoettcher/StatsCourseBook_2026/blob/master/3.4_Power/3.4.8_DeterminingEffectSize.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -499,7 +531,7 @@
       
       
       
-      <li><a href="../_sources/3.4_Power/3.4.8_DeterminingEffectSize.md" target="_blank"
+      <li><a href="../_sources/3.4_Power/3.4.8_DeterminingEffectSize.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -509,7 +541,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -618,37 +650,45 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="knowing-the-effect-size">
 <h1><span class="section-number">4.9. </span>Knowing the effect size<a class="headerlink" href="#knowing-the-effect-size" title="Link to this heading">#</a></h1>
 <p>Some sleight of hand has been at play in this chapter.</p>
-<p>I said that to do power analysis we assume <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true, then I simulated data with a certain effect size.</p>
-<p>So I went from this:</p>
-<p><em>I collect data on end-of year exam scores in Maths and French for 50 high school studehts. Then I calculate the correlation coefficient, Pearson’s r, between Maths and French scores across my sample of 50 participants.</em></p>
+<p>I said that, in power analysis, we assume the alternative hypothesis <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span> is true, and then simulate data with a particular effect size. But this raises an obvious question: <strong>where did that effect size come from?</strong></p>
+<p>We started from this situation:</p>
+<p><em>I collect data on end-of-year exam scores in Maths and French for 50 high school students, and calculate Pearson’s <span class="math notranslate nohighlight">\(r\)</span> between Maths and French scores.</em></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathcal{H_0}\)</span> <em>Under the null hypothesis there is no correlation between maths scores and French scores</em></p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> <em>Under the alternative hypothesis, there is a correlation</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span>: Under the null hypothesis there is no correlation between Maths and French scores.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span>: Under the alternative hypothesis there is a correlation.</p></li>
 </ul>
-<p>to this:</p>
+<p>But then, to perform a power analysis, we jumped to this assumption:</p>
 <ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true, the population correlation is <span class="math notranslate nohighlight">\(\rho=0.25\)</span></p></li>
+<li><p><em>If <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span> is true, the population correlation is <span class="math notranslate nohighlight">\(r = 0.25\)</span>.</em></p></li>
 </ul>
-<p>How did I actually decide what effect size (value of <span class="math notranslate nohighlight">\(\rho=0.25\)</span>) to use in my simulated ‘correlated population’ and hence in my power calculation?</p>
+<p>How did we decide to use <span class="math notranslate nohighlight">\(r = 0.25\)</span> as the effect size for the simulated “correlated population”, and therefore for the power calculation?</p>
 <section id="post-hoc-power-analysis">
 <h2><span class="section-number">4.9.1. </span>Post hoc power analysis<a class="headerlink" href="#post-hoc-power-analysis" title="Link to this heading">#</a></h2>
-<p>In the example given, I took the value of <span class="math notranslate nohighlight">\(r\)</span> measured in my sample - <span class="math notranslate nohighlight">\(r=0.25\)</span> - and ran the power analysis based on this effect size.</p>
-<p>This is sometimes called a post-hoc power analysis.</p>
-<p>When I ran the power analysis after the fact, it told me I should have had a sample 128 people rather than 50 to detect that correlation with 80% power.</p>
-<p><strong>This isn’t quite the intended purpose of power analysis</strong>, although it is how power analysis is often used in reality - to evaluate post hoc, or after the fact, whether a study was sufficiently well powered.</p>
-<p>Ideally, we are supposed to do a power analysis when <strong>planning</strong> the experiment, to decide in advance what sample size to collect.</p>
+<p>In the example above, I took the value of <span class="math notranslate nohighlight">\(r\)</span> observed in my sample (<span class="math notranslate nohighlight">\(r = 0.25\)</span>) and used it as the effect size for the power analysis.</p>
+<p>This approach is sometimes referred to as a <strong>post hoc power analysis</strong>.</p>
+<p>When I ran the power analysis after the fact, it suggested that I would have needed a sample size of about 128 participants (rather than 50) to detect a correlation of this size with 80% power.</p>
+<p><strong>This is not really the intended purpose of power analysis</strong>, although it is a common way that power analysis is used in practice: to evaluate, after the study has been run, whether it was sufficiently well powered.</p>
+<p>Ideally, power analysis should be carried out <strong>at the study-planning stage</strong>, to determine in advance how large a sample needs to be.</p>
 <ul class="simple">
-<li><p><strong>Power calculations <em>in advance of the study</em> are now required by almost all funders, ethical review boards and pre-registration repositories, as well as many scientific journals</strong></p></li>
+<li><p><strong>Power calculations conducted <em>before</em> data collection are now required by most funders, ethical review boards, pre-registration platforms, and many journals.</strong></p></li>
 </ul>
-<p>This is important because underpowered studies are a waste of money (for funders) and less likley to produce reproducible results.</p>
-<p>But if we want to do the power calculation <em>before</em> the study, how can we know the effect size?</p>
+<p>This matters because underpowered studies are a poor use of resources and are less likely to produce reliable, reproducible results.</p>
+<p>But this raises a key question: if we want to perform a power analysis <em>before</em> running a study, <strong>how can we know what effect size to use?</strong></p>
 </section>
 <section id="video">
 <h2><span class="section-number">4.9.2. </span>Video<a class="headerlink" href="#video" title="Link to this heading">#</a></h2>
 <p>Here is a video about how we can decide on the effect size for a power analysis:</p>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/c-a1TAX0kBk?si=05b2IWaSpQvjNQHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</center>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/c-a1TAX0kBk?si=05b2IWaSpQvjNQHi&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;YouTube video player&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&quot;strict-origin-when-cross-origin&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/c-a1TAX0kBk?si=05b2IWaSpQvjNQHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></div>
+</div>
 </section>
 <section id="estimating-the-effect-size-from-the-literature">
 <h2><span class="section-number">4.9.3. </span>Estimating the effect size from the literature<a class="headerlink" href="#estimating-the-effect-size-from-the-literature" title="Link to this heading">#</a></h2>
@@ -661,7 +701,7 @@ document.write(`
 <h3>Paired sample <span class="math notranslate nohighlight">\(t\)</span>-test<a class="headerlink" href="#paired-sample-t-test" title="Link to this heading">#</a></h3>
 <p>Remember that</p>
 <div class="math notranslate nohighlight">
-\[t = \frac{\bar{x}}{\frac{s_{x}}{\sqrt{n}}}\]</div>
+\[t = \frac{\bar{x}}{\frac{s_x}{\sqrt{n}}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\bar{x}\)</span> is the mean <em>pairwise difference</em> (eg the mean difference in height between a brother and his own sister) and <span class="math notranslate nohighlight">\(s_x\)</span> is the standard deviation of those differences. <span class="math notranslate nohighlight">\(n\)</span> is the number of pairs.</p>
 <p>Now Cohen’s <span class="math notranslate nohighlight">\(d\)</span> is given by a similar formula:</p>
 <div class="math notranslate nohighlight">
@@ -669,6 +709,23 @@ document.write(`
 <p>Rearranging, we see that</p>
 <div class="math notranslate nohighlight">
 \[d = \frac{t}{\sqrt{n}}\]</div>
+<p>In python you can recover d using the following code (in the following example: <span class="math notranslate nohighlight">\(t\)</span> = .75 and <span class="math notranslate nohighlight">\(n\)</span> = 30)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mf">2.8</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.511207720338155
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="one-sample-t-test">
 <h3>One sample <span class="math notranslate nohighlight">\(t\)</span>-test<a class="headerlink" href="#one-sample-t-test" title="Link to this heading">#</a></h3>
@@ -680,6 +737,23 @@ document.write(`
 <p>Again we have</p>
 <div class="math notranslate nohighlight">
 \[d = \frac{t}{\sqrt{n}}\]</div>
+<p>So in python, this would be the same:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mf">2.8</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.511207720338155
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="correlation">
 <h3>Correlation<a class="headerlink" href="#correlation" title="Link to this heading">#</a></h3>
@@ -689,6 +763,26 @@ document.write(`
 <p>Again we have</p>
 <div class="math notranslate nohighlight">
 \[d = \frac{t}{\sqrt{n}}\]</div>
+<p>So if we had: <span class="math notranslate nohighlight">\(r\)</span> =.4 and <span class="math notranslate nohighlight">\(n\)</span> = 50, the code would look like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># note **2 means &#39;squared&#39;, **0.5 means &#39;square root&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.023715784073818
+0.427617987059879
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="independent-samples-t-test">
 <h3>Independent samples <span class="math notranslate nohighlight">\(t\)</span>-test<a class="headerlink" href="#independent-samples-t-test" title="Link to this heading">#</a></h3>
@@ -704,6 +798,23 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[d = t \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}\]</div>
 <p>Phew!</p>
+<p>So in code, if <span class="math notranslate nohighlight">\(t\)</span> = 2.8, <span class="math notranslate nohighlight">\(n1\)</span> = 12, <span class="math notranslate nohighlight">\(n2\)</span>= 10:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mf">2.8</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">t</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1988883740087453
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="practical-effect-size">

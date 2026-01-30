@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -954,10 +955,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3011510365685923
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.16581933888230652
 </pre></div>
 </div>
-<img alt="../_images/fb993f02b1fea963589d9ecc202a2bba8fabf3db616c90af283c126b13007ecb.png" src="../_images/fb993f02b1fea963589d9ecc202a2bba8fabf3db616c90af283c126b13007ecb.png" />
+<img alt="../_images/27d368c43cd5820496c2bf5756d6f0613d72c83f6f79a3cfed1d2940da90ec6b.png" src="../_images/27d368c43cd5820496c2bf5756d6f0613d72c83f6f79a3cfed1d2940da90ec6b.png" />
 </div>
 </div>
 </section>
@@ -987,7 +988,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/bd5b2d2f952bd000a11c4a66399cdf64053714a1c688512722c7b1f038c974f9.png" src="../_images/bd5b2d2f952bd000a11c4a66399cdf64053714a1c688512722c7b1f038c974f9.png" />
+<img alt="../_images/f4af910e2e7e6ab626140e624357aa11d631ea83a5f17d33e0d4038cd638bcf4.png" src="../_images/f4af910e2e7e6ab626140e624357aa11d631ea83a5f17d33e0d4038cd638bcf4.png" />
 </div>
 </div>
 <p>With 100 permutations you can already see the null distribution taking shape. Maybe you can also notice, that the “random” correlations tend to be much lower than what we found in our original data set. Importantly, most of the permutations center around a correlation of 0, indicating now relationship between the variables. However how often do we see a person r at least as large as we observed in data set (i.e., 0.8)? To increase our confidence we probably want to run even more permutations!</p>
@@ -1011,8 +1012,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8011532312132079), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([ 0.31868013, -0.56739498,  0.04777593, ...,  0.26804052,
-        0.41584759, -0.03473476], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8011532312132079), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([ 0.01258003, -0.37819485, -0.3812049 , ..., -0.14360795,
+        0.11936783, -0.08478416], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1036,7 +1037,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e05553cf70c4d32eaebbf79c41933d2a06472955d3d32e8fb17ac55cc19e2365.png" src="../_images/e05553cf70c4d32eaebbf79c41933d2a06472955d3d32e8fb17ac55cc19e2365.png" />
+<img alt="../_images/28e77fa1949b7962bba19b3ce2b5a6429dfc4637f60929790c4b183aa28d2afd.png" src="../_images/28e77fa1949b7962bba19b3ce2b5a6429dfc4637f60929790c4b183aa28d2afd.png" />
 </div>
 </div>
 <p>We can see that the null distribution is nice and symmetrical (the average correlation in shuffled data is zero, whilst positive and negative correlations are equally likely)</p>

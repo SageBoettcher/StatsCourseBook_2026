@@ -325,8 +325,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -334,6 +334,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -694,7 +695,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -738,15 +739,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HEADS
-TAILS
-TAILS
 HEADS
-TAILS
 HEADS
 HEADS
 TAILS
+TAILS
 HEADS
 HEADS
+TAILS
+TAILS
 </pre></div>
 </div>
 </div>
@@ -773,7 +774,7 @@ HEADS
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
 </pre></div>
 </div>
 </div>
@@ -816,7 +817,7 @@ HEADS
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/87be76b2b23e2150af85dce3326c5b9414d26c171446c224cb741787bdbb1087.png" src="../_images/87be76b2b23e2150af85dce3326c5b9414d26c171446c224cb741787bdbb1087.png" />
+<img alt="../_images/d6e0d4c625131d66c152fe9f2aad7066eed48201408001d1e5764f370573892b.png" src="../_images/d6e0d4c625131d66c152fe9f2aad7066eed48201408001d1e5764f370573892b.png" />
 </div>
 </div>
 <p>Indeed, the fairer outcomes are more likely</p>
@@ -903,7 +904,7 @@ HEADS
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/97c9247c043bf1192f4c123fc4157ab85850f4837989ae811f26bd5b9fe971d8.png" src="../_images/97c9247c043bf1192f4c123fc4157ab85850f4837989ae811f26bd5b9fe971d8.png" />
+<img alt="../_images/68ade52c0b06cb40deaa1871b5b209e02cfa241f4292a130292d0738f3eef86f.png" src="../_images/68ade52c0b06cb40deaa1871b5b209e02cfa241f4292a130292d0738f3eef86f.png" />
 </div>
 </div>
 <p>If you run the code block above a few times, you should see the simulated trajectory change each time</p>
@@ -1063,7 +1064,7 @@ HEADS
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3b666471c5da2818e3d66419df01c437ce5479969befefefe0eead5a766295c4.png" src="../_images/3b666471c5da2818e3d66419df01c437ce5479969befefefe0eead5a766295c4.png" />
+<img alt="../_images/01307630d0fd219ce62607dcbe7fe887b04ee5c5ae44e32dbc0ab26113cebf0e.png" src="../_images/01307630d0fd219ce62607dcbe7fe887b04ee5c5ae44e32dbc0ab26113cebf0e.png" />
 </div>
 </div>
 <p>The darker lines are places where more than one ball has passed through</p>
@@ -1088,7 +1089,7 @@ HEADS
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b0cbe5c51f2608d820c77c8aa5f4b12500674e527600e2ce9fcc6ea0d6f408d4.png" src="../_images/b0cbe5c51f2608d820c77c8aa5f4b12500674e527600e2ce9fcc6ea0d6f408d4.png" />
+<img alt="../_images/26bba08f9eb2390e0e8df53fceff1174e9cc59afc06e0e94ea633f9f1fabb9b9.png" src="../_images/26bba08f9eb2390e0e8df53fceff1174e9cc59afc06e0e94ea633f9f1fabb9b9.png" />
 </div>
 </div>
 </section>

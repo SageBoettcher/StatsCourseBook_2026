@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.5. Effect size (Pearson’s r) &#8212; Introduction to Statistics and Data Science</title>
+    <title>4.5. Effect size (Pearson’s \(r\)) &#8212; Introduction to Statistics and Data Science</title>
   
   
   
@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.6. Power analysis by simulation" href="3.4.6_PowerCorrelationSim.html" />
-    <link rel="prev" title="4.4. Effect size (Cohen’s d)" href="3.4.4_EffectSize.html" />
+    <link rel="prev" title="4.4. Effect size (Cohen’s \(d\))" href="3.4.4_EffectSize.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -327,8 +327,8 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="3.4.1_power_intro.html">4. Power analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -609,28 +610,28 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="effect-size-pearson-s-r">
-<h1><span class="section-number">4.5. </span>Effect size (Pearson’s r)<a class="headerlink" href="#effect-size-pearson-s-r" title="Link to this heading">#</a></h1>
-<p>The effect size for a correlation is quantified simply by the correlation coefficient Pearson’s <span class="math notranslate nohighlight">\(r\)</span>.</p>
-<p>Remember an effect size tells us how large the effect of interest is, in comparison to random variation.</p>
-<p>In the case of a correlation, the effect of interest is the relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> along the best-fit line <span class="math notranslate nohighlight">\(y=mx+c\)</span>, whilst the random variation is the spread of data about this line</p>
-<p>Pearson’s <span class="math notranslate nohighlight">\(r\)</span> quantifies exactly that - remember this figure from the section on Correlation in the chapter on <strong>Describing Data</strong> (you may like to look back at it):</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="effect-size-pearsons-r">
+<h1><span class="section-number">4.5. </span>Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)<a class="headerlink" href="#effect-size-pearsons-r" title="Link to this heading">#</a></h1>
+<p>For correlations, the effect size is given directly by the correlation coefficient, <strong>Pearson’s <span class="math notranslate nohighlight">\(r\)</span></strong>.</p>
+<p>Recall that an effect size quantifies how large the effect of interest is <em>relative to random variation</em>.</p>
+<p>In the case of a correlation, the effect of interest is the relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> described by the best-fitting line <span class="math notranslate nohighlight">\(y = mx + c\)</span>, while the random variation is the scatter of data points around this line.</p>
+<p>Pearson’s <span class="math notranslate nohighlight">\(r\)</span> captures exactly this balance between signal and noise. You may recognise this idea from the figure in the section on Correlation in the chapter <strong>Describing Data</strong> (it may be helpful to revisit it here).</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/MT_wk1_CorrFat.png" style="width: 80%;" />
 </a>
-<p><strong>The correlation coefficient <span class="math notranslate nohighlight">\(r\)</span> is always a number between 1 (perfect positive correlation; all points on a line) and -1 (perfect negative correlation)</strong></p>
-<p>Correlation gives us a ‘pure’ measure of the strength of the relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> (corrected for the spread within <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> independently).</p>
+<p><strong>The correlation coefficient <span class="math notranslate nohighlight">\(r\)</span> always lies between 1 and −1</strong>. A value of <span class="math notranslate nohighlight">\(r = 1\)</span> indicates a perfect positive linear relationship (all points lie exactly on an increasing straight line), while <span class="math notranslate nohighlight">\(r = -1\)</span> indicates a perfect negative linear relationship.</p>
+<p>Correlation therefore provides a <em>pure</em> measure of the strength of the relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, because it is standardised to account for the spread of values in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> independently.</p>
 <section id="effect-size-neq-statistical-significance">
 <h2><span class="section-number">4.5.1. </span>Effect size <span class="math notranslate nohighlight">\(\neq\)</span> statistical significance<a class="headerlink" href="#effect-size-neq-statistical-significance" title="Link to this heading">#</a></h2>
-<p>Note that for any given correlation, whether it is <em>believable</em> or statistically significant also depends on the sample size <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p>Consider the following examples:</p>
+<p>As with differences in means, whether a correlation is <em>believable</em> or statistically significant depends not only on its size, but also on the sample size <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>Consider the examples below:</p>
 <ul class="simple">
-<li><p>the top row all have sample size <span class="math notranslate nohighlight">\(n=12\)</span></p></li>
-<li><p>the bottom row have sample size <span class="math notranslate nohighlight">\(n=200\)</span></p></li>
+<li><p>The correlations in the top row are all based on a small sample size (<span class="math notranslate nohighlight">\(n = 12\)</span>).</p></li>
+<li><p>The correlations in the bottom row are based on a much larger sample size (<span class="math notranslate nohighlight">\(n = 200\)</span>).</p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rVp.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rVp.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_rVp.png" style="width: 80%;" />
 </a>
-<p>The red oval captures the shape of the dot cloud; an elongated shape is a stronger correlation and greater effect size.</p>
-<p>Nonetheless, for a given effect size, the correlation is less <em>convincing</em> for small <span class="math notranslate nohighlight">\(n\)</span> - this is reflected in the statistical significance (<span class="math notranslate nohighlight">\(p\)</span> values).</p>
+<p>The red oval captures the overall shape of the cloud of points: a more elongated shape corresponds to a stronger correlation and a larger effect size.</p>
+<p>However, for a given effect size, a correlation is less <em>convincing</em> when the sample size <span class="math notranslate nohighlight">\(n\)</span> is small. This increased uncertainty is reflected in the statistical significance, as shown by the corresponding <span class="math notranslate nohighlight">\(p\)</span>-values.</p>
 <section id="statistical-significance-of-r">
 <h3>Statistical significance of <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#statistical-significance-of-r" title="Link to this heading">#</a></h3>
 <p>For a given values of Pearson’s <span class="math notranslate nohighlight">\(r\)</span>, we can actually test the significance of the correlation using a one-sample <span class="math notranslate nohighlight">\(t\)</span>-test.</p>
@@ -688,7 +689,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4.4. </span>Effect size (Cohen’s d)</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</p>
       </div>
     </a>
     <a class="right-next"

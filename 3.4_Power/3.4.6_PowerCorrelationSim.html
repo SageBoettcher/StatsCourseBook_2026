@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.8. Power analysis with statsmodels" href="3.4.7_BuiltInPowerCalc.html" />
-    <link rel="prev" title="4.5. Effect size (Pearson’s r)" href="3.4.5_EffectSizeCorrelation.html" />
+    <link rel="prev" title="4.5. Effect size (Pearson’s \(r\))" href="3.4.5_EffectSizeCorrelation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -327,8 +327,8 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="3.4.1_power_intro.html">4. Power analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -661,27 +662,27 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="power-analysis-by-simulation">
 <h1><span class="section-number">4.6. </span>Power analysis by simulation<a class="headerlink" href="#power-analysis-by-simulation" title="Link to this heading">#</a></h1>
-<p>We can think about theh Hypothesis Testing framework as a 2x2 grid - two possible states of reality and two (matching or non-matching) conclusions.</p>
+<p>We can think of the hypothesis-testing framework as a 2×2 grid, contrasting <strong>reality</strong> (what is actually true) with our <strong>conclusions</strong> (what we decide based on the data and statistical test).</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/t1t2_error.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/t1t2_error.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/t1t2_error.png" style="width: 80%;" />
 </a>
-<p>In general, null hypothesis testing concerns one state of reality - that is we <strong>assume the null is true</strong></p>
-<p>In contrast, power analysis concerns the other possible state of reality - we <strong>assume <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true</strong></p>
-<p>In this notebook, focussing on an example of a correlation, we illustrate these hypothetical states of the world by generate two populations of ‘data’ from alternative realities:</p>
+<p>In general, null hypothesis testing focuses on one assumed state of reality: we <strong>assume the null hypothesis <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> is true</strong> and ask how likely our observed result would be under that assumption.</p>
+<p>In contrast, power analysis focuses on the <em>other</em> possible state of reality: we <strong>assume the alternative hypothesis <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span> is true</strong> and ask how likely we are to detect the effect.</p>
+<p>In this notebook, using an example based on correlation, we illustrate these two hypothetical states of the world by generating data from two different populations:</p>
 <ul class="simple">
-<li><p>A <strong>null population</strong> in which <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is true, and</p></li>
-<li><p>A <strong>correlated population</strong> in which <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true.</p></li>
+<li><p>a <strong>null population</strong>, in which <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> is true; and</p></li>
+<li><p>a <strong>correlated population</strong>, in which <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span> is true.</p></li>
 </ul>
-<p><em>We will work with correlation (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>), although later we will see that the same approach can be used for difference of means/ the <span class="math notranslate nohighlight">\(t\)</span>-test.</em></p>
+<p><em>We will work with correlation (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>) here, although later we will see that exactly the same approach can be applied to differences of means using the <span class="math notranslate nohighlight">\(t\)</span>-test.</em></p>
 <p>We can then:</p>
 <ul class="simple">
-<li><p>work out the proportion of false <em>positives</em> we get if <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is true (by drawing many samples from the null population)</p></li>
-<li><p>work out the proportion of false <em>negatives</em> we get if <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true (by drawing many samples from the null population)</p></li>
+<li><p>work out the proportion of <strong>false positives</strong> we obtain when <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> is true, by repeatedly drawing samples from the null population;</p></li>
+<li><p>work out the proportion of <strong>false negatives</strong> we obtain when <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span> is true, by repeatedly drawing samples from the correlated population.</p></li>
 </ul>
-<p>The latter gives us the <strong>power</strong> of the analysis.</p>
-<p>Although we we later see that power analysis can be run using a built-in function in Python library <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, it is useful to understand conceptually the simulation approach, as this gives an idea of what power analysis actually <em>is</em></p>
+<p>The complement of the false-negative rate gives us the <strong>power</strong> of the analysis.</p>
+<p>Although we will later see that power analyses can be carried out using built-in functions in the Python library <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, it is helpful to first understand the simulation-based approach. This provides clear intuition about what a power analysis actually <em>is</em> and how it relates to hypothesis testing.</p>
 <section id="video">
 <h2><span class="section-number">4.6.1. </span>Video<a class="headerlink" href="#video" title="Link to this heading">#</a></h2>
-<p>Here is a video summarizing the conceptual content of this page:</p>
+<p>Here is a video summarising the conceptual content of this page:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
@@ -718,18 +719,18 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="example">
 <h1><span class="section-number">4.7. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h1>
-<p>I collect data on end-of year exam scores in Maths and French for 50 high school studehts. Then I calculate the correlation coefficient, Pearson’s <span class="math notranslate nohighlight">\(r\)</span>, between Maths and French scores across my sample of <span class="math notranslate nohighlight">\(n=50\)</span> participants.</p>
+<p>I collect data on end-of-year exam scores in Maths and French for 50 high school students. I then calculate the correlation coefficient, Pearson’s <span class="math notranslate nohighlight">\(r\)</span>, between Maths and French scores across my sample of <span class="math notranslate nohighlight">\(n = 50\)</span> participants.</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathcal{H_0}\)</span> Under the null hypothesis there is no correlation between maths scores and French scores</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> Under the alternative hypothesis, there is a positive correlation</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span>: Under the null hypothesis, there is no correlation between Maths scores and French scores.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span>: Under the alternative hypothesis, there is a positive correlation between Maths scores and French scores.</p></li>
 </ul>
-<p>This is a one-tailed test, at the <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> level</p>
-<p>I observe a correlation of <span class="math notranslate nohighlight">\(r=0.25\)</span> (this is my <em>effect size</em>)</p>
+<p>This is a <strong>one-tailed test</strong> with significance level <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>.</p>
+<p>I observe a correlation of <span class="math notranslate nohighlight">\(r = 0.25\)</span>. This value of <span class="math notranslate nohighlight">\(r\)</span> is my <strong>effect size</strong>.</p>
 <p>Can I trust this result?</p>
 <section id="eyeballing-the-data">
 <h2><span class="section-number">4.7.1. </span>Eyeballing the data<a class="headerlink" href="#eyeballing-the-data" title="Link to this heading">#</a></h2>
-<p>What does a correlation of 0.25 look like for 50 data points?
-Here are some examples of datasets that actually have r=0.25:</p>
+<p>What does a correlation of <span class="math notranslate nohighlight">\(r = 0.25\)</span> look like when we have 50 data points?</p>
+<p>Below are some example datasets that all have a correlation of <span class="math notranslate nohighlight">\(r = 0.25\)</span>:</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/r25_examples.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/r25_examples.png" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook/main/images/r25_examples.png" style="width: 100%;" />
 </a>
 <p><strong>Would you trust those correlations?</strong></p>
@@ -737,22 +738,22 @@ Here are some examples of datasets that actually have r=0.25:</p>
 <section id="simulating-the-population">
 <h2><span class="section-number">4.7.2. </span>Simulating the population<a class="headerlink" href="#simulating-the-population" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>A false positive (type I error) occurs when we get a significant correlation in a sample, even though there is no true correlation in the population</p></li>
-<li><p>A false negative (type II error) occurs when we <em>fail to get</em> a significant correlation in a sample, even though there is a true correlation in the population</p></li>
+<li><p>A <strong>false positive</strong> (Type I error) occurs when we obtain a statistically significant correlation in a sample, even though there is no true correlation in the population.</p></li>
+<li><p>A <strong>false negative</strong> (Type II error) occurs when we <em>fail</em> to obtain a statistically significant correlation in a sample, even though there is a true correlation in the population.</p></li>
 </ul>
-<p>To understand the relationship between these two types of error, we are going to generate two ‘populations’ of data</p>
+<p>To understand the relationship between these two types of error, we will generate two hypothetical “populations” of data:</p>
 <ul class="simple">
-<li><p>A ‘null population’ where the true correlation <span class="math notranslate nohighlight">\(\rho=0\)</span></p></li>
-<li><p>A ‘correlated population’ where the true correlation <span class="math notranslate nohighlight">\(\rho=0.25\)</span></p></li>
+<li><p>a <strong>null population</strong>, in which the true correlation is <span class="math notranslate nohighlight">\(\rho = 0\)</span>;</p></li>
+<li><p>a <strong>correlated population</strong>, in which the true correlation is <span class="math notranslate nohighlight">\(\rho = 0.25\)</span>.</p></li>
 </ul>
-<p><em>NOTE -  the symbol rho (<span class="math notranslate nohighlight">\(\rho\)</span>) denotes the true correlation in the population; it is the population equvalent of <span class="math notranslate nohighlight">\(r\)</span> in each sample. If <span class="math notranslate nohighlight">\(\rho=0.25\)</span>, each sample will have <span class="math notranslate nohighlight">\(r \approx 0.25\)</span> but <span class="math notranslate nohighlight">\(r\)</span> will be slightly different in each sample.</em></p>
-<p>Each dataset will have 25000 pairs in it (so 2 columns, 25000 rows), with a correlation between columns of zero (null population) or 0.25 (correlated population).</p>
-<p>By drawing random samples of size <span class="math notranslate nohighlight">\(n=50\)</span> from each, we can ask:</p>
+<p><em>Note:</em> the symbol <span class="math notranslate nohighlight">\(\rho\)</span> (rho) denotes the true correlation in the population. It is the population analogue of the sample correlation coefficient <span class="math notranslate nohighlight">\(r\)</span>. If <span class="math notranslate nohighlight">\(\rho = 0.25\)</span>, then samples drawn from the population will have <span class="math notranslate nohighlight">\(r \approx 0.25\)</span>, but the exact value of <span class="math notranslate nohighlight">\(r\)</span> will vary from sample to sample due to random sampling.</p>
+<p>Each population dataset will contain 25,000 paired observations (two columns with 25,000 rows), with a correlation of either 0 (null population) or 0.25 (correlated population).</p>
+<p>By repeatedly drawing random samples of size <span class="math notranslate nohighlight">\(n = 50\)</span> from each population, we can ask:</p>
 <ul class="simple">
-<li><p>how often do we find a significant correlation when drawing from the null population (false positive, Type I error)?</p></li>
-<li><p>how often do we <em>fail to find</em> a significant correlation when drawing from the correlated population (false negative, Type II error)?</p></li>
+<li><p>how often do we find a statistically significant correlation when sampling from the <strong>null population</strong> (false positives, Type I errors)?</p></li>
+<li><p>how often do we <em>fail</em> to find a statistically significant correlation when sampling from the <strong>correlated population</strong> (false negatives, Type II errors)?</p></li>
 </ul>
-<p><strong>You will not be asked to replicate this code so don’t worry about the Python details</strong></p>
+<p><strong>You will not be asked to replicate this code, so do not worry about the Python details.</strong></p>
 </section>
 <section id="null-population">
 <h2><span class="section-number">4.7.3. </span>Null population<a class="headerlink" href="#null-population" title="Link to this heading">#</a></h2>
@@ -785,7 +786,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/298d5ae9cee86ee2f1834feca96590d1940d1756bdbe49eb84aa1cdc1d5a7005.png" src="../_images/298d5ae9cee86ee2f1834feca96590d1940d1756bdbe49eb84aa1cdc1d5a7005.png" />
+<img alt="../_images/4c60d0ed000e3e7b1c1dc28d51230115a8e42bd02e74fee80925384dc669760b.png" src="../_images/4c60d0ed000e3e7b1c1dc28d51230115a8e42bd02e74fee80925384dc669760b.png" />
 </div>
 </div>
 <p>The generated dataset has two columns and 25,000 rows.</p>
@@ -825,11 +826,11 @@ Here are some examples of datasets that actually have r=0.25:</p>
     <tr>
       <th>Maths</th>
       <td>1.000000</td>
-      <td>-0.010025</td>
+      <td>-0.005353</td>
     </tr>
     <tr>
       <th>French</th>
-      <td>-0.010025</td>
+      <td>-0.005353</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -855,7 +856,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0443)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0513)
 </pre></div>
 </div>
 </div>
@@ -895,7 +896,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ba66060b2666dbc22851d99dd3dbefdbf40ac8281e54bebf46fe1bf52a37aa07.png" src="../_images/ba66060b2666dbc22851d99dd3dbefdbf40ac8281e54bebf46fe1bf52a37aa07.png" />
+<img alt="../_images/a21b67255daf00bdbd5c89954279b830281706f797b926532d9fc3a304301396.png" src="../_images/a21b67255daf00bdbd5c89954279b830281706f797b926532d9fc3a304301396.png" />
 </div>
 </div>
 <p>We can check the correlation in the full population of 25000 samples, hopefully this should be close to 0.25.</p>
@@ -932,11 +933,11 @@ Here are some examples of datasets that actually have r=0.25:</p>
     <tr>
       <th>Maths</th>
       <td>1.000000</td>
-      <td>0.250436</td>
+      <td>0.250962</td>
     </tr>
     <tr>
       <th>French</th>
-      <td>0.250436</td>
+      <td>0.250962</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -966,7 +967,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.538)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.563)
 </pre></div>
 </div>
 </div>
@@ -994,7 +995,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.563)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.541)
 </pre></div>
 </div>
 </div>
@@ -1032,7 +1033,7 @@ Here are some examples of datasets that actually have r=0.25:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/79a4d958898452aa464b44d33637dd1349152507fa73436836469f633a17543f.png" src="../_images/79a4d958898452aa464b44d33637dd1349152507fa73436836469f633a17543f.png" />
+<img alt="../_images/df595ead44a8cb88758ec0c60d4d3305ac0cc3aea6702f2015d8a2776e452c65.png" src="../_images/df595ead44a8cb88758ec0c60d4d3305ac0cc3aea6702f2015d8a2776e452c65.png" />
 </div>
 </div>
 <p>The relationship between sample size and power is slightly bumpy as we checked only 1000 simulated samples at each sample size. If you increased nReps to 10,000 the curve would look smoother (but the simulation would take a long time to run).</p>
@@ -1107,7 +1108,7 @@ t power of 80%? It looks from the graph like you would need around n=120. Here a
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4.5. </span>Effect size (Pearson’s r)</p>
+        <p class="prev-next-title"><span class="section-number">4.5. </span>Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</p>
       </div>
     </a>
     <a class="right-next"

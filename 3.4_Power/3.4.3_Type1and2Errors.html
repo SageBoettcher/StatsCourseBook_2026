@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3.4_Power/3.4.3_Type1and2Errors';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.4. Effect size (Cohen’s d)" href="3.4.4_EffectSize.html" />
+    <link rel="next" title="4.4. Effect size (Cohen’s \(d\))" href="3.4.4_EffectSize.html" />
     <link rel="prev" title="4.2. Learning Objectives" href="3.4.2_outcomes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -327,8 +327,8 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="3.4.1_power_intro.html">4. Power analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -593,9 +594,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assuming-mathcal-h-o-vs-assuming-mathcal-h-a">4.3.1. Assuming <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> vs assuming <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assuming-mathcal-h-0-vs-assuming-mathcal-h-a">4.3.1. Assuming <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> vs assuming <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criminal-analogy">4.3.2. Criminal analogy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tradeoff">4.3.3. Tradeoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trade-off">4.3.3. Trade-off</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insufficient-evidence">4.3.4. Insufficient evidence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-size-primarily-affects-power-not-p-value">4.3.5. Sample size primarily affects power, not <span class="math notranslate nohighlight">\(p\)</span>-value</a></li>
 </ul>
@@ -615,52 +616,52 @@ document.write(`
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ga_xz7UHwkU?si=ablRv3StJ6Or8ATl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
-<p>We can think of the hypothesis testing framework as a 2x2 grid of ‘reality’ vs ‘conclusions’</p>
+<p>We can think of the hypothesis-testing framework as a 2×2 grid, contrasting <strong>reality</strong> (what is actually true) with our <strong>conclusions</strong> (what we decide based on the data and statistical test).</p>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HoHa.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HoHa.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HoHa.png" style="width: 80%;" />
 </a>
-<p>In this framework there are two ways of making an error:</p>
+<p>Within this framework, there are two ways to make an error:</p>
 <ul class="simple">
-<li><p>we reject the null hypothesis when it is in fact true (Type I error or false positive)</p></li>
-<li><p>we fail to rejct the null, when in fact the alternative hypothesis was true (Type II error or false negative)</p></li>
+<li><p>We <strong>reject the null hypothesis when it is actually true</strong> (a <strong>Type I error</strong>, or <strong>false positive</strong>).</p></li>
+<li><p>We <strong>fail to reject the null hypothesis when the alternative hypothesis is actually true</strong> (a <strong>Type II error</strong>, or <strong>false negative</strong>).</p></li>
 </ul>
-<p>As the terminology “Type I Error” and “Type II Error” is easy to mix up, I prefer the terms ‘false positive’ and ‘false negative’.</p>
-<p>We can also classify the ‘correct’ cases as follows:</p>
+<p>Because the terms <em>Type I error</em> and <em>Type II error</em> are easy to mix up, it is often clearer to use the terms <strong>false positive</strong> and <strong>false negative</strong> instead.</p>
+<p>We can also describe the cases in which our conclusions are correct:</p>
 <ul class="simple">
-<li><p><strong>Hits</strong> when <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true, and we detect that (rejecting the null)</p></li>
-<li><p><strong>Correct Rejects</strong> when <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is correct and we detect that (slightly confusingly, a ‘correct reject’ is when we correctly <em>fail</em> to rejct the null!)</p></li>
+<li><p><strong>Hits</strong>: the alternative hypothesis <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span> is true, and we correctly detect this by rejecting the null hypothesis.</p></li>
+<li><p><strong>Correct rejects</strong>: the null hypothesis <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> is true, and we correctly fail to reject it (slightly confusingly, a <em>correct reject</em> corresponds to correctly <em>not</em> rejecting the null).</p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HitsEtc.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HitsEtc.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_HitsEtc.png" style="width: 80%;" />
 </a>
-<section id="assuming-mathcal-h-o-vs-assuming-mathcal-h-a">
-<h2><span class="section-number">4.3.1. </span>Assuming <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> vs assuming <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span><a class="headerlink" href="#assuming-mathcal-h-o-vs-assuming-mathcal-h-a" title="Link to this heading">#</a></h2>
-<p>When calculating the <span class="math notranslate nohighlight">\(p\)</span>-value for a test, we <em>assume <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is true</em> and then work out the probabliity that we might reject <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> due to chance. In other words, we are working on the basis of a certain state of reality, <strong>assuming <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is true</strong>.</p>
-<p><strong>Assuming <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> is true</strong>:</p>
+<section id="assuming-mathcal-h-0-vs-assuming-mathcal-h-a">
+<h2><span class="section-number">4.3.1. </span>Assuming <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> vs assuming <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span><a class="headerlink" href="#assuming-mathcal-h-0-vs-assuming-mathcal-h-a" title="Link to this heading">#</a></h2>
+<p>When we calculate a <span class="math notranslate nohighlight">\(p\)</span>-value for a statistical test, we <strong>assume that the null hypothesis <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> is true</strong> and then ask how likely it is that we would obtain a result as extreme as the one observed purely by chance. In other words, we are reasoning under a specific assumed state of reality: <strong>that <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> is true</strong>.</p>
+<p><strong>Assuming <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> is true</strong>:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(p\)</span> is the proportion of false positives</p></li>
-<li><p>Specificity is <span class="math notranslate nohighlight">\((1-p)\)</span></p></li>
+<li><p>The <span class="math notranslate nohighlight">\(p\)</span>-value is the probability of making a <strong>false positive</strong> (rejecting <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> when it is actually true).</p></li>
+<li><p><strong>Specificity</strong> is <span class="math notranslate nohighlight">\(1 - p\)</span>, the probability of correctly not rejecting <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> when it is true.</p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_spec.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_spec.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_spec.png" style="width: 80%;" />
 </a>
-<p>In contrast, in power analysis, we consider the <strong>alternative reality in which <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true</strong>. Power is then theh probability that we correctly reject the null.</p>
-<p><strong>Assuming <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span> is true</strong>:</p>
+<p>In contrast, in power analysis we consider the <strong>alternative state of reality in which the alternative hypothesis <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span> is true</strong>. Power is then the probability that we correctly reject the null hypothesis under this assumption.</p>
+<p><strong>Assuming <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span> is true</strong>:</p>
 <ul class="simple">
-<li><p><strong>Power</strong> is (1-proportion of false negatives)</p></li>
-<li><p><strong>Sensitivity</strong> = power</p></li>
+<li><p><strong>Power</strong> is <span class="math notranslate nohighlight">\(1 -\)</span> (the probability of a false negative).</p></li>
+<li><p><strong>Sensitivity</strong> is equal to power, that is, the probability of correctly detecting an effect when one truly exists.</p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_power.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_power.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_power.png" style="width: 80%;" />
 </a>
 <p><strong>Terminology</strong></p>
-<p>Because the terms <em>sensitivity</em> and <em>specificity</em> are easy to mix up, I prefer to talk about:</p>
+<p>Because the terms <em>sensitivity</em> and <em>specificity</em> are easy to mix up, I prefer to focus on:</p>
 <ul class="simple">
-<li><p>the <strong><span class="math notranslate nohighlight">\(p\)</span>-value</strong> of a test (which is 1-specificity) and</p></li>
-<li><p>the <strong>power</strong> of a test (equivalent to sensitivity).</p></li>
+<li><p>the <strong><span class="math notranslate nohighlight">\(p\)</span>-value</strong> of a test (which corresponds to <span class="math notranslate nohighlight">\(1 -\)</span> specificity), and</p></li>
+<li><p>the <strong>power</strong> of a test (which is equivalent to sensitivity).</p></li>
 </ul>
 </section>
 <section id="criminal-analogy">
 <h2><span class="section-number">4.3.2. </span>Criminal analogy<a class="headerlink" href="#criminal-analogy" title="Link to this heading">#</a></h2>
-<p>It can help to think of an analogy to a criminal court:</p>
+<p>It can be helpful to think about hypothesis testing using an analogy to a criminal court:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: Everyone is innocent until proven guity</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span>: Everyone is innocent until proven guilty</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span>: He’s guilty, dammit!</p></li>
 </ul>
 <a class="reference internal image-reference" href="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_crime.png"><img alt="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_crime.png" class="align-center" src="https://raw.githubusercontent.com/jillxoreilly/StatsCourseBook_2024/main/images/Chp8_grid_crime.png" style="width: 80%;" />
@@ -671,9 +672,10 @@ document.write(`
 <li><p>A Type II error (false negative) is when the criminal gets away due to insufficient evidence</p></li>
 </ul>
 </section>
-<section id="tradeoff">
-<h2><span class="section-number">4.3.3. </span>Tradeoff<a class="headerlink" href="#tradeoff" title="Link to this heading">#</a></h2>
-<p>There is always a tradeoff between controlling the level of false positives and false negatives. This is because we as scientists set the criterion for statistical significance. If we set a stringent criterion, there will be fewer false positives but more false negatives.</p>
+<section id="trade-off">
+<h2><span class="section-number">4.3.3. </span>Trade-off<a class="headerlink" href="#trade-off" title="Link to this heading">#</a></h2>
+<p>There is always a trade-off between controlling the rates of <strong>false positives</strong> and <strong>false negatives</strong>. This is because, as scientists, we set the criterion for statistical significance.</p>
+<p>If we set a very stringent criterion for significance, we reduce the chance of false positives, but at the cost of increasing the chance of false negatives. Conversely, using a more lenient criterion reduces false negatives but increases false positives.</p>
 <p>Here is a video reviewing this idea:</p>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wTYq3dfVjdY?si=C957X37D2KZsTsl5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -681,9 +683,7 @@ document.write(`
 </section>
 <section id="insufficient-evidence">
 <h2><span class="section-number">4.3.4. </span>Insufficient evidence<a class="headerlink" href="#insufficient-evidence" title="Link to this heading">#</a></h2>
-<p>The criminal analogy highlights the main cause of False Negatives (Type II errors) in scientific studies: insufficient evidence.</p>
-<p>Often if we fail to get a significant result, when there is an underlying effect, it is because the sample size is too small.</p>
-<p>This is because tests of statistical significance, and tests of statistical power, depend on three ingredients</p>
+<p>The criminal analogy highlights the main cause of <strong>False Negatives (Type II errors)</strong> in scientific studies: insufficient evidence.Often if we fail to find a significant result, when there actually is an underlying effect, it is because the sample size is too small, therefore we don’t have sufficient evidence. This is because tests of statistical significance, and tests of statistical power, depend on three ingredients</p>
 <ul class="simple">
 <li><p>The effect size</p></li>
 <li><p>The sample size (<span class="math notranslate nohighlight">\(n\)</span>)</p></li>
@@ -750,7 +750,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.4. </span>Effect size (Cohen’s d)</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -770,9 +770,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assuming-mathcal-h-o-vs-assuming-mathcal-h-a">4.3.1. Assuming <span class="math notranslate nohighlight">\(\mathcal{H_o}\)</span> vs assuming <span class="math notranslate nohighlight">\(\mathcal{H_a}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assuming-mathcal-h-0-vs-assuming-mathcal-h-a">4.3.1. Assuming <span class="math notranslate nohighlight">\(\mathcal{H}_0\)</span> vs assuming <span class="math notranslate nohighlight">\(\mathcal{H}_a\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criminal-analogy">4.3.2. Criminal analogy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tradeoff">4.3.3. Tradeoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trade-off">4.3.3. Trade-off</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insufficient-evidence">4.3.4. Insufficient evidence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-size-primarily-affects-power-not-p-value">4.3.5. Sample size primarily affects power, not <span class="math notranslate nohighlight">\(p\)</span>-value</a></li>
 </ul>

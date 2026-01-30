@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1017,8 +1018,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(277.3961538461539), pvalue=np.float64(0.0224), null_distribution=array([ -48.16538462,  -55.50384615,  178.28076923, ..., -125.16538462,
-        -30.02692308,  130.64230769], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(277.3961538461539), pvalue=np.float64(0.0197), null_distribution=array([ 142.74230769, -251.85769231,   76.55      , ..., -112.07307692,
+       -106.12692308,  -63.94230769], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -1230,7 +1231,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b6da2605ed20a7b08cf8b6c2e55acb5d361dea1a87a48d298cbbbfe885983477.png" src="../_images/b6da2605ed20a7b08cf8b6c2e55acb5d361dea1a87a48d298cbbbfe885983477.png" />
+<img alt="../_images/b284906116c78c07555eba1a1c2a74a86f2455fbea84534ba70e934f14994030.png" src="../_images/b284906116c78c07555eba1a1c2a74a86f2455fbea84534ba70e934f14994030.png" />
 </div>
 </div>
 <p><font color='red'> Your comments here!</p>
@@ -1769,8 +1770,8 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-15.985702127659636), pvalue=np.float64(0.0954), null_distribution=array([-19.10502128,  -6.07251064,  13.2492766 , ...,  11.98638298,
-        12.94170213,  -1.46297872], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-15.985702127659636), pvalue=np.float64(0.0894), null_distribution=array([ -0.89948936,  -7.03787234, -10.63097872, ...,  -8.32391489,
+        16.00051064,   7.1027234 ], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -1786,8 +1787,8 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-29.423307496075324), pvalue=np.float64(0.0002), null_distribution=array([  0.04898169,  -6.08048446,   1.22080161, ...,  -4.0579582 ,
-       -16.33294706,   7.14777059], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-29.423307496075324), pvalue=np.float64(0.0002), null_distribution=array([ 6.8358807 ,  1.86615867, -9.17623762, ...,  0.1160396 ,
+       -0.39078251,  6.85128713], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -2181,7 +2182,7 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8be774739f2307aa5a1a106f42604d88422cbf36db680f2f807931cc7ae48b8e.png" src="../_images/8be774739f2307aa5a1a106f42604d88422cbf36db680f2f807931cc7ae48b8e.png" />
+<img alt="../_images/3174d036cf1e0da970acab223f8ff4b2868418d0482116a18be99ab9b4eb6a9f.png" src="../_images/3174d036cf1e0da970acab223f8ff4b2868418d0482116a18be99ab9b4eb6a9f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2198,7 +2199,7 @@ X axes ranges should match to allow for direct comparison of the distributions</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b4f34e0175eef85ff09e06e0e45608ec1313c35ac37386acf7ddb35086896563.png" src="../_images/b4f34e0175eef85ff09e06e0e45608ec1313c35ac37386acf7ddb35086896563.png" />
+<img alt="../_images/cb9056604eb8d7f31886d5b4a28d50fe1992df474b30736bac26d9be2d76a8c5.png" src="../_images/cb9056604eb8d7f31886d5b4a28d50fe1992df474b30736bac26d9be2d76a8c5.png" />
 </div>
 </div>
 <p><strong>c. Get the mean height for brothers and sisters separately</strong></p>
@@ -2285,7 +2286,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.640000000000015), pvalue=np.float64(0.0778), null_distribution=array([-1.92, -2.4 , -0.4 , ..., -3.2 ,  2.16, -1.36], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.640000000000015), pvalue=np.float64(0.0722), null_distribution=array([ 1.92, -2.32,  0.64, ..., -0.32, -0.56, -2.32], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -2303,7 +2304,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.640000000000015), pvalue=np.float64(0.0002), null_distribution=array([ 1.92, -1.28, -1.04, ...,  0.32,  0.56,  1.12], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.640000000000015), pvalue=np.float64(0.0002), null_distribution=array([ 0.8 ,  0.32, -0.24, ..., -0.24, -1.68, -0.24], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -2339,7 +2340,7 @@ Name: height, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1820ba1016728c8c10adb2d18c7adcf36d8e2fb3418e40ff882cefc2beda5ff0.png" src="../_images/1820ba1016728c8c10adb2d18c7adcf36d8e2fb3418e40ff882cefc2beda5ff0.png" />
+<img alt="../_images/15379855643b6b19f45a1cdd2092b76d8650ad10d08c18ffa9b6392ddd1c1377.png" src="../_images/15379855643b6b19f45a1cdd2092b76d8650ad10d08c18ffa9b6392ddd1c1377.png" />
 </div>
 </div>
 <p><font color='red'>Your answer here</p>

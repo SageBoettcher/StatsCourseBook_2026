@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -849,7 +850,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ef4441b9a607e139aa7997e4acbb4ae54c93105babee47c439fd03f7e8000e6e.png" src="../_images/ef4441b9a607e139aa7997e4acbb4ae54c93105babee47c439fd03f7e8000e6e.png" />
+<img alt="../_images/eec1aa6203cbe55e46394c322a526f98b4516ef01826541955ce7e12c14004fa.png" src="../_images/eec1aa6203cbe55e46394c322a526f98b4516ef01826541955ce7e12c14004fa.png" />
 </div>
 </div>
 <p>We can see that the mean number of yoghurts eaten is higher for cat owners (the bar for cats is higher than the bar for dog), but this difference might be influenced by one particularly enthusiastic yoghurt-eating cat owner.</p>
@@ -966,8 +967,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/076aea3fce8f2f658c6c87899b5fbd7ed472f59dc674c73d2864ae2a39e81b35.png" src="../_images/076aea3fce8f2f658c6c87899b5fbd7ed472f59dc674c73d2864ae2a39e81b35.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47499999999999964
+<img alt="../_images/c78fc8efd5623eff58ab9dbda888a8f4e661a8105fea5023e160d2f9ae6d67ee.png" src="../_images/c78fc8efd5623eff58ab9dbda888a8f4e661a8105fea5023e160d2f9ae6d67ee.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1500000000000004
 </pre></div>
 </div>
 </div>
@@ -999,7 +1000,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/129d56008b36f21c781d775788e87c4bd22117327be19623222ee91fc820e795.png" src="../_images/129d56008b36f21c781d775788e87c4bd22117327be19623222ee91fc820e795.png" />
+<img alt="../_images/a2b679c6249203db6cd40d821a7d88b9fb8fd6e931d54ed824fa684ce51e7f79.png" src="../_images/a2b679c6249203db6cd40d821a7d88b9fb8fd6e931d54ed824fa684ce51e7f79.png" />
 </div>
 </div>
 <p>With 100 permutations you can already see the null distribution taking shape. Most of the permutations center around a small difference between the two group as expected, however how often do we see a difference at least as large as we observed in data set (i.e., 2.5)? To increase our confidence we probably want to run even more permutations!</p>
@@ -1021,7 +1022,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.5), pvalue=np.float64(0.06419358064193581), null_distribution=array([ 1.375, -2.   ,  1.825, ...,  2.95 ,  0.25 ,  0.25 ],
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(2.5), pvalue=np.float64(0.0655934406559344), null_distribution=array([-1.325, -1.55 , -1.55 , ..., -0.2  , -0.2  , -0.425],
       shape=(10000,)))
 </pre></div>
 </div>
@@ -1046,7 +1047,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0bbf431afb4ce18ce1f1870ec40325b9c752de568951de35a0c55feab1a23838.png" src="../_images/0bbf431afb4ce18ce1f1870ec40325b9c752de568951de35a0c55feab1a23838.png" />
+<img alt="../_images/1155d62070d8bd0d725659635cc07ce51d730a19c0130d1f9465dbd2c2d5e357.png" src="../_images/1155d62070d8bd0d725659635cc07ce51d730a19c0130d1f9465dbd2c2d5e357.png" />
 </div>
 </div>
 <p>The histogram looks a bit spikey because this dataset is very small and contains several repeated values.
@@ -1065,7 +1066,7 @@ As a result, there are only a limited number of possible values that the mean yo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0641
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0655
 </pre></div>
 </div>
 </div>

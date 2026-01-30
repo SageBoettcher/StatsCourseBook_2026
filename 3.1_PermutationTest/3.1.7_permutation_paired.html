@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1105,8 +1106,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f57ca1641941ca6570a079f2d1d1612577ced68d2c715a89ea94e27408ca22af.png" src="../_images/f57ca1641941ca6570a079f2d1d1612577ced68d2c715a89ea94e27408ca22af.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.5714285714285714
+<img alt="../_images/46deae04a5567dce458ebcf2024525413f0e1741cb7e30456b7fd3cc5fac712b.png" src="../_images/46deae04a5567dce458ebcf2024525413f0e1741cb7e30456b7fd3cc5fac712b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.0
 </pre></div>
 </div>
 </div>
@@ -1152,7 +1153,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/029a7c38bc1914729f59418c270ad2ab50ca9a8f5949731dbf62a2edc994491c.png" src="../_images/029a7c38bc1914729f59418c270ad2ab50ca9a8f5949731dbf62a2edc994491c.png" />
+<img alt="../_images/4192a595ac787e7effea16c6e67f77b26bcd24b54b29cb49df8bd507caa2191b.png" src="../_images/4192a595ac787e7effea16c6e67f77b26bcd24b54b29cb49df8bd507caa2191b.png" />
 </div>
 </div>
 <p>With 100 permutations you can already begin to see that our test statistic of 4.6 occured quite infrequently in a case where there truly was no difference in the number of socks owned by husbands and wives. However, to increase our confidence we probably want to run even more permutations!</p>
@@ -1172,8 +1173,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.0065993400659934), null_distribution=array([-3.71428571, -1.85714286, -3.28571429, ...,  3.42857143,
-       -1.42857143,  0.57142857], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.005099490050994901), null_distribution=array([ 2.85714286, -3.28571429, -0.14285714, ...,  1.14285714,
+        0.85714286,  2.42857143], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1197,7 +1198,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ec02b7762143be68eebf4f11d06f0568effaf66090937e08b39257634bfde11a.png" src="../_images/ec02b7762143be68eebf4f11d06f0568effaf66090937e08b39257634bfde11a.png" />
+<img alt="../_images/4ea63a4a685ea482ae92d69bd3d24c982ec2ad7b75ad87f5192dd7f9f6ec265e.png" src="../_images/4ea63a4a685ea482ae92d69bd3d24c982ec2ad7b75ad87f5192dd7f9f6ec265e.png" />
 </div>
 </div>
 <p>We can see that indeed, only in a few cases did the mean difference exceed 4.6.</p>
@@ -1215,7 +1216,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0065
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.005
 </pre></div>
 </div>
 </div>
@@ -1228,7 +1229,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
 </pre></div>
 </div>
 </div>
