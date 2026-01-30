@@ -327,8 +327,8 @@
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. Power analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -607,49 +608,31 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="power-analysis">
 <h1><span class="section-number">4. </span>Power analysis<a class="headerlink" href="#power-analysis" title="Link to this heading">#</a></h1>
-<p>In previous weeks we focussed on testing how likely a given result was
-to occur due to chance, if the null hypothesis were true (chance of a
-Type 1 error).</p>
-<p>This week we are thinking about the <em>other</em> type of error, Type 2.</p>
-<p>Type 2 errors occur when the alternative hypothesis is actually true
-(eg, there is a difference in means between groups) but we fail to
-detect it.</p>
-<p>Power is the probability of <em>not</em> making a Type 2 error, that is the
-probability of detecting an effect, if there is one present.</p>
-<p>We saw in the lecture that whilst the probability of a Type 1 error is
-generally fixed at 5% (or whatever alpha value we use) for any sample
-size, the probability of a Type 2 error is much larger in small
-samples</p>
-<p>In other words, sometimes our sample is just too small to reliably
-detect an effect even if there is one</p>
-<p>To assess the sample size needed to detect an effect of a certain
-size, we conduct a power analysis</p>
-<p>We will cover two examples:</p>
+<p>In previous weeks we focussed on how likely a given result was to occur by chance if the null hypothesis were true (the risk of a <strong>Type I error</strong>).</p>
+<p>This week we turn to the other error type: <strong>Type II</strong> errors.</p>
 <ul class="simple">
-<li><p>power of a correlation (Pearson’s r) analysis</p></li>
-<li><p>power of a t-test (independent and paired samples)</p></li>
+<li><p>A <strong>Type II error</strong> occurs when the alternative hypothesis is actually true (for example, there really is a difference in means) but we <strong>fail to detect</strong> it.</p></li>
+<li><p><strong>Power</strong> is the probability of <em>not</em> making a Type II error — in other words, the probability of detecting an effect if one truly exists.</p></li>
 </ul>
-<p>We will see how power analyses can be constructed using ‘home made’
-code, and also learn to run them for <span class="math notranslate nohighlight">\(t\)</span>-test and correlation using a built in function
-in the Python library <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>.</p>
+<p>We saw in the lecture that, while the probability of a Type I error is usually fixed (e.g. <span class="math notranslate nohighlight">\(alpha=0.05\)</span>), the probability of a Type II error, and therefore the power, depends strongly on sample size. Small samples often have low power: even if a real effect exists, the study may be unlikely to detect it.</p>
+<p>To determine the sample size required to detect an effect of a given size with acceptable power, we perform a <strong>power analysis</strong>.</p>
+<p>In this session we will cover two examples:</p>
+<ol class="arabic simple">
+<li><p>Power for a correlation (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>) analysis.</p></li>
+<li><p>Power for a <span class="math notranslate nohighlight">\(t\)</span>-test (independent and paired samples).</p></li>
+</ol>
+<p>We will construct simple, “home-made” power calculations to build intuition, and also learn how to run formal power analyses using the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> library in Python.</p>
 <section id="tasks-for-this-week">
 <h2><span class="section-number">4.1. </span>Tasks for this week<a class="headerlink" href="#tasks-for-this-week" title="Link to this heading">#</a></h2>
-<p><strong>Conceptual material</strong> is covered in the lecture. In addition to the
-live lecture, you can find lecture videos on Canvas.</p>
-<p>Please work through the guided exercises in this section (everything
-<em>except</em> the page labelled “Tutorial Exercises”) in advance of
-the computer-based tutorial session.</p>
+<p><strong>Conceptual material</strong> is covered in the lecture. In addition to the live lecture, you can find lecture videos on Canvas.</p>
+<p>Please work through the guided exercises in this section (everything <em>except</em> the page labelled “Tutorial Exercises”) in advance of the computer-based tutorial session.</p>
 <p>To complete the guided exercises you will need to either:</p>
 <ul class="simple">
 <li><p>open the pages in Google Colab (simply click the Colab button on each page), or</p></li>
-<li><p>download them as Jupyter Notbooks to your own computer and work
-with them locally (eg in JupyterLab)</p></li>
+<li><p>download them as Jupyter Notbooks to your own computer and work with them locally (eg in JupyterLab)</p></li>
 </ul>
-<p>If you find something difficult or have questions, you can discuss
-with your tutor in the computer-based tutoral session.</p>
-<p>This week is particularly heavy on conceptual material, so please do
-discuss the guided exercises and tutorial exercises with your tutor to
-make sure you understand</p>
+<p>If you find something difficult or have questions, you can discuss with your tutor in the computer-based tutoral session.</p>
+<p>This week is particularly heavy on conceptual material, so please do discuss the guided exercises and tutorial exercises with your tutor to make sure you understand</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>

@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -841,58 +842,58 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>9895</th>
-      <td>475490</td>
-      <td>26</td>
+      <th>3528</th>
+      <td>560360</td>
+      <td>23</td>
     </tr>
     <tr>
-      <th>7976</th>
-      <td>760740</td>
-      <td>22</td>
+      <th>568</th>
+      <td>384490</td>
+      <td>90</td>
     </tr>
     <tr>
-      <th>1018</th>
-      <td>765450</td>
-      <td>42</td>
-    </tr>
-    <tr>
-      <th>7626</th>
-      <td>307970</td>
-      <td>81</td>
-    </tr>
-    <tr>
-      <th>785</th>
-      <td>393740</td>
-      <td>84</td>
-    </tr>
-    <tr>
-      <th>6036</th>
-      <td>963170</td>
-      <td>47</td>
-    </tr>
-    <tr>
-      <th>877</th>
-      <td>599920</td>
+      <th>1921</th>
+      <td>192210</td>
       <td>76</td>
     </tr>
     <tr>
-      <th>1343</th>
-      <td>987220</td>
-      <td>55</td>
+      <th>432</th>
+      <td>777540</td>
+      <td>76</td>
     </tr>
     <tr>
-      <th>1962</th>
-      <td>120900</td>
-      <td>74</td>
+      <th>9360</th>
+      <td>555810</td>
+      <td>28</td>
     </tr>
     <tr>
-      <th>5857</th>
-      <td>464970</td>
-      <td>42</td>
+      <th>4522</th>
+      <td>127950</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <th>1518</th>
+      <td>986370</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>7427</th>
+      <td>152140</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>2962</th>
+      <td>839750</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>9961</th>
+      <td>647800</td>
+      <td>73</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample mean = 54.9
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sample mean = 64.3
 </pre></div>
 </div>
 </div>
@@ -911,7 +912,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(52.9)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(34.6)
 </pre></div>
 </div>
 </div>
@@ -928,11 +929,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([56.2, 47.3, 46.6, 65.6, 50.7, 55.1, 45.4, 52.8, 34. , 53.8, 54.4,
-       59.8, 45.1, 46.2, 53. , 45.3, 49. , 47.1, 29.9, 56.3, 52.5, 50.7,
-       42.5, 53.3, 49.8, 38.7, 59. , 48.5, 47.2, 63.7, 49.1, 50.6, 57.6,
-       45. , 52.2, 52.9, 50.2, 39.2, 47.4, 50.5, 57.1, 55.1, 57.9, 52.8,
-       55. , 34.5, 50.3, 41.5, 42.9, 60.2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([40.6, 58. , 48.2, 59.2, 57.7, 66.8, 65.4, 55.1, 45.9, 48.6, 45.8,
+       53.1, 57.9, 48.9, 45.8, 63. , 64.6, 58.2, 52.7, 51.8, 58.8, 51.1,
+       53.3, 52.7, 41.6, 45.7, 63.3, 51.1, 49.4, 49.3, 35.5, 48. , 61. ,
+       45. , 52.7, 42.6, 42.8, 57.8, 46. , 57.9, 47.1, 43.2, 49.7, 47.6,
+       55.7, 42.2, 48.8, 57. , 51. , 64.7])
 </pre></div>
 </div>
 </div>
@@ -965,7 +966,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3aca641dc902877cd6e2b2786ac65acc9ee3226949b302ac0f412ecffe7caf36.png" src="../_images/3aca641dc902877cd6e2b2786ac65acc9ee3226949b302ac0f412ecffe7caf36.png" />
+<img alt="../_images/1cf61b7261154c138d9fb45cdfb9a0271c2ff5ff45919b19179d42874b54f0bc.png" src="../_images/1cf61b7261154c138d9fb45cdfb9a0271c2ff5ff45919b19179d42874b54f0bc.png" />
 </div>
 </div>
 </section>
@@ -980,7 +981,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3.4740427165358807)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3.539489081139254)
 </pre></div>
 </div>
 </div>
@@ -1041,7 +1042,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/59596b0bffef448acd5d2cb73002540da3dc32e118f837ce0f085aae179aa10a.png" src="../_images/59596b0bffef448acd5d2cb73002540da3dc32e118f837ce0f085aae179aa10a.png" />
+<img alt="../_images/485dae9882fc4a1214f86d062ccde2ad5172f61fae6954888318987eab66c712.png" src="../_images/485dae9882fc4a1214f86d062ccde2ad5172f61fae6954888318987eab66c712.png" />
 </div>
 </div>
 <p>In fact when <span class="math notranslate nohighlight">\(n=1\)</span>, the sample mean is simply the value of the (one) person in the sample’s score, so the sampling distribution of the mean is exactly the sample data distribution</p>
@@ -1069,7 +1070,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4c54720ac26a528c9bb4933e199fc41fe3bbb986b52d7b2e475e24ef2c1bc574.png" src="../_images/4c54720ac26a528c9bb4933e199fc41fe3bbb986b52d7b2e475e24ef2c1bc574.png" />
+<img alt="../_images/f3d3de8376de1fee0fc3ef4806c60e7efb72d4bfdb693b27ad5a1716dc241bf4.png" src="../_images/f3d3de8376de1fee0fc3ef4806c60e7efb72d4bfdb693b27ad5a1716dc241bf4.png" />
 </div>
 </div>
 <p>Hopefully you have noticed a middle peak emerging.</p>

@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -951,8 +952,8 @@ The weight of trays of peaches were compared using a Rank Sum test. Farmer MacDo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.22062500000000007), pvalue=np.float64(0.0478), null_distribution=array([ 0.257625,  0.189625, -0.045875, ...,  0.190375, -0.048125,
-        0.084375], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.22062500000000007), pvalue=np.float64(0.0482), null_distribution=array([-0.126375,  0.054875,  0.015125, ..., -0.098125,  0.114875,
+       -0.035625], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -1153,7 +1154,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ed68974afc2cddb0293f8b81ad3bbddefc7d7999f2def948e79417c88cac18ec.png" src="../_images/ed68974afc2cddb0293f8b81ad3bbddefc7d7999f2def948e79417c88cac18ec.png" />
+<img alt="../_images/bd3fb4eca10785008615a750a317b13fa8d9fac8017b388a02fe66d4bd97ccf5.png" src="../_images/bd3fb4eca10785008615a750a317b13fa8d9fac8017b388a02fe66d4bd97ccf5.png" />
 </div>
 </div>
 <p>e) Conduct a suitable rank-based non-parametric test of VitalVit’s claim</p>
@@ -1355,8 +1356,8 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(1.320590909090907), pvalue=np.float64(0.0016), null_distribution=array([-1.15622727, -0.17731818,  0.36713636, ..., -0.64904545,
-        0.18777273,  0.4555    ], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(1.320590909090907), pvalue=np.float64(0.0029), null_distribution=array([-0.08413636, -0.9305    , -0.29213636, ...,  0.50659091,
+       -0.0735    ,  0.18159091], shape=(9999,)))
 </pre></div>
 </div>
 </div>
@@ -1489,7 +1490,7 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/636c25ac03a12208daf126d6e0c1cef5054f99e4166ffb2af5d1c0c653a81280.png" src="../_images/636c25ac03a12208daf126d6e0c1cef5054f99e4166ffb2af5d1c0c653a81280.png" />
+<img alt="../_images/5039fb083b7f574e0c04c3e28570b40396e312ca85bf1fd6998ea2ae3484ac9a.png" src="../_images/5039fb083b7f574e0c04c3e28570b40396e312ca85bf1fd6998ea2ae3484ac9a.png" />
 </div>
 </div>
 <p><strong>c. Carry out a suitable rank-based non-parametric test of the hypothesis that men own more socks than women</strong></p>
@@ -1513,8 +1514,8 @@ You could add the line of equality (line x=y) to the graph so we can see whether
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.0051), null_distribution=array([-1.        ,  0.71428571, -2.85714286, ..., -1.14285714,
-       -2.57142857,  1.85714286], shape=(9999,)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(4.571428571428571), pvalue=np.float64(0.006), null_distribution=array([-3.85714286,  1.14285714, -3.42857143, ...,  0.57142857,
+        3.14285714,  1.28571429], shape=(9999,)))
 </pre></div>
 </div>
 </div>

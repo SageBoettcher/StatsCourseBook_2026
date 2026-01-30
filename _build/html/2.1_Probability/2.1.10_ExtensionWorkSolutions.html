@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -709,8 +710,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 6
-Total rolls needed to get a six: 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roll 1. Outcome = 1
+roll 2. Outcome = 5
+roll 3. Outcome = 3
+roll 4. Outcome = 1
+roll 5. Outcome = 1
+roll 6. Outcome = 6
+Total rolls needed to get a six: 6
 </pre></div>
 </div>
 </div>
@@ -774,7 +780,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2.,  5.,  3., 28.,  1.,  2.,  4.,  3.,  8., 10.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4., 18.,  1., 15.,  7.,  2.,  5.,  9.,  3., 16.])
 </pre></div>
 </div>
 </div>
@@ -789,7 +795,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(4)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(6)
 </pre></div>
 </div>
 </div>
@@ -824,7 +830,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a149a81369a7b1da0d94a0ea05b3188215a127a9684eb6333c5981c128891a50.png" src="../_images/a149a81369a7b1da0d94a0ea05b3188215a127a9684eb6333c5981c128891a50.png" />
+<img alt="../_images/7c790a57ae0495ac552679e2e1e0c170855978838514c800cb0c6ce6d373bc80.png" src="../_images/7c790a57ae0495ac552679e2e1e0c170855978838514c800cb0c6ce6d373bc80.png" />
 </div>
 </div>
 <p>Did it surprise you that the most likely number of rolls needed (mode of the distribution) is 1?</p>
@@ -850,7 +856,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(5.9239)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.0638)
 </pre></div>
 </div>
 </div>
@@ -869,7 +875,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.1088)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.1178)
 </pre></div>
 </div>
 </div>
@@ -906,7 +912,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1059bf72280ffa7e928ad0ef4a1fd5beba0d6bf12381d87911289a46031cd19f.png" src="../_images/1059bf72280ffa7e928ad0ef4a1fd5beba0d6bf12381d87911289a46031cd19f.png" />
+<img alt="../_images/c007d171589f2b55ce07efb66f7d8ffd2e1abd00eb1105f533fd6216756a3e21.png" src="../_images/c007d171589f2b55ce07efb66f7d8ffd2e1abd00eb1105f533fd6216756a3e21.png" />
 </div>
 </div>
 <ul class="simple">
@@ -924,7 +930,7 @@ recording how many times we needed to roll the dice to get a six.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/df3a3152b18933b58cad298e155f0adec71010112684bc8a13c05c0afe0d9ef1.png" src="../_images/df3a3152b18933b58cad298e155f0adec71010112684bc8a13c05c0afe0d9ef1.png" />
+<img alt="../_images/2f9b4ef1f8600f1bb012ca346d34c794fc0618331f02c99f4263c3faa0d65887.png" src="../_images/2f9b4ef1f8600f1bb012ca346d34c794fc0618331f02c99f4263c3faa0d65887.png" />
 </div>
 </div>
 </section>

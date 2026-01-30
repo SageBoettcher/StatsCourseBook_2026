@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -911,10 +912,10 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   13.94</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 23 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>9.75e-07</td>
+  <th>Date:</th>             <td>Fri, 30 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>9.75e-07</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>11:51:42</td>     <th>  Log-Likelihood:    </th> <td> -3794.4</td>
+  <th>Time:</th>                 <td>13:55:52</td>     <th>  Log-Likelihood:    </th> <td> -3794.4</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1932</td>      <th>  AIC:               </th> <td>   7595.</td>
@@ -985,10 +986,10 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   95.51</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 23 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>4.62e-90</td>
+  <th>Date:</th>             <td>Fri, 30 Jan 2026</td> <th>  Prob (F-statistic):</th> <td>4.62e-90</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>11:51:42</td>     <th>  Log-Likelihood:    </th> <td> -3594.3</td>
+  <th>Time:</th>                 <td>13:55:52</td>     <th>  Log-Likelihood:    </th> <td> -3594.3</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1932</td>      <th>  AIC:               </th> <td>   7201.</td>
@@ -1115,7 +1116,7 @@ Residual   1926.0  4671.680111    2.425587         NaN           NaN
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_87397/1113143029.py:6: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;under 30&#39; has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/t1/vmhsw3716dxdjsw_9lqnpv7h0000gn/T/ipykernel_63176/1113143029.py:6: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value &#39;under 30&#39; has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
   data.loc[data[&#39;age&#39;].isin(range(0, 30)), &#39;age4&#39;] = &quot;under 30&quot;
 </pre></div>
 </div>
@@ -1302,7 +1303,7 @@ Residual        1920.0  5622.002386   2.928126        NaN           NaN
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;age4&#39;, ylabel=&#39;ladder&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/631afce9658aa38da18b1d46e973f534366fcfe04c1650677372d2171ea06e76.png" src="../_images/631afce9658aa38da18b1d46e973f534366fcfe04c1650677372d2171ea06e76.png" />
+<img alt="../_images/8ee9559124c67fab48ded92a2675f73df844a59f46116cc61f88c006679ab110.png" src="../_images/8ee9559124c67fab48ded92a2675f73df844a59f46116cc61f88c006679ab110.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1337,7 +1338,7 @@ Residual    1924.0  4505.993641    2.341993         NaN           NaN
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;age4&#39;, ylabel=&#39;ladder&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/e333cfb58a3c162eba33a44fd6ff9d2f3f79d7499c8d151741244c3cedc645b2.png" src="../_images/e333cfb58a3c162eba33a44fd6ff9d2f3f79d7499c8d151741244c3cedc645b2.png" />
+<img alt="../_images/54bcca6a4ad3cbc109d866f947df49fac8310b8783b817ded7cfd650e1f6ffb3.png" src="../_images/54bcca6a4ad3cbc109d866f947df49fac8310b8783b817ded7cfd650e1f6ffb3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1348,10 +1349,10 @@ Residual    1924.0  4505.993641    2.341993         NaN           NaN
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1215bee50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x12371d490&gt;
 </pre></div>
 </div>
-<img alt="../_images/649a641bdccc11c26dc129f3d782ed0205eac3cb7552f0dd45808452e2040d33.png" src="../_images/649a641bdccc11c26dc129f3d782ed0205eac3cb7552f0dd45808452e2040d33.png" />
+<img alt="../_images/7d92ce2c92d8f894b446779271d9ab9a6e006f2ce700e9e5f07d1f58c9acab79.png" src="../_images/7d92ce2c92d8f894b446779271d9ab9a6e006f2ce700e9e5f07d1f58c9acab79.png" />
 </div>
 </div>
 </section>

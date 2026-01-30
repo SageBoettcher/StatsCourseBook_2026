@@ -325,8 +325,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -334,6 +334,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1106,7 +1107,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12c9449d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x124542e50&gt;]
 </pre></div>
 </div>
 <img alt="../_images/28792437544a9b40b3ce349bc14587fa147e997491b35ffe1239307bbda87bea.png" src="../_images/28792437544a9b40b3ce349bc14587fa147e997491b35ffe1239307bbda87bea.png" />
@@ -1263,8 +1264,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-3.6875146133206305), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.53793993,  0.40313606,  0.80339448, ...,  1.9093328 ,
-        0.02884902, -0.0506672 ], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-3.6875146133206305), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([0.1994997 , 1.65040879, 0.04339448, ..., 0.55975811, 0.00387825,
+       0.08413667], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1278,7 +1279,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03a87cc724160b41eb5149650a3bd8351c84c8da825fb82f4f0858d366b6c8a1.png" src="../_images/03a87cc724160b41eb5149650a3bd8351c84c8da825fb82f4f0858d366b6c8a1.png" />
+<img alt="../_images/82d34ab9773d52d7de5c2cb45c4be6eb300695f481424c01f6e64afcc3353476.png" src="../_images/82d34ab9773d52d7de5c2cb45c4be6eb300695f481424c01f6e64afcc3353476.png" />
 </div>
 </div>
 </section>
@@ -1297,7 +1298,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;BeforeLunchScore&#39;, ylabel=&#39;AfterLunchScore&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/5377e107eb52f5a197d6f2c4212bc4ad0fcfaf384f3a39934db58a3488ae40aa.png" src="../_images/5377e107eb52f5a197d6f2c4212bc4ad0fcfaf384f3a39934db58a3488ae40aa.png" />
+<img alt="../_images/be51d06e38b3a5a217799d652e5f639cf7ab6a6ecb8ebc2ecff9de95c40af4ae.png" src="../_images/be51d06e38b3a5a217799d652e5f639cf7ab6a6ecb8ebc2ecff9de95c40af4ae.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1327,11 +1328,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8007124172606844), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.19121053, -0.11476485,  0.07000239, ..., -0.02259182,
-        0.02665563,  0.15739915], shape=(10000,)))
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(0.8007124172606844), pvalue=np.float64(9.999000099990002e-05), null_distribution=array([-0.03264   ,  0.22433977,  0.00446836, ...,  0.0117941 ,
+       -0.020619  ,  0.00546516], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1345,7 +1343,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02ab5ea3184b0cab42a826e281e5d804d30085ed66b39bbb3dfbbb6b1a8cf9e2.png" src="../_images/02ab5ea3184b0cab42a826e281e5d804d30085ed66b39bbb3dfbbb6b1a8cf9e2.png" />
+<img alt="../_images/9084d1bc3ad4dfb71653dd308a60abac68deda9737fd95720fea75ea8f89e204.png" src="../_images/9084d1bc3ad4dfb71653dd308a60abac68deda9737fd95720fea75ea8f89e204.png" />
 </div>
 </div>
 <section id="does-meat-vs-veg-lunch-matter">
@@ -1479,8 +1477,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-1.0115407800943004), pvalue=np.float64(0.7097290270972902), null_distribution=array([-1.61836491,  2.05132375, -1.04143208, ..., -4.60002252,
-        3.98030705, -3.05856407], shape=(10000,)))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PermutationTestResult(statistic=np.float64(-1.0115407800943004), pvalue=np.float64(0.7145285471452855), null_distribution=array([-0.65383929,  3.57677444,  3.8233777 , ..., -3.05261647,
+       -2.79754621, -0.17458426], shape=(10000,)))
 </pre></div>
 </div>
 </div>
@@ -1494,7 +1492,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f7501d18cf7a73134604921eae1662437cc283074b2a8aeac59b3a69dc4efb3a.png" src="../_images/f7501d18cf7a73134604921eae1662437cc283074b2a8aeac59b3a69dc4efb3a.png" />
+<img alt="../_images/b9fbbeb7052c983b446c7f07e9e29977af2d0263242f42f22dd59da0ba7e6692.png" src="../_images/b9fbbeb7052c983b446c7f07e9e29977af2d0263242f42f22dd59da0ba7e6692.png" />
 </div>
 </div>
 </section>

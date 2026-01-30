@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -822,29 +823,29 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>6317</th>
-      <td>279210</td>
-      <td>16</td>
+      <th>5517</th>
+      <td>927940</td>
+      <td>28</td>
     </tr>
     <tr>
-      <th>9521</th>
-      <td>621800</td>
-      <td>71</td>
+      <th>3431</th>
+      <td>139000</td>
+      <td>40</td>
     </tr>
     <tr>
-      <th>9726</th>
-      <td>121600</td>
-      <td>24</td>
+      <th>6663</th>
+      <td>710300</td>
+      <td>38</td>
     </tr>
     <tr>
-      <th>1683</th>
-      <td>808050</td>
-      <td>30</td>
+      <th>2120</th>
+      <td>474800</td>
+      <td>59</td>
     </tr>
     <tr>
-      <th>447</th>
-      <td>933380</td>
-      <td>79</td>
+      <th>5360</th>
+      <td>196730</td>
+      <td>43</td>
     </tr>
     <tr>
       <th>...</th>
@@ -852,29 +853,29 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>6849</th>
-      <td>488460</td>
-      <td>31</td>
+      <th>5853</th>
+      <td>145370</td>
+      <td>30</td>
     </tr>
     <tr>
-      <th>5387</th>
-      <td>928930</td>
-      <td>73</td>
+      <th>3259</th>
+      <td>494750</td>
+      <td>41</td>
     </tr>
     <tr>
-      <th>9597</th>
-      <td>444560</td>
-      <td>37</td>
+      <th>4626</th>
+      <td>994670</td>
+      <td>51</td>
     </tr>
     <tr>
-      <th>7436</th>
-      <td>587070</td>
-      <td>67</td>
+      <th>7188</th>
+      <td>442580</td>
+      <td>48</td>
     </tr>
     <tr>
-      <th>595</th>
-      <td>810240</td>
-      <td>28</td>
+      <th>7074</th>
+      <td>508260</td>
+      <td>39</td>
     </tr>
   </tbody>
 </table>
@@ -900,7 +901,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c2304c90352fbb8f7ebca405282e8ae12ee4e6d21c96ffaed35b4086f1f6781a.png" src="../_images/c2304c90352fbb8f7ebca405282e8ae12ee4e6d21c96ffaed35b4086f1f6781a.png" />
+<img alt="../_images/d8256c6e8521c6455256bfd6f969811e8c81e9b9e8c7f9d869d7ddb8cad53be3.png" src="../_images/d8256c6e8521c6455256bfd6f969811e8c81e9b9e8c7f9d869d7ddb8cad53be3.png" />
 </div>
 </div>
 <p>Hopefully we can see that the distribution within the sample resembles the shape of the distribution in the national sample, with two peaks, although somewhat noisier</p>
@@ -919,7 +920,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6107af99710088f7674e1aa323c8397ba963a087ba3af255f03021b7de304718.png" src="../_images/6107af99710088f7674e1aa323c8397ba963a087ba3af255f03021b7de304718.png" />
+<img alt="../_images/3b12ff2d1e834cb3c3fa064dd7525082fdc9e14b471d364745abd8bcf9345766.png" src="../_images/3b12ff2d1e834cb3c3fa064dd7525082fdc9e14b471d364745abd8bcf9345766.png" />
 </div>
 </div>
 <p>Notice that we always manage to reproduce the bimodal shape, albeit with random variability.</p>
@@ -941,7 +942,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/59d3f6eb929e4f8476a8fb389d56126ae8b6b7bf7da13f1cd5c6f6ddced723b0.png" src="../_images/59d3f6eb929e4f8476a8fb389d56126ae8b6b7bf7da13f1cd5c6f6ddced723b0.png" />
+<img alt="../_images/93590860a4363ff426ab4088fefee23eea5716130e974fe49c112da7184f3051.png" src="../_images/93590860a4363ff426ab4088fefee23eea5716130e974fe49c112da7184f3051.png" />
 </div>
 </div>
 <p>You can see two things:</p>
@@ -972,7 +973,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/31eb4e9bd3d54b7e916fb843ab585718898bd806111963bdbf4937c8e677acfc.png" src="../_images/31eb4e9bd3d54b7e916fb843ab585718898bd806111963bdbf4937c8e677acfc.png" />
+<img alt="../_images/f2227db92441c47b4dc9c8292caa3ab276c439efacff95e8ea150f6ddc8dae68.png" src="../_images/f2227db92441c47b4dc9c8292caa3ab276c439efacff95e8ea150f6ddc8dae68.png" />
 </div>
 </div>
 </section>

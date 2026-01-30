@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -817,18 +818,18 @@ Say I have a dataset listing four pets belonging to four different children:</p>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Anna</td>
+      <th>1</th>
+      <td>Betty</td>
       <td>cat</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Freddie</td>
-      <td>rabbit</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Egbert</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Anna</td>
       <td>cat</td>
     </tr>
   </tbody>
@@ -867,33 +868,18 @@ Say I have a dataset listing four pets belonging to four different children:</p>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>Betty</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Egbert</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Charley</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Henrietta</td>
-      <td>cat</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Charley</td>
+      <th>0</th>
+      <td>Anna</td>
       <td>cat</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Anna</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Henrietta</td>
       <td>cat</td>
     </tr>
     <tr>
@@ -902,18 +888,28 @@ Say I have a dataset listing four pets belonging to four different children:</p>
       <td>rabbit</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>Georgia</td>
-      <td>dog</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Henrietta</td>
+      <th>2</th>
+      <td>Charley</td>
       <td>cat</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>Anna</td>
+      <th>2</th>
+      <td>Charley</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>David</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charley</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charley</td>
       <td>cat</td>
     </tr>
     <tr>
@@ -922,8 +918,13 @@ Say I have a dataset listing four pets belonging to four different children:</p>
       <td>cat</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>Henrietta</td>
+      <th>5</th>
+      <td>Freddie</td>
+      <td>rabbit</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Anna</td>
       <td>cat</td>
     </tr>
   </tbody>
@@ -943,14 +944,14 @@ Say I have a dataset listing four pets belonging to four different children:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       cat
-1       cat
-4       cat
-4       cat
-2       cat
-7       cat
-0       cat
-5    rabbit
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4    cat
+0    cat
+2    cat
+0    cat
+3    dog
+1    cat
+3    dog
+7    cat
 Name: Pet, dtype: object
 </pre></div>
 </div>
@@ -964,7 +965,7 @@ Name: Pet, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </div>

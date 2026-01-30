@@ -327,8 +327,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../3.4_Power/3.4.1_power_intro.html">4. Power analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.2_outcomes.html">4.2. Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.3_Type1and2Errors.html">4.3. False positives and False negatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s d)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s r)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.4_EffectSize.html">4.4. Effect size (Cohen’s <span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.5_EffectSizeCorrelation.html">4.5. Effect size (Pearson’s <span class="math notranslate nohighlight">\(r\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.6_PowerCorrelationSim.html">4.6. Power analysis by simulation</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.7_BuiltInPowerCalc.html">4.8. Power analysis with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
@@ -336,6 +336,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.9_SampleSizeAndPower.html">4.10. Sample size and power</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.10_power_conceptCheck.html">4.11. Concepts Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.11_TutorialExercises.html">4.12. Tutorial Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3.4_Power/3.4.12_power_ExtraPractice.html">4.13. Extra Practice</a></li>
 </ul>
 </details></li>
 </ul>
@@ -694,8 +695,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7797244815659917
-is it a hit?:            1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2858845975783818
+is it a hit?:            0
 </pre></div>
 </div>
 </div>
@@ -725,7 +726,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/99ae284db96cb7bfd26cde97835008d027ded989f8dc7086e2a3dbcf85952585.png" src="../_images/99ae284db96cb7bfd26cde97835008d027ded989f8dc7086e2a3dbcf85952585.png" />
+<img alt="../_images/88337b82b78b3c0fc5067d7d696df3f5683c8dfac7886d3dcb192b70ec763ecd.png" src="../_images/88337b82b78b3c0fc5067d7d696df3f5683c8dfac7886d3dcb192b70ec763ecd.png" />
 </div>
 </div>
 <p>What if we change <span class="math notranslate nohighlight">\(p\)</span> to be 0.7 instead?</p>
@@ -746,7 +747,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/662a463361e405369116f4f8c36978ace33e4388e4bdbce571981a9ec131b458.png" src="../_images/662a463361e405369116f4f8c36978ace33e4388e4bdbce571981a9ec131b458.png" />
+<img alt="../_images/72394d01017679276b12e6d1f85c7595438290fe30bf5e885a34ad4af15c5bf3.png" src="../_images/72394d01017679276b12e6d1f85c7595438290fe30bf5e885a34ad4af15c5bf3.png" />
 </div>
 </div>
 <p>You should notice after modifying the simulation so that <span class="math notranslate nohighlight">\(p=0.7\)</span>:</p>
@@ -779,7 +780,7 @@ is it a hit?:            1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean(k) = 7.002
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean(k) = 6.9766
 n*p = 7.0
 </pre></div>
 </div>
@@ -809,7 +810,7 @@ n*p = 7.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/baa405ffdcc5b27e9b703ae15f122ec71f7f8e8521f3d1f90d38fb59fde8024b.png" src="../_images/baa405ffdcc5b27e9b703ae15f122ec71f7f8e8521f3d1f90d38fb59fde8024b.png" />
+<img alt="../_images/7ee49ed5912861fa6f20a9b6a5f94af76cbfe469ecc70fa69302dde2066babe6.png" src="../_images/7ee49ed5912861fa6f20a9b6a5f94af76cbfe469ecc70fa69302dde2066babe6.png" />
 </div>
 </div>
 <p>We can see that the peak of the histogram is where we expect (the most common value of <span class="math notranslate nohighlight">\(k\)</span> is around 50, which matches the theoretical mean <span class="math notranslate nohighlight">\(np\)</span>). However, notice that the spread of the histogram is now narrower relative to the possible range of <span class="math notranslate nohighlight">\(k\)</span> (i.e., from 0 to <span class="math notranslate nohighlight">\(n\)</span>) compared to when our value of $n was smaller.</p>
@@ -838,7 +839,7 @@ n*p = 7.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>std(k) = 4.956509255514408
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>std(k) = 4.987069671660904
 sqrt(npq) = 5.0
 </pre></div>
 </div>
@@ -885,7 +886,7 @@ sqrt(npq) = 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7ff9715ec1026e6504efe78d33780ef475d3404e85348aa446e396b204c77bf7.png" src="../_images/7ff9715ec1026e6504efe78d33780ef475d3404e85348aa446e396b204c77bf7.png" />
+<img alt="../_images/640082bc25ebbbd070dabbfaa6b25b9091c214bcf6a68ec033e9d726d8d71c20.png" src="../_images/640082bc25ebbbd070dabbfaa6b25b9091c214bcf6a68ec033e9d726d8d71c20.png" />
 </div>
 </div>
 </section>
