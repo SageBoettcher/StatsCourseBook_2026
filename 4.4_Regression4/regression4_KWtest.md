@@ -4,7 +4,7 @@ When the sample size is small, or when the data are not normally distributed, it
 
 $$ H = \left[ \frac{12}{N(N+1)} \sum_{i=1}^K \frac{R^2_i}{n_i} \right] - 3(N+1) $$
 
-Where the test statistic, $H$, has a chi-squared distribution.
+Where the test statistic, $H$, has a chi-squared distribution, with K-1 degrees of freedom.
 
 In this equation, $K$ references the number of groups, $n_i$ indicates the number of observations per group, and $R_i$ is the sum of the ranks of observations in the group.
 

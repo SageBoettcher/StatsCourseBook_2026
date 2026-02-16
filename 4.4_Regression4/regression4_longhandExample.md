@@ -100,7 +100,7 @@ The mean square between = $ \frac{168}{2} = 84 $
 
 $F = \frac{Between-group estimate of population variance}{Within-group estimate of population variance} = \frac{84}{4} = 21 $
 
-The critical cut-off value for $F$ here (df 6,2), for a significance level of 95% = 5.14.
+The critical cut-off value for $F$ here (df 2,6), for a significance level of 95% = 5.14.
 
 As 21 > 5.14 we can reject the null hypothesis.
 
